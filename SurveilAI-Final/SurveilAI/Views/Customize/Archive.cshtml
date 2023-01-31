@@ -1,0 +1,317 @@
+﻿@model SurveilAI.Models.Archive
+@{
+    ViewBag.Title = "Archive";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+    List<SelectListItem> ArchiveOpt = new List<SelectListItem>
+{
+        new SelectListItem { Text = "No Of Days", Value = "No Of Days" },
+        new SelectListItem { Text = "No Of Days", Value = "Size" },
+    };
+
+}
+
+<style>
+    input[type='radio'] {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 1px solid darkgray;
+        border-radius: 50%;
+        outline: none;
+        box-shadow: 0 0 5px 0px gray inset;
+    }
+
+        input[type='radio']:hover {
+            box-shadow: 0 0 5px 0px orange inset;
+        }
+
+        input[type='radio']:before {
+            content: '';
+            display: block;
+            width: 30%;
+            height: 30%;
+            margin: 20% auto;
+            border-radius: 50%;
+        }
+
+        input[type='radio']:checked:before {
+            background: #ffffff;
+        }
+</style>
+
+<!-- Modal Create-->
+<div class="modal fade" id="ArchiveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header  justify-content-center">
+                <h5 class="modal-title" id="exampleModalLabel">Update Policy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Archive_Create", "Customize", FormMethod.Post, new { auotocomplete = "off", id = "edit-archive" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label>Archive</label>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    @Html.TextBox("Archive1", null, new { auotocomplete = "off", placeholder = "", @class = "form-control", @type = "text", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <small id="purging-warn" class="form-text" style="display:none; color: #a12d2d" ;>Note: Data will be deleted according to defined purging policy</small>
+                            </div>
+                            <div class="row mb-3">
+                                @if (UserRights.Contains("193"))
+                                {
+                                    <div class="col-md-6">
+                                        <div class="form-check form-check-inline pt-2">
+                                            @Html.RadioButton("PurgePolicy", "PolicyPurge", new { @class = "form-check-input" })
+                                            <label class="form-check-label" for="PolicyPurge">Purge</label>
+                                        </div>
+                                    </div>
+                                }
+                                @if (UserRights.Contains("192"))
+                                {
+                                    <div class="col-md-6">
+                                        <div class="form-check form-check-inline pt-2">
+                                            @Html.RadioButton("ArchivePolicy", "PolicyArchive", new { @class = "form-check-input" })
+                                            <label class="form-check-label" for="PolicyArchive">Archive</label>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-check form-check-inline pt-2">
+                                        @Html.RadioButton("ByDays", "PolicyDays", new { @class = "form-check-input" })
+                                        <label class="form-check-label" for="inlineRadio1">By Days</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check form-check-inline pt-2">
+                                        @Html.RadioButton("BySize", "PolicySize", new { @class = "form-check-input" })
+                                        <label class="form-check-label" for="inlineRadio1">By Size</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6" id="on-days">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label>No Of Days</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            @Html.TextBox("NoOfDays", null, new { auotocomplete = "off", placeholder = "Enter Number Of Days", @class = "form-control", @type = "number" })
+                                            @Html.ValidationMessageFor(model => model.NoOfDays, "", new { @class = "text-danger" })
+                                            <small id="no-of-days" class="form-text text-muted text-danger d-none">Invalid input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="on-size">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label>Size in GBs</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            @Html.TextBox("Size", null, new { auotocomplete = "off", placeholder = "Enter Size", @class = "form-control", @type = "number" })
+                                            @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                                            <small id="policy-size" class="form-text text-muted text-danger d-none">Invalid input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="custom-control custom-checkbox checkbox-primary">
+                                @Html.CheckBox("IsActive", true, new { @class = "custom-control-input" })
+                                <label class="custom-control-label" for="IsActive">Is Active</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                <button type="submit" class="btn btn-primary" id="update-archive" form="MyForm2" name="submitButton" data-url="@Url.Action("UpdateArchive","Customize")" value="newEvent">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-document-edit"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Database</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Archive</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-2" style="padding-top:14px; left:19px;">
+                @Html.ActionLink("< Go Back", "StateRepresentation")
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="card">
+                <div class="" style="max-height:750px;overflow:auto">
+                    <div class="card-body">
+                        <div class="row mb-2 pl-3">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-archive">Archive</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" id="btn-status">Status</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-right pr-4">
+                                <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10" id="archive-status-div">
+                                <div id="archive-status-tbl" class="d-none " aria-labelledby="btn-status">
+                                    <table id="bs4-table" class="table table-striped table-bordered" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Rows</th>
+                                                <th>Reserved</th>
+                                                <th>Data</th>
+                                                <th>Index Size</th>
+                                                <th>Unused</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var item in Model.tableArchives)
+                                            {
+                                                <tr>
+                                                    <td>@Html.DisplayFor(modelItem => item.name)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.rows)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.reserved)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.data)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.index_size)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.unused)</td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="archive-tbl" class="" aria-labelledby="btn-archive">
+                                    <table id="bs4-table1" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>No Of Days</th>
+                                                <th>Size</th>
+                                                <th>Archive Policy</th>
+                                                <th>Purge Policy</th>
+                                                <th>By Days</th>
+                                                <th>By Size</th>
+                                                <th>Active</th>
+                                                <th>Archived Till</th>
+                                                @if (UserRights.Contains("183"))
+                                                {
+                                                    <th>Action</th>
+                                                }
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var item in Model.Archives)
+                                            {
+                                                <tr>
+                                                    <td>@Html.DisplayFor(modelItem => item.Archive1)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.NoOfDays)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.Size)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.ArchivePolicy)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.PurgePolicy)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.ByDays)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.BySize)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.ArchivedTill)</td>
+                                                    @if (UserRights.Contains("183"))
+                                                    {
+                                                        <td><a href="#" class="btn-edit-arc">Edit</a></td>
+                                                    }
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<script src="~/assets/js/global/ForArchive.js"></script>
+<script>
+     $(document).on('show.bs.modal', '#ArchiveModal', function (e) {
+         var PurgePolicy = $('#PurgePolicy').is(":checked");
+         var ArchivePolicy = $('#ArchivePolicy').is(":checked");
+         if (PurgePolicy == true) {
+             $('#purging-warn').show();
+         }
+         if (ArchivePolicy == true) {
+             $('#purging-warn').hide();
+         }
+    });
+    $(document).ready(function () {
+
+        $('input:radio[name="PurgePolicy"]').change(
+        function(){
+            var PurgePolicy = $('#PurgePolicy').is(":checked");
+             if (PurgePolicy == true) {
+                 $('#purging-warn').show();
+             }
+            });
+        $('input:radio[name="ArchivePolicy"]').change(
+        function(){
+             var ArchivePolicy = $('#ArchivePolicy').is(":checked");
+             if (ArchivePolicy == true) {
+                 $('#purging-warn').hide();
+             }
+        });
+
+
+        $('#a').modal('show');
+
+    });
+
+
+

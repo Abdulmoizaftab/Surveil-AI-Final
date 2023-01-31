@@ -1,0 +1,1655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SurveilAIModelStoreContainer" CdmEntityContainer="SurveilAIEntities">
+    <EntitySetMapping Name="AddCameras">
+      <EntityTypeMapping TypeName="SurveilAIModel.AddCamera">
+        <MappingFragment StoreEntitySet="AddCameras">
+          <ScalarProperty Name="ACid" ColumnName="ACid" />
+          <ScalarProperty Name="ACHierLevel" ColumnName="ACHierLevel" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="Cam1" ColumnName="Cam1" />
+          <ScalarProperty Name="Cam2" ColumnName="Cam2" />
+          <ScalarProperty Name="Cam3" ColumnName="Cam3" />
+          <ScalarProperty Name="Cam4" ColumnName="Cam4" />
+          <ScalarProperty Name="Cam5" ColumnName="Cam5" />
+          <ScalarProperty Name="Cam6" ColumnName="Cam6" />
+          <ScalarProperty Name="Cam7" ColumnName="Cam7" />
+          <ScalarProperty Name="Cam8" ColumnName="Cam8" />
+          <ScalarProperty Name="Cam9" ColumnName="Cam9" />
+          <ScalarProperty Name="Cam10" ColumnName="Cam10" />
+          <ScalarProperty Name="Cam11" ColumnName="Cam11" />
+          <ScalarProperty Name="Cam12" ColumnName="Cam12" />
+          <ScalarProperty Name="Cam13" ColumnName="Cam13" />
+          <ScalarProperty Name="Cam14" ColumnName="Cam14" />
+          <ScalarProperty Name="Cam15" ColumnName="Cam15" />
+          <ScalarProperty Name="Cam16" ColumnName="Cam16" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="basedatas">
+      <EntityTypeMapping TypeName="SurveilAIModel.basedata">
+        <MappingFragment StoreEntitySet="basedata">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idtype" ColumnName="idtype" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cashcontitems">
+      <EntityTypeMapping TypeName="SurveilAIModel.cashcontitem">
+        <MappingFragment StoreEntitySet="cashcontitem">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="containerid" ColumnName="containerid" />
+          <ScalarProperty Name="containeritemno" ColumnName="containeritemno" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="unitsize" ColumnName="unitsize" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="currencyexponent" ColumnName="currencyexponent" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+          <ScalarProperty Name="postingdatetime" ColumnName="postingdatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashForeCast_Events">
+      <EntityTypeMapping TypeName="SurveilAIModel.CashForeCast_Events">
+        <MappingFragment StoreEntitySet="CashForeCast_Events">
+          <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+          <ScalarProperty Name="Solar_Day" ColumnName="Solar_Day" />
+          <ScalarProperty Name="Lunar_Day" ColumnName="Lunar_Day" />
+          <ScalarProperty Name="Event_Date" ColumnName="Event_Date" />
+          <ScalarProperty Name="Growth_" ColumnName="Growth%" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CASHPHYS_NEW">
+      <EntityTypeMapping TypeName="SurveilAIModel.CASHPHYS_NEW">
+        <MappingFragment StoreEntitySet="CASHPHYS_NEW">
+          <ScalarProperty Name="DEVICEID" ColumnName="DEVICEID" />
+          <ScalarProperty Name="DEVICETYPE" ColumnName="DEVICETYPE" />
+          <ScalarProperty Name="REPORTCASSETTTE" ColumnName="REPORTCASSETTTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cashstocks">
+      <EntityTypeMapping TypeName="SurveilAIModel.cashstock">
+        <MappingFragment StoreEntitySet="cashstock">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="containerid" ColumnName="containerid" />
+          <ScalarProperty Name="containeritemno" ColumnName="containeritemno" />
+          <ScalarProperty Name="stockcounter" ColumnName="stockcounter" />
+          <ScalarProperty Name="postingdatetime" ColumnName="postingdatetime" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="cashout" ColumnName="cashout" />
+          <ScalarProperty Name="cashin" ColumnName="cashin" />
+          <ScalarProperty Name="reject" ColumnName="reject" />
+          <ScalarProperty Name="turnovercashout" ColumnName="turnovercashout" />
+          <ScalarProperty Name="turnovercashin" ColumnName="turnovercashin" />
+          <ScalarProperty Name="turnoverreject" ColumnName="turnoverreject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="components">
+      <EntityTypeMapping TypeName="SurveilAIModel.component">
+        <MappingFragment StoreEntitySet="component">
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="textno" ColumnName="textno" />
+          <ScalarProperty Name="texttype" ColumnName="texttype" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="ForMonitoring" ColumnName="ForMonitoring" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="componentmaps">
+      <EntityTypeMapping TypeName="SurveilAIModel.componentmap">
+        <MappingFragment StoreEntitySet="componentmap">
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="visibleinview" ColumnName="visibleinview" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="componentstates">
+      <EntityTypeMapping TypeName="SurveilAIModel.componentstate">
+        <MappingFragment StoreEntitySet="componentstate">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="compstate" ColumnName="compstate" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consoleviews">
+      <EntityTypeMapping TypeName="SurveilAIModel.consoleview">
+        <MappingFragment StoreEntitySet="consoleview">
+          <ScalarProperty Name="viewname" ColumnName="viewname" />
+          <ScalarProperty Name="viewtype" ColumnName="viewtype" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="devices" ColumnName="devices" />
+          <ScalarProperty Name="states" ColumnName="states" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="SurveilAIModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+          <ScalarProperty Name="cfunction" ColumnName="cfunction" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="voice" ColumnName="voice" />
+          <ScalarProperty Name="voiceid" ColumnName="voiceid" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+          <ScalarProperty Name="mailtemplate" ColumnName="mailtemplate" />
+          <ScalarProperty Name="smsmailaddress" ColumnName="smsmailaddress" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="SurveilAIModel.Device">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="HierLevel" ColumnName="HierLevel" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+          <ScalarProperty Name="EJProcessedDate" ColumnName="EJProcessedDate" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="LastCardNo" ColumnName="LastCardNo" />
+          <ScalarProperty Name="BioInfo" ColumnName="BioInfo" />
+          <ScalarProperty Name="BioCmdExecTime" ColumnName="BioCmdExecTime" />
+          <ScalarProperty Name="BiosPassword" ColumnName="BiosPassword" />
+          <ScalarProperty Name="BiosUpdated" ColumnName="BiosUpdated" />
+          <ScalarProperty Name="DriverInstalled" ColumnName="DriverInstalled" />
+          <ScalarProperty Name="PasswordType" ColumnName="PasswordType" />
+          <ScalarProperty Name="Channels" ColumnName="Channels" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="device_">
+      <EntityTypeMapping TypeName="SurveilAIModel.device_">
+        <MappingFragment StoreEntitySet="device_">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+          <ScalarProperty Name="act_transport" ColumnName="act_transport" />
+          <ScalarProperty Name="transport1" ColumnName="transport1" />
+          <ScalarProperty Name="transportid1" ColumnName="transportid1" />
+          <ScalarProperty Name="transport2" ColumnName="transport2" />
+          <ScalarProperty Name="transportid2" ColumnName="transportid2" />
+          <ScalarProperty Name="agenttype" ColumnName="agenttype" />
+          <ScalarProperty Name="customer_contactid" ColumnName="customer_contactid" />
+          <ScalarProperty Name="techn_contactid" ColumnName="techn_contactid" />
+          <ScalarProperty Name="supplier_contactid" ColumnName="supplier_contactid" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="multiplexer" ColumnName="multiplexer" />
+          <ScalarProperty Name="outgoingcalls" ColumnName="outgoingcalls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="devicecalendars">
+      <EntityTypeMapping TypeName="SurveilAIModel.devicecalendar">
+        <MappingFragment StoreEntitySet="devicecalendar">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="calendartype" ColumnName="calendartype" />
+          <ScalarProperty Name="calname" ColumnName="calname" />
+          <ScalarProperty Name="caluserid" ColumnName="caluserid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceLastImages">
+      <EntityTypeMapping TypeName="SurveilAIModel.DeviceLastImage">
+        <MappingFragment StoreEntitySet="DeviceLastImage">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="LastImage" ColumnName="LastImage" />
+          <ScalarProperty Name="ImageDay" ColumnName="ImageDay" />
+          <ScalarProperty Name="ImageNight" ColumnName="ImageNight" />
+          <ScalarProperty Name="Connected" ColumnName="Connected" />
+          <ScalarProperty Name="LastConTime" ColumnName="LastConTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deviceprofiles">
+      <EntityTypeMapping TypeName="SurveilAIModel.deviceprofile">
+        <MappingFragment StoreEntitySet="deviceprofile">
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+          <ScalarProperty Name="devicedescr" ColumnName="devicedescr" />
+          <ScalarProperty Name="manuf" ColumnName="manuf" />
+          <ScalarProperty Name="devclass" ColumnName="devclass" />
+          <ScalarProperty Name="devfunc" ColumnName="devfunc" />
+          <ScalarProperty Name="gatewaytype" ColumnName="gatewaytype" />
+          <ScalarProperty Name="iconid" ColumnName="iconid" />
+          <ScalarProperty Name="versionid" ColumnName="versionid" />
+          <ScalarProperty Name="eodkeygroupid" ColumnName="eodkeygroupid" />
+          <ScalarProperty Name="calcstatsstate" ColumnName="calcstatsstate" />
+          <ScalarProperty Name="inventoryid" ColumnName="inventoryid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dmfunctions">
+      <EntityTypeMapping TypeName="SurveilAIModel.dmfunction">
+        <MappingFragment StoreEntitySet="dmfunction">
+          <ScalarProperty Name="functionid" ColumnName="functionid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="textnumber" ColumnName="textnumber" />
+          <ScalarProperty Name="target" ColumnName="target" />
+          <ScalarProperty Name="executionmode" ColumnName="executionmode" />
+          <ScalarProperty Name="iconid" ColumnName="iconid" />
+          <ScalarProperty Name="lastchanged" ColumnName="lastchanged" />
+          <ScalarProperty Name="customizable" ColumnName="customizable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="SurveilAIModel.event">
+        <MappingFragment StoreEntitySet="event">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="event_old">
+      <EntityTypeMapping TypeName="SurveilAIModel.event_old">
+        <MappingFragment StoreEntitySet="event_old">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventbases">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventbase">
+        <MappingFragment StoreEntitySet="eventbase">
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="textno" ColumnName="textno" />
+          <ScalarProperty Name="texttype" ColumnName="texttype" />
+          <ScalarProperty Name="setbit" ColumnName="setbit" />
+          <ScalarProperty Name="unsetbit" ColumnName="unsetbit" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="compsetbit" ColumnName="compsetbit" />
+          <ScalarProperty Name="compunsetbit" ColumnName="compunsetbit" />
+          <ScalarProperty Name="target" ColumnName="target" />
+          <ScalarProperty Name="forwarddesktop" ColumnName="forwarddesktop" />
+          <ScalarProperty Name="forwardrule" ColumnName="forwardrule" />
+          <ScalarProperty Name="eventgroupid" ColumnName="eventgroupid" />
+          <ScalarProperty Name="confidential" ColumnName="confidential" />
+          <ScalarProperty Name="confidentialmask" ColumnName="confidentialmask" />
+          <ScalarProperty Name="masktype" ColumnName="masktype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventconversions">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventconversion">
+        <MappingFragment StoreEntitySet="eventconversion">
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventloads">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventload">
+        <MappingFragment StoreEntitySet="eventload">
+          <ScalarProperty Name="date110" ColumnName="date110" />
+          <ScalarProperty Name="hour24" ColumnName="hour24" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventstores">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventstore">
+        <MappingFragment StoreEntitySet="eventstore">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventstoreloads">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventstoreload">
+        <MappingFragment StoreEntitySet="eventstoreload">
+          <ScalarProperty Name="date110" ColumnName="date110" />
+          <ScalarProperty Name="hour24" ColumnName="hour24" />
+          <ScalarProperty Name="agmname" ColumnName="agmname" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extusers">
+      <EntityTypeMapping TypeName="SurveilAIModel.extuser">
+        <MappingFragment StoreEntitySet="extuser">
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="isuser" ColumnName="isuser" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="amethod" ColumnName="amethod" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="locked" ColumnName="locked" />
+          <ScalarProperty Name="lockeduntil" ColumnName="lockeduntil" />
+          <ScalarProperty Name="failedlogins" ColumnName="failedlogins" />
+          <ScalarProperty Name="pwdexpires" ColumnName="pwdexpires" />
+          <ScalarProperty Name="pwdchanged" ColumnName="pwdchanged" />
+          <ScalarProperty Name="policyid" ColumnName="policyid" />
+          <ScalarProperty Name="validfrom" ColumnName="validfrom" />
+          <ScalarProperty Name="validto" ColumnName="validto" />
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="lastlogontime" ColumnName="lastlogontime" />
+          <ScalarProperty Name="showonlogin" ColumnName="showonlogin" />
+          <ScalarProperty Name="usergroup" ColumnName="usergroup" />
+          <ScalarProperty Name="failedtries" ColumnName="failedtries" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extuser_">
+      <EntityTypeMapping TypeName="SurveilAIModel.extuser_">
+        <MappingFragment StoreEntitySet="extuser_">
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="isuser" ColumnName="isuser" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="amethod" ColumnName="amethod" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="locked" ColumnName="locked" />
+          <ScalarProperty Name="lockeduntil" ColumnName="lockeduntil" />
+          <ScalarProperty Name="failedlogins" ColumnName="failedlogins" />
+          <ScalarProperty Name="pwdexpires" ColumnName="pwdexpires" />
+          <ScalarProperty Name="pwdchanged" ColumnName="pwdchanged" />
+          <ScalarProperty Name="policyid" ColumnName="policyid" />
+          <ScalarProperty Name="validfrom" ColumnName="validfrom" />
+          <ScalarProperty Name="validto" ColumnName="validto" />
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="lastlogontime" ColumnName="lastlogontime" />
+          <ScalarProperty Name="showonlogin" ColumnName="showonlogin" />
+          <ScalarProperty Name="usergroup" ColumnName="usergroup" />
+          <ScalarProperty Name="failedtries" ColumnName="failedtries" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hierarchies">
+      <EntityTypeMapping TypeName="SurveilAIModel.Hierarchy">
+        <MappingFragment StoreEntitySet="Hierarchy">
+          <ScalarProperty Name="HierName" ColumnName="HierName" />
+          <ScalarProperty Name="Hierlevel" ColumnName="Hierlevel" />
+          <ScalarProperty Name="HierId" ColumnName="HierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hierarchy_">
+      <EntityTypeMapping TypeName="SurveilAIModel.hierarchy_">
+        <MappingFragment StoreEntitySet="hierarchy_">
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="hiername" ColumnName="hiername" />
+          <ScalarProperty Name="hierdescr" ColumnName="hierdescr" />
+          <ScalarProperty Name="bitmap" ColumnName="bitmap" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="hierlongname" ColumnName="hierlongname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobs">
+      <EntityTypeMapping TypeName="SurveilAIModel.job">
+        <MappingFragment StoreEntitySet="job">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="command" ColumnName="command" />
+          <ScalarProperty Name="vardata" ColumnName="vardata" />
+          <ScalarProperty Name="delivery" ColumnName="delivery" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mt_subject" ColumnName="mt_subject" />
+          <ScalarProperty Name="mt_message" ColumnName="mt_message" />
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="resultfile" ColumnName="resultfile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobresults">
+      <EntityTypeMapping TypeName="SurveilAIModel.jobresult">
+        <MappingFragment StoreEntitySet="jobresult">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="resourceid" ColumnName="resourceid" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="repeatcount" ColumnName="repeatcount" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="errorspec" ColumnName="errorspec" />
+          <ScalarProperty Name="resultfile" ColumnName="resultfile" />
+          <ScalarProperty Name="jobtsp" ColumnName="jobtsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobschedules">
+      <EntityTypeMapping TypeName="SurveilAIModel.jobschedule">
+        <MappingFragment StoreEntitySet="jobschedule">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="startit" ColumnName="startit" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="dayofweek" ColumnName="dayofweek" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="doonce" ColumnName="doonce" />
+          <ScalarProperty Name="resultneeded" ColumnName="resultneeded" />
+          <ScalarProperty Name="generic" ColumnName="generic" />
+          <ScalarProperty Name="repeatcount" ColumnName="repeatcount" />
+          <ScalarProperty Name="repeatfreq" ColumnName="repeatfreq" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="parallel" ColumnName="parallel" />
+          <ScalarProperty Name="conditiontype" ColumnName="conditiontype" />
+          <ScalarProperty Name="sendevent" ColumnName="sendevent" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="lastmodifieduser" ColumnName="lastmodifieduser" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="timeout" ColumnName="timeout" />
+          <ScalarProperty Name="internal" ColumnName="internal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineChartDevices">
+      <EntityTypeMapping TypeName="SurveilAIModel.LineChartDevice">
+        <MappingFragment StoreEntitySet="LineChartDevice">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mailtemplates">
+      <EntityTypeMapping TypeName="SurveilAIModel.mailtemplate">
+        <MappingFragment StoreEntitySet="mailtemplate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="accessattrib" ColumnName="accessattrib" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="text" ColumnName="text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="message0001">
+      <EntityTypeMapping TypeName="SurveilAIModel.message0001">
+        <MappingFragment StoreEntitySet="message0001">
+          <ScalarProperty Name="textno" ColumnName="textno" />
+          <ScalarProperty Name="texttype" ColumnName="texttype" />
+          <ScalarProperty Name="messagetext" ColumnName="messagetext" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passwordhistories">
+      <EntityTypeMapping TypeName="SurveilAIModel.passwordhistory">
+        <MappingFragment StoreEntitySet="passwordhistory">
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="changedate" ColumnName="changedate" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passwordpolicies">
+      <EntityTypeMapping TypeName="SurveilAIModel.passwordpolicy">
+        <MappingFragment StoreEntitySet="passwordpolicy">
+          <ScalarProperty Name="policyid" ColumnName="policyid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="minlength" ColumnName="minlength" />
+          <ScalarProperty Name="maxlength" ColumnName="maxlength" />
+          <ScalarProperty Name="mincapital" ColumnName="mincapital" />
+          <ScalarProperty Name="mindigits" ColumnName="mindigits" />
+          <ScalarProperty Name="maxattempts" ColumnName="maxattempts" />
+          <ScalarProperty Name="minage" ColumnName="minage" />
+          <ScalarProperty Name="maxage" ColumnName="maxage" />
+          <ScalarProperty Name="historysize" ColumnName="historysize" />
+          <ScalarProperty Name="changefirst" ColumnName="changefirst" />
+          <ScalarProperty Name="lockduration" ColumnName="lockduration" />
+          <ScalarProperty Name="changehint" ColumnName="changehint" />
+          <ScalarProperty Name="maxlogouttime" ColumnName="maxlogouttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="performances">
+      <EntityTypeMapping TypeName="SurveilAIModel.performance">
+        <MappingFragment StoreEntitySet="performance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmactions">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmaction">
+        <MappingFragment StoreEntitySet="pmaction">
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="deactivated" ColumnName="deactivated" />
+          <ScalarProperty Name="onlyonerror" ColumnName="onlyonerror" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+          <ScalarProperty Name="reporttopic" ColumnName="reporttopic" />
+          <ScalarProperty Name="mt_subject" ColumnName="mt_subject" />
+          <ScalarProperty Name="mt_message" ColumnName="mt_message" />
+          <ScalarProperty Name="command" ColumnName="command" />
+          <ScalarProperty Name="vardata" ColumnName="vardata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmevents">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmevent">
+        <MappingFragment StoreEntitySet="pmevents">
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="delay" ColumnName="delay" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmeventstores">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmeventstore">
+        <MappingFragment StoreEntitySet="pmeventstore">
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="actiontype" ColumnName="actiontype" />
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmexecutions">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmexecution">
+        <MappingFragment StoreEntitySet="pmexecution">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="originid" ColumnName="originid" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="triggertime" ColumnName="triggertime" />
+          <ScalarProperty Name="triggertype" ColumnName="triggertype" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="reportnumber" ColumnName="reportnumber" />
+          <ScalarProperty Name="onlyonerror" ColumnName="onlyonerror" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+          <ScalarProperty Name="reporttopic" ColumnName="reporttopic" />
+          <ScalarProperty Name="mt_subject" ColumnName="mt_subject" />
+          <ScalarProperty Name="mt_message" ColumnName="mt_message" />
+          <ScalarProperty Name="command" ColumnName="command" />
+          <ScalarProperty Name="vardata" ColumnName="vardata" />
+          <ScalarProperty Name="sstpdatalen" ColumnName="sstpdatalen" />
+          <ScalarProperty Name="sstpdata" ColumnName="sstpdata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmresults">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmresult">
+        <MappingFragment StoreEntitySet="pmresult">
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="triggertype" ColumnName="triggertype" />
+          <ScalarProperty Name="actiontype" ColumnName="actiontype" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="result" ColumnName="result" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmschedactions">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmschedaction">
+        <MappingFragment StoreEntitySet="pmschedaction">
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="actiontype" ColumnName="actiontype" />
+          <ScalarProperty Name="originid" ColumnName="originid" />
+          <ScalarProperty Name="executiontime" ColumnName="executiontime" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pmschedules">
+      <EntityTypeMapping TypeName="SurveilAIModel.pmschedule">
+        <MappingFragment StoreEntitySet="pmschedule">
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="actioncount" ColumnName="actioncount" />
+          <ScalarProperty Name="startit" ColumnName="startit" />
+          <ScalarProperty Name="stopit" ColumnName="stopit" />
+          <ScalarProperty Name="dayofweek" ColumnName="dayofweek" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="triggertype" ColumnName="triggertype" />
+          <ScalarProperty Name="statebitmask" ColumnName="statebitmask" />
+          <ScalarProperty Name="setreset" ColumnName="setreset" />
+          <ScalarProperty Name="compid" ColumnName="compid" />
+          <ScalarProperty Name="compstbmask" ColumnName="compstbmask" />
+          <ScalarProperty Name="compsetreset" ColumnName="compsetreset" />
+          <ScalarProperty Name="leveltriggered" ColumnName="leveltriggered" />
+          <ScalarProperty Name="problemevent" ColumnName="problemevent" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+          <ScalarProperty Name="noevents" ColumnName="noevents" />
+          <ScalarProperty Name="nodevents" ColumnName="nodevents" />
+          <ScalarProperty Name="delay" ColumnName="delay" />
+          <ScalarProperty Name="calname" ColumnName="calname" />
+          <ScalarProperty Name="caluserid" ColumnName="caluserid" />
+          <ScalarProperty Name="timetoescalate" ColumnName="timetoescalate" />
+          <ScalarProperty Name="escalation" ColumnName="escalation" />
+          <ScalarProperty Name="problempmid" ColumnName="problempmid" />
+          <ScalarProperty Name="problempmuserid" ColumnName="problempmuserid" />
+          <ScalarProperty Name="timetype" ColumnName="timetype" />
+          <ScalarProperty Name="econsameevent" ColumnName="econsameevent" />
+          <ScalarProperty Name="echascorrelcond" ColumnName="echascorrelcond" />
+          <ScalarProperty Name="echascancelcond" ColumnName="echascancelcond" />
+          <ScalarProperty Name="eccanceltrigger" ColumnName="eccanceltrigger" />
+          <ScalarProperty Name="eccheckonlyonce" ColumnName="eccheckonlyonce" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="eccheckbeforefire" ColumnName="eccheckbeforefire" />
+          <ScalarProperty Name="resultneeded" ColumnName="resultneeded" />
+          <ScalarProperty Name="journalneeded" ColumnName="journalneeded" />
+          <ScalarProperty Name="execcalname" ColumnName="execcalname" />
+          <ScalarProperty Name="execcaltype" ColumnName="execcaltype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="problems">
+      <EntityTypeMapping TypeName="SurveilAIModel.problem">
+        <MappingFragment StoreEntitySet="problem">
+          <ScalarProperty Name="repnumber" ColumnName="repnumber" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="owneruser" ColumnName="owneruser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idtype" ColumnName="idtype" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="topic" ColumnName="topic" />
+          <ScalarProperty Name="classif" ColumnName="classif" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="pmuserid" ColumnName="pmuserid" />
+          <ScalarProperty Name="externalsystem" ColumnName="externalsystem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="problemdatas">
+      <EntityTypeMapping TypeName="SurveilAIModel.problemdata">
+        <MappingFragment StoreEntitySet="problemdata">
+          <ScalarProperty Name="remnumber" ColumnName="remnumber" />
+          <ScalarProperty Name="repnumber" ColumnName="repnumber" />
+          <ScalarProperty Name="remuser" ColumnName="remuser" />
+          <ScalarProperty Name="remextuser" ColumnName="remextuser" />
+          <ScalarProperty Name="remtime" ColumnName="remtime" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="problemreplies">
+      <EntityTypeMapping TypeName="SurveilAIModel.problemreply">
+        <MappingFragment StoreEntitySet="problemreply">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pvgroups">
+      <EntityTypeMapping TypeName="SurveilAIModel.pvgroup">
+        <MappingFragment StoreEntitySet="pvgroup">
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="groupname" ColumnName="groupname" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="grouptype" ColumnName="grouptype" />
+          <ScalarProperty Name="criteria" ColumnName="criteria" />
+          <ScalarProperty Name="contactid1" ColumnName="contactid1" />
+          <ScalarProperty Name="contactid2" ColumnName="contactid2" />
+          <ScalarProperty Name="contactid3" ColumnName="contactid3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pvgroupconditions">
+      <EntityTypeMapping TypeName="SurveilAIModel.pvgroupcondition">
+        <MappingFragment StoreEntitySet="pvgroupcondition">
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="basedatano" ColumnName="basedatano" />
+          <ScalarProperty Name="criteria" ColumnName="criteria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportJobs">
+      <EntityTypeMapping TypeName="SurveilAIModel.ReportJob">
+        <MappingFragment StoreEntitySet="ReportJob">
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="startit" ColumnName="startit" />
+          <ScalarProperty Name="dayofweek" ColumnName="dayofweek" />
+          <ScalarProperty Name="doonce" ColumnName="doonce" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="Recepient" ColumnName="Recepient" />
+          <ScalarProperty Name="Report_subject" ColumnName="Report_subject" />
+          <ScalarProperty Name="MessageTemplate" ColumnName="MessageTemplate" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="elementid" ColumnName="elementid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="timenotransaction" ColumnName="timenotransaction" />
+          <ScalarProperty Name="approvedstatus" ColumnName="approvedstatus" />
+          <ScalarProperty Name="businessgroup" ColumnName="businessgroup" />
+          <ScalarProperty Name="circularoffice" ColumnName="circularoffice" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="businessarea" ColumnName="businessarea" />
+          <ScalarProperty Name="site" ColumnName="site" />
+          <ScalarProperty Name="timing" ColumnName="timing" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="tier" ColumnName="tier" />
+          <ScalarProperty Name="exportas" ColumnName="exportas" />
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportJobControls">
+      <EntityTypeMapping TypeName="SurveilAIModel.ReportJobControl">
+        <MappingFragment StoreEntitySet="ReportJobControl">
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="JobStp" ColumnName="JobStp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stbs">
+      <EntityTypeMapping TypeName="SurveilAIModel.stb">
+        <MappingFragment StoreEntitySet="stb">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="bit" ColumnName="bit" />
+          <ScalarProperty Name="internalused" ColumnName="internalused" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="display" ColumnName="display" />
+          <ScalarProperty Name="prio" ColumnName="prio" />
+          <ScalarProperty Name="textno" ColumnName="textno" />
+          <ScalarProperty Name="texttype" ColumnName="texttype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SurveilAIModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminal_lastestevent">
+      <EntityTypeMapping TypeName="SurveilAIModel.Terminal_lastestevent">
+        <MappingFragment StoreEntitySet="Terminal_lastestevent">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transports">
+      <EntityTypeMapping TypeName="SurveilAIModel.transport">
+        <MappingFragment StoreEntitySet="transport">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="transportid" ColumnName="transportid" />
+          <ScalarProperty Name="remotedte" ColumnName="remotedte" />
+          <ScalarProperty Name="remotecud" ColumnName="remotecud" />
+          <ScalarProperty Name="localcud" ColumnName="localcud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trxn_dict">
+      <EntityTypeMapping TypeName="SurveilAIModel.trxn_dict">
+        <MappingFragment StoreEntitySet="trxn_dict">
+          <ScalarProperty Name="trxn_code" ColumnName="trxn_code" />
+          <ScalarProperty Name="trxn_text" ColumnName="trxn_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TS_eventstore">
+      <EntityTypeMapping TypeName="SurveilAIModel.TS_eventstore">
+        <MappingFragment StoreEntitySet="TS_eventstore">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPermissions">
+      <EntityTypeMapping TypeName="SurveilAIModel.UserPermission">
+        <MappingFragment StoreEntitySet="UserPermission">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Function" ColumnName="Function" />
+          <ScalarProperty Name="Hierarchy" ColumnName="Hierarchy" />
+          <ScalarProperty Name="Licenseon" ColumnName="Licenseon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userprofiles">
+      <EntityTypeMapping TypeName="SurveilAIModel.userprofile">
+        <MappingFragment StoreEntitySet="userprofile">
+          <ScalarProperty Name="userprofid" ColumnName="userprofid" />
+          <ScalarProperty Name="funcmask" ColumnName="funcmask" />
+          <ScalarProperty Name="statebeepmask" ColumnName="statebeepmask" />
+          <ScalarProperty Name="allfolderagent" ColumnName="allfolderagent" />
+          <ScalarProperty Name="reversefolder" ColumnName="reversefolder" />
+          <ScalarProperty Name="allfolderserver" ColumnName="allfolderserver" />
+          <ScalarProperty Name="allfiletypes" ColumnName="allfiletypes" />
+          <ScalarProperty Name="filetypes" ColumnName="filetypes" />
+          <ScalarProperty Name="normalfiletypes" ColumnName="normalfiletypes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userprofilefuncs">
+      <EntityTypeMapping TypeName="SurveilAIModel.userprofilefunc">
+        <MappingFragment StoreEntitySet="userprofilefunc">
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="functionname" ColumnName="functionname" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="userprofid" ColumnName="userprofid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SurveilAIModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="LastDateChange" ColumnName="LastDateChange" />
+          <ScalarProperty Name="PassUDPrompt" ColumnName="PassUDPrompt" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+          <ScalarProperty Name="Pass1" ColumnName="Pass1" />
+          <ScalarProperty Name="Pass2" ColumnName="Pass2" />
+          <ScalarProperty Name="ATM" ColumnName="ATM" />
+          <ScalarProperty Name="LastActivity" ColumnName="LastActivity" />
+          <ScalarProperty Name="Ldap" ColumnName="Ldap" />
+          <ScalarProperty Name="Pass3" ColumnName="Pass3" />
+          <ScalarProperty Name="Pass4" ColumnName="Pass4" />
+          <ScalarProperty Name="Pass5" ColumnName="Pass5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_">
+      <EntityTypeMapping TypeName="SurveilAIModel.users_">
+        <MappingFragment StoreEntitySet="users_">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="userprofid" ColumnName="userprofid" />
+          <ScalarProperty Name="userfunc" ColumnName="userfunc" />
+          <ScalarProperty Name="userlayout" ColumnName="userlayout" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSecurities">
+      <EntityTypeMapping TypeName="SurveilAIModel.UserSecurity">
+        <MappingFragment StoreEntitySet="UserSecurity">
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="Uview" ColumnName="Uview" />
+          <ScalarProperty Name="Uadd" ColumnName="Uadd" />
+          <ScalarProperty Name="Uupd" ColumnName="Uupd" />
+          <ScalarProperty Name="Udel" ColumnName="Udel" />
+          <ScalarProperty Name="Iview" ColumnName="Iview" />
+          <ScalarProperty Name="Aview" ColumnName="Aview" />
+          <ScalarProperty Name="Aadd" ColumnName="Aadd" />
+          <ScalarProperty Name="Aupd" ColumnName="Aupd" />
+          <ScalarProperty Name="Adel" ColumnName="Adel" />
+          <ScalarProperty Name="AAview" ColumnName="AAview" />
+          <ScalarProperty Name="R1view" ColumnName="R1view" />
+          <ScalarProperty Name="R2view" ColumnName="R2view" />
+          <ScalarProperty Name="R3view" ColumnName="R3view" />
+          <ScalarProperty Name="Rview" ColumnName="Rview" />
+          <ScalarProperty Name="SRview" ColumnName="SRview" />
+          <ScalarProperty Name="Hview" ColumnName="Hview" />
+          <ScalarProperty Name="Hadd" ColumnName="Hadd" />
+          <ScalarProperty Name="Hupd" ColumnName="Hupd" />
+          <ScalarProperty Name="Hdel" ColumnName="Hdel" />
+          <ScalarProperty Name="Fview" ColumnName="Fview" />
+          <ScalarProperty Name="EJview" ColumnName="EJview" />
+          <ScalarProperty Name="REJview" ColumnName="REJview" />
+          <ScalarProperty Name="DEJview" ColumnName="DEJview" />
+          <ScalarProperty Name="Jview" ColumnName="Jview" />
+          <ScalarProperty Name="JRview" ColumnName="JRview" />
+          <ScalarProperty Name="Mview" ColumnName="Mview" />
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="Passwordpolicy" ColumnName="Passwordpolicy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usersessions">
+      <EntityTypeMapping TypeName="SurveilAIModel.usersession">
+        <MappingFragment StoreEntitySet="usersession">
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="desktop" ColumnName="desktop" />
+          <ScalarProperty Name="ipaddress" ColumnName="ipaddress" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="logintime" ColumnName="logintime" />
+          <ScalarProperty Name="lastactiontime" ColumnName="lastactiontime" />
+          <ScalarProperty Name="terminalserver" ColumnName="terminalserver" />
+          <ScalarProperty Name="sessionflag" ColumnName="sessionflag" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="sessionid" ColumnName="sessionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Archives">
+      <EntityTypeMapping TypeName="SurveilAIModel.Archive">
+        <MappingFragment StoreEntitySet="Archive">
+          <ScalarProperty Name="Archive1" ColumnName="Archive" />
+          <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="ArchivePolicy" ColumnName="ArchivePolicy" />
+          <ScalarProperty Name="PurgePolicy" ColumnName="PurgePolicy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ArchivedTill" ColumnName="ArchivedTill" />
+          <ScalarProperty Name="JobStarted" ColumnName="JobStarted" />
+          <ScalarProperty Name="JobEnded" ColumnName="JobEnded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calendars">
+      <EntityTypeMapping TypeName="SurveilAIModel.calendar">
+        <MappingFragment StoreEntitySet="calendar">
+          <ScalarProperty Name="calname" ColumnName="calname" />
+          <ScalarProperty Name="caluserid" ColumnName="caluserid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="dayofweek" ColumnName="dayofweek" />
+          <ScalarProperty Name="period" ColumnName="period" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consolv1">
+      <EntityTypeMapping TypeName="SurveilAIModel.consolv1">
+        <MappingFragment StoreEntitySet="consolv1">
+          <ScalarProperty Name="viewname" ColumnName="viewname" />
+          <ScalarProperty Name="viewtype" ColumnName="viewtype" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="devices" ColumnName="devices" />
+          <ScalarProperty Name="states" ColumnName="states" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consolv2">
+      <EntityTypeMapping TypeName="SurveilAIModel.consolv2">
+        <MappingFragment StoreEntitySet="consolv2">
+          <ScalarProperty Name="viewname" ColumnName="viewname" />
+          <ScalarProperty Name="viewtype" ColumnName="viewtype" />
+          <ScalarProperty Name="extuserid" ColumnName="extuserid" />
+          <ScalarProperty Name="devices" ColumnName="devices" />
+          <ScalarProperty Name="states" ColumnName="states" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICE_COMP_TEMP">
+      <EntityTypeMapping TypeName="SurveilAIModel.DEVICE_COMP_TEMP">
+        <MappingFragment StoreEntitySet="DEVICE_COMP_TEMP">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="prio" ColumnName="prio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICE_DOWNTIME_TEMP_temp">
+      <EntityTypeMapping TypeName="SurveilAIModel.DEVICE_DOWNTIME_TEMP_temp">
+        <MappingFragment StoreEntitySet="DEVICE_DOWNTIME_TEMP-temp">
+          <ScalarProperty Name="DEVICEID" ColumnName="DEVICEID" />
+          <ScalarProperty Name="ELEMENT_ID" ColumnName="ELEMENT_ID" />
+          <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+          <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICE_STATE_TEMP">
+      <EntityTypeMapping TypeName="SurveilAIModel.DEVICE_STATE_TEMP">
+        <MappingFragment StoreEntitySet="DEVICE_STATE_TEMP">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="DISPLAY_ORDER" ColumnName="DISPLAY_ORDER" />
+          <ScalarProperty Name="bit" ColumnName="bit" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="prio" ColumnName="prio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="devicefails">
+      <EntityTypeMapping TypeName="SurveilAIModel.devicefail">
+        <MappingFragment StoreEntitySet="devicefail">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="started" ColumnName="started" />
+          <ScalarProperty Name="ended" ColumnName="ended" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="compstate" ColumnName="compstate" />
+          <ScalarProperty Name="statebit" ColumnName="statebit" />
+          <ScalarProperty Name="endeventno" ColumnName="endeventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DuplicateDevices">
+      <EntityTypeMapping TypeName="SurveilAIModel.DuplicateDevice">
+        <MappingFragment StoreEntitySet="DuplicateDevice">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EJTransactions">
+      <EntityTypeMapping TypeName="SurveilAIModel.EJTransaction">
+        <MappingFragment StoreEntitySet="EJTransactions">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="Trxn_type" ColumnName="Trxn_type" />
+          <ScalarProperty Name="Pan" ColumnName="Pan" />
+          <ScalarProperty Name="Stan" ColumnName="Stan" />
+          <ScalarProperty Name="Trxn_date" ColumnName="Trxn_date" />
+          <ScalarProperty Name="Trxn_time" ColumnName="Trxn_time" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Trxn_Start" ColumnName="Trxn_Start" />
+          <ScalarProperty Name="Trxn_End" ColumnName="Trxn_End" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="RRN" ColumnName="RRN" />
+          <ScalarProperty Name="Seq_No" ColumnName="Seq_No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_ID">
+      <EntityTypeMapping TypeName="SurveilAIModel.Event_ID">
+        <MappingFragment StoreEntitySet="Event_ID">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventstore_Temp">
+      <EntityTypeMapping TypeName="SurveilAIModel.eventstore_Temp">
+        <MappingFragment StoreEntitySet="eventstore_Temp">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="event_temp">
+      <EntityTypeMapping TypeName="SurveilAIModel.event_temp">
+        <MappingFragment StoreEntitySet="event-temp">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventcount" ColumnName="eventcount" />
+          <ScalarProperty Name="eventgroupid" ColumnName="eventgroupid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examples">
+      <EntityTypeMapping TypeName="SurveilAIModel.example">
+        <MappingFragment StoreEntitySet="example">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Trxn_Code" ColumnName="Trxn_Code" />
+          <ScalarProperty Name="CameraNo" ColumnName="CameraNo" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="SurveilAIModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Trxn_Code" ColumnName="Trxn_Code" />
+          <ScalarProperty Name="CameraNo" ColumnName="CameraNo" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobcontrols">
+      <EntityTypeMapping TypeName="SurveilAIModel.jobcontrol">
+        <MappingFragment StoreEntitySet="jobcontrol">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="resourceid" ColumnName="resourceid" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="jobtsp" ColumnName="jobtsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobcontrol_Temp">
+      <EntityTypeMapping TypeName="SurveilAIModel.jobcontrol_Temp">
+        <MappingFragment StoreEntitySet="jobcontrol_Temp">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="resourceid" ColumnName="resourceid" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="jobtsp" ColumnName="jobtsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobcontrolcaches">
+      <EntityTypeMapping TypeName="SurveilAIModel.jobcontrolcache">
+        <MappingFragment StoreEntitySet="jobcontrolcache">
+          <ScalarProperty Name="jobid" ColumnName="jobid" />
+          <ScalarProperty Name="resourceid" ColumnName="resourceid" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="repeatcount" ColumnName="repeatcount" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="jobtsp" ColumnName="jobtsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lastcomponentevents">
+      <EntityTypeMapping TypeName="SurveilAIModel.lastcomponentevent">
+        <MappingFragment StoreEntitySet="lastcomponentevent">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventcount" ColumnName="eventcount" />
+          <ScalarProperty Name="eventgroupid" ColumnName="eventgroupid" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="compstate" ColumnName="compstate" />
+          <ScalarProperty Name="compeventcount" ColumnName="compeventcount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lastevents">
+      <EntityTypeMapping TypeName="SurveilAIModel.lastevent">
+        <MappingFragment StoreEntitySet="lastevent">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="eventcount" ColumnName="eventcount" />
+          <ScalarProperty Name="eventgroupid" ColumnName="eventgroupid" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="compstate" ColumnName="compstate" />
+          <ScalarProperty Name="compeventcount" ColumnName="compeventcount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineCharts">
+      <EntityTypeMapping TypeName="SurveilAIModel.LineChart">
+        <MappingFragment StoreEntitySet="LineChart">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="ATMDown" ColumnName="ATMDown" />
+          <ScalarProperty Name="Down_Component_Name" ColumnName="Down_Component_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineChart_Average">
+      <EntityTypeMapping TypeName="SurveilAIModel.LineChart_Average">
+        <MappingFragment StoreEntitySet="LineChart_Average">
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="Average_Hourly" ColumnName="Average_Hourly" />
+          <ScalarProperty Name="Average_Daily" ColumnName="Average_Daily" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineChartTests">
+      <EntityTypeMapping TypeName="SurveilAIModel.LineChartTest">
+        <MappingFragment StoreEntitySet="LineChartTest">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="ATMDown" ColumnName="ATMDown" />
+          <ScalarProperty Name="Down_Component_Name" ColumnName="Down_Component_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pvjournals">
+      <EntityTypeMapping TypeName="SurveilAIModel.pvjournal">
+        <MappingFragment StoreEntitySet="pvjournal">
+          <ScalarProperty Name="serverdatetime" ColumnName="serverdatetime" />
+          <ScalarProperty Name="issuertype" ColumnName="issuertype" />
+          <ScalarProperty Name="issuer" ColumnName="issuer" />
+          <ScalarProperty Name="pvuser" ColumnName="pvuser" />
+          <ScalarProperty Name="device" ColumnName="device" />
+          <ScalarProperty Name="command" ColumnName="command" />
+          <ScalarProperty Name="adminaction" ColumnName="adminaction" />
+          <ScalarProperty Name="errorcode" ColumnName="errorcode" />
+          <ScalarProperty Name="cmdstat" ColumnName="cmdstat" />
+          <ScalarProperty Name="vardata" ColumnName="vardata" />
+          <ScalarProperty Name="desktopuser" ColumnName="desktopuser" />
+          <ScalarProperty Name="oldvalue" ColumnName="oldvalue" />
+          <ScalarProperty Name="newvalue" ColumnName="newvalue" />
+          <ScalarProperty Name="functionid" ColumnName="functionid" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="Operation_Type" ColumnName="Operation_Type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportJobResults">
+      <EntityTypeMapping TypeName="SurveilAIModel.ReportJobResult">
+        <MappingFragment StoreEntitySet="ReportJobResult">
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="Recepient" ColumnName="Recepient" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sheet1_">
+      <EntityTypeMapping TypeName="SurveilAIModel.Sheet1_">
+        <MappingFragment StoreEntitySet="Sheet1$">
+          <ScalarProperty Name="F1" ColumnName="F1" />
+          <ScalarProperty Name="F2" ColumnName="F2" />
+          <ScalarProperty Name="F3" ColumnName="F3" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="SurveilAIModel.state">
+        <MappingFragment StoreEntitySet="state">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="devicestate" ColumnName="devicestate" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="connected" ColumnName="connected" />
+          <ScalarProperty Name="LastConTime" ColumnName="LastConTime" />
+          <ScalarProperty Name="Network" ColumnName="Network" />
+          <ScalarProperty Name="NetworkConTime" ColumnName="NetworkConTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statsids">
+      <EntityTypeMapping TypeName="SurveilAIModel.statsid">
+        <MappingFragment StoreEntitySet="statsid">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusBars">
+      <EntityTypeMapping TypeName="SurveilAIModel.StatusBar">
+        <MappingFragment StoreEntitySet="StatusBar">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="commandno" ColumnName="commandno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="testtables">
+      <EntityTypeMapping TypeName="SurveilAIModel.testtable">
+        <MappingFragment StoreEntitySet="testtable">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="componentid" ColumnName="componentid" />
+          <ScalarProperty Name="compstate" ColumnName="compstate" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_AlertView">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_AlertView">
+        <MappingFragment StoreEntitySet="V_AlertView">
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="HierLevel" ColumnName="HierLevel" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="eventno" ColumnName="eventno" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="messageno" ColumnName="messageno" />
+          <ScalarProperty Name="servertimestamp" ColumnName="servertimestamp" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_card_cpture">
+      <EntityTypeMapping TypeName="SurveilAIModel.v_card_cpture">
+        <MappingFragment StoreEntitySet="v_card_cpture">
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="sequence_number" ColumnName="sequence_number" />
+          <ScalarProperty Name="machinename" ColumnName="machinename" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="servertime" ColumnName="servertime" />
+          <ScalarProperty Name="orgmessage" ColumnName="orgmessage" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="eventnumber" ColumnName="eventnumber" />
+          <ScalarProperty Name="activity_date" ColumnName="activity_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_CashView">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_CashView">
+        <MappingFragment StoreEntitySet="V_CashView">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="postingdatetime" ColumnName="postingdatetime" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="QuantityAmount" ColumnName="QuantityAmount" />
+          <ScalarProperty Name="Replenish" ColumnName="Replenish" />
+          <ScalarProperty Name="ReplenishAmount" ColumnName="ReplenishAmount" />
+          <ScalarProperty Name="Dispense" ColumnName="Dispense" />
+          <ScalarProperty Name="DispenseAmount" ColumnName="DispenseAmount" />
+          <ScalarProperty Name="Reject" ColumnName="Reject" />
+          <ScalarProperty Name="RejectAmount" ColumnName="RejectAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Current_State">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_Current_State">
+        <MappingFragment StoreEntitySet="V_Current_State">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_DeviceConnected">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_DeviceConnected">
+        <MappingFragment StoreEntitySet="V_DeviceConnected">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Downtime">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_Downtime">
+        <MappingFragment StoreEntitySet="V_Downtime">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Downtime_test">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_Downtime_test">
+        <MappingFragment StoreEntitySet="V_Downtime_test">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="hierlevel" ColumnName="hierlevel" />
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_ImageTransfer">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_ImageTransfer">
+        <MappingFragment StoreEntitySet="V_ImageTransfer">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_LastImage">
+      <EntityTypeMapping TypeName="SurveilAIModel.V_LastImage">
+        <MappingFragment StoreEntitySet="V_LastImage">
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+          <ScalarProperty Name="branchname" ColumnName="branchname" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="LastImage" ColumnName="LastImage" />
+          <ScalarProperty Name="Connected" ColumnName="Connected" />
+          <ScalarProperty Name="LastConTime" ColumnName="LastConTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="SurveilAIModel.Store.STRING_SPLIT" FunctionImportName="STRING_SPLIT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.STRING_SPLIT_Result">
+          <ScalarProperty Name="value" ColumnName="value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ARCHIVING_UTILITY" FunctionName="SurveilAIModel.Store.ARCHIVING_UTILITY" />
+    <FunctionImportMapping FunctionImportName="DELETEDEVICE" FunctionName="SurveilAIModel.Store.DELETEDEVICE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.DELETEDEVICE_Result">
+          <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+          <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+          <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+          <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+          <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EjByImageEnd" FunctionName="SurveilAIModel.Store.EjByImageEnd" />
+    <FunctionImportMapping FunctionImportName="EjByImageStart" FunctionName="SurveilAIModel.Store.EjByImageStart" />
+    <FunctionImportMapping FunctionImportName="EjByImageStart1" FunctionName="SurveilAIModel.Store.EjByImageStart1" />
+    <FunctionImportMapping FunctionImportName="EJSelect" FunctionName="SurveilAIModel.Store.EJSelect" />
+    <FunctionImportMapping FunctionImportName="EJSelect_Old" FunctionName="SurveilAIModel.Store.EJSelect_Old" />
+    <FunctionImportMapping FunctionImportName="FILL_COMP_STATE" FunctionName="SurveilAIModel.Store.FILL_COMP_STATE" />
+    <FunctionImportMapping FunctionImportName="FILL_DEVICE_STATE" FunctionName="SurveilAIModel.Store.FILL_DEVICE_STATE" />
+    <FunctionImportMapping FunctionImportName="FILL_Problem_Incident" FunctionName="SurveilAIModel.Store.FILL_Problem_Incident" />
+    <FunctionImportMapping FunctionImportName="GetATMUpTime" FunctionName="SurveilAIModel.Store.GetATMUpTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.GetATMUpTime_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Down_Component_Name" ColumnName="Down_Component_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetStockChart" FunctionName="SurveilAIModel.Store.GetStockChart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.GetStockChart_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Down_Component_Name" ColumnName="Down_Component_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUPTimeChart" FunctionName="SurveilAIModel.Store.GetUPTimeChart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.GetUPTimeChart_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostingDateTime" ColumnName="PostingDateTime" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="Down_Component_Name" ColumnName="Down_Component_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ImageByStan" FunctionName="SurveilAIModel.Store.ImageByStan" />
+    <FunctionImportMapping FunctionImportName="insertDevice" FunctionName="SurveilAIModel.Store.insertDevice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.insertDevice_Result">
+          <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+          <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+          <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+          <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+          <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertLinChartT" FunctionName="SurveilAIModel.Store.InsertLinChartT" />
+    <FunctionImportMapping FunctionImportName="InsertPerormance" FunctionName="SurveilAIModel.Store.InsertPerormance" />
+    <FunctionImportMapping FunctionImportName="LineChartUpTime" FunctionName="SurveilAIModel.Store.LineChartUpTime" />
+    <FunctionImportMapping FunctionImportName="PURGING_Device" FunctionName="SurveilAIModel.Store.PURGING_Device" />
+    <FunctionImportMapping FunctionImportName="PURGING_Device_Comp" FunctionName="SurveilAIModel.Store.PURGING_Device_Comp" />
+    <FunctionImportMapping FunctionImportName="PURGING_Device_State" FunctionName="SurveilAIModel.Store.PURGING_Device_State" />
+    <FunctionImportMapping FunctionImportName="PURGING_EVENT" FunctionName="SurveilAIModel.Store.PURGING_EVENT" />
+    <FunctionImportMapping FunctionImportName="PURGING_Past_Jobs" FunctionName="SurveilAIModel.Store.PURGING_Past_Jobs" />
+    <FunctionImportMapping FunctionImportName="PURGING_Performance" FunctionName="SurveilAIModel.Store.PURGING_Performance" />
+    <FunctionImportMapping FunctionImportName="SelectedDevice" FunctionName="SurveilAIModel.Store.SelectedDevice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.SelectedDevice_Result">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="HierLevel" ColumnName="HierLevel" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+          <ScalarProperty Name="EJProcessedDate" ColumnName="EJProcessedDate" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="LastCardNo" ColumnName="LastCardNo" />
+          <ScalarProperty Name="BioInfo" ColumnName="BioInfo" />
+          <ScalarProperty Name="BioCmdExecTime" ColumnName="BioCmdExecTime" />
+          <ScalarProperty Name="BiosPassword" ColumnName="BiosPassword" />
+          <ScalarProperty Name="BiosUpdated" ColumnName="BiosUpdated" />
+          <ScalarProperty Name="DriverInstalled" ColumnName="DriverInstalled" />
+          <ScalarProperty Name="PasswordType" ColumnName="PasswordType" />
+          <ScalarProperty Name="Channels" ColumnName="Channels" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_AlertView" FunctionName="SurveilAIModel.Store.sp_AlertView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.sp_AlertView_Result">
+          <ScalarProperty Name="Operational" ColumnName="Operational" />
+          <ScalarProperty Name="Down" ColumnName="Down" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SurveilAIModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SurveilAIModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SurveilAIModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_get_no_rows_wsize" FunctionName="SurveilAIModel.Store.sp_get_no_rows_wsize" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SurveilAIModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SurveilAIModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SurveilAIModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_spaceused" FunctionName="SurveilAIModel.Store.sp_spaceused">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveilAIModel.sp_spaceused_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rows" ColumnName="rows" />
+          <ScalarProperty Name="reserved" ColumnName="reserved" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="index_size" ColumnName="index_size" />
+          <ScalarProperty Name="unused" ColumnName="unused" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SurveilAIModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Stan_Trxn_EndTime" FunctionName="SurveilAIModel.Store.Stan_Trxn_EndTime" />
+    <FunctionImportMapping FunctionImportName="Stan_Trxn_StartTime" FunctionName="SurveilAIModel.Store.Stan_Trxn_StartTime" />
+    <EntitySetMapping Name="NDVRs">
+      <EntityTypeMapping TypeName="SurveilAIModel.NDVR">
+        <MappingFragment StoreEntitySet="NDVR">
+          <ScalarProperty Name="Ndate" ColumnName="Ndate" />
+          <ScalarProperty Name="NDpassword" ColumnName="NDpassword" />
+          <ScalarProperty Name="NDusername" ColumnName="NDusername" />
+          <ScalarProperty Name="NDip" ColumnName="NDip" />
+          <ScalarProperty Name="NDName" ColumnName="NDName" />
+          <ScalarProperty Name="NDid" ColumnName="NDid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

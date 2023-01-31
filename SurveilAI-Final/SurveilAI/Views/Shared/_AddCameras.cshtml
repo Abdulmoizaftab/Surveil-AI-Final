@@ -1,0 +1,306 @@
+﻿@model SurveilAI.DataContext.TypeCameras
+@{
+    int CountType = 0;
+    string[] CamerasName = new string[16];
+    
+  
+ }
+
+<h5 class="card-header">Add Cameras to NVR/DVR.</h5>
+<div class="card-body">
+    @using (Html.BeginForm("AddCameras", "Device", FormMethod.Post))
+    {
+        <div class="mb-3 row">
+            <label class="control-label col-md-3">Hierarchy</label>
+            <div class="col-md-12">
+                @Html.DropDownListFor(m => m.ACHierLevel, ViewBag.HierLvll as SelectList, "--Select Hierarchy--", new { @class = "form-control", @id = "hierlvl" })
+                @Html.ValidationMessageFor(m => m.ACHierLevel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="control-label col-md-3">Branches</label>
+            <div class="col-md-12">
+                @Html.DropDownListFor(m => m.DeviceID, new SelectList(""), "--Select Branch--", new { @class = "form-control", @id = "branchname" })
+                @Html.ValidationMessageFor(m => m.DeviceID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="control-label col-md-3">NVR/DVR</label>
+            <div class="col-md-12">
+                @Html.DropDownListFor(m => m.DeviceType, new SelectList(""), "--Select NVR/DVR--", new { @class = "form-control", @id = "devicess" })
+                @Html.ValidationMessageFor(m => m.DeviceType, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+      
+        <div class="mb-3 row">
+            <div class="col-md-4" id="cam">
+                @*nothing here all in jquery*@
+            </div>
+            <div class="col-md-4" id="type">
+                @*nothing here all in jquery*@
+            </div>
+        </div>
+        <div class="card-footer bg-light text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    var channel;
+    var channels;
+    var count = 0;
+    $(document).ready(function () {
+                
+                $("#hierlvl").change(function () {
+                    debugger;
+                    var sid = $('#hierlvl').val()
+            $.ajax({
+                url: '@Url.Action("GetBranches", "Device")' + '?id=' +sid,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (data) {
+                    debugger;
+                    $("#branchname").empty();
+                    $("#branchname").append("<option>--Select Branch--</option>")
+                    $.each(data, function (index, row) {
+                        debugger;
+                        
+                        $("#branchname").append("<option value='" + row.DeviceID + "'>" + row.BranchName + "</option>")
+                    })
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+                    });
+                });
+                //daniyal
+                $("#branchname").change(function () {
+                    debugger;
+                    var sid = $('#branchname').val();
+                    $.ajax({
+                url: '@Url.Action("GetDevicess", "Device")' + '?id=' +sid,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (data) {
+                    $("#devicess").empty();
+                    $.each(data, function (index, row) {
+                        $("#devicess").append("<option>--Select NVR/DVR--</option>")
+                        $("#devicess").append("<option value='" + row.DeviceID + "'>" + row.DeviceType + "</option>")
+                    })
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+                });
+                //channel
+                $("#devicess").change(function () {
+                    debugger;
+                    var sid = $('#devicess').val();
+                    $.ajax({
+                        url: '@Url.Action("Channels", "Device")' + '?id=' + sid,
+                        type: "POST",
+                        contentType: "application/json;charset=UTF-8",
+                        dataType: "json",
+                        success: function (data) {
+                            debugger;
+                            $("#cam").empty();
+                            $.each(data, function (index, row) {
+                                debugger;
+                                //$('#camera').val(row.Channels)
+                                if (count == 0) {
+                                    channel = row[0].Channels;
+                                    channels = parseInt(channel);
+                                }
+                                if (count != 0) {
+                                    debugger;
+                                    for (var i = 1; i <= channels; i++) {
+                                        var abc = 'row.Cam' + i;
+                                        $("#cam").append('<label for="name"><b>Camera ' + i + '</b></label><br>');
+                                        $("#cam").append('<input name=Cam' + i + '  type=text placeholder=Enter-Camera-Name/><br>');
+                                        $("#type").append('<label for="type"><b>Cam' + i + ' Type</b></label><br>');
+                                        $("#type").append('<select name=Cam' + i + 'Type style="padding: 4px; border-left: 1px solid gray"><option id=cam'+i+' value="none" selected disabled hidden>Select-Camera-Type</option><option value="ATM">ATM</option><option value="Parking">Parking</option><option value="Cashier">Cashier</option><option value="SecurityGate">SecurityGate</option></select><br>');
+                                        //$("#type").append('<div class="dropdown-menu"><button class="dropdown-item" type="button">Action</button><button class="dropdown-item" type="button">Another action</button><button class="dropdown-item" type="button">Something else here</button></div><br>');
+                                        var vv = $("input[name=Cam1]").attr("value", row.Cam1)
+                                        $("input[name=Cam2]").attr("value", row.Cam2)
+                                        $("input[name=Cam3]").attr("value", row.Cam3)
+                                        $("input[name=Cam4]").attr("value", row.Cam4)
+                                        $("input[name=Cam5]").attr("value", row.Cam5)
+                                        $("input[name=Cam6]").attr("value", row.Cam6)
+                                        $("input[name=Cam7]").attr("value", row.Cam7)
+                                        $("input[name=Cam8]").attr("value", row.Cam8)
+                                        $("input[name=Cam9").attr("value", row.Cam9)
+                                        $("input[name=Cam10]").attr("value", row.Cam10)
+                                        $("input[name=Cam11]").attr("value", row.Cam11)
+                                        $("input[name=Cam12]").attr("value", row.Cam12)
+                                        $("input[name=Cam13]").attr("value", row.Cam13)
+                                        $("input[name=Cam14]").attr("value", row.Cam14)
+                                        $("input[name=Cam15]").attr("value", row.Cam15)
+                                        $("input[name=Cam16]").attr("value", row.Cam16)
+                                        /*$('select[name="Cam1"]').val(row.Cam1Type)*/
+                                        debugger;
+                                        //$('select option:contains(' + row.Cam1Type + ')').prop('selected', true);
+                                        if (row.Cam1Type != null) {
+                                            $('#cam1').text(row.Cam1Type)
+                                            $('#cam1').attr("value", row.Cam1Type)
+                                            $('#cam1').removeAttr('selected')
+                                            $('#cam1').attr("selected", true)
+                                            $('#cam1').attr("disabled", false)
+                                            $('#cam1').removeAttr('hidden')
+                                        }
+                                        if (row.Cam2Type != null) {
+                                            $('#cam2').text(row.Cam2Type)
+                                            $('#cam2').attr("value", row.Cam2Type)
+                                            $('#cam2').removeAttr('selected')
+                                            $('#cam2').attr("selected", true)
+                                            $('#cam2').attr("disabled", false)
+                                            $('#cam2').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam3Type != null) {
+                                            $('#cam3').text(row.Cam3Type)
+                                            $('#cam3').attr("value", row.Cam3Type)
+                                            $('#cam3').removeAttr('selected')
+                                            $('#cam3').attr("selected", true)
+                                            $('#cam3').attr("disabled", false)
+                                            $('#cam3').removeAttr('hidden')
+                                        }
+                                        if (row.Cam4Type != null) {
+                                            $('#cam4').text(row.Cam4Type)
+                                            $('#cam4').attr("value", row.Cam4Type)
+                                            $('#cam4').removeAttr('selected')
+                                            $('#cam4').attr("selected", true)
+                                            $('#cam4').attr("disabled", false)
+                                            $('#cam4').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam5Type != null) {
+                                            $('#cam5').text(row.Cam5Type)
+                                            $('#cam5').attr("value", row.Cam5Type)
+                                            $('#cam5').removeAttr('selected')
+                                            $('#cam5').attr("selected", true)
+                                            $('#cam5').attr("disabled", false)
+                                            $('#cam5').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam6Type != null) {
+                                            $('#cam6').text(row.Cam6Type)
+                                            $('#cam6').attr("value", row.Cam6Type)
+                                            $('#cam6').removeAttr('selected')
+                                            $('#cam6').attr("selected", true)
+                                            $('#cam6').attr("disabled", false)
+                                            $('#cam6').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam7Type != null) {
+                                            $('#cam7').text(row.Cam7Type)
+                                            $('#cam7').attr("value", row.Cam7Type)
+                                            $('#cam7').removeAttr('selected')
+                                            $('#cam7').attr("selected", true)
+                                            $('#cam7').attr("disabled", false)
+                                            $('#cam7').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam8Type != null) {
+                                            $('#cam8').text(row.Cam8Type)
+                                            $('#cam8').attr("value", row.Cam8Type)
+                                            $('#cam8').removeAttr('selected')
+                                            $('#cam8').attr("selected", true)
+                                            $('#cam8').attr("disabled", false)
+                                            $('#cam8').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam9Type != null) {
+                                            $('#cam9').text(row.Cam9Type)
+                                            $('#cam9').attr("value", row.Cam9Type)
+                                            $('#cam9').removeAttr('selected')
+                                            $('#cam9').attr("selected", true)
+                                            $('#cam9').attr("disabled", false)
+                                            $('#cam9').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam10Type != null) {
+                                            $('#cam10').text(row.Cam10Type)
+                                            $('#cam10').attr("value", row.Cam10Type)
+                                            $('#cam10').removeAttr('selected')
+                                            $('#cam10').attr("selected", true)
+                                            $('#cam10').attr("disabled", false)
+                                            $('#cam10').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam11Type != null) {
+                                            $('#cam11').text(row.Cam11Type)
+                                            $('#cam11').attr("value", row.Cam11Type)
+                                            $('#cam11').removeAttr('selected')
+                                            $('#cam11').attr("selected", true)
+                                            $('#cam11').attr("disabled", false)
+                                            $('#cam11').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam12Type != null) {
+                                            $('#cam12').text(row.Cam12Type)
+                                            $('#cam12').attr("value", row.Cam12Type)
+                                            $('#cam12').removeAttr('selected')
+                                            $('#cam12').attr("selected", true)
+                                            $('#cam12').attr("disabled", false)
+                                            $('#cam12').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam13Type != null) {
+                                            $('#cam13').text(row.Cam13Type)
+                                            $('#cam13').attr("value", row.Cam13Type)
+                                            $('#cam13').removeAttr('selected')
+                                            $('#cam13').attr("selected", true)
+                                            $('#cam13').attr("disabled", false)
+                                            $('#cam13').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam14Type != null) {
+                                            $('#cam14').text(row.Cam14Type)
+                                            $('#cam14').attr("value", row.Cam14Type)
+                                            $('#cam14').removeAttr('selected')
+                                            $('#cam14').attr("selected", true)
+                                            $('#cam14').attr("disabled", false)
+                                            $('#cam14').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam15Type != null) {
+                                            $('#cam15').text(row.Cam15Type)
+                                            $('#cam15').attr("value", row.Cam15Type)
+                                            $('#cam15').removeAttr('selected')
+                                            $('#cam15').attr("selected", true)
+                                            $('#cam15').attr("disabled", false)
+                                            $('#cam15').removeAttr('hidden')
+                                        }
+
+                                        if (row.Cam16Type != null) {
+                                            $('#cam16').text(row.Cam16Type)
+                                            $('#cam16').attr("value", row.Cam16Type)
+                                            $('#cam16').removeAttr('selected')
+                                            $('#cam16').attr("selected", true)
+                                            $('#cam16').attr("disabled", false)
+                                            $('#cam16').removeAttr('hidden')
+                                        }
+
+                                        console.log(row.Cam1Type)
+                                    }
+                                }
+
+                                //if (count != 0) {
+                                //    console.log(row[1].CamName)
+                                //}
+                                count++;
+                    })
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+                });
+            });
+
+</script>
+

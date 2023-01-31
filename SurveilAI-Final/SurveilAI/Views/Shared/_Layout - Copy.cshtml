@@ -1,0 +1,498 @@
+﻿
+@{
+    if (Session["UserID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    else
+    {
+        SurveilAI.Models.User obj = new SurveilAI.Models.User();
+        obj.updLastAct(Session["UserID"].ToString());
+    }
+    List<object> data = new List<object>();
+    data = Session["UserRole"] as List<object>;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMS | @ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Content/tab icon.ico" type="image/ico" />
+    <!-- ================== GOOGLE FONTS ==================-->
+    @*<link href="~/assets/css/vendor/fontsss.css" rel="stylesheet" />*@
+    <!-- ======================= GLOBAL VENDOR STYLES ========================-->
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="~/assets/css/CustomStyleSheet.css">
+    <link rel="stylesheet" href="~/assets/vendor/metismenu/dist/metisMenu.css">
+    <link rel="stylesheet" href="~/assets/vendor/switchery-npm/index.css">
+    <!-- ======================= LINE AWESOME ICONS ===========================-->
+    @*<link rel="stylesheet" href="~/assets/css/icons/line-awesome.min.css">*@
+    <!-- ======================= DRIP ICONS ===================================-->
+    <link rel="stylesheet" href="~/assets/css/icons/dripicons.min.css">
+    <!-- ======================= MATERIAL DESIGN ICONIC FONTS =================-->
+    <link rel="stylesheet" href="~/assets/css/icons/material-design-iconic-font.min.css">
+    <!-- ======================= PAGE VENDOR STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/vendor/jvectormap-next/jquery-jvectormap.css">
+    <!-- ======================= PAGE LEVEL VENDOR STYLES ============================-->
+    <link rel="stylesheet" href="~/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <!-- ======================= GLOBAL COMMON STYLES ============================-->
+    <link rel="stylesheet" href="~/assets/css/common/main.bundle.css">
+    <!-- ======================= LAYOUT STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/core/main.css">
+    <!-- ======================= MENU TYPE ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/menu-type/auto-hide.css">
+    <!-- ======================= THEME COLOR STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/themes/theme-j.css">
+    <link href="~/assets/css/vendor/jquery.treefilter.css" rel="stylesheet" />
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.3.1.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+
+    @RenderSection("head_scripts", required: false)
+    @RenderSection("head_scripts2", required: false)
+    <style>
+
+        .main-menu-container {
+            background: linear-gradient(#141e30, #123547);
+        }
+        /*.dropdown-div li {
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border:none;
+        }*/
+
+
+
+        .StyleTypeList {
+            /*border-bottom-width: thin;*/
+            border-top-width: thin;
+            border-top-style: groove;
+            /*border-bottom-color: #5c8727;*/
+        }
+
+
+
+        .stepwizard-step p {
+            margin-top: 0px;
+            color: #666;
+        }
+
+        .stepwizard-row {
+            display: table-row;
+        }
+
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+
+        .stepwizard-step button[disabled] {
+            /*opacity: 1 !important;
+        filter: alpha(opacity=100) !important;*/
+        }
+
+        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+            opacity: 1 !important;
+            color: #bbb;
+        }
+
+        .stepwizard-row:before {
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            z-index: 0;
+        }
+
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px !important;
+            text-align: center !important;
+            padding: 6px 0 !important;
+            font-size: 12px !important;
+            line-height: 1.428571429;
+            border-radius: 15px !important;
+        }
+    </style>
+</head>
+
+@*<body class="menu-auto-hide" onbeforeunload="doUnload()" onmousedown="somefunction()">*@
+<body>
+    <!-- START APP WRAPPER -->
+    <div id="app">
+        <!-- START TOP HEADER WRAPPER -->
+        <div class="header-wrapper" style="height:fit-content">
+            <!--<div class="header-top">
+                <!-- START MOBILE MENU TRIGGER -->
+                <!--<ul class="mobile-only navbar-nav nav-left">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" data-bs-toggle-state="aside-left-open">
+                            <i class="icon dripicons-align-left"></i>
+                        </a>
+                    </li>
+                </ul>-->
+                <!-- END MOBILE MENU TRIGGER -->
+                <!--<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-2">
+                            <ul class="site-logo">
+                                <li>-->
+                                    <!-- START LOGO -->
+                                    <!--@*<a href="Javascript:void(0)">
+                                        <div class="logo" style="top:12px !important;">
+                                            <img class="img-responsive" src="~/Content/Innomatelogo.png" style="max-width:100px" />
+
+
+                                        </div>
+                                    </a>*@-->
+                                    <!-- END LOGO -->
+                                <!--</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- START MOBILE TOOLBAR TRIGGER -->
+                <!--<ul class="mobile-only navbar-nav nav-right">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" data-bs-toggle-state="mobile-topbar-toggle">
+                            <i class="icon dripicons-dots-3 rotate-90"></i>
+                        </a>
+                    </li>
+                </ul>-->
+                <!-- END MOBILE TOOLBAR TRIGGER -->
+            <!--</div>-->
+            <!-- START HEADER BOTTOM -->
+            <div class="header-bottom fixed">
+                <div class="container-fluid main-menu-container">
+                    <!-- START MAIN MENU -->
+                    <div class="main-menu" style="display:flex; flex-direction:row; justify-content:space-between">
+                        <a href="Javascript:void(0)">
+                            <div class="logo" style="top:12px !important;">
+                                <img class="img-responsive" src="~/Content/ali-logo.png" style="max-width:180px" />
+
+
+                            </div>
+                        </a>
+
+                        <ul class="nav metismenu" style="width:fit-content">
+                            @{
+
+
+                                
+                                if (data.Contains("37"))
+                                {
+                                    <li>
+                                        <a class="" href="@Url.Action("Event", "Event")" aria-expanded="false"><i class="icon dripicons-device-desktop"></i><span class="hide-menu">Monitoring</span></a>
+                                    </li>
+                                }
+
+
+
+
+
+                                if (data.Contains("3") || data.Contains("4") || data.Contains("8"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-user-id"></i><span class="hide-menu">User Options</span></a>
+                                        <ul aria-expanded="false" class="collapse" style="background-color: #499da8">
+                                            @if (data.Contains("4"))
+                                            {
+                                                <li><a href="@Url.Action("Index","User")" style="color:black">User</a></li>
+                                            }
+                                            @if (data.Contains("8"))
+                                            {
+                                                <li><a href="@Url.Action("AccRole","User")" style="color:black">Account Roles</a></li>
+                                            }
+                                            @if (data.Contains("58"))
+                                            {
+                                                <li><a href="@Url.Action("Index","Contact")" style="color:black;">Contact</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+
+
+
+                                if (data.Contains("12") || data.Contains("13") || data.Contains("18") || data.Contains("20"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-view-thumb"></i><span class="hide-menu">Device Options</span></a>
+                                        <ul aria-expanded="false" class="collapse" style="background-color: #499da8">
+                                            @if (data.Contains("13"))
+                                            {
+                                                <li><a href="@Url.Action("Device", "Device")" style="color:black;">Devices</a></li>
+                                            }
+                                            @if (data.Contains("18"))
+                                            {
+                                                <li><a href="@Url.Action("DevAssign", "Device")" style="color:black;">Device Assign</a></li>
+                                            }
+                                            @if (data.Contains("20"))
+                                            {
+                                                <li><a href="@Url.Action("Hierarchy", "Device")" style="color:black;">Hierarchy</a></li>
+                                            }
+                                            @if (data.Contains("24"))
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Index", "Deletion")" aria-expanded="false" style="color:black;"><span class="hide-menu">Folder Deletion</span></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+
+
+
+
+
+
+                                if (data.Contains("153"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-blog"></i><span class="hide-menu">Audit</span></a>
+                                        <ul aria-expanded="false" class="collapse" style="background-color: #499da8">
+
+                                            @if (data.Contains("154"))
+                                            {
+                                                <li><a href="@Url.Action("Agents", "Audit")" style="color:black;">Agents</a></li>
+                                            }@if (data.Contains("155"))
+                                            {
+                                                <li><a href="@Url.Action("Users", "Audit")" style="color:black;">Users</a></li>
+                                            }@if (data.Contains("156"))
+                                            {
+                                                <li><a href="@Url.Action("Index","Audit")" style="color:black;">Server Journal</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                            }
+
+
+
+                        </ul>
+
+                        <ul class="nav metismenu">
+                            <li class="nav-item dropdown dropdown-menu-lg" style="position:relative; bottom:11px; float:right; justify-self:end">
+                                <a class="nav-link nav-pill user-avatar" data-bs-toggle="dropdown" href="dashboard.analytics.html#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="~/Content/usr_img.png" class="w-40 rounded-circle" alt="User Pic">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-accout" style="background-color: #499da8">
+                                    <div class="dropdown-header pb-3">
+                                        <div class="media d-user">
+                                            <img class="align-self-center mr-3 w-40 rounded-circle" src="~/Content/usr_img.png" alt="User Pic">
+                                            <div class="media-body" style="margin-left:5px;">
+                                                @if (Session["UserID"] != null)
+                                                {
+                                                    <h5 class="mt-0 mb-0" style="color:black">@Session["UserID"].ToString() </h5>
+                                                }
+                                                @if (Session["Role"] != null)
+                                                {
+                                                    <span>@Session["Role"].ToString() </span>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    @if (Session["LDAP"].ToString() != "true")
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("PasswordChange","Login")" style="padding-left:5px; color:black"><i class="icon dripicons-lock" style="color:black"></i> Change Password</a>
+                                    }
+                                    <a class="dropdown-item" href="@Url.Action("UserDashBoard","User")" style="padding-left:5px; color:black"><i class="icon dripicons-user-group" style="color:black"></i> User Dashboard</a>
+                                    @if (data.Contains("57"))
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("StateRepresentation", "Customize")" style="padding-left:5px; color:black"><i class="icon dripicons-gear" style="color:black"></i> Customize</a>
+                                    }
+                                    <a class="dropdown-item" href="@Url.Action("Index", "License")" style="padding-left:5px; color:black"><i class="icon dripicons-gear" style="color:black"></i> License</a>
+                                    <a class="dropdown-item" href="@Url.Action("LogOut","Login")" style="padding-left:5px; color:black"><i class="icon dripicons-lock" style="color:black"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                    </div>
+                    <!-- END MAIN MENU -->
+
+                    
+                </div>
+            </div>
+            <!-- END HEADER BOTTOM -->
+        </div>
+        <!-- END TOP HEADER WRAPPER -->
+        <div id="loading" class="preloader pl-xl pls-primary">
+            <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+                <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+            </svg>
+        </div>
+        @RenderBody()
+    </div>
+
+
+    @*<script src="https://cdn.tailwindcss.com"></script>*@
+
+
+
+
+
+    <!-- ================== GLOBAL VENDOR SCRIPTS ==================-->
+    <script src="~/assets/vendor/modernizr/modernizr.custom.js"></script>
+    <script src="~/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/js-storage/js.storage.js"></script>
+    <script src="~/assets/vendor/js-cookie/src/js.cookie.js"></script>
+    <script src="~/assets/vendor/pace/pace.js"></script>
+    <script src="~/assets/vendor/metismenu/dist/metisMenu.js"></script>
+    <script src="~/assets/vendor/switchery-npm/index.js"></script>
+    <script src="~/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- ================== PAGE LEVEL VENDOR SCRIPTS ==================-->
+    <script src="~/assets/vendor/countup.js/dist/countUp.min.js"></script>
+    <script src="~/assets/vendor/jvectormap-next/jquery-jvectormap.min.js"></script>
+    <script src="~/assets/vendor/jvectormap-next/jquery-jvectormap-world-mill.js"></script>
+    @*<script src="~/assets/vendor/chartist/dist/chartist.js"></script>*@
+    <script src="~/assets/vendor/flot/jquery.flot.js"></script>
+    <script src="~/assets/vendor/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="~/assets/vendor/flot/jquery.flot.resize.js"></script>
+    <script src="~/assets/vendor/flot/jquery.flot.time.js"></script>
+    <script src="~/assets/vendor/flot.curvedlines/curvedLines.js"></script>
+    <script src="~/assets/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/assets/js/components/jquery-mask-init.js"></script>
+    <script src="~/assets/vendor/jquery-mask/jquery.mask.min.js"></script>
+    <!-- ================== GLOBAL APP SCRIPTS ==================-->
+    <script src="~/assets/js/global/app.js"></script>
+    <!-- ================== PAGE LEVEL SCRIPTS ==================-->
+    @*<script src="~/assets/js/cards/sessions-by-location.js"></script>*@
+    <script src="~/assets/js/components/countUp-init.js"></script>
+    @*<script src="~/assets/js/cards/total-visits-chart.js"></script>
+        <script src="~/assets/js/cards/total-unique-visits-chart.js"></script>
+        <script src="~/assets/js/cards/bar-chart-line-three.js"></script>
+        <script src="~/assets/js/cards/traffic-sources.js"></script>*@
+    <!-- ================== PAGE LEVEL COMPONENT SCRIPTS ==================-->
+    <script src="~/assets/js/components/datatables-init.js"></script>
+    <!-- ================== PAGE LEVEL VENDOR SCRIPTS ==================-->
+    <script src="~/assets/vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="~/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="~/assets/js/components/bootstrap-datepicker-init.js"></script>
+    @*<script src="~/assets/js/components/bootstrap-date-range-picker-init.js"></script>*@
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#newPassword2").keyup(function () {
+                if ($('#newPassword2').val() == "" && $('#newPassword').val() == "") {
+                    $('#newPassword2').css('border-color', '#dfe7f3');
+                    $('#newPassword').css('border-color', '#dfe7f3');
+                }
+                else if ($('#newPassword2').val() == $('#newPassword').val()) {
+                    $('#newPassword2').css('border-color', 'green');
+                    $('#newPassword').css('border-color', 'green');
+                } else if ($('#newPassword').val() != $('#newPassword2').val()) {
+                    $('#newPassword2').css('border-color', 'red');
+                    $('#newPassword2').css('border-color', 'red');
+                }
+            });
+            $("#newPassword").keyup(function () {
+                if ($('#newPassword').val() == "" && $('#newPassword2').val() == "") {
+                    $('#newPassword2').css('border-color', '#dfe7f3');
+                    $('#newPassword').css('border-color', '#dfe7f3');
+                }
+                else if ($('#newPassword2').val() == $('#newPassword').val()) {
+                    $('#newPassword2').css('border-color', 'green');
+                    $('#newPassword').css('border-color', 'green');
+                } else if ($('#newPassword').val() != $('#p2').val()) {
+                    $('#newPassword2').css('border-color', 'red');
+                    $('#newPassword').css('border-color', 'red');
+                }
+            });
+            $(".validation").click(function () {
+                return confirm("Are You Sure You Want To Delete ?");
+            });
+
+
+            $('#Check').change(function () {
+                $("#DF").prop("disabled", !this.checked);
+                $("#DT").prop("disabled", !this.checked);
+            });
+
+
+
+
+
+            $('.counter').each(function () {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+                $({ countNum: $this.text() }).animate({
+                    countNum: countTo
+                },
+
+                    {
+
+                        duration: 1000,
+                        easing: 'linear',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        }
+
+                    });
+            });
+
+
+            $(".frm").click(function () {
+                var id = $(this).children("span").text();
+                $("#DeviceID").text(id);
+                $("#DeviceID").val(id);
+            });
+
+        });
+
+            function toggle(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+
+
+
+        function loggy() {
+            window.location.href = '@Url.Action("LogOut" , "Login")'
+        }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.treefilter.js"></script>
+
+</body>
+</html>
+<script>$('#loading').hide();</script>

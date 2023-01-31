@@ -1,0 +1,970 @@
+﻿@model SurveilAI.Models.message0001
+@{
+    ViewBag.Title = "EventConfiguration";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<style>
+
+    .highlight {
+        background-color: #f0f6ff;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <center id="Finalimg">
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-document-edit"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Event Configuration</a></li>
+
+
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="page-content" id="myData">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="card">
+                        <h5 class="card-header">
+
+                            Events
+                            <span style="float:right">
+                                @if (UserRights.Contains("145"))
+                                {<button type="button" style="    background: none;border: none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <span class="icon dripicons-plus"></span>
+                                    </button>
+                                }
+                                @*<button data-bs-toggle="modal" data-bs-target="#exampleModal" id="cross" onclick="" style="float: right;border-style: none;background: none;"></button>*@
+                                @if (UserRights.Contains("147"))
+                                {<button id="Delcross" ondblclick="" style="float: right;border-style: none;background: none;" data-bs-toggle="modal" data-bs-target="#DeleteModal" disabled>
+                                        <span class="icon dripicons-trash"></span>
+                                    </button>
+                                }
+
+
+                            </span>
+                        </h5>
+                        <div class="card-body">
+                            <div class="sidebar-content ">
+                                <input type="text" placeholder="Search" class="form-control" id="myInput">
+                                <nav class="main-menu" id="myDIV" style="padding-top:10%;">
+                                    <div class="row">
+                                        <div class="table-responsive max-h-500">
+                                            <table id="myTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th><b>Event No</b></th>
+                                                        <th><b>Event Message</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="EvtTable">
+                                                    @foreach (var item in Model.Data)
+                                                    {
+                                                        <tr id="my-tree" style="cursor:pointer">
+                                                            <td id="EvtNum">@item.Item1</td>
+                                                            <td id="EvtText">@item.Item2</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <small style="font-size:100% !important;color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                    <div class="card" id="EventDetails" style="display:none">
+                        <h5 class="card-header">
+                            Event Configuration - General Information
+                            <button id="cross" onclick="EnableEdit(this.id)" style="float: right;border-style: none;background: none;">
+                                <span class="icon dripicons-cross"></span>
+                            </button>
+
+                            <button type="submit" id="Btnsbt" name="submitButton" form="MyForm" value="UpdateEvent" style="display:none; float: right;border-style: none;background: none;">
+                                <span class="icon dripicons-checkmark">
+                                </span>
+                            </button>
+                            @if (UserRights.Contains("146"))
+                            {<button id="edit" onclick="EnableEdit(this.id)" style="float: right;border-style: none;background: none;">
+                                    <span class="icon dripicons-document-edit">
+                                    </span>
+                                </button>
+                            }
+                        </h5>
+                        <div class="card-body">
+                            <ul class="nav nav-pills nav-pills-primary mb-3" id="pills-demo-1" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active show" id="pills-1-tab" data-bs-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="false">Definition</a>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent-1">
+                                <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+                                    <form id="MyForm" action="EventSubmitForm" method="post">
+                                        <div class="row">
+                                            <input hidden type="text" class="form-control" id="SetBitMask" name="SetBitMask">
+                                            <input hidden type="text" class="form-control" id="ResetBitMask" name="ResetBitMask">
+                                            <div class="col-md-6 form-group">
+                                                <label>Event No</label>
+                                                @Html.TextBox("eventno", "", new { @readonly = "readonly", autocomplete = "off", placeholder = "", @class = "form-control BlockSpecialSS" })
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label>Event Text</label>
+                                                @Html.TextBox("EventText", null, new { @readonly = "readonly", autocomplete = "off", placeholder = "", @class = "form-control BlockSpecialSS" })
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="EventGroup">Event group</label>
+                                            @Html.DropDownList("eventgroupid", new List<SelectListItem>
+                                            { new SelectListItem { Text = "OSG", Value = "80000000", Selected=true},
+                                            new SelectListItem { Text = "Video Card", Value = "90000000"},
+                                            new SelectListItem { Text = "Terminal Security", Value = "80000001"}
+                                               }, "Select Event Group", new { @class = "form-select select-c" })
+                                        </div>
+                                        <hr class="dashed" />
+                                        <div>
+                                            <strong>Further Processing</strong>
+                                            <div class="mb-3">
+                                                <label for="DbTarget">Database Target</label>
+                                                @Html.DropDownList("target", new List<SelectListItem>
+                                             { new SelectListItem { Text = "specified by agent(default)", Value = "0", Selected=true},
+                                             new SelectListItem { Text = "event table", Value = "1"},
+                                             new SelectListItem { Text = "extraevent table", Value = "2"},
+                                             new SelectListItem { Text = "no target", Value = "3"}
+                                                }, "Database Target", new { @class = "form-select select-c" })
+                                            </div>
+                                            <div class="row">
+                                                <div class="custom-control custom-checkbox custom-control-inline col-6">
+                                                    @Html.CheckBox("forwarddesktop", false, new { @class = "custom-control-input" })
+                                                    <label class="custom-control-label" for="forwarddesktop">Redirect to console</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox custom-control-inline col-6" style="float:right">
+                                                    @Html.CheckBox("forwardrule", false, new { @class = "custom-control-input" })
+                                                    <label class="custom-control-label" for="forwardrule">Redirect to rule management</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr class="dashed" />
+                                        <div class="mb-3">
+                                            <strong>Confidential</strong>
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-3 col-sm-3">
+                                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                                            @Html.CheckBox("confidential", false, new { @class = "custom-control-input" })
+                                                            <label class="custom-control-label" for="confidential">Confidential</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class="row">
+                                                            <div class="col"></div>
+                                                            <div class="form-check form-check-inline col">
+                                                                @Html.RadioButton("masktype", 0, new { disabled = "disabled", id = "TR", @class = "custom-control-input form-check-input" })
+                                                                <label class="custom-control-label form-check-label" for="TR">Text Range</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline col">
+                                                                @Html.RadioButton("masktype", 1, new { disabled = "disabled", id = "RE", @class = "custom-control-input form-check-input" })
+                                                                <label class="custom-control-label form-check-label" for="RE">Regular Expression</label>
+                                                            </div>
+
+
+
+                                                            @*<div class="custom-control custom-radio form-check custom-control-inline col-md-6col-sm-4 col-lg-8 text-end">
+
+                                                                </div>
+                                                                <div class="custom-control custom-radio form-check custom-control-inline col-md-6 col-sm-8 col-lg-4 text-end">
+
+                                                                </div>*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div>
+                                                    <label>Expression Number</label>
+
+                                                    @Html.TextBox("confidentialmask", "", new { @readonly = "readonly", autocomplete = "off", placeholder = "", @class = "form-control" })
+                                                    <small id="RangeMask" style="color:red !important;  display:none" class="form-text text-muted">[position,length]</small>
+                                                    <small id="RegexMask" style="color:red !important;  display:none" class="form-text text-muted">Regex i.e [0-9]</small>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="dashed" />
+                                        <div class="row">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Device State</h5>
+                                                <table class="table table-striped  table-responsive">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Set</th>
+                                                            <th>Reset</th>
+                                                            <th>State</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var x in Model.state)
+                                                        {
+                                                            <tr>
+                                                                <td style="min-width:100px;">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input onclick="SBFevents(); Fevents();" name="SetCheck" type="checkbox" class="custom-control-input Coff" id="S-@x.Bit" value="S-@x.Bit" />
+                                                                        <label class="custom-control-label" for="S-@x.Bit"></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="min-width:100px;">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input onclick="RBFevents(); Fevents();" name="ResetCheck" type="checkbox" class="custom-control-input Coff" id="R-@x.Bit" value="R-@x.Bit" />
+                                                                        <label class="custom-control-label" for="R-@x.Bit"></label>
+
+                                                                    </div>
+                                                                </td>
+                                                                <td style="min-width:100px;">
+                                                                    @{ var col = x.Color.Split(' '); var color = "rgb(" + col[0] + "," + col[1] + "," + col[2] + ")"; }
+                                                                    <div id="col" style="height:20px; width:20px; border:1px solid black; background-color:@color;"></div>
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(item => x.Messagetext)
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <hr class="dashed" />
+                                        <div class="row">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Component State</h5>
+                                                <div class="mb-3">
+
+                                                    <div class="row">
+                                                        <div class="form-check form-check-inline col">
+                                                            @Html.RadioButton("Components", 0, new { disabled = "disabled", id = "NC", @class = "custom-control-input form-check-input" })
+                                                            <label class="custom-control-label" for="NC">No Component</label>
+                                                        </div>
+
+                                                        <div class="form-check form-check-inline col">
+                                                            @Html.RadioButton("Components", 1, new { disabled = "disabled", id = "OC", @class = "custom-control-input form-check-input" })
+                                                            <label class="custom-control-label" for="OC">Other Component</label>
+                                                        </div>
+
+                                                        <div class="form-check form-check-inline col">
+                                                            @Html.RadioButton("Components", 2, new { disabled = "disabled", id = "ACR", @class = "custom-control-input form-check-input" })
+                                                            <label class="custom-control-label" for="ACR">Reset All Component</label>
+                                                        </div>
+                                                        <div class="col-md-6"></div>
+                                                    </div>
+
+
+                                                    @*<div class="custom-control custom-radio form-check custom-control-inline">
+
+                                                        </div>
+                                                        <div class="custom-control custom-radio form-check custom-control-inline">
+
+                                                        </div>
+                                                        <div class="custom-control custom-radio form-check custom-control-inline">
+
+                                                        </div>*@
+                                                    @*@Html.CheckBox("ResetAllComponents", false, new { @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="ResetAllComponents">Reset all components state</label>*@
+                                                </div>
+                                                <div class="row" id="ComponentDiv" style="display:none">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label for="">Component Select</label>
+                                                        <select name="SelectedComponent" id="ComponentSelect" class="form-select select-c">
+                                                            <option value="0" selected="selected"></option>
+                                                            @foreach (var item in Model.eventComponents)
+                                                            {
+                                                                <option value="@item.textno">@item.messagetext</option>
+
+                                                            }
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="col-md-6" style="min-width:100px;">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="" style="height:20px; width:20px; border:1px solid black; background-color:white;"></div>
+                                                                <div class="row" style="margin-top:20px">
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="Cevents()" id="W-1" name="CompSetCheck" type="checkbox" class="custom-control-input Coff" value="1" />
+                                                                        <label class="custom-control-label" for="W-1"></label>
+                                                                    </div>
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="CRSevents()" id="W-2" name="CompReSetCheck" type="checkbox" class="custom-control-input Coff" value="1" />
+                                                                        <label class="custom-control-label" for="W-2"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="" style="height:20px; width:20px; border:1px solid black; background-color:red;"></div>
+                                                                <div class="row" style="margin-top:20px">
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="Cevents()" id="CR-1" name="CompSetCheck" type="checkbox" class="custom-control-input Coff" value="2" \ />
+                                                                        <label class="custom-control-label" for="CR-1"></label>
+                                                                    </div>
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="CRSevents()" id="CR-2" name="CompReSetCheck" type="checkbox" class="custom-control-input Coff" value="2" />
+                                                                        <label class="custom-control-label" for="CR-2"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="" style="height:20px; width:20px; border:1px solid black; background-color:green;"></div>
+                                                                <div class="row" style="margin-top:20px">
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="Cevents()" id="Y-1" name="CompSetCheck" type="checkbox" class="custom-control-input Coff" value="4" />
+                                                                        <label class="custom-control-label" for="Y-1"></label>
+                                                                    </div>
+                                                                    <div class="col-md-6 custom-control custom-checkbox">
+                                                                        <input onclick="CRSevents()" id="Y-2" name="CompReSetCheck" type="checkbox" class="custom-control-input Coff" value="4" />
+                                                                        <label class="custom-control-label" for="Y-2"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to delete event ?
+                    <form id="DeleteForm" action="DeleteEvent" method="post">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Event No</label>
+                                @Html.TextBox("Deleventno", "", new { autocomplete = "off", placeholder = "", @class = "form-control", maxlength = "18", @readonly = "true" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Event Text</label>
+                                @Html.TextBox("DelEventText", null, new { autocomplete = "off", placeholder = "", @class = "form-control", @readonly = "true" })
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" form="DeleteForm" name="submitButton" value="Delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="MyForm2" action="EventSubmitForm" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-6 form-group">
+                                <label>Event No</label>
+                                @Html.TextBox("Neweventno", "", new { autocomplete = "off", placeholder = "", @class = "form-control BlockSpecialSS", maxlength = "9", required = "required" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Event Text</label>
+                                @Html.TextBox("NewEventText", null, new { autocomplete = "off", placeholder = "", @class = "form-control BlockSpecialSS", maxlength = "80", required = "required" })
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="EventGroup">Event group</label>
+                            @Html.DropDownList("Neweventgroupid", new List<SelectListItem>
+                            { new SelectListItem { Text = "", Value = "0", Selected=true},
+                             new SelectListItem { Text = "OSG", Value = "80000000"},
+                            new SelectListItem { Text = "Video Card", Value = "90000000"},
+                            new SelectListItem { Text = "Terminal Security", Value = "80000001"}
+                               }, "Select Event Group", new { @class = "form-select select-c", required = "required" })
+                        </div>
+                        <hr class="dashed" />
+                        <div class="row">
+                            <strong>Further Processing</strong>
+                            <div class="mb-3">
+                                <label for="DbTarget">Database Target</label>
+                                @Html.DropDownList("Newtarget", new List<SelectListItem>
+                             { new SelectListItem { Text = "specified by agent(default)", Value = "0", Selected=true},
+                             new SelectListItem { Text = "event table", Value = "1"},
+                             new SelectListItem { Text = "extraevent table", Value = "2"},
+                             new SelectListItem { Text = "no target", Value = "3"}
+                                }, "Database Target", new { @class = "form-select select-c", required = "required" })
+                            </div>
+                            <div class="row">
+                                <div class="custom-control custom-checkbox custom-control-inline col-6">
+                                    @Html.CheckBox("Newforwarddesktop1", true, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="Newforwarddesktop1">Redirect to console</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline col-6" style="float:right">
+                                    @Html.CheckBox("Newforwardrule1", false, new { @class = "custom-control-input", })
+                                    <label class="custom-control-label" for="Newforwardrule1">Redirect to rule management</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                    <button type="submit" class="btn btn-primary" form="MyForm2" name="submitButton" value="newEvent">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/js/global/CustomValid.js"></script>
+
+<script>
+
+
+
+    function delay(callback, ms) {
+      var timer = 0;
+      return function() {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          callback.apply(context, args);
+        }, ms || 0);
+      };
+    }
+
+    $('#myInput').keyup(function () {
+        var ins = $('#myInput').val();
+        if (ins == "") {
+            myFunction();
+        }
+        else {
+            delay(function (e) {
+                var value = ins.toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            }, 500)
+        }
+
+
+
+    });
+
+    $('#myInput').keyup(delay(function (e) {
+        var ins = $('#myInput').val();
+        var value = ins.toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    }, 500));
+
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        console.log(tr.length);
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            console.log(td)
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+            //td = tr[i].getElementsByTagName("td")[1];
+            //if (td) {
+            //    txtValue = td.textContent || td.innerText;
+            //    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            //        tr[i].style.display = "";
+            //    } else {
+            //        tr[i].style.display = "none";
+            //    }
+            //}
+        }
+
+    }
+
+    $(document).ready(function () {
+        //$('#myTable').DataTable( {
+        //    "paging":   false,
+        //    "ordering": false,
+        //    "info":     false
+        //});
+        $('#MyForm input').attr('disabled', 'true');
+        $('#MyForm select').attr('disabled', 'true');
+    });
+
+
+    $('#confidentialmask').unbind('change keyup paste mouseup').bind('change keyup paste mouseup', function () {
+
+        if (document.getElementById('TR').checked) {
+            $('#RangeMask').css({ "display": "block" })
+            $('#RegexMask').css({ "display": "none" })
+        }
+        else if (document.getElementById('RE').checked) {
+            $('#RangeMask').css({ "display": "none" })
+            $('#RegexMask').css({ "display": "block" })
+
+        }
+
+    });
+    $('#Neweventno').unbind('change keyup paste mouseup').bind('change keyup paste mouseup', function () {
+
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+
+    function EnableEdit(clicked_id) {
+        if (clicked_id == 'edit') {
+            $('#Btnsbt').css({ "display": "block" });
+            $('#edit').css({ "display": "none" });
+            $('#MyForm input').attr('disabled', false);
+            $('#MyForm select').attr('disabled', false);
+            if ($('#confidential').prop("checked") == true) {
+                document.getElementById("TR").disabled = false;
+                document.getElementById("RE").disabled = false;
+                $('#confidentialmask').removeAttr('readonly');
+            }
+            else {
+
+                document.getElementById("TR").disabled = true;
+                document.getElementById("RE").disabled = true;
+            }
+
+
+        }
+        else if (clicked_id == 'cross') {
+            $('#Btnsbt').css({ "display": "none" });
+            $('#edit').css({ "display": "block" });
+            $('#MyForm input').attr('disabled', true);
+            $('#MyForm select').attr('disabled', true);
+            document.getElementById("TR").disabled = true;
+            document.getElementById("RE").disabled = true;
+            $("#EventDetails").css("display", "none");
+        }
+    }
+
+    function Fevents(i, j) {
+        $("#ResetBitMask").val("0");
+        $("#SetBitMask").val("0");
+            var SetBit = 0;
+            var ReSetBit = 0;
+            $.each($("input[name='SetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var reset = i.replace(/S/, 'R')
+            reset = reset.replace(/R-/, '');
+            for (i = 0; i < (reset - 1); i++) {
+                count *= 2;
+            }
+            SetBit += count;
+
+                $('#SetBitMask').val(SetBit);
+        });
+            $.each($("input[name='ResetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var setreset = i.replace(/R/, 'S')
+            setreset = setreset.replace(/S-/, '');
+            for (i = 0; i < (setreset - 1); i++) {
+                count *= 2;
+            }
+            ReSetBit += count;
+                $('#ResetBitMask').val(ReSetBit);
+
+        });
+    }
+
+    function SBFevents() {
+        $.each($("input[name='SetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var reset = i.replace(/S/, 'R')
+            document.getElementById(reset).checked = false;
+
+        });
+    }
+
+    function RBFevents() {
+        $.each($("input[name='ResetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var setreset = i.replace(/R/, 'S')
+            document.getElementById(setreset).checked = false;
+        });
+    }
+
+
+
+
+    $("input[name=Components]").click(function () {
+
+        var radioValue = $("input[name='Components']:checked").val();
+        if (radioValue == 0) {
+            $('#ComponentDiv').css({ "display": "none" });
+            $("input[name='CompSetCheck']:checkbox").prop('checked', false);
+            $("input[name='CompReSetCheck']:checkbox").prop('checked', false);
+            document.getElementById("ComponentSelect").selectedIndex = "0";
+
+
+            $('#W-1').removeAttr('required')
+            $('#W-2').removeAttr('required')
+            $('#CR-1').removeAttr('required')
+            $('#CR-2').removeAttr('required')
+            $('#Y-1').removeAttr('required')
+            $('#Y-2').removeAttr('required')
+            $('#ComponentSelect').removeAttr('required')
+        }
+        else if (radioValue == 1) {
+            $('#ComponentDiv').css({ "display": "Inline-flex" });
+            //$('#W-1').attr('required', 'true');
+            //$('#W-2').attr('required', 'true');
+            //$('#CR-1').attr('required', 'true');
+            //$('#CR-2').attr('required', 'true');
+            //$('#Y-1').attr('required', 'true');
+            //$('#Y-2').attr('required', 'true');
+            $('#ComponentSelect').attr('required', 'true');
+        }else if (radioValue == 2) {
+            $('#ComponentDiv').css({ "display": "none" });
+            $("input[name='CompSetCheck']:checkbox").prop('checked', false);
+            $("input[name='CompReSetCheck']:checkbox").prop('checked', false);
+            document.getElementById("ComponentSelect").selectedIndex = "0";
+            $('#W-1').removeAttr('required')
+            $('#W-2').removeAttr('required')
+            $('#CR-1').removeAttr('required')
+            $('#CR-2').removeAttr('required')
+            $('#Y-1').removeAttr('required')
+            $('#Y-2').removeAttr('required')
+            $('#ComponentSelect').removeAttr('required')
+        }
+    });
+
+    function Cevents() {
+
+        $.each($("input[name='CompSetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var id = $(this).attr('id');
+            document.getElementById(id).required = true;
+
+            if (id.charAt(id.length - 1) == 1) {
+                var reset = id.replace(/1/, '2');
+                document.getElementById(reset).checked = false;
+                document.getElementById(reset).required = false;
+            }
+        });
+
+    }
+
+    function CRSevents() {
+
+        $.each($("input[name='CompReSetCheck']:checked"), function () {
+            var count = 1;
+            var i = $(this).val();
+            var id = $(this).attr('id');
+            document.getElementById(id).required = true;
+            if (id.charAt(id.length - 1) == 2) {
+                var reset = id.replace(/2/, '1');
+                document.getElementById(reset).checked = false;
+                document.getElementById(reset).required = false;
+            }
+        });
+    }
+
+
+
+    $('#EvtTable tr').click(function () {
+
+        $('#MyForm').trigger("reset");
+
+
+        $("#EventDetails").css("display", "block");
+        $("#Delcross").attr("disabled", false);
+        $("#EvtTable tr").removeClass("highlight");
+        var selected = $(this).hasClass("highlight");
+
+        if (!selected) {
+            $(this).addClass("highlight");
+        }
+
+        $("input[name='ResetCheck']").each(function () {
+            this.checked = false;
+        });
+        $("input[name='SetCheck']").each(function () {
+            this.checked = false;
+        });
+        var id = $(this).children("#EvtNum").text();
+        var text = $(this).children("#EvtText").text();
+        $("#eventno").val(id);
+        $("#EventText").val(text);
+        $("#Deleventno").val(id);
+        $("#DelEventText").val(text);
+        setTimeout(function () {
+            GetEvent(id);
+        }, 100);
+
+
+    });
+    function componentBits(bit, flag) {
+
+        var number = 0;
+        if (flag == 'SetBit') {
+            number = "1";
+        }
+        else {
+
+            number = "2";
+        }
+        $('#W-1').removeAttr('required')
+        $('#W-2').removeAttr('required')
+        $('#CR-1').removeAttr('required')
+        $('#CR-2').removeAttr('required')
+        $('#Y-1').removeAttr('required')
+        $('#Y-2').removeAttr('required')
+        switch (bit) {
+            case 0:
+                $("#Component"+ flag).attr("value", bit);
+                break;
+            case 1:
+                $("#W-"+number).attr("checked", "true");
+                break;
+            case 2:
+                $("#CR-"+number).attr("checked", "true");
+                break;
+            case 3:
+                $("#W-"+number).attr("checked", "true");
+                $("#CR-"+number).attr("checked", "true");
+                break;
+            case 4:
+                $("#Y-"+number).attr("checked", "true");
+                break;
+            case 5:
+                $("#W-"+number).attr("checked", "true");
+                $("#Y-"+number).attr("checked", "true");
+                break;
+            case 6:
+                $("#CR-"+number).attr("checked", "true");
+                $("#Y-"+number).attr("checked", "true");
+                break;
+            case 7:
+                $("#W-"+number).attr("checked", "true");
+                $("#CR-"+number).attr("checked", "true");
+                $("#Y-"+number).attr("checked", "true");
+                break;
+            default:
+                alert("I don't know such values");
+        }
+    }
+
+    function GetEvent(id) {
+
+        var Did = id
+
+        $.ajax({
+            url: "@Url.Action("EventInformation", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "json",
+            success: function (data) {
+
+                $("#eventgroupid").val(data.Details[0].eventgroupid)
+                $("#target").val(data.Details[0].target)
+                $("#ResetBitMask").val(data.Details[0].unsetbit)
+                $("#SetBitMask").val(data.Details[0].setbit)
+                $("#forwarddesktop").prop('checked', data.Details[0].forwarddesktop);
+                $("#forwardrule").prop('checked', data.Details[0].forwardrule);
+                $("#confidential").prop('checked', data.Details[0].confidential);
+                $("#masktype").prop('checked', data.Details[0].masktype);
+                if (data.Details[0].masktype == '0') { document.getElementById("TR").checked = true; }
+                else if (data.Details[0].masktype == '1') { document.getElementById("RE").checked = true; }
+                $("#confidentialmask").val(data.Details[0].confidentialmask);
+                if (data.Details[0].confidentialmask == "NULL") {
+                    $("#confidentialmask").val("");
+                }
+                else {
+                    $("#confidentialmask").val(data.Details[0].confidentialmask);
+                }
+                $("#DirectToRule").val(data.Details[0].DirectToRule);
+
+                var compid = data.Details[0].componentid;
+                var compsetbit = data.Details[0].compsetbit;
+                var compunsetbit = data.Details[0].compunsetbit;
+
+                $('#W-1').attr('checked', false);
+                $('#W-2').attr('checked', false);
+                $('#CR-1').attr('checked', false);
+                $('#CR-2').attr('checked', false);
+                $('#Y-1').attr('checked', false);
+                $('#Y-2').attr('checked', false);
+
+                if (compid != '0') {
+
+                    $("#ComponentSelect").val(data.Results[0].textno);
+                    $("input[name='Components'][value='1']").prop('checked', true);
+                    $('#ComponentDiv').css({ "display": "Inline-flex" });
+                    $('#W-1').attr('required', 'true');
+                    $('#W-2').attr('required', 'true');
+                    $('#CR-1').attr('required', 'true');
+                    $('#CR-2').attr('required', 'true');
+                    $('#Y-1').attr('required', 'true');
+                    $('#Y-2').attr('required', 'true');
+                    $('#ComponentSelect').attr('required', 'true');
+                    componentBits(compsetbit,"SetBit");
+                    componentBits(compunsetbit, "ResetBit");
+
+
+                }
+                else if (compid == '0' && compunsetbit == '7') {
+                    $("input[name='Components'][value='2']").prop('checked', true);
+
+
+                    $('#ComponentDiv').css({ "display": "none" });
+
+
+                }
+                else {
+                    $('#ComponentDiv').css({ "display": "none" });
+                    $("input[name='CompSetCheck']:checkbox").prop('checked', false);
+                    $("input[name='CompReSetCheck']:checkbox").prop('checked', false);
+                    $("input[name='Components'][value='0']").prop('checked', true);
+
+                    $('#W-1').removeAttr('required')
+                    $('#W-2').removeAttr('required')
+                    $('#CR-1').removeAttr('required')
+                    $('#CR-2').removeAttr('required')
+                    $('#Y-1').removeAttr('required')
+                    $('#Y-2').removeAttr('required')
+                    $('#ComponentSelect').removeAttr('required')
+
+
+                }
+
+
+
+
+                var i = data.Details[0].setbit;
+                var j = data.Details[0].unsetbit;
+                // checkbox for set bit
+                if (i == 0) {
+
+                }
+                else {
+                    var bin = i;
+                    var bit = [];
+                    var f = 0;
+                    while (bin > 0) {
+                        bit[f] = bin % 2;
+                        bin = Math.trunc(bin / 2);
+                        f++;
+                    }
+                    for (var g = 0; g < bit.length; g++) {
+                        if (bit[g] == 1) {
+                            var s = g + 1;
+                            $("#S-" + s).prop('checked', true);
+                        }
+                    }
+                }
+                //Checkbox for Reset bit
+                if (j == 0) {
+
+                }
+                else {
+                    var bin = j;
+                    var bit = [];
+                    var f = 0;
+                    while (bin > 0) {
+                        bit[f] = bin % 2;
+                        bin = Math.trunc(bin / 2);
+                        f++;
+                    }
+                    for (var g = 0; g < bit.length; g++) {
+                        if (bit[g] == 1) {
+                            var s = g + 1;
+                            $("#R-" + s).prop('checked', true);
+                        }
+                    }
+                }
+            },
+            error: function (data) {
+            },
+        })
+    }
+
+    $('#confidential').change(function () {
+        if (this.checked) {
+            document.getElementById("TR").disabled = false;
+            document.getElementById("TR").checked = true;
+            document.getElementById("RE").disabled = false;
+            $('#confidentialmask').removeAttr('readonly');
+        }
+        else {
+            document.getElementById("TR").disabled = true;
+            document.getElementById("TR").checked = false;
+            document.getElementById("RE").disabled = true;
+            document.getElementById("RE").checked = false;
+            $('#confidentialmask').attr('readonly', 'true');
+            $('#confidentialmask').val('');
+        }
+
+    });
+
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+
+    })
+
+
+</script>
+

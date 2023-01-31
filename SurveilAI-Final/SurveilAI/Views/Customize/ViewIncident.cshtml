@@ -1,0 +1,130 @@
+﻿@model SurveilAI.Models.problem
+@{
+    ViewBag.Title = Model.repnumber;
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-device-desktop"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Incident</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="row card container-fluid">
+                @using (Html.BeginForm("UpdateIncident", "Customize", FormMethod.Post, new { auotocomplete = "off" }))
+                {
+                    <h5 class="card-header">Incident - General.</h5>
+                    <div class="row">
+                        <div class="col-md-6 card-body  pb-0">
+                            <div class="mb-3">
+                                <div>
+                                    <label>Incident Number</label>
+                                    @Html.TextBox("repnumber", Model.repnumber, new { @class = "form-control BlockSpecial" })
+                                </div>
+                                <div>
+                                    <label>Owner Account</label>
+                                    @Html.TextBox("owner", Model.owner, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div>
+                                    <label>Resource</label>
+                                    @Html.TextBox("Resource", Model.id, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div>
+                                    <label>Creation Date</label>
+                                    @Html.TextBox("starttime", Model.starttime, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="control-label col-md-3">State</label>
+                                    <div class="col-md-12">
+                                        @{ var x = Model.status;
+                                            var val = "";
+
+                                            if (x == 1)
+                                            {
+                                                val = "open";
+                                            }
+                                            else
+                                            {
+                                                val = "close";
+                                            }
+
+                                            @Html.DropDownList("status", new List<SelectListItem>
+                                                                    { new SelectListItem { Text = "open", Value = "1"},
+                                                                    new SelectListItem { Text = "close", Value = "2"}
+                                                                    }, new { @class = "form-control" })
+                                        }
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Topic</label>
+                                    @Html.TextBox("topic", Model.topic, new { @class = "form-control", disabled = "" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card-body pb-0">
+                            <div class="mb-3">
+                                <div>
+                                    <label>Rule Name</label>
+                                    @Html.TextBox("pmid", Model.pmid, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div>
+                                    <label>Owner User</label>
+                                    @Html.TextBox("owneruser", Model.owneruser, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div>
+                                    <label>Resource Type</label>
+                                    @Html.TextBox("idtype", Model.idtype, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div>
+                                    <label>Closing Date</label>
+                                    @Html.TextBox("endtime", Model.endtime, new { @class = "form-control", disabled = "" })
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="control-label col-md-3">Priority</label>
+                                    <div class="input-group-prepend col-md-12">
+                                        @Html.TextBox("classif", Model.classif, new { type = "number", min = "1", max = "99", step = "1", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ext. Reference</label>
+                                    @Html.TextBox("externalsystem", Model.externalsystem, new { @class = "form-control", disabled = "" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 card-body pt-0">
+                            <div>
+                                <label>Remarks</label>
+                                @Html.TextBox("remark", Model.remark, new { @class = "form-control BlockSpecial", @maxlength = "255" })
+                            </div>
+                        </div>
+                    </div>
+                    <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                    <div class="card-footer bg-light text-right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                    <br />
+                }
+            </div>
+        </section>
+        <script src="~/assets/js/global/CustomValid.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('form').get(0).reset();
+
+            });
+        </script>
+    </div>
+</div>
+
+

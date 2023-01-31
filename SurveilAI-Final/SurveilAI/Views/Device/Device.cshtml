@@ -1,0 +1,363 @@
+﻿@model SurveilAI.Models.Device
+@{
+    ViewBag.Title = "Device";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    SurveilAI.DataContext.TypeCameras typeCameras = new SurveilAI.DataContext.TypeCameras();
+
+
+    UserRights = Session["UserRole"] as List<object>;
+    ViewBag.Channels = 16;
+}
+<style>
+    .frm :hover.selected,
+    .frm :hover {
+        background-color: #dbdae8;
+        cursor: pointer;
+    }
+
+    .frm .selected {
+        background-color: #dbdae8;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        @if (Session["Aadd"].ToString() == "True")
+        {
+            <section class="page-content">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header">Unadded Devices.</h5>
+                            <div class="card-body">
+                                <div class="sidebar-content ">
+                                    <input type="text" placeholder="Search" class="form-control" id="myInput">
+                                    <nav class="main-menu" id="myDIV" style="padding-top:10%; max-height: 600px;    overflow: auto;">
+                                        <ul class="nav metismenu">
+                                            @foreach (var item in Model.DevFolder)
+                                            {
+                                                <li class="nav-dropdown StyleTypeList">
+                                                    <a class="frm" href="javascript:void(0);" aria-expanded="false" style="padding: 2% 8% !important;"><span style="font-weight:bolder; color:#635ebe;">@Html.DisplayFor(modelItem => item)</span></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card">
+                            <h5 class="card-header">Device Management </h5>
+                            <div class="card-body">
+                                <ul class="nav nav-pills nav-pills-primary mb-3" id="pills-demo-1" role="tablist">
+                                    @if (UserRights.Contains("182"))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-4-tab" data-bs-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="true">Device Registration</a>
+                                        </li>
+                                    }
+                                    @if (UserRights.Contains("14"))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-1-tab" data-bs-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="false">Configure Device</a>
+                                        </li>
+                                    }@if (UserRights.Contains("183"))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-3-tab" data-bs-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Add Cameras To NVR/DVR</a>
+                                        </li>
+                                    }@if (UserRights.Contains("15") || UserRights.Contains("16") || UserRights.Contains("17") || UserRights.Contains("134"))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-2-tab" data-bs-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Manage Device</a>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent-1">
+
+                                    @if (UserRights.Contains("182"))
+                                    {<div class="tab-pane fade show active" id="pills-4" role="tabpanel" aria-labelledby="pills-4">
+                                            <h5 class="card-header">Register New Device.</h5>
+                                            <div class="card-body">
+                                                @using (Html.BeginForm("NDVRReg", "Device", FormMethod.Post))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                <div class="mb-3 container-fluid">
+                                                    <div>
+                                                        <label>SELECT DEVICE</label>
+                                                        @Html.DropDownList("NDName", new List<SelectListItem>
+                                                        { new SelectListItem { Text = "Camera", Value = "Camera"},
+                                                        new SelectListItem { Text = "NVR", Value = "NVR"},
+                                                        new SelectListItem { Text = "DVR", Value = "DVR"}
+                                                        }, "--Select Device Type--", new { @class = "form-control" })
+                                                        @Html.ValidationMessage("NDName", "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        <label>DEVICE IP</label>
+                                                        @Html.TextBox("NDip", null, new { placeholder = "Enter DEVICE IP", @class = "form-control BlockSpecialSS" })
+                                                        @Html.ValidationMessage("NDip", "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        <label>DEVICE USERNAME</label>
+                                                        @Html.TextBox("NDusername", null, new { placeholder = "Enter USERNAME", @class = "form-control BlockSpecialSS" })
+                                                        @Html.ValidationMessage("NDusername", "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        <label>DEVICE PASSWORD</label>
+                                                        @Html.Password("NDpassword", null, new { placeholder = "Enter PASSWORD", @class = "form-control " })
+                                                        @Html.ValidationMessage("NDpassword", "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                    @if (TempData["On"] == "1")
+                                                    {
+                                                        <small style="color:red !important;" class="form-text text-muted">@TempData["IPErrorMsg"]</small>
+                                                    }
+                                                    <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                </div>
+                                                    <div class="card-footer bg-light text-center">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+
+
+
+
+
+
+                                    @if (UserRights.Contains("14"))
+                                    {<div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+                                            <h5 class="card-header">Configure Registered Device.</h5>
+                                            <div class="card-body">
+                                                @using (Html.BeginForm("Create", "Device", FormMethod.Post))
+                                                {
+                                                   
+                                                <div class="mb-3 container-fluid">
+                                                    <div>
+                                                        <label>ATM ID</label>
+                                                        @Html.TextBox("DeviceID", null, new { placeholder = "Enter Atm ID", @class = "form-control BlockSpecialSS" })
+                                                        @Html.ValidationMessageFor(m => m.DeviceID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        <label>Branch Name</label>
+                                                        @Html.TextBox("BranchName", null, new { placeholder = "Enter Branch Name", @class = "form-control BlockSpecialSS" })
+                                                        @Html.ValidationMessageFor(m => m.BranchName, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="mb-3 row">
+                                                        <label class="control-label col-md-3">Hierarchy</label>
+                                                        <div class="col-md-12">
+                                                            @Html.DropDownList("HierName", (IEnumerable<SelectListItem>)ViewData["DBHierList"], "--Select Hierarchy--", new { @class = "form-control" })
+                                                            @Html.ValidationMessageFor(m => m.HierName, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <label>Device Type</label>
+                                                        @Html.DropDownList("deviceType", new List<SelectListItem>
+                                                        { new SelectListItem { Text = "Camera", Value = "Camera"},
+                                                        new SelectListItem { Text = "NVR", Value = "NVR"},
+                                                        new SelectListItem { Text = "DVR", Value = "DVR"}
+                                                        }, "--Select Device Type--", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(m => m.DeviceType, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        <div id="camType" style="display:none">
+                                                            <label>Camera Type</label>
+                                                            @Html.DropDownList("CamType", new List<SelectListItem>
+                                                            { new SelectListItem { Text = "ATM", Value = "ATM"},
+                                                            new SelectListItem { Text = "Cashier", Value = "Cashier"},
+                                                            new SelectListItem { Text = "Parking", Value = "Parking"},
+                                                            new SelectListItem { Text = "Security Gate", Value = "SecurityGate"},
+                                                            }, "--Select Camera Type--", new { @class = "form-control" })
+                                                        </div>
+                                                        <div id="nvrChannels">
+                                                            <label>No. Of Channels</label>
+                                                            @Html.DropDownList("LastCardNo", new List<SelectListItem>
+                                                            { new SelectListItem { Text = "1", Value = "1", Selected=true},
+                                                            new SelectListItem { Text = "2", Value = "2"},
+                                                            new SelectListItem { Text = "3", Value = "3"},
+                                                            new SelectListItem { Text = "4", Value = "4"},
+                                                            new SelectListItem { Text = "5", Value = "5"},
+                                                            new SelectListItem { Text = "6", Value = "6"},
+                                                            new SelectListItem { Text = "7", Value = "7"},
+                                                            new SelectListItem { Text = "8", Value = "8"},
+                                                            new SelectListItem { Text = "9", Value = "9"},
+                                                            new SelectListItem { Text = "10", Value = "10"},
+                                                            new SelectListItem { Text = "11", Value = "11"},
+                                                            new SelectListItem { Text = "12", Value = "12"},
+                                                            new SelectListItem { Text = "13", Value = "13"},
+                                                            new SelectListItem { Text = "14", Value = "14"},
+                                                            new SelectListItem { Text = "15", Value = "15"},
+                                                            new SelectListItem { Text = "16", Value = "16"},
+                                                            }, new { @class = "form-control" })
+                                                        </div>
+
+                                                    </div>
+                                                    <div>
+                                                        <label>IP</label>
+                                                        @Html.DropDownList("IP", ViewBag.IP as SelectList, "--Select IP Address--", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(m => m.IP, "", new { @class = "text-danger" })
+
+
+
+                                                    </div>
+
+                                                    @if (TempData["On"] == "1")
+                                                    {
+                                                        <small style="font-size:100% !important; color:red !important;" class="form-text text-muted">@TempData["IPErrorMsg"]</small>
+                                                    }
+                                                    <small style="font-size: 100% !important; color: forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                </div>
+                                                    <div class="card-footer bg-light text-center">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (UserRights.Contains("183"))
+                                    {<div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3">
+
+                                            @Html.Partial("_AddCameras", typeCameras)
+                                        </div>
+                                    }
+                                    @if (UserRights.Contains("15") || UserRights.Contains("16") || UserRights.Contains("17") || UserRights.Contains("134"))
+                                    {<div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2">
+                                            <div style="max-height:750px;overflow:auto">
+                                                <h5 class="card-header">All Configured Devices.</h5>
+                                                <div class="card-body">
+                                                    <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ATM ID</th>
+                                                                <th>Branch Name</th>
+                                                                <th>Hierarchy Level</th>
+                                                                <th>Device Type</th>
+                                                                <th>IP</th>
+                                                                @if (Session["Aupd"].ToString() == "True" || Session["Adel"].ToString() == "True")
+                                                                {
+                                                                    <th>Options</th>
+                                                                }
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.Devicess)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Html.DisplayFor(modelItem => item.DeviceID)</td>
+                                                                    <td>@Html.DisplayFor(modelItem => item.BranchName)</td>
+                                                                    <td>@Html.DisplayFor(modelItem => item.HierLevel)</td>
+                                                                    <td>@Html.DisplayFor(modelItem => item.DeviceType)</td>
+                                                                    <td>@Html.DisplayFor(modelItem => item.IP)</td>
+
+                                                                    <td>
+                                                                        @if (UserRights.Contains("15"))
+                                                                        {@Ajax.ActionLink("Edit", "devEdit", "Device", new { id = item.DeviceID + "/" }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace })}
+
+                                                                        @if (UserRights.Contains("16"))
+                                                                        {<span>|</span>@Ajax.ActionLink("Delete", "devDelete", "Device", new { id = item.DeviceID }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace }, new { @class = "validation" })
+                                                                    }
+
+                                                                        @if (UserRights.Contains("17"))
+                                                                        {<span>|</span>@Ajax.ActionLink("Master Data", "DevBasedata", "Device", new { id = item.DeviceID + "/" }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace })
+                                                                    }
+                                                                    </td>
+
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                </div>
+                <footer class="container-fluid">
+                    <p>&copy; @DateTime.Now.Year - DIGEVOL.AI PVT-LTD</p>
+                </footer>
+            </section>
+        }
+
+
+
+        <script src="~/assets/js/global/CustomValid.js"></script>
+        <script src="~/assets/js/global/CustomValid.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                debugger;
+                @*$('#pills-3').load('@Html.Partial("_AddCameras")')*@;
+                $("#deviceType").change(function () {
+
+                    var getval = $("#deviceType").val();
+                    if (getval == "Camera") {
+                        $("#LastCardNo").prop("disabled", true);
+                        //$("#camType").append('<label>Camera-Type</label><br><select name=CamType style="padding: 4px; border-left: 1px solid gray"><option value="none" selected disabled hidden>Select-Camera-Type</option><option value="ATM">ATM</option><option value="Parking">Parking</option><option value="Cashier">Cashier</option><option value="SecurityGate">SecurityGate</option></select>')
+                        $("#camType").css("display","block")
+                    }
+                    else if (getval == "NVR") {
+                        $("#LastCardNo").prop("disabled", false);
+                        $("#camType").css("display", "none")
+
+                    }
+                    else {
+                        $("#LastCardNo").prop("disabled", false);
+                        $("#camType").css("display", "none")
+
+                    }
+                });
+                $(".frm").click(function () {
+
+                    $("span").removeClass("selected");
+                    $(this).children("span")
+                        .toggleClass("selected")
+                        .siblings(".selected")
+                        .removeClass("selected");
+                });
+
+                $('form').get(0).reset(); //clear form data on page load
+
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myDIV *").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+
+                $('#DeviceID').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z0-9]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+
+            });
+        </script>
+
+    </div>
+</div>

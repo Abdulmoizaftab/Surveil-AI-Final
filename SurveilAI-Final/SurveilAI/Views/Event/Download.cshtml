@@ -1,0 +1,306 @@
+﻿
+@{
+    ViewBag.Title = "Download";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    table tr:hover.selected td,
+    table tbody tr:hover td {
+        background-color: #8783ee;
+        cursor: pointer;
+    }
+
+    table tbody tr.selected td {
+        background-color: #8783ee;
+    }
+
+
+    .tableFixHead table tbody {
+        display: block;
+        max-height: 370px;
+        overflow-y: scroll;
+    }
+
+    .tableFixHead table thead, table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @TempData["DeviD"]</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Download File</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content">
+            <div class="row">
+                <div class="col-md-2">
+
+                    <div class="card">
+                        <h5 class="card-header">Drives</h5>
+                        <div class="card-body" style="min-height: 465px; max-height: 465px;">
+                            @if (TempData["Check"].ToString() == "1")
+                            {
+                                <table class="table table-bordered" id="dev-drive">
+
+                                    <tbody>
+                                        @foreach (var item in ViewBag.Drives)
+                                        {
+                                            int index = item.IndexOf("\\");
+                                            var dir = item.Substring(0, index);
+                                            <tr>
+
+
+                                                <td>
+                                                    <span>@dir</span>
+                                                </td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            }
+                            else
+                            {
+                                <p>Data could not be fetched "@TempData["ErrMsg"]" </p>
+                            }
+
+                        </div>
+
+                    </div>
+                    <input type="hidden" id="Rootdir" />
+                    <input type="hidden" id="fileName" />
+                    <input type="hidden" id="DevID" value="@TempData["DeviD"]" />
+                </div>
+                <div id="Root" class="col-md-5" style="">
+                    <div class="card">
+                        <div class="row p-2 card-header pl-3 pr-3">
+                            <div class="col-10">
+                                <input class="form-control" type="text" value="" id="explorer-path" disabled="disabled" />
+                            </div>
+                            <div class="col-2 text-right">
+                                <button type="button" class="btn-primary btn btn-sm" id="btn-back" style="padding-left: 6px; padding-right: 6px; padding-top: 0px; padding-bottom: 0px; height: 35px;">
+                                    <img src="~/assets/img/arrow-left.png" class="img-fluid img-responsive" style="height:24px;" />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body" style=" min-height: 465px; max-height: 465px;">
+                            <div id="Services">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5" id="UploadPath" style="display:none; ">
+                    <div class="card">
+                        <h5 class="card-header">Download File.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div>
+                                    <label>Server path ($Uploaddir$)</label>
+                                    <input class="form-control BlockSpecialSS" placeholder="Folder\Subfolder\..." type="text" id="ServerPath">
+                                    <p id="Result"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light text-center">
+                            <button id="btnJournal" disabled class="btn btn-primary" onclick="DownloadFile()">Download File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+@*<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>*@
+@*</div>*@
+
+
+<script src="~/assets/js/global/CustomValid.js"></script>
+<script>
+        var filename = "";
+        var Rootdir = "";
+    $(document).ready(function () {
+
+        //Back btn
+            $('#btn-back').click(function () {
+                var path = $('#explorer-path').val();
+                var explPath = $('#explorer-path').val();
+                var DevID = $("#DevID").val();
+                var split = explPath.split("\\");
+                if (path != "C:\\" && path != "D:\\" && path != "E:\\") {
+                    var newPath = "";
+                    var arrlenth = split.length -2;
+
+                    for (var i = 0; i < arrlenth; i++) {
+                        if (split[i] != "") {
+                            newPath = newPath+split[i] + "\\";
+                        }
+
+                    }
+                        $.ajax({
+                            url: "@Url.Action("DriveRoot", "Event")",
+                            data: { id: DevID, path: newPath },
+                            type: "Get",
+                            dataType: "html",
+                            success: function (data) {
+                                $("#Services").html(data);
+                                $("#btnJournal").attr("disabled", "true");
+                                $('#explorer-path').val(newPath);
+                            },
+                            error: function (data) {
+
+
+                            },
+                            complete: function () {
+                                //This block will execute after success/error executes.
+                                //Make the loader div empty
+                                $('#loading').hide();
+
+                            }
+                        });
+                    }
+                    else
+                    {
+                        @*$.ajax({
+                            url: "@Url.Action("ServerBack", "Schedule")",
+                            data: { path: path, folderT: "Upload" },
+                            type: "Get",
+                            dataType: "html",
+                            success: function (data) {
+                                $("#Services").html(data);
+                                $("#btnJournal").attr("disabled", "true");
+
+                                var epath = $('#explorer-path').val();
+                                if (epath == "Upload\\") {
+                                    $('#UFTarget').val("");
+                                }
+                                else
+                                {
+
+                                    epath = epath.substr(epath.indexOf("\\") + 1);
+                                    epath = epath + "\\";
+                                   var parts = epath.split('\\');
+                                    var output = parts.join('\\\\');
+                                    $('#UFTarget').val(output);
+                                }
+                            },
+                            error: function (data) {
+
+
+                            },
+                            complete: function () {
+                                //This block will execute after success/error executes.
+                                //Make the loader div empty
+                                $('#loading').hide();
+
+                            }
+                        });*@
+                    }
+
+
+                });
+
+
+            //Fetch Drive Folders
+            $("#dev-drive").on("click", "tr", function (e) {
+                $(this)
+                    .toggleClass("selected")
+                    .siblings(".selected")
+                    .removeClass("selected");
+                $("#Rootdir").val($(this).find("td span").text());
+                var DevID = $("#DevID").val();
+
+                Rootdir = $("#Rootdir").val();
+
+                document.getElementById("btnJournal").disabled = true;
+
+                $.ajax({
+                    url: "@Url.Action("DriveRoot", "Event")",
+                    data: { id: DevID, path: Rootdir },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#Services").html(data);
+                        $("#Root").css("display", "block");
+                        $("#UploadPath").css("display", "block");
+                        $('#explorer-path').val(Rootdir+"\\");
+
+                    },
+                    error: function (data) {
+
+                    },
+                });
+            });
+    });
+
+
+
+
+
+        function DownloadFile() {
+
+            var Did = $("#DevID").val();
+            var Spath = $("#ServerPath").val();
+
+           $('#loading').show();
+                $.ajax({
+                    url: "@Url.Action("DownloadFile", "Event")",
+                    data: { id: Did, fname: filename, dir: Rootdir, ServerPath: Spath },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+
+                        $('#loading').hide();
+                        $("#Result").html(data);
+                        $("#ServerPath").val("");
+                        var obj = jQuery.parseJSON(data);
+                        var file = atob(obj.data);
+
+                       // $('#loading').hide();
+
+                    },
+                    error: function (data) {
+                        $('#loading').hide();
+
+                        $("#ServerPath").val("");
+                        //$('#loading').hide();
+
+
+                    },
+                    complete: function () {
+                        //This block will execute after success/error executes.
+                        //Make the loader div empty
+
+                        $('#loading').hide();
+
+
+                    }
+                });
+
+    }

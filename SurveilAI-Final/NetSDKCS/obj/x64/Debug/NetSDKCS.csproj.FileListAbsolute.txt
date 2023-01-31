@@ -1,0 +1,213 @@
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\x64\Debug\Dapper.dll
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\x64\Debug\Dapper.xml
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x64\Debug\NetSDKCS.csprojAssemblyReference.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Dapper.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Dapper.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.AssemblyReference.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Memory.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Memory.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Dapper.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Memory.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Dapper.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Memory.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csprojAssemblyReference.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+D:\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+D:\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.AssemblyReference.cache
+D:\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+D:\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+D:\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+D:\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.AssemblyReference.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.AssemblyReference.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\NetSDKCS.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Dapper.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Buffers.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Memory.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Formatting.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Net.Http.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Encodings.Web.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Text.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\bin\x64\Debug\System.ValueTuple.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.AssemblyReference.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.csproj.CopyComplete
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\NetSDKCS\obj\x64\Debug\NetSDKCS.pdb

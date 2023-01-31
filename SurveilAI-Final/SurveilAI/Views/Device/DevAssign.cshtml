@@ -1,0 +1,159 @@
+﻿
+@model SurveilAI.Models.Device
+@{
+    ViewBag.Title = "DevAssign";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Assign</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="page-content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5 class="card-header">Device Assign</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @if (UserRights.Contains("19"))
+                                        {<a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Assign Device</a>}
+                                        @*<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">All Devices</a>*@
+                                        @if (UserRights.Contains("19"))
+                                        {<a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assigned Devices</a>}
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        @if (UserRights.Contains("19"))
+                                        {<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <h5 class="card-header">Assign Device.</h5>
+                                                @using (Html.BeginForm("DevAssignPost", "Device", FormMethod.Post))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="mb-3 row">
+                                                                <label class="control-label col-md-4">User Name</label>
+                                                                <div class="col-md-12">
+                                                                    @Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewData["DBUserList"], "Select User", new { @class = "form-select select-c" })
+                                                                    @Html.ValidationMessageFor(m => m.UserID, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                            <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                            <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-light text-center">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                    <br />
+
+                                                }
+                                            </div>
+
+                                        } @if (UserRights.Contains("19"))
+                                        {<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                <div style="max-height:700px;overflow:auto">
+                                                    <h5 class="card-header">Assigned Devices</h5>
+                                                    <div class="card-body">
+                                                        <table class="table table-striped" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Device ID</th>
+                                                                    <th>Branch Name</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="myTable">
+                                                                @foreach (var item in Model.myDevice)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@Html.TextBoxFor(modelItem => item.DeviceID, new { disabled = "disabled", style = "background:none; border:none;" })</td>
+                                                                        <td>@Html.TextBoxFor(modelItem => item.BranchName, new { disabled = "disabled", style = "background:none; border:none; width:100%;" })</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-8  container-fluid">
+
+
+                </div>
+                <div class="col-md-offset-2"></div>
+                <br />
+            </div>
+        </section>
+        <section class="page-content">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    document.getElementById("UserID").addEventListener("change", myFunction);
+
+function myFunction() {
+    var x = document.getElementById("UserID");
+
+            $.ajax({
+                    url: "@Url.Action("DevAssignUser", "Device")",
+                    data: { id: x.value },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#myTable tr").remove();
+                            //$("#ParviewComp").html(data);
+                        console.log(JSON.parse(data));
+                        data = JSON.parse(data);
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
+                                //console.log(data[i].DeviceID);
+                                //console.log(data[i].BranchName);
+                                var markup = "<tr><td>" + data[i].DeviceID + "<td>" + data[i].BranchName + "</td></tr>";
+                                $("#myTable").append(markup);
+                            }
+                        }
+                        else {
+                            var markup = "<tr><td>No Device Assigned</td><td><td></tr>";
+                            $("#myTable").append(markup);
+                        }
+
+
+                    },
+                    error: function (data) {
+                        var markup = "<tr><td>No Device Assigned</td><td><td></tr>";
+                        $("#myTable").append(markup);
+                    },
+                });
+
+}
+</script>

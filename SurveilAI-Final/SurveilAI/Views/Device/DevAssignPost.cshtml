@@ -1,0 +1,152 @@
+﻿@model SurveilAI.Models.Device
+@{
+    ViewBag.Title = "DevAssignPost";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Assign</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        @using (Html.BeginForm("DevAssignLast", "Device", FormMethod.Post, new { id = "myForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <section class="container card container-fluid">
+                <div class="row">
+                    <div class="col-md-2" style="padding-top:14px; left:19px;">
+                        @Html.ActionLink("< Back To List", "DevAssign")
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-header">Assign Device.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="mb-3 row">
+                                    <label class="control-label col-md-4">User Name</label>
+                                    <div class="col-md-12">
+                                        @*@Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewData["DBUserList"], "Select User", new { @class = "form-control" })*@
+                                        @Html.TextBox("UserID", null, new { @class = "form-control", @readonly = "readonly " })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2"></div>
+                </div>
+            </section>
+            <section class="container card">
+                <div class="row">
+                    <div class="col-md-8 offset-2 text-left pt-1 pl-3">
+                        <span style=" display:none;padding-left: 20px !important;" id="porf-vali" class="form-text text-muted pr-2 text-danger">Please select profile</span>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-8 offset-2">
+                        @{
+                            var obj = new SurveilAI.DataContext.ResourceViewModel();
+                            obj.devices = Model.arry;
+                            obj.devicesheir = Model.Devicess.Select(x => x.DeviceID).ToList();
+                            obj.Hierar = Model.hierarchies;
+                        }
+                        @Html.Partial("_Resources", obj)
+                    </div>
+                    @Html.Hidden("arry", Model.arry, new { @class = "form-control" })
+                    <div class="card-footer bg-light text-center col-md-12">
+                        <button type="submit" id="sub" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </section>
+
+        }
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#sub').click(function () {
+             var val = $("input[name='Radio']:checked").val();
+                var sql = [];
+                var dt = [];
+                var query = "";
+
+                if (val === "hierarchyDiv") {
+                    $.each($("input[name='hierarchy']:checked"), function () {
+                        sql.push("''" + $(this).val() + "''");
+                    });
+                    $.each($("input[name='Dtype']:checked"), function () {
+                        dt.push($(this).val());
+                    });
+
+
+                    if (sql != "") {
+                        query += " d.HierLevel IN (" + sql + ") ";
+                        if (dt != "") {
+                            query += "AND d.DeviceType IN(" + dt + ")";
+                        }
+                    }
+                    else {
+                        if (dt != "") {
+
+                            query = " d.DeviceType IN(" + dt + ")";
+                        }
+                    }
+                }
+                else if (val === "deviceDiv") {
+                    $.each($("input[name='Alldevices']:checked"), function () {
+                        sql.push("''" + $(this).val() + "''");
+                    });
+                    if (sql != "") {
+
+                        query = "d.DeviceID IN (" + sql + ")";
+
+
+                    }
+                }
+                $('#porf-vali').hide();
+                var resp = "";
+                if (query.indexOf("HierLevel") != -1 && val == "hierarchyDiv" && query.indexOf("DeviceType") != -1) {
+                    $('#porf-vali').hide();
+                    resp = "OK";
+                }
+                else if(val == "hierarchyDiv") {
+                    $('#porf-vali').text("Please Select Hierarchy and Profile");
+                    $('#porf-vali').show();
+                    $('#Res').click();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    resp = "NO";
+                }
+                else if (val == "deviceDiv" && query != "" && resp == "")
+                {
+                    $('#porf-vali').hide();
+                    resp = "OK";
+                }
+                else if (val == "deviceDiv" && resp == "") {
+                    $('#porf-vali').text("Please Select Devices");
+                    $('#porf-vali').show();
+                    $('#Res').click();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    resp = "NO";
+                }
+            if (resp == "OK") {
+                $('#porf-vali').hide();
+            }
+            else
+            {
+                return false;
+            }
+            $('#myform').submit();
+        });
+
+    });
+</script>

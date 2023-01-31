@@ -1,0 +1,163 @@
+﻿@model SurveilAI.Models.Device
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Edit</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content card container-fluid">
+            <div class="row">
+                <div class="col-md-2" style="padding-top:14px; left:19px;">
+                    @Html.ActionLink("< Back To List", "Device")
+                </div>
+                <div class="col-md-8  container-fluid">
+
+                    <h5 class="card-header">Edit Device.</h5>
+                    @using (Html.BeginForm("Edit", "Device", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div class="mb-3">
+
+                                <div>
+                                    @Html.Hidden("DevIdOld", (String)ViewBag.DeviceID, new { @class = "form-control" })
+                                </div>
+
+                                <div>
+                                    <label>ATM ID</label>
+                                    @Html.TextBox("DeviceID", (String)ViewBag.DeviceID, new { placeholder = "Enter Atm ID", @class = "form-control BlockSpecialSS" })
+                                    @Html.ValidationMessageFor(m => m.DeviceID, "", new { @class = "text-danger" })
+                                </div>
+                                <div>
+                                    <label>Branch Name</label>
+                                    @Html.TextBox("BranchName", Model.BranchName, new { placeholder = "Enter Branch Name", @class = "form-control BlockSpecialSS" })
+                                    @Html.ValidationMessageFor(m => m.BranchName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="control-label col-md-3">Hierarchy</label>
+                                    <div class="col-md-12">
+
+                                        @Html.DropDownList("HierName", new SelectList(ViewBag.Hier, "", "", Model.HierName), "Select Hierarchy", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.HierName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Device Type</label>
+                                    @Html.DropDownList("deviceType", new List<SelectListItem>
+                                 { new SelectListItem { Text = "Camera", Value = "Camera"},
+                                 new SelectListItem { Text = "NVR", Value = "NVR"},
+                                 new SelectListItem { Text = "DVR", Value = "DVR"}
+                                 }, "--Select Device Type--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.DeviceType, "", new { @class = "text-danger" })
+                                </div>
+                                <div>
+                                    <label>No. Of Channels</label>
+                                    @if (ViewBag.Channels == "8")
+                                    {
+                                        @Html.DropDownListFor(m => m.LastCardNo, new List<SelectListItem>
+                                        { new SelectListItem { Text = "1", Value = "1"},
+                                        new SelectListItem { Text = "2", Value = "2"},
+                                        new SelectListItem { Text = "3", Value = "3"},
+                                        new SelectListItem { Text = "4", Value = "4"},
+                                        new SelectListItem { Text = "5", Value = "5"},
+                                        new SelectListItem { Text = "6", Value = "6"},
+                                        new SelectListItem { Text = "7", Value = "7"},
+                                        new SelectListItem { Text = "8", Value = "8", Selected=true},
+                                        new SelectListItem { Text = "9", Value = "9"},
+                                        new SelectListItem { Text = "10", Value = "10"},
+                                        new SelectListItem { Text = "11", Value = "11"},
+                                        new SelectListItem { Text = "12", Value = "12"},
+                                        new SelectListItem { Text = "13", Value = "13"},
+                                        new SelectListItem { Text = "14", Value = "14"},
+                                        new SelectListItem { Text = "15", Value = "15"},
+                                        new SelectListItem { Text = "16", Value = "16"},
+                                        }, new { @class = "form-control" })
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownListFor(m => m.LastCardNo, new List<SelectListItem>
+                                        { new SelectListItem { Text = "1", Value = "1"},
+                                        new SelectListItem { Text = "2", Value = "2"},
+                                        new SelectListItem { Text = "3", Value = "3"},
+                                        new SelectListItem { Text = "4", Value = "4"},
+                                        new SelectListItem { Text = "5", Value = "5"},
+                                        new SelectListItem { Text = "6", Value = "6"},
+                                        new SelectListItem { Text = "7", Value = "7"},
+                                        new SelectListItem { Text = "8", Value = "8"},
+                                        new SelectListItem { Text = "9", Value = "9"},
+                                        new SelectListItem { Text = "10", Value = "10"},
+                                        new SelectListItem { Text = "11", Value = "11"},
+                                        new SelectListItem { Text = "12", Value = "12"},
+                                        new SelectListItem { Text = "13", Value = "13"},
+                                        new SelectListItem { Text = "14", Value = "14"},
+                                        new SelectListItem { Text = "15", Value = "15"},
+                                        new SelectListItem { Text = "16", Value = "16", Selected=true},
+                                        }, new { @class = "form-control" })
+                                    }
+
+                                </div>
+                                <div>
+                                    <label>IP</label>
+                                    @Html.TextBox("IP", (String)ViewBag.IP, new { placeholder = "Please Enter IP Address", @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.IP, "", new { @class = "text-danger" })
+                                </div>
+                                <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    }
+
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br />
+            <hr />
+            <footer class="container-fluid">
+                <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+            </footer>
+        </section>
+    </div>
+</div>
+
+<script src="~/assets/js/global/CustomValid.js"></script>
+
+<script type="text/javascript">
+            $(document).ready(function () {
+                debugger;
+                @*$('#pills-3').load('@Html.Partial("_AddCameras")')*@;
+                $("#deviceType").change(function () {
+
+                    var getval = $("#deviceType").val();
+                    if (getval == "Camera") {
+                        $("#LastCardNo").prop("disabled", true);
+                    }
+                    else if (getval == "NVR") {
+                        $("#LastCardNo").prop("disabled", false);
+                    }
+                    else {
+                        $("#LastCardNo").prop("disabled", false);
+                    }
+                });
+</script>

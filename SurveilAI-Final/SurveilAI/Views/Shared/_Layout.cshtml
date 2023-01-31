@@ -1,0 +1,704 @@
+﻿@using System.Web.Optimization
+@{
+    if (Session["UserID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    else
+    {
+        SurveilAI.Models.User obj = new SurveilAI.Models.User();
+        obj.updLastAct(Session["UserID"].ToString());
+    }
+    List<object> data = new List<object>();
+    data = Session["UserRole"] as List<object>;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMS | @ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Content/tab icon.ico" type="image/ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+
+        .StyleTypeList {
+            /*border-bottom-width: thin;*/
+            border-top-width: thin;
+            border-top-style: groove;
+            /*border-bottom-color: #5c8727;*/
+        }
+
+
+
+        .stepwizard-step p {
+            margin-top: 0px;
+            color: #666;
+        }
+
+        .stepwizard-row {
+            display: table-row;
+        }
+
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+
+        .stepwizard-step button[disabled] {
+            /*opacity: 1 !important;
+        filter: alpha(opacity=100) !important;*/
+        }
+
+        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+            opacity: 1 !important;
+            color: #bbb;
+        }
+
+        .stepwizard-row:before {
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            z-index: 0;
+        }
+
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px !important;
+            text-align: center !important;
+            padding: 6px 0 !important;
+            font-size: 12px !important;
+            line-height: 1.428571429;
+            border-radius: 15px !important;
+        }
+    </style>
+    @*@Styles.Render("~/bundles/styles")
+        @Scripts.Render("~/bundles/scripts")
+        @Scripts.Render("~/bundles/js")
+        @RenderSection("head_scripts", required: false)
+        @RenderSection("head_scripts2", required: false)*@
+
+</head>
+
+
+<body class="h-100vh">
+    <!-- START APP WRAPPER -->
+    <div id="app">
+        <!-- START TOP HEADER WRAPPER -->
+        <div class="header-wrapper">
+            <div class="header-top">
+                <!-- START MOBILE MENU TRIGGER -->
+                <ul class="mobile-only navbar-nav nav-left">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" data-bs-toggle-state="aside-left-open">
+                            <i class="icon dripicons-align-left"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END MOBILE MENU TRIGGER -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-2">
+                            <ul class="site-logo">
+                                <li>
+                                    <!-- START LOGO -->
+                                    <a href="Javascript:void(0)">
+                                        <div class="logo" style="top:12px !important;">
+                                            <img class="img-responsive" src="~/Content/ali-logo.png" style="max-width:100px" />
+
+
+                                        </div>
+                                    </a>
+                                    <!-- END LOGO -->
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-10">
+                            <!-- START TOP TOOLBAR WRAPPER -->
+                            <div class="top-toolbar-wrapper">
+                                <nav class="top-toolbar navbar flex-nowrap">
+                                    <ul class="navbar-nav nav-right">
+                                        <li class="nav-item dropdown dropdown-menu-lg">
+                                            <a class="nav-link dropdown-toggle user-avatar" data-bs-toggle="dropdown" href="dashboard.analytics.html#" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <img src="~/Content/images.png" class="w-40 rounded-circle" alt="User Pic">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
+                                                <div class="dropdown-header pb-3">
+                                                    <div class="media d-user">
+                                                        <img class="align-self-center mr-3 w-40 rounded-circle" src="~/Content/images.png" alt="User Pic">
+                                                        <div class="media-body">
+                                                            @if (Session["UserID"] != null)
+                                                            {
+                                                                <h5 class="mt-0 mb-0">@Session["UserID"].ToString() </h5>
+                                                            }
+                                                            @if (Session["Role"] != null)
+                                                            {
+                                                                <span>@Session["Role"].ToString() </span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                @if (Session["LDAP"].ToString() != "true")
+                                                {
+                                                    <a class="dropdown-item" href="@Url.Action("PasswordChange", "Login")" style="padding-top:0px;"><i class="icon dripicons-lock"></i> Change Password</a>
+                                                }
+                                                <a class="dropdown-item" href="@Url.Action("UserDashBoard", "User")"><i class="icon dripicons-user-group"></i> User Dashboard</a>
+                                                @if (data.Contains("23") || data.Contains("59") || data.Contains("165") || data.Contains("160"))
+                                                {
+                                                    <a class="dropdown-item" href="@Url.Action("StateRepresentation", "Customize")"><i class="icon dripicons-gear"></i> Customize</a>
+                                                }
+                                                <a class="dropdown-item" href="@Url.Action("Index", "License")"><i class="icon dripicons-gear"></i> License</a>
+
+                                                <a class="dropdown-item" href="@Url.Action("LogOut", "Login")"><i class="icon dripicons-lock"></i> Sign Out</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- END TOP TOOLBAR WRAPPER -->
+                        </div>
+                    </div>
+                </div>
+                <!-- START MOBILE TOOLBAR TRIGGER -->
+                <ul class="mobile-only navbar-nav nav-right">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" data-bs-toggle-state="mobile-topbar-toggle">
+                            <i class="icon dripicons-dots-3 rotate-90"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END MOBILE TOOLBAR TRIGGER -->
+            </div>
+            <!-- START HEADER BOTTOM -->
+            <div class="header-bottom fixed">
+                <div class="container-fluid">
+                    <!-- START MAIN MENU -->
+                    <nav class="main-menu">
+                        <ul class="nav metismenu">
+                            @{
+                                <li></li>
+                                if (data.Contains("37"))
+                                {
+                                    <li>
+                                        <a class="" href="@Url.Action("Event", "Event")" aria-expanded="false"><i class="icon dripicons-device-desktop"></i><span class="hide-menu">Monitoring</span></a>
+                                    </li>
+                                }
+
+                                if (data.Contains("46"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-photo"></i><span class="hide-menu">Images</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("46"))
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Image", "Image")">Image Search</a>
+                                                </li>
+                                            }
+                                            @if (data.Contains("46"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="@Url.Action("ImageEnhancer", "Image")">Image Enhancement Tool</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                if (data.Contains("25") || data.Contains("26") || data.Contains("34") || data.Contains("38"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-clock"></i><span class="hide-menu">Schedule</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("26"))
+                                            {
+                                                <li><a href="@Url.Action("Job", "Schedule")">Job</a></li>
+                                            }
+
+                                            @if (data.Contains("43"))
+                                            {
+                                                <li><a href="@Url.Action("JobResult", "Event")">Job Result</a></li>}
+                                            @if (data.Contains("119"))
+                                            {
+                                                <li><a href="@Url.Action("JobMonitoring", "Schedule")">Job Monitoring</a></li>}
+                                            @if (data.Contains("120"))
+                                            {
+                                                <li><a href="@Url.Action("JobExecutionDevices", "Schedule")">Job Execution</a></li>
+                                            }
+
+                                            @if (data.Contains("26"))
+                                            {
+                                                <li><div class="dropdown-divider"></div><a href="@Url.Action("JobRep", "Schedule")">Report Scheduling</a></li>
+                                            }
+
+                                            @if (data.Contains("34"))
+                                            {
+
+                                                <li><div class="dropdown-divider"></div><a href="@Url.Action("Rules", "Customize")">Rules</a></li>
+                                            }
+                                            @if (data.Contains("38"))
+                                            {
+                                                <li><div class="dropdown-divider"></div><a href="@Url.Action("IncidentView", "Customize")">Incident View</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                if (data.Contains("3") || data.Contains("4") || data.Contains("8"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-user-id"></i><span class="hide-menu">User Options</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("4"))
+                                            {
+                                                <li><a href="@Url.Action("Index", "User")">Users</a></li>
+                                            }
+                                            @if (data.Contains("8"))
+                                            {
+                                                <li><div class="dropdown-divider"></div><a href="@Url.Action("AccRole", "User")">Account Roles</a></li>
+                                            }
+                                            @if (data.Contains("58"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="@Url.Action("Index", "Contact")" aria-expanded="false">@*<i class="icon dripicons-user-group"></i>*@<span class="hide-menu">Contacts</span></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                if (data.Contains("12") || data.Contains("13") || data.Contains("18") || data.Contains("20"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-view-thumb"></i><span class="hide-menu">Device Options</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("13"))
+                                            {
+                                                <li><a href="@Url.Action("Device", "Device")">Devices</a></li>
+                                            }
+                                            @if (data.Contains("18"))
+                                            {
+                                                <li><a href="@Url.Action("DevAssign", "Device")">Device Assign</a></li>
+                                            }
+                                            @if (data.Contains("20"))
+                                            {
+                                                <li><div class="dropdown-divider"></div><a href="@Url.Action("Hierarchy", "Device")">Hierarchy</a></li>
+                                            }
+                                            @if (data.Contains("24"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div><a href="@Url.Action("Index", "Deletion")" aria-expanded="false">@*<i class="icon dripicons-folder"></i>*@<span class="hide-menu">Folder Deletion</span></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                if (data.Contains("48") || data.Contains("49") || data.Contains("50") || data.Contains("51") || data.Contains("52"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-to-do"></i><span class="hide-menu">Reports</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("61") || data.Contains("62"))
+                                            {
+                                                <li>
+
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Card</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+                                                        @if (data.Contains("62"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "CardCapture" })">Card Capture</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                            @if (data.Contains("63") || data.Contains("64") || data.Contains("65"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Cash</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+
+                                                        @if (data.Contains("139"))
+                                                        {
+                                                            <li><a href="@Url.Action("CashChart", "Reports")">Cash Chart</a></li>
+                                                        } @if (data.Contains("140"))
+                                                        {
+                                                            <li><a href="@Url.Action("CashTrend", "Reports")">Cash Trend</a></li>
+                                                        }
+                                                        @if (data.Contains("65"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "CassettesCounterReport" })">Cassettes Counter</a></li>
+                                                        }
+                                                        @if (data.Contains("141"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "CashOutageReport" })">CashOutage Report</a></li>
+                                                        }
+                                                        @if (data.Contains("64"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "CashOutage" })">Cash Outage Summary</a></li>
+                                                        }
+                                                        @if (data.Contains("142"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "CashReplenishmentReport" })">Cash Replenishment Report</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                            @if (data.Contains("76") || data.Contains("77") || data.Contains("78") || data.Contains("79") || data.Contains("80") || data.Contains("81") || data.Contains("82") || data.Contains("83"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Device</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+
+                                                        @if (data.Contains("78"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DeviceList" })">Device List</a></li>
+                                                        }
+                                                        @if (data.Contains("79"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DeviceDashboardReport" })">Device Dashboard</a></li>
+                                                        }
+                                                        @if (data.Contains("77"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DeviceHealthStatus" })">Device Health Status</a></li>
+                                                        }
+                                                        @if (data.Contains("80"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DevEventList" })">Device Event List Summary</a></li>
+                                                        }
+                                                        @if (data.Contains("81"))
+                                                        {
+                                                            <li><div class="dropdown-divider"></div><a href="@Url.Action("ReportView", "Reports", new { id = "EJ-Data" })">ATM EJ Data</a></li>
+                                                        }
+                                                        @if (data.Contains("82"))
+                                                        {
+                                                            <li><div class="dropdown-divider"></div><a href="@Url.Action("ReportView", "Reports", new { id = "Job-Result-Report" })">Job Result Report</a></li>
+                                                        }
+                                                        @if (data.Contains("83"))
+                                                        {
+                                                            <li><div class="dropdown-divider"></div><a href="@Url.Action("ReportView", "Reports", new { id = "ZeroTransactionReport" })">Transaction Report</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                            @if (data.Contains("66"))
+                                            //@if (data.Contains("66") || data.Contains("67") || data.Contains("68") || data.Contains("69") || data.Contains("70") || data.Contains("71") || data.Contains("72"))*@
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Downtime</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+                                                        @if (data.Contains("72"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "ATMUptime" })">ATM Uptime</a></li>
+                                                        }
+                                                        @if (data.Contains("143"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "ATMDownTime" })">ATM Downtime Report</a></li>
+                                                        } @if (data.Contains("144"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "ATMDowntimeTimewiseReport" })">ATM Downtime Timewise Report</a></li>
+                                                        }
+                                                        @if (data.Contains("71"))
+                                                        {
+                                                            <li><div class="dropdown-divider"></div><a href="@Url.Action("ReportView", "Reports", new { id = "DeviceOutageDet" })">Device Outage Details</a></li>
+                                                        }
+                                                        @if (data.Contains("70"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DeviceOutageSum" })">Device Outage Summary</a></li>
+                                                        }
+                                                        @if (data.Contains("68"))
+                                                        {
+                                                            <li><div class="dropdown-divider"></div><a href="@Url.Action("ReportView", "Reports", new { id = "PowerOutage" })">Power Outage</a></li>
+                                                        }
+                                                        @if (data.Contains("67"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "DispensarOutage" })">Dispensar Outage</a></li>
+                                                        }
+
+                                                        @if (data.Contains("69"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "OutageTime" })">Outage Time Wise</a></li>
+                                                        }
+
+
+                                                    </ul>
+                                                </li>
+                                            }
+                                            @if (data.Contains("53"))
+                                            //@if (data.Contains("53") || data.Contains("54") || data.Contains("55") || data.Contains("56"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">EJ Transactions</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+
+                                                        @if (data.Contains("55"))
+                                                        {
+                                                            <li><a href="@Url.Action("EJRep", "EJ")">EJ Report</a></li>
+                                                        }
+                                                        @if (data.Contains("56"))
+                                                        {
+                                                            <li><a href="@Url.Action("EJbyDate", "EJ")">EJ By Date</a></li>
+                                                        }
+                                                        @if (data.Contains("54"))
+                                                        {
+                                                            <li><a href="@Url.Action("Summary", "EJ")">EJ Summary</a></li>
+                                                        }
+                                                        @if (data.Contains("89"))
+                                                        {
+                                                            <li><a href="@Url.Action("EJFile", "EJ")">EJ File Extract</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                            @if (data.Contains("48"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Images</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+                                                        @if (data.Contains("51"))
+                                                        {
+                                                            <li><a href="@Url.Action("ImageCount", "Reports")">Image Count</a></li>
+                                                        }
+                                                        @if (data.Contains("50"))
+                                                        {
+                                                            <li><a href="@Url.Action("ImageQuality", "Reports")">Image Quality</a></li>
+                                                        }
+
+                                                        @if (data.Contains("52"))
+                                                        {
+                                                            <li><a href="@Url.Action("ImageTransfer", "Reports")">Image Transfer</a></li>
+                                                        }
+                                                        @if (data.Contains("49"))
+                                                        {
+                                                            <li><a href="@Url.Action("Summary", "Reports")">Availability Summary</a></li>
+                                                        }
+                                                        @*<li><a href="@Url.Action("CashChart", "Reports")">Cash Chart</a></li>*@
+                                                    </ul>
+                                                </li>
+                                            }
+
+                                            @if (data.Contains("84"))
+                                            //@if (data.Contains("84") || data.Contains("85") || data.Contains("86") || data.Contains("87") || data.Contains("88"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Inventory</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+                                                        @if (data.Contains("85"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "ATMInvent" })">ATM Inventory</a></li>
+                                                        }
+                                                        @if (data.Contains("86"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "USelInvent" })">User Selection Inventory</a></li>
+                                                        }
+                                                        @if (data.Contains("87"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "ComPatch" })">Communication Patch</a></li>
+                                                        }
+                                                        @if (data.Contains("88"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportView", "Reports", new { id = "VersionProperty" })">Version Property</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+
+                                            @if (data.Contains("73"))
+                                            //@if (data.Contains("73") || data.Contains("74") || data.Contains("75"))
+                                            {
+                                                <li>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">User</span></a>
+                                                    <ul aria-expanded="false" class="collapse">
+                                                        @if (data.Contains("74"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportViewUser", "Reports", new { id = "UserStatus" })">User Status</a></li>
+                                                        }
+                                                        @if (data.Contains("75"))
+                                                        {
+                                                            <li><a href="@Url.Action("ReportViewUser", "Reports", new { id = "UserRight" })">User Right</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+
+
+                                        </ul>
+                                    </li>
+                                }
+
+                                if (data.Contains("60"))
+                                {
+                                    <li>
+                                        <a class="" href="@Url.Action("EventConfiguration", "Event")" aria-expanded="false"><i class="icon dripicons-document-edit"></i><span class="hide-menu">Event Configurations</span></a>
+                                    </li>
+                                }
+                                if (data.Contains("149"))
+                                {
+                                    <li>
+                                        <a class="" href="@Url.Action("Index", "AMT")" aria-expanded="false"><i class="icon dripicons-network-1"></i><span class="hide-menu">Remote BIOS Management</span></a>
+                                    </li>
+                                }
+                                if (data.Contains("153"))
+                                {
+                                    <li>
+                                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="icon dripicons-blog"></i><span class="hide-menu">Audit</span></a>
+                                        <ul aria-expanded="false" class="collapse">
+                                            @if (data.Contains("154"))
+                                            {
+                                                <li><a href="@Url.Action("Agents", "Audit")">Agents</a></li>
+                                            }@if (data.Contains("155"))
+                                            {
+                                                <li><a href="@Url.Action("Users", "Audit")">Users</a></li>
+                                            }@if (data.Contains("156"))
+                                            {
+                                                <li><a href="@Url.Action("Index","Audit")">Server Journal</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                
+                            }
+                        </ul>
+                    </nav>
+                    <!-- END MAIN MENU -->
+                </div>
+            </div>
+            <!-- END HEADER BOTTOM -->
+        </div>
+        <!-- END TOP HEADER WRAPPER -->
+        <div id="loading" class="preloader pl-xl pls-primary">
+            <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+                <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+            </svg>
+        </div>
+
+        @RenderBody()
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#newPassword2").keyup(function () {
+                if ($('#newPassword2').val() == "" && $('#newPassword').val() == "") {
+                    $('#newPassword2').css('border-color', '#dfe7f3');
+                    $('#newPassword').css('border-color', '#dfe7f3');
+                }
+                else if ($('#newPassword2').val() == $('#newPassword').val()) {
+                    $('#newPassword2').css('border-color', 'green');
+                    $('#newPassword').css('border-color', 'green');
+                } else if ($('#newPassword').val() != $('#newPassword2').val()) {
+                    $('#newPassword2').css('border-color', 'red');
+                    $('#newPassword2').css('border-color', 'red');
+                }
+            });
+            $("#newPassword").keyup(function () {
+                if ($('#newPassword').val() == "" && $('#newPassword2').val() == "") {
+                    $('#newPassword2').css('border-color', '#dfe7f3');
+                    $('#newPassword').css('border-color', '#dfe7f3');
+                }
+                else if ($('#newPassword2').val() == $('#newPassword').val()) {
+                    $('#newPassword2').css('border-color', 'green');
+                    $('#newPassword').css('border-color', 'green');
+                } else if ($('#newPassword').val() != $('#p2').val()) {
+                    $('#newPassword2').css('border-color', 'red');
+                    $('#newPassword').css('border-color', 'red');
+                }
+            });
+            $(".validation").click(function () {
+                return confirm("Are You Sure You Want To Delete ?");
+            });
+
+
+            $('#Check').change(function () {
+                $("#DF").prop("disabled", !this.checked);
+                $("#DT").prop("disabled", !this.checked);
+            });
+
+
+
+
+
+            $('.counter').each(function () {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+            $({countNum: $this.text() }).animate({
+                    countNum: countTo
+                },
+
+                    {
+
+                        duration: 1000,
+                        easing: 'linear',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        }
+
+                    });
+            });
+
+
+            $(".frm").click(function () {
+                var id = $(this).children("span").text();
+                $("#DeviceID").text(id);
+                $("#DeviceID").val(id);
+            });
+
+        });
+
+            function toggle(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+
+
+
+        function loggy() {
+            window.location.href = '@Url.Action("LogOut" , "Login")'
+        }
+
+    </script>
+    @*<div class="col">
+            <footer style="    text-align: right;" class="container-fluid;">
+                <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+            </footer>
+        </div>*@
+
+</body>
+
+</html>
+<script>$('#loading').hide();</script>

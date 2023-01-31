@@ -1,0 +1,361 @@
+﻿@model SurveilAI.Models.stb
+@{
+    ViewBag.Title = "StateRepresentation";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<div class="content-wrapper">
+    <div class="content container">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">CUSTOMIZATION</h1>
+            </div>
+
+        </header>
+        <section class="page-content">
+            <div class="row">
+                @if (UserRights.Contains("59"))
+                {
+                    <div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header"><a class="has-arrow" style="color:inherit" href="@Url.Action("Calender", "Customize")" aria-expanded="false"><i class="icon dripicons-calender"></i><span class="hide-menu">Calender</span></a></h5>
+                        </div>
+                    </div>
+                }
+                @if (UserRights.Contains("160"))
+                {<div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header"><a class="has-arrow" style="color:inherit" href="@Url.Action("GroupDevice", "Customize")" aria-expanded="false"><i class="icon-dripicons-device-mobile"></i><span class="hide-menu">Device Groups</span></a></h5>
+                        </div>
+                    </div>
+                }
+                @if (UserRights.Contains("165"))
+                {<div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header"><a class="has-arrow" style="color:inherit" href="@Url.Action("PasswordPolicy", "Customize")" aria-expanded="false"><i class="icon-dripicons-device-mobile"></i><span class="hide-menu">Password Policy</span></a></h5>
+                        </div>
+                    </div>
+                }
+                @if (UserRights.Contains("179"))
+                {<div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header"><a class="has-arrow" style="color:inherit" href="@Url.Action("Archive", "Customize")" aria-expanded="false"><i class="icon-dripicons-device-mobile"></i><span class="hide-menu">Archive</span></a></h5>
+                        </div>
+                    </div>
+                }
+                @if (UserRights.Contains("181"))
+                {<div class="col-md-2">
+                        <div class="card">
+                            <h5 class="card-header"><a class="has-arrow" style="color:inherit" href="@Url.Action("CalendarEvents", "Customize")" aria-expanded="false"><i class="icon-dripicons-device-mobile"></i><span class="hide-menu">Calendar Events</span></a></h5>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </section>
+        <section class="page-content" id="myData">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="">State Overview.</h5>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    @if (TempData["Response"] != null)
+                                    {
+                                        if (TempData["Response"].ToString() == "Ok")
+                                        {
+                                            <p class="text-end text-success">State has been updated</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-end text-danger">State not updated</p>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body">
+                            <table class="table table-striped table-bordered" id="mytab" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Internal Use</th>
+                                        <th>Color</th>
+                                        <th>Use Color</th>
+                                        <th>Priority</th>
+                                        <th>Text</th>
+                                        <th style="display:none;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.StbALL)
+                                    {
+                                        <tr class="tabdata">
+                                            <td id="inu">@Html.DisplayFor(modelItem => item.Item1)</td>
+                                            <td><div id="col" style="height:20px; width:20px; border:1px solid black; background-color:@item.Item2;"></div></td>
+                                            <td id="uc">@Html.DisplayFor(modelItem => item.Item3)</td>
+                                            <td id="pri">@Html.DisplayFor(modelItem => item.Item4)</td>
+                                            <td id="txt">@Html.DisplayFor(modelItem => item.Item5)</td>
+                                            <td id="bit" style="display:none;">@Html.DisplayFor(modelItem => item.Item6)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr />
+                        <footer class="container-fluid">
+                            <p>&copy; @DateTime.Now.Year - SURVEILAI PVT-LTD</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @if (UserRights.Contains("23"))
+        {
+            <section class="page-content container-fluid">
+                @*<div class="row card">
+
+                    <div class="card-body">*@
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <h5 class="card-header">State Details</h5>
+                            @using (Html.BeginForm("StateUpdate", "Customize", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <label class="col-md-12">Color</label>
+                                            <div class="col-md-12">
+                                                <input id="colhere" type="color" style="float:left; height:20px; width:20px; border:none; padding:0;" />
+                                                <div style="margin-left:5%; color:black">@Html.TextBox("color", null, new { Style = "border: none; background-color: white; padding-top: 0;", @class = "form-control", @readonly = "readonly" })</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="control-label col-md-3">Priority</label>
+                                            <div class="col-md-12">
+                                                @Html.DropDownList("prio", (IEnumerable<SelectListItem>)ViewData["Prior"], "Select By Priority", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label>Text</label>
+                                            @Html.TextBox("messagetext", null, new { @class = "form-control BlockSpecialSS" })
+                                        </div>
+                                        <div>
+                                            @Html.Hidden("data", null, new { @class = "form-control" })
+                                        </div>
+                                        <br />
+                                        <div class="custom-control custom-checkbox checkbox-primary">
+                                            @Html.CheckBox("disp", false, new { @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="disp">Use Color</label>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-light text-center">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    @*<div class="col-3">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Update</a>
+                                <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Create</a>
+
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+
+
+                                        <h5 class="card-header">State Details.</h5>
+                                        @using (Html.BeginForm("StateUpdate", "Customize", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <label class="col-md-12">Color</label>
+                                                        <div class="col-md-12">
+                                                            <input id="colhere" type="color" style="float:left; height:20px; width:20px; border:none; padding:0;" />
+                                                            <div style="margin-left:5%; color:black">@Html.TextBox("color", null, new { Style = "border: none; background-color: white; padding-top: 0;", @class = "form-control", @readonly = "readonly" })</div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-3 row">
+                                                        <label class="control-label col-md-3">Priority</label>
+                                                        <div class="col-md-12">
+                                                            @Html.DropDownList("prio", (IEnumerable<SelectListItem>)ViewData["Prior"], "Select By Priority", new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <label>Text</label>
+                                                        @Html.TextBox("messagetext", null, new { @class = "form-control" })
+                                                    </div>
+
+                                                    <div>
+                                                        @Html.Hidden("data", null, new { @class = "form-control" })
+                                                    </div>
+
+                                                    <br />
+
+                                                    <div class="custom-control custom-checkbox checkbox-primary">
+                                                        @Html.CheckBox("disp", false, new { @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="disp">Use Color</label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="card-footer bg-light text-center">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        }
+
+                                        <br />
+
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                    <h5 class="card-header">State Create.</h5>
+                                    @using (Html.BeginForm("StateCreate", "Customize", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <label class="col-md-12">Color</label>
+                                                    <div class="col-md-12">
+                                                        <input id="colhere" type="color" style="float:left; height:20px; width:20px; border:none; padding:0;" />
+                                                        <div style="margin-left:5%; color:black">@Html.TextBox("color", null, new { Style = "border: none; background-color: white; padding-top: 0;", @class = "form-control", @readonly = "readonly" })</div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 row">
+                                                    <label class="control-label col-md-3">Priority</label>
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownList("prio", (IEnumerable<SelectListItem>)ViewData["Prior"], "Select By Priority", new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label>Text No</label>
+                                                    @Html.TextBox("textno", null, new { @class = "form-control" })
+                                                </div>
+                                                <div>
+                                                    <label>Text</label>
+                                                    @Html.TextBox("messagetext", null, new { @class = "form-control" })
+                                                </div>
+
+                                                <div>
+                                                    @Html.Hidden("data", null, new { @class = "form-control" })
+                                                </div>
+
+                                                <br />
+
+                                                <div class="custom-control custom-checkbox checkbox-primary">
+                                                    @Html.CheckBox("disp", false, new { @class = "custom-control-input" })
+                                                    <label class="custom-control-label" for="disp">Use Color</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-footer bg-light text-center">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                    <br />
+                                </div>
+
+                            </div>
+                        </div>*@
+                </div>
+                @*</div>
+
+
+                    </div>*@
+            </section>
+        }
+
+        <script src="~/assets/js/global/CustomValid.js"></script>
+
+        <script>
+                $(document).ready(function () {
+
+
+
+                    $("tr.tabdata").click(function () {
+                        var a = $(this).find('#uc').text();
+                        if (a == "Yes") {
+                            $('#disp').prop('checked', true);
+                        }
+                        else {
+                            $('#disp').prop('checked', false);
+                        }
+
+                        var b = $(this).find('#pri').text();
+                        var c = $(this).find('#txt').text();
+                        var d = $(this).find('#col').css("background-color");
+                        var e = $(this).find('#inu').text();
+                        var f = $(this).find('#bit').text();
+
+
+                        var rgb = d.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
+                        $("#colhere").val(rgb2hex(rgb[0], rgb[1], rgb[2]));
+                        $("#color").val(d);
+
+                        $("#prio").val(b).change();
+
+                        $("#data").val(e + ',' + b + ',' + f);
+                        $("#messagetext").val(c);
+                    });
+
+                    $("#colhere").change(function (rgb) {
+                        var z = $(this).val();
+                        $("#color").val("rgb(" + hex2rgb(z) + ")");
+                    });
+
+                });
+
+                function hex2rgb(hex) {
+                    // long version
+                    r = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+                    if (r) {
+                        return r.slice(1, 4).map(function (x) { return parseInt(x, 16); });
+                    }
+                    // short version
+                    r = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
+                    if (r) {
+                        return r.slice(1, 4).map(function (x) { return 0x11 * parseInt(x, 16); });
+                    }
+                    return null;
+                }
+
+                function rgb2hex(red, green, blue) {
+                    var rgb = blue | (green << 8) | (red << 16);
+                    return '#' + (0x1000000 + rgb).toString(16).slice(1)
+                }
+
+        </script>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,236 @@
+﻿@model SurveilAI.Models.pvgroup
+@{
+
+
+
+}
+<div class="card">
+    <div class="container" style="margin:50px 0px;">
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#step-1" id="RD" type="button" class="btn btn-primary btn-circle" style="color:#bbb !important;">1</a>
+                    <p><small>Group Details</small></p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-2" id="Res" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p><small>Resource</small></p>
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm("StaticDevGrpPost", "Customize", FormMethod.Post, new { id = "target1" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Enter General Group Data.</h3>
+                </div>
+                <div class="panel-body">
+                    <!--<div class="mb-3">
+                        <label class="control-label">Group ID</label>
+                        @*@Html.TextBox("groupid", null, new { placeholder = "Enter Group ID (Only Numeric) ", @class = "form-control" })*@
+                        @*<small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>*@
+                        <small id="gid" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                    </div>-->
+                    <div class="mb-3">
+                        <label class="control-label" id="test">Group Name</label>
+                        @Html.TextBox("groupname", null, new { placeholder = "Enter Group Name", id = "groupName", @class = "form-control", maxlength = "16" })
+                        <small id="gname" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="control-label">Description</label>
+                        @Html.TextBox("description", null, new { placeholder = "Enter Group Description", id = "description", maxlength = "255", @class = "form-control" })
+                        <small id="grpDesc" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 1:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("gg", "two", false, new { id = "EM", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon1\")" })
+                                        <small id="" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                                        <label class="custom-control-label" for="EM"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon1">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid1", null, new { placeholder = "Enter e-mail Addresses [1000 character limit]", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="C" style="color:red !important;display:none" class="form-text text-muted"></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("gg", "three", false, new { id = "AC", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon1\")" })
+                                        <label class="custom-control-label" for="AC"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon1">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact11", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { data_bind = "con_drop_1", @class = "form-control col-md-12" })
+
+                                        @*@Html.DropDownList("AnyCont", new SelectList((System.Collections.IEnumerable)ViewData["Contact"], "id", "Name"))*@
+                                        @*@Html.DropDownList("AnyCont",ViewBag.contactList as SelectList,  new { @class = "form-control"} )*@
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid1" name="contactid1" type="hidden" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 2:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("pp", "two", false, new { id = "EM1", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon2\")" })
+                                        <label class="custom-control-label" for="EM1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon2">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid2", null, new { placeholder = "Enter e-mail Addresses [1000 character limit]", data_bind = "con_em_2", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="c1" style="color:red !important;display:none" class="form-text text-muted"></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("pp", "three", false, new { id = "AC1", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon2\")" })
+                                        <label class="custom-control-label" for="AC1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon2">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact21", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { data_bind = "con_drop_2", @class = "form-control col-md-12" })
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid2" name="contactid2" type="hidden" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 3:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("ll", "two", false, new { id = "EM2", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon3\")" })
+                                        <label class="custom-control-label" for="EM2"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon3">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid3", null, new { placeholder = "Enter e-mail Addresses [1000 character limit]", data_bind = "con_em_3", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="C2" style="color:red !important;display:none" class="form-text text-muted"></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("ll", "three", false, new { id = "AC2", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon3\")" })
+                                        <label class="custom-control-label" for="AC2"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon3">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact31", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { data_bind = "con_drop_3", @class = "form-control col-md-12 contacts" })
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid3" name="contactid3" type="hidden" value="">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <button class="btn btn-primary nextBtn" style="float:right;" type="button">Next</button>
+            </div>
+            <div class="panel panel-primary setup-content" id="step-2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Select Resource.</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <div class="card-body">
+                            <div class="mb-3 row container-fluid">
+                                @Html.ValidationMessage("Resources", new { id = "Resources", @class = "text-danger" })
+                                <hr class="col-md-12" />
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <h5 class="card-header col-md-8">Resource Selection</h5>
+                                        <div style="max-height:400px; min-height:400px; overflow-y:scroll;">
+                                            @{
+                                                var obj = new SurveilAI.DataContext.ResourceViewModel();
+                                                obj.devicesheir = Model.DeviceList.Select(x => x.DeviceID).ToList();
+                                                obj.Hierar = Model.HierarchyList;
+                                            }
+                                            @Html.Partial("_Resources", obj)
+                                        </div>
+                                        <input class="form-control" id="criteria" name="criteria" type="hidden" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" style="float:right;" type="submit">Finish</button>
+                    @*<button class="btn btn-success" style="float:right;" type="submit" onclick="Contact();">Finish</button>*@
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/assets/vendor/jquery-steps/jquery.steps.min.js"></script>
+<script src="~/assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/assets/js/global/ForRule.js"></script>
+<script src="~/assets/js/global/ForDeviceGroup.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+
+        //$(".contactss").click(function () {
+        //    var dataVal = $(this).data("bind");
+        //    if (dataVal == "con_drop_3") {
+        //        $(this).prop('disabled', false);
+        //        $("#contactid3").prop('disabled', true);
+        //    }
+        //    else if (dataVal == "con_em_3") {
+        //        $(this).prop('disabled', false);
+        //        $("#Contact31").prop('disabled', true);
+        //    }
+        //    alert(dataVal);
+
+        //});
+
+
+
+
+    });
+
+
+</script>

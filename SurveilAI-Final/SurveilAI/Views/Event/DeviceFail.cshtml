@@ -1,0 +1,232 @@
+﻿@model System.Data.DataSet
+@using System.Data
+@{
+    ViewBag.Title = "DeviceFail";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Fail</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+            <div class="row">
+                <div>
+                    @Html.Hidden("Leave", (String)ViewBag.Leave, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    <div class="card hellog" id="prev" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Previous Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-left witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card hellog" id="next" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Earlier Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-right witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Device Fail
+                            <button style="float:right" class="btn btn-primary" id="btnExport" onclick="fnExcelReport();"> EXPORT </button>
+                            <iframe id="txtArea1" style="display:none"></iframe>
+
+                        </h5>
+
+                        <input type="hidden" value="@ViewBag.leave" id="leave" />
+                        <input type="hidden" value="@ViewBag.next" id="next" />
+
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+
+                                    <div id="bs4-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="bs4-table" class="table table-striped table-bordered dataTable" style="width:100%" role="grid" aria-describedby="bs4-table_info">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th style="display:none"></th>
+                                                            <th>component</th>
+                                                            <th>Start</th>
+                                                            <th>End</th>
+                                                            <th>duration</th>
+                                                            <th>Event no</th>
+                                                            <th>Message</th>
+                                                            <th>Event End</th>
+                                                            <th>message</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (DataRow row in Model.Tables[0].Rows)
+                                                        {
+                                                            <tr role="row" class="odd">
+                                                                <td style="display:none"></td>
+                                                                <td>@row["component"]</td>
+                                                                <td>@row["started"]</td>
+                                                                <td>@row["ended"]</td>
+
+                                                                @{
+
+                                                                    if (@row["ended"] is DBNull)
+                                                                    {
+                                                                        <td>open</td>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        DateTime date = Convert.ToDateTime(@row["started"]);
+                                                                        DateTime date2 = Convert.ToDateTime(@row["ended"]);
+                                                                        DateTime date3 = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+                                                                        DateTime date4 = new DateTime(date2.Year, date2.Month, date2.Day, date2.Hour, date2.Minute, date2.Second);
+                                                                        //TimeSpan duration = date4 - date3;
+                                                                        TimeSpan duration = date4.ToUniversalTime().Subtract(date3.ToUniversalTime());
+                                                                        if (duration.Days == 0)
+                                                                        {
+                                                                            <td>@duration</td>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            int days = 24 * duration.Days;
+                                                                            int hours = duration.Hours + days;
+                                                                            <td>@hours:@duration.Minutes:@duration.Seconds</td>
+                                                                        }
+
+                                                                    }
+
+
+                                                                }
+                                                                <td>@row["eventno"]</td>
+                                                                <td>@row["StartEvent"]</td>
+                                                                <td>@row["endeventno"]</td>
+                                                                <td>@row["Endmessage"]</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+</div>
+<script>
+    $('#bs4-table').DataTable({
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+    });
+    $(document).ready(function () {
+
+
+        $("#next").click(function () {
+
+
+                        window.location.href = '@Html.Raw(@Url.Action("Devicefail_More", "Event", new { L = ViewBag.Leave, Dev = @ViewData["DeviD"]}))';
+
+
+                });
+
+                $("#prev").click(function () {
+
+
+
+
+
+                        window.location.href = '@Html.Raw(@Url.Action("Devicefail_More", "Event", new { L = ViewBag.Leave , Dev = @ViewData["DeviD"],prev="TRUE"}))';
+
+
+
+
+
+                });
+
+            });
+    function fnExcelReport() {
+        var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+        var textRange; var j = 0;
+        tab = document.getElementById('bs4-table'); // id of table
+
+        for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            //tab_text=tab_text+"</tr>";
+        }
+
+        tab_text = tab_text + "</table>";
+        tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+        tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+        tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+        {
+            txtArea1.document.open("txt/html", "replace");
+            txtArea1.document.write(tab_text);
+            txtArea1.document.close();
+            txtArea1.focus();
+            sa = txtArea1.document.execCommand("SaveAs", true, "DeviceFail.xls");
+        }
+        else                 //other browser not tested on IE 11
+        {
+
+            //sa = window.open('data:application/vnd.ms-excel,filename=filename.xls,' + encodeURIComponent(tab_text));
+            //return (sa);
+            //newWindow = window.open(sa, 'filename.xls');
+
+            var str = encodeURIComponent(tab_text);
+            var uri = 'data:text/csv;charset=utf-8,' + str;
+            var downloadLink = document.createElement("a");
+            downloadLink.href = uri;
+            downloadLink.download = "DeviceFail.xls";
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            }
+    }

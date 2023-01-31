@@ -1,0 +1,45 @@
+﻿@*@{
+        ViewBag.Title = "StatusBar";
+        Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    }*@
+
+@model SurveilAI.Models.StatusBar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @*<meta http-equiv="refresh" content="5">*@
+    <title>Status for Job</title>
+</head>
+<body>
+    <div>
+        Executed by User: @Model.UserID
+    </div>
+    <div>
+        FileName: @Model.FileName
+    </div>
+    <div>
+        On Device: @Model.DeviceID
+    </div>
+    <div>
+        At: @Model.TimeStamp
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:@Model.Percentage; min-width:20px">
+            @Model.Percentage %
+        </div>
+    </div>
+    <div>
+        @*@if (Model.Comment != "" || Model.Comment != null)
+            {*@
+        Comment: @Model.Comment         @*}*@
+    </div>
+</body>
+</html>
+
+

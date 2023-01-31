@@ -1,0 +1,339 @@
+﻿@model SurveilAI.Models.pvgroup
+
+<div class="card">
+    <div class="container" style="margin:50px 0px;">
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#step-1" id="RD" type="button" class="btn btn-primary btn-circle" style="color:#bbb !important;">1</a>
+                    <p><small>Group Details</small></p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#step-2" id="Res" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p><small>Criteria</small></p>
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm("DynamicDevGrpPost", "Customize", FormMethod.Post, new { id = "target" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Enter General Group Data.</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="mb-3">
+                        <label class="control-label">Group Name</label>
+                        @Html.TextBox("groupname", null, new { placeholder = "Enter Group Name", id = "groupName", @class = "form-control", maxlength = "16" })
+                        <small id="gname" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="control-label">Description</label>
+                        @Html.TextBox("description", null, new { placeholder = "Enter Group Description", id = "description", maxlength = "255", @class = "form-control" })
+                        <small id="grpDesc" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 1:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("gg", "two", false, new { id = "EM", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon1\")" })
+                                        <label class="custom-control-label" for="EM"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon1">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid1", null, new { placeholder = "Enter e-mail Addresses ", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("gg", "three", false, new { id = "AC", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon1\")" })
+                                        <label class="custom-control-label" for="AC"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon1">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact11", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { @class = "form-control col-md-12" })
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid1" name="contactid1" type="hidden" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 2:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("pp", "two", false, new { id = "EM1", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon2\")" })
+                                        <label class="custom-control-label" for="EM1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon2">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid2", null, new { placeholder = "Enter e-mail Addresses ", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("pp", "three", false, new { id = "AC1", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon2\")" })
+                                        <label class="custom-control-label" for="AC1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon2">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact21", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { @class = "form-control col-md-12" })
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid2" name="contactid2" type="hidden" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;margin-top: 11%;">
+                            <div class="col">
+                                <label class="control-label">Contact 3:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 40px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("ll", "two", false, new { id = "EM2", @class = "custom-control-input", @onclick = "SwitchInput(\"EmCon3\")" })
+                                        <label class="custom-control-label" for="EM2"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray;">
+                                    <div class="mb-3" id="EmCon3">
+                                        <label class="control-label">E-mail Address: Separated by semicolon(;)</label>
+                                        @Html.TextArea("contactid3", null, new { placeholder = "Enter e-mail Addresses ", @class = "form-control contacts", maxlength = "1000" })
+                                        <small id="" style="color:red !important;display:none" class="form-text text-muted">Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" style="padding: 30px 0; text-align: center;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("ll", "three", false, new { id = "AC2", @class = "custom-control-input", @onclick = "SwitchInput(\"AnCon3\")" })
+                                        <label class="custom-control-label" for="AC2"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-10" style="border: 1px solid lightgray; border-top: 0;">
+                                    <div class="mb-3" id="AnCon3">
+                                        <label class="control-label">Any Contact</label>
+                                        @Html.DropDownList("Contact31", (IEnumerable<SelectListItem>)ViewData["Contact"], "-Select Contact-", new { @class = "form-control col-md-12" })
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="form-control" id="contactid3" name="contactid3" type="hidden" value="">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <button class="btn btn-primary nextBtn" onclick="Contact();" style="float:right;" type="button">Next</button>
+            </div>
+            <div class="panel panel-primary setup-content" id="step-2">
+                <div class="panel-body">
+                    <div>
+                        <div class="card-body">
+                            <div>
+                                <input type="checkbox" name="basedata" id="Profile" onclick="enable_Profile(this.checked)"> Profile <pre></pre>
+                                <input type=text name="Profile11" id="Profile1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Location" onclick="enable_Location(this.checked)"> Location <pre></pre>
+                                <input type=text name="Location11" id="Location1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Street" onclick="enable_Street(this.checked)"> Street <pre></pre>
+                                <input type=text name="Street11" id="Street1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="City" onclick="enable_City(this.checked)"> City <pre></pre>
+                                <input type=text name="City11" id="City1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Country" onclick="enable_Country(this.checked)"> Country <pre></pre>
+                                <input type=text name="Country11" id="Country1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Longitude" onclick="enable_Longitude(this.checked)"> Longitude <pre></pre>
+                                <input type=text name="Longitude11" id="Longitude1" class="criterias">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Latitude" onclick="enable_Latitude(this.checked)"> Latitude <pre></pre>
+                                <input type=text name="Latitude11" id="Latitude1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Vendor" onclick="enable_Vendor(this.checked)"> Vendor <pre></pre>
+                                <input type=text name="Vendor11" id="Vendor1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="DevType" onclick="enable_DevType(this.checked)"> Device Type <pre></pre>
+                                <input type=text name="DevType11" id="DevType1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Orgnization" onclick="enable_Orgnization(this.checked)"> Orgnization <pre></pre>
+                                <input type=text name="Orgnization11" id="Orgnization1" class="criterias" maxlength="100">
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Contact_1" onclick="enable_Contact1(this.checked)"> Contact1 <pre></pre>
+                                <input type=text name="Contact1" id="Contact1" class="criterias emails" maxlength="100">
+                                <small id="" style="color:red !important;display:none" class="form-text text-muted"></small>
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Contact_2" onclick="enable_Contact2(this.checked)"> Contact2 <pre></pre>
+                                <input type=text name="Contact2" id="Contact2" class="criterias emails" maxlength="100">
+                                <small id="" style="color:red !important;display:none" class="form-text text-muted"></small>
+                            </div>
+                            <br />
+                            <div>
+                                <input type="checkbox" name="basedata" id="Contact_3" onclick="enable_Contact3(this.checked)"> Contact3 <pre></pre>
+                                <input type=text name="Contact3" id="Contact3" class="criterias emails" maxlength="100">
+                                <small id="" style="color:red !important;display:none" class="form-text text-muted"></small>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" style="float:right;" type="submit" onclick="Contact();">Finish</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/assets/vendor/jquery-steps/jquery.steps.min.js"></script>
+<script src="~/assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/assets/js/global/ForRule.js"></script>
+<script src="~/assets/js/global/ForDeviceGroup.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        //$("#target").submit(function (event) {
+        //    var groupName = $("#groupName").val();
+        //    var str = groupName.replace(/\s*$/,"");
+        //    //if (check == "") {
+        //    //    event.preventDefault();
+        //    //    $("#gid").css("display", "block");
+        //    //    $("#RD").click();
+        //    //}
+        //    if (str == "") {
+        //        event.preventDefault();
+        //        $("#gname").css("display", "block");
+        //        $("#RD").click();
+        //    }
+        //    else {
+        //        $("#gname").css("display", "none");
+        //        //$("#gid").css("display", "none");
+
+        //        console.log("submit");
+        //        //var form = document.getElementById("target");
+        //        //form.submit();
+        //    }
+        //});
+
+        document.getElementById("Profile1").disabled = true;
+        document.getElementById("Location1").disabled = true;
+        document.getElementById("Street1").disabled = true;
+        document.getElementById("City1").disabled = true;
+        document.getElementById("Country1").disabled = true;
+        document.getElementById("Longitude1").disabled = true;
+        document.getElementById("Latitude1").disabled = true;
+        document.getElementById("Vendor1").disabled = true;
+        document.getElementById("DevType1").disabled = true;
+        document.getElementById("Orgnization1").disabled = true;
+        document.getElementById("Contact1").disabled = true;
+        document.getElementById("Contact2").disabled = true;
+        document.getElementById("Contact3").disabled = true;
+    });
+
+
+    function enable_Profile(status) {
+        status = !status;
+        Profile1.disabled = status;
+    }
+    function enable_Location(status) {
+        status = !status;
+        Location1.disabled = status;
+    }
+    function enable_Street(status) {
+        status = !status;
+        Street1.disabled = status;
+    }
+    function enable_City(status) {
+        status = !status;
+        City1.disabled = status;
+    }
+    function enable_Country(status) {
+        status = !status;
+        Country1.disabled = status;
+    }
+    function enable_Longitude(status) {
+        status = !status;
+        Longitude1.disabled = status;
+    }
+    function enable_Latitude(status) {
+        status = !status;
+        Latitude1.disabled = status;
+    }
+    function enable_Vendor(status) {
+        status = !status;
+        Vendor1.disabled = status;
+    }
+    function enable_DevType(status) {
+        status = !status;
+        DevType1.disabled = status;
+    }
+    function enable_Orgnization(status) {
+        status = !status;
+        Orgnization1.disabled = status;
+    }
+    function enable_Contact1(status) {
+        status = !status;
+        Contact1.disabled = status;
+    }
+    function enable_Contact2(status) {
+        status = !status;
+        Contact2.disabled = status;
+    }
+    function enable_Contact3(status) {
+        status = !status;
+        Contact3.disabled = status;
+    }
+
+</script>
+
+

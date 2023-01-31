@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Inventory";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Inventory</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+
+
+
+            <div class="row">
+                <input id="devid" hidden type="text" value="@TempData["DeviD"]">
+
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Device Inventory
+                        </div>
+
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-md-8">
+
+                                    <ul>
+                                        <li><a href="javascript:void(0);" onclick="ShowHW()">Hardware</a></li>
+                                        <li>
+                                            <a href="#" class="" onclick="ShowSW()">Software</a>
+                                        </li>
+                                        <li><a href="javascript:void(0);" onclick="ShowOS()">OS</a></li>
+                                    </ul>
+                                    @*</li>
+                                        </ul>*@
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary d-block col-12" onclick="PvInventRequest()">Device Request</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <h5 class="card-header" id="NameHeader">Device Inventory</h5>
+                        <div class="card-body" id="Services">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+
+     function PvInventRequest() {
+         var Did = $("#devid").val();
+         $("#loading").show();
+
+        $.ajax({
+            url: "@Url.Action("PvInventory", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                $('#NameHeader').text('Hardware');
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+
+
+            }
+        })
+    }
+    function ShowHW() {
+        $("#software").attr("hidden", true);
+        $("#hardware").attr("hidden", false);
+        $("#OS").attr("hidden", true);
+        $('#NameHeader').text('Hardware');
+
+    }
+    function ShowSW() {
+        $("#software").attr("hidden", false);
+        $("#hardware").attr("hidden", true);
+        $("#OS").attr("hidden", true);
+        $('#NameHeader').text('Software');
+
+    }
+    function ShowOS() {
+        $("#software").attr("hidden", true);
+        $("#hardware").attr("hidden", true);
+        $("#OS").attr("hidden", false);
+        $('#NameHeader').text('Operating System');
+
+    }

@@ -1,0 +1,195 @@
+﻿@model SurveilAI.Models.UserSecurity
+
+@{
+    ViewBag.Title = "AccRole";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Accout Roles</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="col-md-12">
+                <div class="card">
+                    <h5 class="card-header">Role Management</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    @if (UserRights.Contains("9"))
+                                    {<a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Create Role</a>}
+                                    @if (UserRights.Contains("10") || UserRights.Contains("11") || UserRights.Contains("129"))
+                                    {<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Manage Roles</a>}
+                                    @if (UserRights.Contains("10") || UserRights.Contains("11") || UserRights.Contains("129"))
+                                    {<a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assigned Users</a>}
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    @if (UserRights.Contains("9"))
+                                    {<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                            <div class="">
+
+                                                <div class="card-body ">
+                                                    @using (Html.BeginForm("AddRole", "User", FormMethod.Post, new { @class = "form-inline" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <label style="margin-bottom:8px !important; margin-right:8px !important;">Account Role Name</label>
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                @Html.TextBox("AccountType", null, new { placeholder = "Enter Role Name", @style = " ", @class = "form-control mb-2 mr-sm-2 BlockSpecialSSD", maxlength = "20", @required = "required", @id = "acc-type" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button type="submit" class="btn btn-primary mb-2">Create Role</button>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <small style="color:forestgreen !important;" class="form-text text-muted col-md-12">@TempData["OKMsg"]</small>
+                                                            <small style="color:red !important;" class="form-text text-muted col-md-12">@TempData["NoMsg"]</small>
+                                                            @Html.ValidationMessageFor(model => model.AccountType, "", new { @class = "text-danger col-md-12" })
+                                                        </div>
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (UserRights.Contains("10") || UserRights.Contains("11") || UserRights.Contains("129"))
+                                    {<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                            <div style="max-height:500px;overflow:auto">
+
+                                                <div class="card-body">
+                                                    <table class="table table-striped" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Account Roles</th>
+                                                                <th>Options</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.usersec)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Html.DisplayFor(modelItem => item.AccountType)</td>
+                                                                    <td>
+                                                                        @if (UserRights.Contains("10"))
+                                                                        {
+                                                                            @Ajax.ActionLink("Assign Role", "EditRole", "User", new { id = item.AccountType }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace })
+                                                                        }
+                                                                        @if (UserRights.Contains("11"))
+                                                                        {
+                                                                            @Ajax.ActionLink("Delete", "RemoveRole", "User", new { id = item.AccountType }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace }, new { @class = "validation" })
+                                                                        }
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (UserRights.Contains("10") || UserRights.Contains("11") || UserRights.Contains("129"))
+                                    {<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                            <div style="max-height:500px;overflow:auto">
+                                                <div class="card-body">
+                                                    <table class="table table-striped" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Account Roles</th>
+                                                                <th>Users Assigned</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.Data)
+                                                            {
+                                                                <tr>
+                                                                    <td>@Html.DisplayFor(modelItem => item.AccType)</td>
+                                                                    <td>@Html.DisplayFor(modelItem => item.Count)</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-content">
+
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </section>
+
+        <script src="~/assets/js/global/CustomValid.js"></script>
+        <script>
+            $('.restrictSpecial').bind('paste', function () {
+                    var elmId = $(this).attr('id');
+                    CheckSpecialChar(elmId);
+            });
+            function CheckSpecialChar(id) {
+                setTimeout(function () {
+                    var elmId = $('#' + id);
+                    //get the value of the input text
+                    var data = elmId.val();
+                    //replace the special characters to ''
+                    var dataFull = data.replace(/[^\w\s]/gi, '');
+                    //set the new value of the input text without special characters
+                    elmId.val(dataFull);
+                });
+            }
+            $('.restrictSpecial').on('keypress', function (event) {
+             $('#war-msg').hide();
+            var regex = new RegExp("^[a-zA-Z0-9\\-\\s]+$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                $('#war-msg').show();
+                event.preventDefault();
+                return false;
+            }
+         });
+            $(document).ready(function () {
+                $('form').get(0).reset(); //clear form data on page load
+
+                $('#AccountType').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z0-9_]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>

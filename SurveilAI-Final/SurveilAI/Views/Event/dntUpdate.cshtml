@@ -1,0 +1,116 @@
+﻿@model SurveilAI.Models.Device
+
+@{
+    ViewBag.Title = "dntUpdate";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<link href="~/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Inventory</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @Model.DeviceID</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+            <div class="row">
+
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Date & Time Update
+                        </div>
+
+                        <div class="card-body ">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    @using (Html.BeginForm("dntUpdate", "Event", FormMethod.Post, new { id = "MyForm", autocomplete = "off" }))
+                                    {
+                                        <div class="col-md-12">
+                                            <input class="form-control" id="devid" name="commandno" type="hidden" value="@Model.DeviceID">
+                                            <div class="col-md-12">
+                                                <label>Current Date & Time</label>
+                                                @Html.TextBox("dnt", @Model.date, new { auotocomplete = "off", @class = "form-control", @readonly = "readonly" })
+                                                <input type="hidden" id="DeviceID" name="DeviceID" value=" @Model.DeviceID">
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="control-label col-md-12">Date</label>
+                                                <div class="col-md-12">
+                                                    <div class="input-group date dp-years">
+                                                        @Html.TextBox("CDate", DateTime.Now.ToShortDateString(), new { placeholder = "mm/dd/yyyy", @class = "form-control" })
+                                                        <span class="input-group-addon action">
+                                                            <i class="icon dripicons-calendar"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="control-label col-md-12">Time</label>
+                                                <div class="col-md-12">
+                                                    <div class="input-group datepickerrrr">
+                                                        @Html.TextBox("CTime", DateTime.Now.ToString("hh:mm:ss tt"), new { placeholder = "hh:mm:ss", @class = "form-control " })
+                                                        <span class="input-group-addon action">
+                                                            <i class="icon dripicons-clock"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["Success"]</small>
+                                                <small style="color:red !important;" class="form-text text-muted">@TempData["Fail"]</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-primary" style="float:right;" onclick="" type="submit">Update</button>
+
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/lib/moment.js/moment.js"></script>
+<script src="~/assets/js/global/CustomValid.js"></script>
+<script src="~/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+
+    $('.datepickerrrr').datetimepicker({
+                    format: 'HH:mm:ss',
+                    icons:
+                            {
+                                up: 'dripicons dripicons-arrow-up',
+                                down: 'dripicons dripicons-arrow-down'
+                            }
+    });
+
+    $("#MyForm").submit(function (event) {
+        $('#loading').show();
+    });

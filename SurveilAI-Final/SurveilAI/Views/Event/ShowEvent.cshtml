@@ -1,0 +1,553 @@
+﻿
+@*@{
+    ViewBag.Title = "ShowEvent";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}*@
+
+@model SurveilAI.Models.@event
+
+@{
+    ViewBag.Title = Model.deviceid;
+}
+<link href="~/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <center id="Finalimg">
+
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Events</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @Model.deviceid</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+
+            <div class="row">
+                <div>
+                    @Html.Hidden("Leave", (String)ViewBag.Leave, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card hellog" id="prev" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Previous Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-left witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card hellog" id="next" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Earlier Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-right witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card hellog" id="Ref" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Refresh</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-clockwise witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card">
+                        <h5 class="card-header" style="background-color:#635ebe; color:white;font-size:80%; font-weight:bolder;">Current / Total</h5>
+                        <div class="card-body text-center">
+                            <h2>
+                                @{
+                                    int init = Convert.ToInt16(ViewBag.Leave) + 1;
+                                    <span class="witchg" style="color:#635ebe;font-size:small;font-weight:bolder;"> @init-@TempData["Count"] / @TempData["TCount"]</span>
+                                }
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-md-2">
+                        <div class="card hellog" id="Lyear" style="cursor:pointer;">
+                            <h5 class="card-header" style="font-size:80%; font-weight:bolder;">zzzzzzz</h5>
+                            <div class="card-body text-center chgpur">
+                                <h2>
+                                    <span class="witchg" style="color:#635ebe;">zzzzzzz</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card hellog" id="Myear" style="cursor:pointer;">
+                            <h5 class="card-header" style="font-size:80%; font-weight:bolder;">zzzzzzzz</h5>
+                            <div class="card-body text-center chgpur">
+                                <h2>
+                                    <span class="witchg" style="color:#635ebe;">zzzzzz</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <h5 class="card-header">By Event.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <label class="control-label col-md-12">Event no</label>
+                                        <div class="col-md-12">
+                                            @Html.TextBox("EvtNo", TempData["EvNo"], new { @class = "form-control OnlyNumeric", @maxlength = "16" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-12"></label>
+                                        <div class="custom-control custom-radio form-check">
+
+                                            @Html.RadioButton("RadioEvent", "Include", (Boolean)ViewBag.IncRadio, new { @id = "Include", @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="Include">Include</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-12"></label>
+                                        <div class="custom-control custom-radio form-check">
+                                            @Html.RadioButton("RadioEvent", "Exclude", (Boolean)ViewBag.ExcRadio, new { @id = "Exclude", @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="Exclude">Exclude</label>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <h5 class="card-header">By Message.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <label class="control-label col-md-12">Enter Message Text</label>
+                                        <div class="col-md-12">
+                                            @Html.TextBox("ByOrgMsg", TempData["MsgText"], new { @class = "form-control BlockSpecialSS", @maxlength = "16" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <h5 class="card-header">Date and Time.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="control-label">Date</label>
+                                                <div>
+                                                    <div class="input-group date dp-years">
+                                                        @Html.TextBox("DateFrom", (String)ViewBag.Date, new { placeholder = "mm/dd/yyyy", @class = "form-control", autocomplete = "off" })
+                                                        <span class="input-group-addon action">
+                                                            <i class="icon dripicons-calendar"></i>
+                                                        </span>
+                                                    </div>
+                                                    <small class="text-danger" style="display: none;" id="date-vali">Invaid Date or Time</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="control-label">Time</label>
+                                                <div>
+                                                    <div class="input-group datepickerrrr">
+                                                        @Html.TextBox("TimeFrom", "00:00:00", new { placeholder = "hh:mm:ss", @class = "form-control" })
+                                                        <span class="input-group-addon action">
+                                                            <i class="icon dripicons-clock "></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label col-md-12"></label>
+
+                                        <div class="custom-control custom-radio form-check">
+                                            @Html.RadioButton("Radio", "Current", (Boolean)ViewBag.CRadio, new { @id = "Current", @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="Current">Current</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label col-md-12"></label>
+                                        <div class="custom-control custom-radio form-check">
+                                            @Html.RadioButton("Radio", "Until", (Boolean)ViewBag.URadio, new { @id = "Until", @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="Until">Until</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label col-md-12"></label>
+                                        <div class="custom-control custom-radio form-check">
+                                            @Html.RadioButton("Radio", "Since", (Boolean)ViewBag.SRadio, new { @id = "Since", @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="Since">Since</label>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Events.
+                            <button style="float:right" class="btn btn-primary" id="btnExport" onclick="fnExcelReport();"> EXPORT </button>
+                            <iframe id="txtArea1" style="display:none"></iframe>
+                        </h5>
+                        <div class="card-body">
+                            <table id="bs4-table" class="table table-striped table-bordered  max-h-500" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        @*<th style="display:none;"></th>*@
+                                        <th></th>
+                                        <th>Event Timestamp</th>
+                                        <th>Event Message</th>
+                                        <th>Event no</th>
+                                        <th>Server Timestamp</th>
+                                        <th>Original message</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model.data)
+                                    {
+                                        <tr class="tabdata" style="cursor:pointer;">
+                                            @*<td style="display:none;"></td>*@
+                                            <td><div style="height:20px; width:20px; border:1px solid black; background-color:@item.Item1;"></div></td>
+                                            <td id="ET">@Html.DisplayFor(modelItem => item.Item2)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Item3)</td>
+                                            <td id="EN">@Html.DisplayFor(modelItem => item.Item4)</td>
+                                            <td id="ST">@Html.DisplayFor(modelItem => item.Item5)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Item6)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">Event Details.</h5>
+                        <div class="card-body">
+                            <div class="mb-3" id="Tar">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Status</label>
+                                        @Html.TextBox("Status", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Details</label>
+                                        @Html.TextBox("Details", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Component</label>
+                                        @Html.TextBox("Component", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Event Counter</label>
+                                        @Html.TextBox("Event_Counter", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Event Timestamp</label>
+                                        @Html.TextBox("Event_Timestamp", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Server Timestamp</label>
+                                        @Html.TextBox("Server_Timestamp", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Event Number</label>
+                                        @Html.TextBox("Event_Number", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Original Event Number</label>
+                                        @Html.TextBox("Original_Event_Number", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Event Meassage</label>
+                                        @Html.TextBox("Event_Meassage", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Original Message</label>
+                                        @Html.TextArea("Original_Message", null, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <hr />
+                                <footer class="container-fluid">
+                                    <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="~/lib/moment.js/moment.js"></script>
+            <script src="~/assets/js/global/CustomValid.js"></script>
+            <script src="~/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        </section>
+
+        <script>
+            $('.datepickerrrr').datetimepicker({
+                    format: 'HH:mm:ss',
+                    icons:
+                            {
+                                up: 'dripicons dripicons-arrow-up',
+                                down: 'dripicons dripicons-arrow-down'
+                            }
+            });
+            $('#bs4-table').DataTable({
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+            });
+    $(document).ready(function () {
+        function CheckDateTime() {
+             var dateF = $('#DateFrom').val();
+                    var timeF = $('#TimeFrom').val();
+                    var rslt = moment(dateF, 'M/D/YYYY', true).isValid();
+                    var rslt1 = moment(dateF, 'MM/DD/YYYY', true).isValid();
+                    var finalR = "Ok";
+                    if (rslt || rslt1) {}
+                    else {
+                        finalR =  "No";
+                    }
+                    var timeval = moment(timeF, "HH:mm:ss", true).isValid();
+                    if (timeval) {}
+                    else {
+                        finalR = "No";
+                    }
+            if (finalR == "No") {
+                $('#date-vali').show();
+            }
+            else {
+                $('#date-vali').hide();
+            }
+            return finalR;
+        }
+
+
+                $("#EvtNo").keydown(function (event) {
+                    //// Allow only backspace and delete
+                    //if (event.keyCode == 46 || event.keyCode == 8) {
+                    //    // let it happen, don't do anything
+                    //}
+                    //else {
+                    //    // Ensure that it is a number and stop the keypress
+                    //    if (event.keyCode < 48 || event.keyCode > 57) {
+                    //        event.preventDefault();
+                    //    }
+                    //}
+                    return (/[0-9]|\./.test(String.fromCharCode(event.keyCode)) && !event.shiftKey)
+                        || (event.keyCode >= 96 && event.keyCode <= 105 || event.keyCode==8);
+                });
+                $("tr.tabdata").click(function () {
+                    var a = $(this).find('#ET').text();
+                    var b = $(this).find('#EN').text();
+                    var c = $(this).find('#ST').text();
+                    var d =  $(document).find('#name').text();
+
+                    $.ajax({
+                        url: "@Url.Action("ShowDataForm", "Event")",
+                        data: { ET: a, EN: b, ST: c, id: d },
+                        type: "Get",
+                        dataType: "html",
+                        success: function (data) {
+                            $("#Tar").html(data);
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    })
+                });
+
+        $("#next").click(function () {
+                    var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+                    var eventno = $('#EvtNo').val();
+                    var ByOrgMsg = $('#ByOrgMsg').val();
+                    var EvtFilter = "";
+                    if (eventno != "") { EvtFilter = $('input[name="RadioEvent"]:checked').val(); }
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("Event_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current"  , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        @*window.location.href = '@Html.Raw(@Url.Action("Event_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" }))';*@
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("Event_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date" , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+                        window.location.href = url;
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("Event_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date"  , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+
+                    }
+                    url = url.replace("evtNo", eventno);
+                    url = url.replace("ByOrgMsg", ByOrgMsg);
+                    url = url.replace("filter2", EvtFilter);
+                    window.location.href = url;
+                });
+
+        $("#prev").click(function () {
+                    var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+                    var eventno = $('#EvtNo').val();
+                    var ByOrgMsg = $('#ByOrgMsg').val();
+                    var EvtFilter = "";
+                    if (eventno != "") { EvtFilter = $('input[name="RadioEvent"]:checked').val(); }
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("Event_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("Event_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date" , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("Event_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date" , Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+                    }
+                    url = url.replace("evtNo", eventno);
+                    url = url.replace("ByOrgMsg", ByOrgMsg);
+                    url = url.replace("filter2", EvtFilter);
+                    window.location.href = url;
+
+                });
+
+        $("#Ref").click(function () {
+                     var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+
+                    var eventno = $('#EvtNo').val();
+                    var ByOrgMsg = $('#ByOrgMsg').val();
+                    var EvtFilter = "";
+                    if (eventno != "") { EvtFilter = $('input[name="RadioEvent"]:checked').val(); }
+
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("EventRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" ,Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("EventRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date", Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("EventRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date", Evt="evtNo",Filter="filter2", OrgMsg = "ByOrgMsg" }))';
+                        url = url.replace("date", date);
+                    }
+                    url = url.replace("evtNo", eventno);
+                    url = url.replace("ByOrgMsg", ByOrgMsg);
+                    url = url.replace("filter2", EvtFilter);
+                    window.location.href = url;
+                });
+
+            });
+
+            function fnExcelReport() {
+                var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+                var textRange; var j = 0;
+                tab = document.getElementById('bs4-table'); // id of table
+
+                for (j = 0; j < tab.rows.length; j++) {
+                    tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                    //tab_text=tab_text+"</tr>";
+                }
+
+                tab_text = tab_text + "</table>";
+                tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+                tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+                tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE ");
+
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+                {
+                    txtArea1.document.open("txt/html", "replace");
+                    txtArea1.document.write(tab_text);
+                    txtArea1.document.close();
+                    txtArea1.focus();
+                    sa = txtArea1.document.execCommand("SaveAs", true, "DeviceFail.xls");
+                }
+                else                 //other browser not tested on IE 11
+                {
+
+                    //sa = window.open('data:application/vnd.ms-excel,filename=filename.xls,' + encodeURIComponent(tab_text));
+                    //return (sa);
+                    //newWindow = window.open(sa, 'filename.xls');
+
+                    var str = encodeURIComponent(tab_text);
+                    var uri = 'data:text/csv;charset=utf-8,' + str;
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = uri;
+                    downloadLink.download = "Events.xls";
+
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                }
+            }
+        </script>
+
+    </div>
+</div>
+

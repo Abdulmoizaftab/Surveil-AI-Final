@@ -1,0 +1,1026 @@
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\SurveilAI.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.IO.Compression.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\EntityFramework.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Helpers.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Mvc.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Razor.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\EntityFramework.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Razor.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Helpers.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Mvc.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csprojAssemblyReference.cache
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Logger.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\MongoDB.Bson.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\MongoDB.Driver.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\NLog.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.Permissions.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\MongoDB.Bson.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\MongoDB.Driver.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\NLog.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.AccessControl.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.Permissions.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Antlr3.Runtime.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Newtonsoft.Json.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Optimization.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\WebGrease.dll
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Antlr3.Runtime.pdb
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+C:\Users\DigEvolUser\source\repos\SurveilAI\SurveilAI\bin\System.Web.Optimization.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.Compression.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Antlr3.Runtime.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\EntityFramework.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Logger.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Microsoft.Web.Infrastructure.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\MongoDB.Bson.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\MongoDB.Driver.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Newtonsoft.Json.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\NLog.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.AccessControl.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.Permissions.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Helpers.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Mvc.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Optimization.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Razor.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\WebGrease.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Antlr3.Runtime.pdb
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\EntityFramework.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\MongoDB.Bson.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\MongoDB.Driver.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\NLog.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.AccessControl.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.Permissions.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Optimization.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Razor.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Helpers.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\System.Web.Mvc.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+D:\New folder\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\SurveilAI.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.IO.Compression.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Antlr3.Runtime.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\EntityFramework.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Logger.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\MongoDB.Bson.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\MongoDB.Driver.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Newtonsoft.Json.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\NLog.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.AccessControl.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.Permissions.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Helpers.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Mvc.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Optimization.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Razor.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\WebGrease.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Antlr3.Runtime.pdb
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\EntityFramework.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\EntityFramework.SqlServer.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\MongoDB.Bson.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\MongoDB.Driver.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\NLog.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.IO.FileSystem.AccessControl.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.AccessControl.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.Permissions.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Security.Principal.Windows.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Optimization.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Razor.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.Deployment.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Webpages.Razor.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Helpers.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\System.Web.Mvc.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csprojAssemblyReference.cache
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+C:\Users\DigEvolUser\source\repos\GitHub\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+D:\SurveilAI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+D:\SurveilAI\SurveilAI\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csprojAssemblyReference.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\Dapper.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\Dapper.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\Dapper.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\Dapper.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Buffers.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Memory.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Numerics.Vectors.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Text.Encodings.Web.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Text.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.ValueTuple.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Buffers.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Memory.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Net.Http.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Numerics.Vectors.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Text.Encodings.Web.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Text.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\SurveilAI\bin\System.ValueTuple.xml
+H:\SurveilAI\SurveilAI\bin\SurveilAI.dll.config
+H:\SurveilAI\SurveilAI\bin\SurveilAI.dll
+H:\SurveilAI\SurveilAI\bin\SurveilAI.pdb
+H:\SurveilAI\SurveilAI\bin\roslyn\csc.exe
+H:\SurveilAI\SurveilAI\bin\roslyn\csc.exe.config
+H:\SurveilAI\SurveilAI\bin\roslyn\csc.rsp
+H:\SurveilAI\SurveilAI\bin\roslyn\csi.exe
+H:\SurveilAI\SurveilAI\bin\roslyn\csi.exe.config
+H:\SurveilAI\SurveilAI\bin\roslyn\csi.rsp
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+H:\SurveilAI\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\SurveilAI\SurveilAI\bin\roslyn\System.AppContext.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Console.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Claims.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.ValueTuple.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+H:\SurveilAI\SurveilAI\bin\roslyn\vbc.exe
+H:\SurveilAI\SurveilAI\bin\roslyn\vbc.exe.config
+H:\SurveilAI\SurveilAI\bin\roslyn\vbc.rsp
+H:\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe
+H:\SurveilAI\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+H:\SurveilAI\SurveilAI\bin\Dapper.dll
+H:\SurveilAI\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+H:\SurveilAI\SurveilAI\bin\System.Buffers.dll
+H:\SurveilAI\SurveilAI\bin\System.Memory.dll
+H:\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.dll
+H:\SurveilAI\SurveilAI\bin\System.Net.Http.Json.dll
+H:\SurveilAI\SurveilAI\bin\System.Numerics.Vectors.dll
+H:\SurveilAI\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+H:\SurveilAI\SurveilAI\bin\System.Text.Encodings.Web.dll
+H:\SurveilAI\SurveilAI\bin\System.Text.Json.dll
+H:\SurveilAI\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+H:\SurveilAI\SurveilAI\bin\System.ValueTuple.dll
+H:\SurveilAI\SurveilAI\bin\System.Web.Http.dll
+H:\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.dll
+H:\SurveilAI\SurveilAI\bin\Dapper.xml
+H:\SurveilAI\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+H:\SurveilAI\SurveilAI\bin\Newtonsoft.Json.xml
+H:\SurveilAI\SurveilAI\bin\System.Buffers.xml
+H:\SurveilAI\SurveilAI\bin\System.Memory.xml
+H:\SurveilAI\SurveilAI\bin\System.Net.Http.Formatting.xml
+H:\SurveilAI\SurveilAI\bin\System.Net.Http.Json.xml
+H:\SurveilAI\SurveilAI\bin\System.Numerics.Vectors.xml
+H:\SurveilAI\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+H:\SurveilAI\SurveilAI\bin\System.Text.Encodings.Web.xml
+H:\SurveilAI\SurveilAI\bin\System.Text.Json.xml
+H:\SurveilAI\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+H:\SurveilAI\SurveilAI\bin\System.ValueTuple.xml
+H:\SurveilAI\SurveilAI\bin\System.Web.Http.xml
+H:\SurveilAI\SurveilAI\bin\System.Web.Http.WebHost.xml
+H:\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+H:\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+H:\SurveilAI\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+H:\SurveilAI\SurveilAI\obj\Debug\SurveilAI.dll
+H:\SurveilAI\SurveilAI\obj\Debug\SurveilAI.pdb
+H:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+H:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+H:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.dll
+H:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.pdb
+H:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll.config
+H:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll
+H:\SurveilAI-Final\SurveilAI\bin\SurveilAI.pdb
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe.config
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.rsp
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe.config
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.rsp
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.AppContext.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Console.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Claims.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.ValueTuple.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe.config
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.rsp
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe
+H:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+H:\SurveilAI-Final\SurveilAI\bin\Dapper.dll
+H:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Buffers.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Memory.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.dll
+H:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.dll
+H:\SurveilAI-Final\SurveilAI\bin\Dapper.xml
+H:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+H:\SurveilAI-Final\SurveilAI\bin\Newtonsoft.Json.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Buffers.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Memory.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.xml
+H:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.xml
+H:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+D:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll.config
+D:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll
+D:\SurveilAI-Final\SurveilAI\bin\SurveilAI.pdb
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe.config
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.rsp
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe.config
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.rsp
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.AppContext.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Console.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Claims.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.ValueTuple.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe.config
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.rsp
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe
+D:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+D:\SurveilAI-Final\SurveilAI\bin\Dapper.dll
+D:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Buffers.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Memory.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.dll
+D:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.dll
+D:\SurveilAI-Final\SurveilAI\bin\Dapper.xml
+D:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\SurveilAI-Final\SurveilAI\bin\Newtonsoft.Json.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Buffers.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Memory.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.xml
+D:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.xml
+D:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+D:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+D:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+D:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.dll
+D:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.pdb
+E:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll.config
+E:\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll
+E:\SurveilAI-Final\SurveilAI\bin\SurveilAI.pdb
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe.config
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csc.rsp
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe.config
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\csi.rsp
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.AppContext.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Console.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Claims.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.ValueTuple.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe.config
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.rsp
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe
+E:\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+E:\SurveilAI-Final\SurveilAI\bin\Dapper.dll
+E:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Buffers.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Memory.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.dll
+E:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.dll
+E:\SurveilAI-Final\SurveilAI\bin\Dapper.xml
+E:\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SurveilAI-Final\SurveilAI\bin\Newtonsoft.Json.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Buffers.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Memory.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Text.Json.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.xml
+E:\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.xml
+E:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+E:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+E:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+E:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.dll
+E:\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.rsp
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.rsp
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.AppContext.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Console.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Claims.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.ValueTuple.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.rsp
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Dapper.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Buffers.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Memory.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Dapper.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Newtonsoft.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Buffers.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Memory.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\SurveilAI.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.exe.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csc.rsp
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.exe.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\csi.rsp
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.AppContext.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Console.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Claims.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.ValueTuple.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.exe.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\vbc.rsp
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Dapper.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Buffers.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Memory.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Dapper.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Buffers.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Memory.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Formatting.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Net.Http.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Numerics.Vectors.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Encodings.Web.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Text.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.ValueTuple.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\bin\System.Web.Http.WebHost.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.AssemblyReference.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CoreCompileInputs.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.csproj.CopyComplete
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\SurveilAI\obj\Debug\SurveilAI.pdb

@@ -1,0 +1,630 @@
+﻿@model SurveilAI.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IMS | Sign In</title>
+
+    <link rel="shortcut icon" href="~/Content/tab icon.ico" type="image/ico" />
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(#141e30, #03e9f4);
+        }
+
+        .login-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,.8);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+            border-radius: 10px;
+        }
+
+            .login-box .h2 {
+                margin: 0 0 30px;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+            }
+
+            .login-box .user-box {
+                position: relative;
+            }
+
+                .login-box .user-box .input {
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    color: #fff;
+                    margin-bottom: 30px;
+                    border: none;
+                    border-bottom: 1px solid #fff;
+                    outline: none;
+                    background: transparent;
+                }
+
+                .login-box .user-box label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    color: #fff;
+                    pointer-events: none;
+                    transition: .5s;
+                }
+
+                .login-box .user-box .input:focus ~ label,
+                .login-box .user-box .input:valid ~ label {
+                    top: -20px;
+                    left: 0;
+                    color: #03e9f4;
+                    font-size: 12px;
+                }
+
+        .button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4 !important;
+            font-size: 16px;
+            text-decoration: none !important;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .3s;
+            margin-top: 40px;
+            letter-spacing: 4px
+        }
+
+        .login-box .button:hover {
+            background: #03e9f4;
+            color: #fff !important;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+        }
+
+        .login-box .button span {
+            position: absolute;
+            display: block;
+        }
+
+            .login-box .button span:nth-child(1) {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #03e9f4);
+                animation: btn-anim1 1s linear infinite;
+            }
+
+        @@keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        .login-box .button span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+        }
+
+        @@keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+
+            50%, 100% {
+                top: 100%;
+            }
+        }
+
+        .login-box .button span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+        }
+
+        @@keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+
+            50%, 100% {
+                right: 100%;
+            }
+        }
+
+        .login-box .button span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+        }
+
+        @@keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+
+            50%, 100% {
+                bottom: 100%;
+            }
+        }
+
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
+
+ /*       / ---- particles.js container ---- /*/
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /*background: red;*/
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            margin: 0;
+            padding: 0;
+        }
+
+/*        / ---- stats.js ---- /*/
+
+        .count-particles {
+            background: #1111b7;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            width: 80px;
+            color: #13E8E9;
+            font-size: .8em;
+            text-align: left;
+            text-indent: 4px;
+            line-height: 14px;
+            padding-bottom: 2px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .js-count-particles {
+            font-size: 1.1em;
+        }
+
+        #stats,
+        .count-particles {
+            -webkit-user-select: none;
+        }
+
+        #stats {
+            border-radius: 3px 3px 0 0;
+            overflow: hidden;
+        }
+
+        .count-particles {
+            border-radius: 0 0 3px 3px;
+        }
+    </style>
+    <!-- ================== GOOGLE FONTS ==================-->
+    <!-- ======================= GLOBAL VENDOR STYLES ========================-->
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="~/assets/vendor/metismenu/dist/metisMenu.css">
+    <link rel="stylesheet" href="~/assets/vendor/switchery-npm/index.css">
+    <link rel="stylesheet" href="~/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- ======================= LINE AWESOME ICONS ===========================-->
+    @*<link rel="stylesheet" href="~/assets/css/icons/line-awesome.min.css">*@
+    <!-- ======================= DRIP ICONS ===================================-->
+    <link rel="stylesheet" href="~/assets/css/icons/dripicons.min.css">
+    <!-- ======================= MATERIAL DESIGN ICONIC FONTS =================-->
+    <link rel="stylesheet" href="~/assets/css/icons/material-design-iconic-font.min.css">
+    <!-- ======================= GLOBAL COMMON STYLES ============================-->
+    <link rel="stylesheet" href="~/assets/css/common/main.bundle.css">
+    <!-- ======================= LAYOUT TYPE ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/vertical/core/main.css">
+    <!-- ======================= MENU TYPE ===========================================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/vertical/menu-type/default.css">
+    <!-- ======================= THEME COLOR STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/vertical/themes/theme-a.css">
+    <link rel="stylesheet" href="~/assets/css/CustomStyleSheet.css">
+
+
+</head>
+
+<body class="body">
+    <div>
+        <div id="particles-js">
+            @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @class = "", @id = "login-form" }))
+            {
+                <div class="login-box">
+                    <div class="login-heading">
+                        <h2 class="h2">Login</h2>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="user-box">
+                            @*<input class="input" type="text" name="" required="">*@
+                            <label class="user">Username</label>
+
+                            @Html.TextBoxFor(m => m.UserID, new { placeholder = "", @class = "input form-control BlockSpecialL", pattern = @"[^()/><\][\\\x22,;|]+", @maxlength = "30", autocomplete = "off" })
+                            @Html.TextBoxFor(m => m.LastUserLogged, new { style = "display: none;", placeholder = "", @class = "form-control", pattern = @"[^()/><\][\\\x22,;|]+" })
+                            @Html.ValidationMessageFor(m => m.UserID, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="user-box">
+                            @*<input class="input" type="password" name="" required="">*@
+                            <label class="pass">Password</label>
+
+                            @Html.HiddenFor(m => m.PasswordE)
+                            @Html.PasswordFor(m => m.Password, new { placeholder = "", @class = "input form-control BlockSpecialL", pattern = @"[^()/><\][\\\x22,;|]+", @maxlength = "30" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.LastUrl, new { @Value = (Request.UrlReferrer == null) ? "" : Request.UrlReferrer.ToString(), style = "display: none;" })
+                            @*@Html.HiddenFor(m => m.LastUrl, new { @Value = Request.UrlReferrer.AbsoluteUri })*@
+                            <small style="color:red !important;" class="form-text text-muted">@TempData["signuperror"]</small>
+                            <small style="display:none; color: #0bdc47 !important" class="form-text" id="session-msg">Other session has been terminated, logging in now!</small>
+                        </div>
+                        <a class="button" id="TestLogin">
+                            <span class="1"></span>
+                            <span class="2"></span>
+                            <span class="3"></span>
+                            <span class="4"></span>
+                            Submit
+                        </a>
+                    </div>
+
+                </div>
+            }
+
+            @*<footer class="blockquote-footer"> <cite title="Source Title"></cite></footer>*@
+
+
+
+
+            <div class="col-md-8">
+            </div>
+        </div>
+        <input type="hidden" id="my-val" value="$#Ipl@innomate#$" />
+    </div>
+    <input type="hidden" id="userloggedIn" value="@ViewBag.LoggedIn" />
+    <input type="hidden" id="Uid" value="@ViewBag.Userid" />
+    <input type="hidden" id="Pword" value="@ViewBag.Pword" />
+
+
+
+    @*<div class="modal" id="warn-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login Warning</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Current account is being used. Do you want to logout other session?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="endSession">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <div class="modal" id="warn-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:black">Login Warning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="color:black">Current account is being used. Do you want to logout other session?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="endSession">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== GLOBAL VENDOR SCRIPTS ==================-->
+    <script src="~/assets/vendor/modernizr/modernizr.custom.js"></script>
+    <script src="~/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/js-storage/js.storage.js"></script>
+    <script src="~/assets/vendor/js-cookie/src/js.cookie.js"></script>
+    <script src="~/assets/vendor/pace/pace.js"></script>
+    <script src="~/assets/vendor/metismenu/dist/metisMenu.js"></script>
+    <script src="~/assets/vendor/switchery-npm/index.js"></script>
+    <script src="~/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- ================== GLOBAL APP SCRIPTS ==================-->
+    <script src="~/assets/js/global/app.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/crypto-js/aes.js"></script>
+    <script src="~/lib/crypto-js/crypto-js.js"></script>
+    <script src="~/assets/js/global/CustomValid.js"></script>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 200,
+                "density": {
+                    "enable": false,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+
+
+/*    / ---- stats.js config ---- /*/
+
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function () {
+        stats.begin();
+        stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+         var signinerror = $('#userloggedIn').val();
+         if (signinerror == "Yes")
+         {
+             $('#warn-modal').modal('show');
+        }
+
+        $('#endSession').click(function () {
+            $('#warn-modal').modal("toggle");
+
+              $.ajax({
+                  url: "@Url.Action("EndUserSession", "Login")",
+                  type: "POST",
+                  dataType: "html",
+                  success: function (data) {
+                      var resp = JSON.parse(data);
+                      if (resp == "Logout") {
+                          $('#session-msg').show();
+                          var uid = $('#Uid').val();
+                          var pword = $('#Pword').val();
+
+                            var lVal = $('#my-val').val();
+                            var cc = CryptoJS.enc.Utf8.parse(lVal);
+                            var decrypted = CryptoJS.AES.decrypt(pword, cc,
+                                {
+                                    keySize: 128 / 8,
+                                    iv: cc,
+                                    mode: CryptoJS.mode.CBC,
+                                    padding: CryptoJS.pad.Pkcs7
+                                });
+                            var decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+                          $('#UserID').val(uid);
+                          $('#Password').val(decrypted);
+                          $('#TestLogin').click();
+                    }
+
+                  },
+                  error: function (data) {
+                      $('#loading').hide();
+                      $('#GetPassword').prop("disabled", false);
+
+                  }
+              })
+         });
+
+    });
+
+    $("#UserID").focus(function () {
+
+        $(".user").css("top", "-20px");
+        $(".user").css("left", "-0");
+        $(".user").css("color", "#03e9f4");
+        $(".user").css("font-size", "12px");
+
+    });
+
+    $("#Password").focus(function () {
+
+        $(".pass").focus().css("top", "-20px");
+        $(".pass").focus().css("left", "-0");
+        $(".pass").focus().css("color", "#03e9f4");
+        $(".pass").focus().css("font-size", "12px");
+
+    });
+
+
+    $('#TestLogin').click(function (e) {
+
+        e.preventDefault();
+        //$('#session-msg').hide();
+        var userpass = $('#Password').val();
+        var lVal = $('#my-val').val();
+        var cc = CryptoJS.enc.Utf8.parse(lVal);
+        var encryptedloginPass = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(userpass), cc,
+        {
+           keySize: 128 / 8,
+           iv: cc,
+           mode: CryptoJS.mode.CBC,
+           padding: CryptoJS.pad.Pkcs7
+        });
+        $('#PasswordE').val(encryptedloginPass);
+        $('#Password').val("********");
+        document.getElementById("login-form").submit();
+    });
+
+
+    $('#loading').hide();
+    $("#UserID").keypress(function (e) {
+        //if the letter is not digit then display error and don't type anything
+        if (e.which == 62 || e.which == 60){
+
+            return false;
+        }
+    });
+    $("#Password").keypress(function (e) {
+        //if the letter is not digit then display error and don't type anything
+        if (e.which == 62 || e.which == 60){
+
+            return false;
+        }
+    });
+</script>
+
+
+

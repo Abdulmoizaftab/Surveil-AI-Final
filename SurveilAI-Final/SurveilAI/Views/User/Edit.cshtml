@@ -1,0 +1,289 @@
+﻿@model SurveilAI.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+
+
+
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Edit</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content card container-fluid">
+            <div class="row">
+                <div class="col-md-2" style="padding-top:14px; left:19px;">
+                    @Html.ActionLink("< Back To List", "Index")
+                </div>
+                <div class="col-md-8  container-fluid">
+
+
+                    <h5 class="card-header">Update User Account.</h5>
+                    @using (Html.BeginForm("EditPost", "User", FormMethod.Post, new { @id = "user-edit-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div>
+                                    @Html.Hidden("idOld", (String)ViewBag.id, new { @class = "form-control" })
+                                </div>
+                                <div class="mb-3">
+                                    <label>User ID</label>
+                                    @Html.TextBox("UserID", (String)ViewBag.id, new { @readonly = "readonly", @maxlength = "30", placeholder = "Enter User ID", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                                    <small style="color:red !important;" class="form-text text-muted">@TempData["errormsg"]</small>
+                                </div>
+                                <div>
+                                    <label>First Name</label>
+                                    @Html.TextBox("FirstName", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter First Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                                <div>
+                                    <label>Last Name</label>
+                                    @Html.TextBox("LastName", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter Last Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                </div>
+                                @if (Model.Ldap == true)
+                                {
+
+                                    <div class="mb-3">
+                                        <label>Password</label>
+                                        @Html.HiddenFor(m => m.newPasswordE)
+                                        @Html.PasswordFor(model => model.newPassword, new { disabled = "disabled", placeholder = "Enter Password", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newPassword, "", new { @class = "text-danger" })
+                                        <small style="color:red !important; display:none;" id="pass-policy" class="form-text text-muted">Password not valid according to policy</small>
+                                        <small style="display:none;" id="npass" class="form-text text-muted text-danger">required</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Confirm Password</label>
+                                        @Html.HiddenFor(m => m.newPassword2E)
+                                        @Html.PasswordFor(model => model.newPassword2, new { disabled = "disabled", placeholder = "Re -Enter Password", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newPassword2, "", new { @class = "text-danger" })
+                                        <small style="color:red !important;" class="form-text text-muted">@TempData["PassError"]</small>
+                                        <small style="display:none;" id="npassn" class="form-text text-muted text-danger">required</small>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="mb-3">
+
+                                        <label>Password</label>
+                                        @Html.HiddenFor(m => m.newPasswordE)
+                                        @Html.PasswordFor(model => model.newPassword, new { placeholder = "Enter Password", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newPassword, "", new { @class = "text-danger" })
+                                        <small style="color:red !important; display:none;" id="pass-policy" class="form-text text-muted">Password not valid according to policy</small>
+                                        <small style="display:none;" id="npass" class="form-text text-muted text-danger">required</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Confirm Password</label>
+                                        @Html.HiddenFor(m => m.newPassword2E)
+                                        @Html.PasswordFor(model => model.newPassword2, new { placeholder = "Re-Enter Password", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.newPassword2, "", new { @class = "text-danger" })
+                                        <small style="color:red !important;" class="form-text text-muted">@TempData["PassError"]</small>
+                                        <small style="display:none;" id="npassn" class="form-text text-muted text-danger">required</small>
+                                    </div>
+                                }
+
+                                <div class="mb-3 row">
+                                    <label class="control-label col-md-3">Account Type</label>
+                                    <div class="col-md-12">
+
+                                        @Html.DropDownList("AccountType", new SelectList(ViewBag.dbUserAcc, "", "", ViewBag.acc), "Select Account Type", new { @class = "form-select" })
+                                        @Html.ValidationMessageFor(m => m.AccountType, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBox("Ldap", (bool)Model.Ldap, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="Ldap">LDAP User</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBox("isOnline", (bool)Model.IsOnline, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="isOnline">Is Online</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBox("IsLocked", (bool)Model.IsLocked, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="IsLocked">Account Locked</label>
+                                </div>
+                                <br />
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBox("PassUDPrompt", (bool)Model.PassUDPrompt, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="PassUDPrompt">Prompt For Password Reset</label>
+                                </div>
+                                <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light text-center">
+                            <button type="submit" class="btn btn-primary" id="user-edit">Submit</button>
+                        </div>
+
+                    }
+                </div>
+                <div class="col-md-2"></div>
+                <input type="hidden" id="my-val" value="$#Ipl@innomate#$" />
+            </div>
+            <br />
+            <hr />
+            <footer class="container-fluid">
+                <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+            </footer>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="~/lib/crypto-js/crypto-js.js"></script>
+        <script>
+            $('#Ldap').change(function () {
+                var chk = $('#Ldap').is(':checked');
+                if (chk == true) {
+                    $("#newPassword").prop( "disabled", true );
+                    $("#newPassword2").prop("disabled", true);
+                }
+                else {
+                    $("#newPassword").prop("disabled", false);
+                    $("#newPassword2").prop("disabled", false);
+                }
+
+            });
+            $(document).ready(function () {
+                //$('#newPassword2').prop("disabled", false);
+                $('#user-edit').click(function (e) {
+                    e.preventDefault();
+
+                    var chk = $('#Ldap').is(':checked');
+                    $('#npass').hide();
+                    $('#npassn').hide();
+                    if (chk == false) {
+                        var p1 =  $("#newPassword").val();
+                        var p2 = $("#newPassword2").val();
+                        if (p1 == "" && p2 == "")
+                        {
+                            $('#npass').show();
+                            $('#npassn').show();
+                            return false;
+                        }
+                        if (p1 == "") {
+                            $('#npass').show();
+                            return false;
+                        }
+                        else {
+                            $('#npass').hide();
+                        }
+                        if (p2 == "") {
+                            $('#npassn').show();
+                            return false;
+                        }
+                        else {
+                            $('#npassn').hide();
+                        }
+
+
+                    }
+
+
+
+                    var fn = $('#FirstName').val();
+                    var ln = $('#LastName').val();
+                    if (fn == "" || ln == "") {
+                        $('#user-edit-form').submit();
+                    }
+                    var Pass2 = $('#newPassword').val();
+                    var Pass3 = $('#newPassword2').val();
+                    var accType = $('#AccountType').val();
+                    if (Pass2 != "" && Pass3 != "" && accType != "Select Account Type") {
+                         var lVal = $('#my-val').val();
+                        var cc = CryptoJS.enc.Utf8.parse(lVal);
+                        Pass2 = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(Pass2), cc,
+                            {
+                                keySize: 128 / 8,
+                                iv: cc,
+                                mode: CryptoJS.mode.CBC,
+                                padding: CryptoJS.pad.Pkcs7
+                            });
+                        Pass3 = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(Pass3), cc,
+                            {
+                                keySize: 128 / 8,
+                                iv: cc,
+                                mode: CryptoJS.mode.CBC,
+                                padding: CryptoJS.pad.Pkcs7
+                            });
+
+                        var pp = "'" + Pass2 + "'";
+
+                        $.ajax({
+                            url: "@Url.Action("PasswordPolicyCheck", "User")",
+                            data: { newPassword2: pp, AccountType: accType },
+                            type: "Post",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data == "true") {
+                                    $('#newPassword').val("********");
+                                    $('#newPassword2').val("********");
+                                    $('#newPasswordE').val(Pass2);
+                                    $('#newPassword2E').val(Pass3);
+                                    $('#user-edit-form').submit();
+                                }
+                                else {
+
+                                    data = data.replace(/\"/g, "");
+                                    if (Pass2 != "") {
+
+                                        $('#pass-policy').show();
+                                        $('#pass-policy').text(data);
+
+                                    }
+                                    else {
+                                        $('#pass-policy').hide();
+                                        $('#pass-policy').text("");
+                                    }
+                                }
+                            },
+                            error: function (data) {
+
+                            }
+                        });
+                    }
+                    else {
+                        $('#pass-policy').hide();
+                        $('#user-edit-form').submit();
+                    }
+                });
+
+
+                var Ldap = '@Model.Ldap';
+                if (Ldap=="True") {
+                    $("#newPassword").rules("remove", "required");
+                    $("#newPassword2").rules("remove", "required");
+                }
+                $('form').get(0).reset(); //clear form data on page load
+
+
+
+                $('#UserID').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z0-9_]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>

@@ -1,0 +1,242 @@
+﻿@model SurveilAI.Models.UserPermission
+@{
+    ViewBag.Title = "EditRole";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+@helper GetTree(List<SurveilAI.Models.UserPermission> users, string parent)
+{
+    int Tree = 0;
+    foreach (var item in users)
+    {
+        var cnt = item.Hierarchy.Count(x => x == '.');
+        var padd = "";
+        var child = "";
+
+        if (cnt == 0)
+        {
+            Tree = +1;
+            padd = "";
+            child = item.Hierarchy;
+
+        }
+        else if (cnt == 1)
+        {
+            int num = 30;
+            num = num * cnt;
+            padd = "padding-left:" + num + "px;";
+            child = item.Hierarchy;
+        }
+        else if (cnt == 2)
+        {
+            int num = 30;
+            num = num * cnt;
+            padd = "padding-left:" + num + "px;";
+            child = item.Hierarchy;
+        }
+        else if (cnt == 3)
+        {
+            int num = 30;
+            num = num * cnt;
+            padd = "padding-left:" + num + "px;";
+            child = item.Hierarchy;
+        }
+        else if (cnt == 4)
+        {
+            int num = 30;
+            num = num * cnt;
+            padd = "padding-left:" + num + "px;";
+            child = item.Hierarchy;
+        }
+
+
+        <li class=@child style=@padd>
+            @{
+                var submenu = users.Where(x => x.Hierarchy.StartsWith(item.Hierarchy)).Count();
+
+                <div class="custom-control custom-checkbox checkbox-primary">
+                    <input name="roles" type="checkbox" class="custom-control-input Coff" id="@item.ID" value="@item.ID" />
+                    <label class="custom-control-label" for="@item.ID">@item.Function</label>
+                </div>
+                @*if (submenu > 1)
+                    {
+                        <ul class="list-unstyled">
+                            @GetTree(Model.data, item.Hierarchy)
+                        </ul>
+                    }*@
+            }
+        </li>
+    }
+
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Accout Roles</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Role Assign</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="page-content card container-fluid">
+            @using (Html.BeginForm("EditRole", "User", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-2" style="padding-top:14px; left:19px;">
+                        @Html.ActionLink("< Back To List", "AccRole")
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-header">Assign Account Role.</h5>
+                        <div>
+                            @Html.Hidden("Store", (String)ViewBag.id, new { @class = "form-control" })
+                        </div>
+                        <div class="card-body">
+                            <label>Account Role Name</label>
+                            @Html.TextBox("AccountType", (String)ViewBag.id, new { disabled = "true", @class = "form-control" })
+                            <small style="color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                            <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="padding-top:14px; left:19px;">
+                        <div class="custom-control custom-checkbox checkbox-primary">
+                            @Html.CheckBoxFor(x => Model.Check, new { @onclick = "toggle(this);", @class = "custom-control-input" })
+                            <label class="custom-control-label" for="Check"> Select All</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="padding-left:40px;    max-height: 600px;    overflow-y: auto;">
+
+                        <ul id="my-tree" class="list-unstyled">
+                            @GetTree(Model.data, Model.data.First().Hierarchy)
+                        </ul>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                    @*}*@
+                    <div class="col-md-12">
+                        <div class="card-footer bg-light text-center">
+                            <button onclick="Select()" type="submit" class="btn btn-primary">Save</button>
+                            @Html.Hidden("Role", (String)Model.Role, new { @class = "form-control" })
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            }
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+
+            function Select() {
+                var sql = [];
+                $.each($("input[name='roles']:checked"), function () {
+                    sql.push($(this).val());
+                });
+                $('#Role').attr("value", sql);
+            }
+
+            $(document).ready(function () {
+
+                $.each($("input[name='roles']"), function () {
+                    var v = $(this).val();
+                });
+
+                var r = $('#Role').val();
+                r = r.split(',');
+                for (var i = 0; i < r.length; i++) {
+                    $("#" + r[i]).prop('checked', true);
+                }
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+                var bool;
+                for (var i = 1; i < checkboxes.length; i++) {
+
+                    if (checkboxes[i].checked) {
+                        bool = true;
+                    }
+                    else {
+                        bool = false;
+                        break;
+                    }
+                }
+                if (bool == false) {
+                    $("input[name='Check']:checkbox").prop('checked', false);
+                }
+                else {
+                    $("input[name='Check']:checkbox").prop('checked', true);
+                }
+            });
+
+            function toggle(source) {
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i] != source)
+                        checkboxes[i].checked = source.checked;
+                }
+            }
+            $('input[name="roles"]').click(function () {
+                var className = $(this).closest("li").attr('class');
+                var HierArchies = $("li[class^='" + className + "']");
+                var checked = false;
+                if ($(this).is(":checked")) {
+                    checked = true;
+                }
+                else {
+                    checked = false;
+                }
+                if (HierArchies.length > 1) {
+                    for (var i = 0; i < HierArchies.length; i++) {
+                        var abc = document.getElementsByClassName(HierArchies[i].className)[0];
+                        abc.getElementsByClassName("Coff")[0].checked = checked;
+
+                    }
+                }
+                else {
+                    console.log(HierArchies[0].className);
+                    var HierLevel = HierArchies[0].className.split(".");
+                    console.log(HierLevel.length - 1);
+                }
+
+            });
+
+            $(':checkbox').click(function () {
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                var bool;
+
+                for (var i = 1; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                        bool = true;
+                    }
+                    else {
+                        bool = false;
+                        break;
+                    }
+                }
+
+                if (bool == false) {
+                    $("input[name='Check']:checkbox").prop('checked', false);
+                }
+                else {
+                    $("input[name='Check']:checkbox").prop('checked', true);
+                }
+            });
+
+
+
+
+        </script>
+    </div>
+</div>
+
+

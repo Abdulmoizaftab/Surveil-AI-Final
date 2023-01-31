@@ -1,0 +1,246 @@
+﻿
+@{
+    ViewBag.Title = "GetJournal";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+
+    th {
+        font-weight: bold !important;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    table tr:hover.selected td,
+    table tbody tr:hover td {
+        background-color: #8783ee;
+        cursor: pointer;
+    }
+
+    table tbody tr.selected td {
+        background-color: #8783ee;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @TempData["DeviD"]</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Device Journals</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="row card">
+                <div class="col-md-2"></div>
+                <div class="col-md-8  container-fluid">
+
+                    <h5 class="card-header">Fetch Journal File.</h5>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div>
+                                <label>Server path ($Uploaddir$)</label>
+                                <input class="form-control BlockSpecialSS" placeholder="Folder\Subfolder\..." type="text" id="ServerPath">
+                                <p id="Result"></p>
+                            </div>
+                            <div class="alert alert-info alert-outline" role="alert">
+                                Select Journal file from table below to fetch it from device to Server path.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light text-center">
+                        <button id="btnJournal" disabled class="btn btn-primary" onclick="GetJournal()">Upload Journal</button>
+                    </div>
+
+                    <br />
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="page-content">
+            <div class="row">
+
+                @*<div class="col-md-1">
+
+                    </div>*@
+                <div class="col-md-12">
+
+                    <div class="card">
+                        @using (Html.BeginForm("GetJournal", "Event", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+
+                            <div class="card-body">
+                                <h5 class="card-title">ATM Machine Journal</h5>
+                                <div class="row">
+                                    <div id="Services" class="table table-striped table-responsive table-bordered" style="    height: 600px;
+    overflow: auto;">
+                                        @if (@TempData["check"].ToString() == "1")
+                                        {
+                                            <table id="Subdir" class="table ">
+                                                <thead>
+                                                    <tr>
+                                                        <td>
+                                                            Directories
+                                                        </td>
+                                                        <td>
+                                                            size
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @foreach (var item in ViewBag.RootDir)
+                                                    {
+                                                        string[] seperator = item.Split('*');
+                                                        if (seperator[0] != "")
+                                                        {
+                                                            <tr>
+
+
+                                                                <td>
+
+
+                                                                    <span>@seperator[0]</span>
+
+
+                                                                </td>
+                                                                <td>
+                                                                    @if (seperator.Length > 1)
+                                                                    {
+                                                                        <span style="float:right">@seperator[1] KB</span>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span></span>
+
+                                                                    }
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                        else
+                                                        {
+
+
+                                                        }
+
+
+                                                    }
+
+                                                </tbody>
+                                            </table>
+
+                                        }
+                                        else
+                                        {
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Directories not available , Please check connectivity</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        }
+                                        <input type="hidden" id="Subdir" />
+                                        <input type="hidden" id="DevID" value="@TempData["DeviD"]" />
+                                        <input type="hidden" id="fileSize" />
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+                @*<div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span>
+                                    Server path ($Uploaddir$)
+                                </span>
+                                <input class="form-control" placeholder="Folder\Subfolder\..." type="text" id="ServerPath">
+                                <p id="Result"></p>
+
+                            </div>
+                            <div class="col-md-6">
+                                <button id="btnJournal" disabled class="btn btn-primary" onclick="GetJournal()">Upload Journal</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+
+                    </div>*@
+            </div>
+        </section>
+    </div>
+</div>
+<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>
+</div>
+
+
+<script src="~/assets/js/global/CustomValid.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#Subdir").on("click", "tr", function (e) {
+            var check = $(this).find("td:first span").text();
+            if (check == "No sub Directory" || check == "No files to show") {
+
+            }
+            else {
+
+            $(this)
+                .toggleClass("selected")
+                .siblings(".selected")
+                .removeClass("selected");
+            $("#Subdir").val($(this).find("td:first span").text());
+            $("#fileSize").val($(this).find("td:nth-child(2) span").text());
+            $("#Result").html("");
+            document.getElementById("btnJournal").disabled = false;
+        }
+        });
+
+    })
+
+    function GetJournal() {
+        var DevID = $("#DevID").val();
+        var Rootdir = $("#Subdir").val();
+        var Spath = $("#ServerPath").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("GetJournal", "Event")",
+            data: { id: DevID, journal: Rootdir, ServerPath: Spath },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                console.log(data);
+                $("#Result").html(data);
+                $("#ServerPath").val("");
+            },
+            error: function (data) {
+                $("#ServerPath").val("");
+
+            },
+            complete: function () {
+                $("#loading").hide();
+            }
+            })
+    }
+

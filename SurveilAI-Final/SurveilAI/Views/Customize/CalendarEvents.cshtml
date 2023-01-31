@@ -1,0 +1,462 @@
+﻿@model IEnumerable<SurveilAI.Models.CashForeCast_Events>
+
+@{
+    ViewBag.Title = "CalendarEvents";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+    List<SelectListItem> SolarDates = new List<SelectListItem>();
+    SelectListItem Sitem = new SelectListItem { Text = "Date", Value = "0" };
+    SolarDates.Add(Sitem);
+    for (int i = 1; i < 32; i++)
+    {
+        SelectListItem item = new SelectListItem { Text = i.ToString(), Value = i.ToString() };
+        SolarDates.Add(item);
+    }
+    List<SelectListItem> LunarDates = new List<SelectListItem>();
+    LunarDates.Add(Sitem);
+    for (int i = 1; i < 31; i++)
+    {
+        SelectListItem item = new SelectListItem { Text = i.ToString(), Value = i.ToString() };
+        LunarDates.Add(item);
+    }
+    List<SelectListItem> TypeList = new List<SelectListItem> {
+         new SelectListItem { Text= "Select Calender Type", Value = "0", Selected = true},
+         new SelectListItem { Text= "Solar", Value = "Solar", Selected = true},
+         new SelectListItem { Text= "Lunar", Value = "Lunar"},
+    };
+
+}
+
+<!-- Modal Create-->
+<div class="modal fade" id="EventOptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Calendar Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="MyForm2" action="EventSubmitForm" method="post">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Event Name</label>
+                            @Html.TextBox("EventName", "", new { autocomplete = "off", placeholder = "", @id = "NewEventName", @class = "form-control", maxlength = "9", required = "required" })
+                            <label id="event-name-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="EventGroup">Calendar</label>
+                            @Html.DropDownList("CalendarType", TypeList, new { @class = "form-control", @id = "NewEventType", required = "required" })
+                            <label id="event-type-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                    <div class="row" id="solar-div">
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Event Date</label>
+                            @Html.DropDownList("EventDate", SolarDates, new { @class = "form-control", @id = "SolarDate", required = "required" })
+                            <label id="event-sdate-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Month</label>
+                            @Html.DropDownList("SolarMonths", new List<SelectListItem>
+                            {
+                             new SelectListItem { Text = "Month", Value = "0"},
+                             new SelectListItem { Text = "January", Value = "January"},
+                             new SelectListItem { Text = "February", Value = "February"},
+                             new SelectListItem { Text = "March", Value = "March"},
+                             new SelectListItem { Text = "April", Value = "April"},
+                             new SelectListItem { Text = "May", Value = "May"},
+                             new SelectListItem { Text = "June", Value = "June"},
+                            new SelectListItem { Text = "July", Value = "July"},
+                            new SelectListItem { Text = "August", Value = "August"},
+                            new SelectListItem { Text = "September", Value = "September"},
+                            new SelectListItem { Text = "October", Value = "October"},
+                            new SelectListItem { Text = "November", Value = "November"},
+                            new SelectListItem { Text = "December", Value = "December"},
+                               }, new { @class = "form-control", @id = "SolarMonth", required = "required" })
+                            <label id="event-smonth-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                    <div class="row" id="lunar-div">
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Event Date</label>
+                            @Html.DropDownList("EventDate", LunarDates, new { @class = "form-control", @id = "LunarDate", required = "required" })
+                            <label id="event-ldate-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Month</label>
+                            @Html.DropDownList("LunarMonths", new List<SelectListItem>
+                            {
+                             new SelectListItem { Text = "Month", Value = "0"},
+                             new SelectListItem { Text = "Muharram", Value = "Muharram"},
+                             new SelectListItem { Text = "Safar", Value = "Safar"},
+                             new SelectListItem { Text = "Rabiul-Awwal", Value = "Rabiul-Awwal"},
+                             new SelectListItem { Text = "Rabi-us-Sani", Value = "Rabi-us-Sani"},
+                             new SelectListItem { Text = "Jamadi-ul-Awwal", Value = "Jamadi-ul-Awwal"},
+                             new SelectListItem { Text = "Jamadi-us-Sani", Value = "Jamadi-us-Sani"},
+                            new SelectListItem { Text = "Rajab", Value = "Rajab"},
+                            new SelectListItem { Text = "Shaban", Value = "Shaban"},
+                            new SelectListItem { Text = "Ramadan", Value = "Ramadan"},
+                            new SelectListItem { Text = "Shawal", Value = "Shawal"},
+                            new SelectListItem { Text = "Zil-Qadah", Value = "Zil-Qadah"},
+                            new SelectListItem { Text = "Zul-Hijah", Value = "Zul-Hijah"},
+                               }, new { @class = "form-control", @id = "LunarMonth", required = "required" })
+                            <label id="event-lmonth-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                <button type="submit" class="btn btn-primary" id="CreateCalEvent" data-url="@Url.Action("CreateCalEvent","Customize")" form="MyForm2" name="submitButton" value="newEvent">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal fade" id="EventEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Calendar Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="MyForm2" action="EventSubmitForm" method="post">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Event Name</label>
+                            <input type="hidden" id="old-event-name" />
+                            @Html.TextBox("EventName", "", new { autocomplete = "off", placeholder = "", @id = "UEventName", @class = "form-control", maxlength = "9", required = "required" })
+                            <label id="event-uname-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="EventGroup">Calendar</label>
+                            @Html.DropDownList("CalendarType", TypeList, new { @class = "form-control", @id = "UEventType", required = "required" })
+                            <label id="event-utype-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                    <div class="row" id="solar-div-u">
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Event Date</label>
+                            @Html.DropDownList("EventDate", SolarDates, new { @class = "form-control", @id = "USolarDate", required = "required" })
+                            <label id="event-usdate-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Month</label>
+                            @Html.DropDownList("SolarMonths", new List<SelectListItem>
+                            {
+                             new SelectListItem { Text = "Month", Value = "0"},
+                             new SelectListItem { Text = "January", Value = "January"},
+                             new SelectListItem { Text = "February", Value = "February"},
+                             new SelectListItem { Text = "March", Value = "March"},
+                             new SelectListItem { Text = "April", Value = "April"},
+                             new SelectListItem { Text = "May", Value = "May"},
+                             new SelectListItem { Text = "June", Value = "June"},
+                            new SelectListItem { Text = "July", Value = "July"},
+                            new SelectListItem { Text = "August", Value = "August"},
+                            new SelectListItem { Text = "September", Value = "September"},
+                            new SelectListItem { Text = "October", Value = "October"},
+                            new SelectListItem { Text = "November", Value = "November"},
+                            new SelectListItem { Text = "December", Value = "December"},
+                               }, new { @class = "form-control", @id = "USolarMonth", required = "required" })
+                            <label id="event-usmonth-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                    <div class="row" id="lunar-div-u">
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Event Date</label>
+                            @Html.DropDownList("EventDate", LunarDates, new { @class = "form-control", @id = "ULunarDate", required = "required" })
+                            <label id="event-uldate-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-md-4 form-group">
+                            <label for="EventGroup">Month</label>
+                            @Html.DropDownList("LunarMonths", new List<SelectListItem>
+                            {
+                             new SelectListItem { Text = "Month", Value = "0"},
+                             new SelectListItem { Text = "Muharram", Value = "Muharram"},
+                             new SelectListItem { Text = "Safar", Value = "Safar"},
+                             new SelectListItem { Text = "Rabiul-Awwal", Value = "Rabiul-Awwal"},
+                             new SelectListItem { Text = "Rabi-us-Sani", Value = "Rabi-us-Sani"},
+                             new SelectListItem { Text = "Jamadi-ul-Awwal", Value = "Jamadi-ul-Awwal"},
+                             new SelectListItem { Text = "Jamadi-us-Sani", Value = "Jamadi-us-Sani"},
+                            new SelectListItem { Text = "Rajab", Value = "Rajab"},
+                            new SelectListItem { Text = "Shaban", Value = "Shaban"},
+                            new SelectListItem { Text = "Ramadan", Value = "Ramadan"},
+                            new SelectListItem { Text = "Shawal", Value = "Shawal"},
+                            new SelectListItem { Text = "Zil-Qadah", Value = "Zil-Qadah"},
+                            new SelectListItem { Text = "Zul-Hijah", Value = "Zul-Hijah"},
+                               }, new { @class = "form-control", @id = "ULunarMonth", required = "required" })
+                            <label id="event-ulmonth-msg" class="text-danger">required</label>
+                        </div>
+                    </div>
+                    <div class="row" id="lunar-div-u">
+                        <div class="col-md-6 form-group">
+                            <label for="EventGroup">This Year</label>
+                            <input type="date" class="form-control" id="dateselector" />
+                            <label id="event-undate-msg" class="text-danger">required</label>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-md-4 form-group">
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                <button type="submit" class="btn btn-primary" id="UdateCalEvent" data-url="@Url.Action("UpdateCalEvent","Customize")" form="MyForm2" name="submitButton" value="newEvent">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Delete-->
+<div class="modal fade" id="EventDelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Calendar Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="MyForm2" action="EventSubmitForm" method="post">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="font-weight-bold">Event Name: </label>
+                            <input type="hidden" id="old-event-name" />
+                            <label class="" id="d-event-name"></label>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="EventGroup" class="font-weight-bold">Event Date: </label>
+                            <label class="" id="d-event-date"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                <button type="submit" class="btn btn-primary" id="DelCalEvent" data-url="@Url.Action("DeleteCalEvent","Customize")" form="MyForm2" name="submitButton" value="newEvent">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="EventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center d-block">
+                <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                <h5 class="modal-title" id="EventModalLabel"></h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col form-group">
+                        <div class="row">
+                            <div class="col-3">
+                                <label class="font-weight-bold">Date:</label>
+                            </div>
+                            <div class="col-6">
+                                <label id="event-date"></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label class="font-weight-bold">Description:</label>
+                            </div>
+                            <div class="col-6">
+                                <label id="event-desc"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content container">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">Calendar Event</h1>
+            </div>
+            <div class="col-md-2" style="padding-top:14px; left:19px;">
+                @Html.ActionLink("< Go Back", "StateRepresentation")
+            </div>
+        </header>
+        <section class="page-content" id="myData">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="row mt-3 ">
+                            <div class="col-md-4 pl-2" style="padding-left:2%">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" id="btn-calendar">Calendar</button>
+                                    <button type="button" class="btn btn-secondary" id="btn-events">Events</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h1 id="events-heading" class="text-center d-none">Events</h1>
+                            </div>
+                            <div class="col-md-4" style="padding-right:2%">
+                                <div id="adjust-div">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-lg-4 col-md-5 col-sm-4 col-4 text-right">
+                                            <label id="adjust-msg" class="text-danger d-none" style="line-height: 2rem;">value must be between -2 and 2</label>
+                                            <label id="adjust-suc-msg" class="text-success d-none" style="line-height: 2rem;">Adjustment completed</label>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-3 col-md-1 col-sm-1 col-2"></div>
+                                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7 col-6  text-right">
+                                            <div class="input-group mb-3">
+                                                <input type="number" min="-2" max="2" maxlength="1" class="form-control text-center" style="line-height: 18px;" id="adjustment" placeholder="0">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-sm btn-primary" id="btn-adjust" type="button">Adjust</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-none" id="add-event-div">
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-4">
+
+                                        </div>
+                                        <div class="col-4">
+                                            @if (UserRights.Contains("184"))
+                                            {
+                                                <button type="button" class="btn btn-sm btn-primary float-right" id="Add-Cal-Event">Add Event</button>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="" style="min-height: 820px !important;">
+                            <!--Calender-->
+
+
+                            <div class="row" id="div-calendar">
+                                <div class="col">
+                                    <div id="calender" class="">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Events-->
+                            <div class="row d-none" id="div-events">
+                                <div class="col ml-2">
+                                    @*<h1 class="text-center">Calendar Events</h1>*@
+
+                                    <div id="event-list">
+                                        <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Event Name</th>
+                                                    <th>Event Date</th>
+                                                    <th>This Year</th>
+                                                    <th>Next Year</th>
+                                                    @if (UserRights.Contains("185") || UserRights.Contains("186"))
+                                                    {
+                                                        <th>Options</th>
+                                                    }
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        @if (!string.IsNullOrEmpty(item.Lunar_Day))
+                                                        {
+                                                            <td>@Html.DisplayFor(modelItem => item.Event_Name)</td>
+                                                            <td>@Html.DisplayFor(modelItem => item.Lunar_Day)</td>
+                                                            @*<td>@Html.DisplayFor(modelItem => item.Event_Date)</td>*@
+                                                            <td><span><input type="hidden" value="Lunar" /></span><span>@item.Event_Date.Value.ToString("MM-dd-yyyy")</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td>@Html.DisplayFor(modelItem => item.Event_Name)</td>
+                                                            <td>@Html.DisplayFor(modelItem => item.Solar_Day)</td>
+                                                            <td><span><input type="hidden" value="Solar" /></span><span>@item.Event_Date.Value.ToString("MM-dd-yyyy")</span></td>
+                                                        }
+
+                                                        <td>@Html.DisplayFor(modelItem => item.NextYear)</td>
+                                                        <td>
+                                                            @if (UserRights.Contains("185"))
+                                                            {
+                                                                <a href="#" class="btn-edit-cal">Edit</a>
+                                                            }
+                                                            @if (UserRights.Contains("186"))
+                                                            {
+                                                                <span>|</span><a href="#" class="btn-del-cal">Delete</a>
+                                                            }
+                                                            @*@Ajax.ActionLink("Edit", "EventEdit", "Customize", new { id = item.Event_Name + "/" }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace })*@
+
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr />
+                            <footer class="container-fluid">
+                                <p>&copy; @DateTime.Now.Year - SURVEILAI PVT-LTD</p>
+                            </footer>
+                        </div>
+
+
+
+                        <!--Events Managment-->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+<input type="hidden" id="adjust-cal" data-url="@Url.Action("AdjustCalendar","Customize")" />
+<input type="hidden" id="get-cal" data-url="@Url.Action("GetEvents","Customize")" />
+
+
+@*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+
+<link href="~/assets/css/common/EventCalendar.css" rel="stylesheet" />
+<link href="~/lib/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+<link href="~/lib/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+<script src="~/lib/moment.js/moment.min.js"></script>
+<script src="~/lib/moment-hijri/moment-hijri.js"></script>
+
+<script src="~/lib/fullcalendar/fullcalendar.min.js"></script>
+<script src="~/assets/js/global/ForCalender.js"></script>
+@*<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>*@
+
+<script>
+
+
+</script>
+

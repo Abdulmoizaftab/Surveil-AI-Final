@@ -1,0 +1,209 @@
+﻿@model System.Data.DataSet
+@using System.Data
+@{
+    ViewBag.Title = "DevBasedata";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Master Data </a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="col-md-12 " style="padding-left:2%;">
+                <small style="color:green !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+
+            </div>
+        </div>
+        @using (Html.BeginForm("EditBasedata", "Device", FormMethod.Post, new { auotocomplete = "off" }))
+
+        {
+            foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <section class="page-content container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4  col-sm-12">
+                                    <h5 class="card-header text-center" style="background-color:#7b78af">Identification</h5>
+                                    <div class="card card-body">
+                                        <div>
+                                            <label>ID</label>
+                                            @Html.TextBox("id", row["id"], new { auotocomplete = "off", placeholder = "ID", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Profile</label>
+                                            @Html.TextBox("profile", row["Profile"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Time-zone</label>
+                                            @Html.TextBox("timezone", row["Timezone"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Location</label>
+                                            @Html.TextBox("location", row["Location"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>URL</label>
+                                            @Html.TextBox("url", row["URL"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "50" })
+                                        </div>
+                                        <div>
+                                            <label>Decription</label>
+                                            @Html.TextArea("description", row["Description"].ToString(), 3, 1, new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "40" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-12">
+                                    <h5 class="card-header text-center" style="background-color:cornflowerblue">Address</h5>
+                                    <div class="card card-body">
+                                        <div>
+                                            <label>Street</label>
+                                            @Html.TextArea("street", row["Street"].ToString(), 3, 1, new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Zip</label>
+                                            @Html.TextBox("zip", row["Zip"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>City</label>
+                                            @Html.TextBox("city", row["City"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>State</label>
+                                            @Html.TextBox("state", row["State"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Country/Region</label>
+                                            @Html.TextBox("country", row["Country"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Longitude</label>
+                                            @Html.TextBox("longitude", row["Longitude"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                        <div>
+                                            <label>Latitude</label>
+                                            @Html.TextBox("latitude", row["Latitude"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-12">
+                                    <h5 class="card-header text-center" style="background-color:powderblue">Custom Attributes</h5>
+                                    <div class="card card-body">
+                                        <div class="mb-3">
+                                            <div>
+                                                <label>Vendor</label>
+                                                @Html.TextBox("vendor", row["Vendor"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Device Model</label>
+                                                @Html.TextBox("devicemodel", row["DeviceModel"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Device Type</label>
+                                                @Html.TextBox("devicetype", row["DeviceType"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Branch</label>
+                                                @Html.TextBox("branch", row["Branch"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Branch Code</label>
+                                                @Html.TextBox("branchcode", row["BranchCode"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Orginization</label>
+                                                @Html.TextBox("orginization", row["Orginization"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Software Version</label>
+                                                @Html.TextBox("softwarever", row["SoftwareVer"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Installation Date</label>
+                                                @Html.TextBox("instdate", row["InstDate"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Serial #</label>
+                                                @Html.TextBox("serialno", row["SerialNo"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>System</label>
+                                                @Html.TextBox("system", row["System"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                            <div>
+                                                <label>Agent Version</label>
+                                                @Html.TextBox("agentver", row["AgentVer"], new { auotocomplete = "off", @class = "form-control BlockSpecialMs", @maxlength = "20" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-12">
+                                    <h5 class="card-header text-center" style="background-color:cadetblue">Address</h5>
+                                    <div class="card card-body">
+                                        <div class="mb-3">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Contact 1</label>
+
+                                                    @*@Html.TextBox("contact1", row["Contact1"], new { auotocomplete = "off", @class = "form-control", @maxlength = "20" })*@
+                                                    @Html.DropDownList("contact1", (IEnumerable<SelectListItem>)ViewBag.ContactList, "Select Contact", new { @class = "form-control js-example-basic-single", @style = "width: 100%;" })
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label>Contact 2</label>
+                                                    @*@Html.TextBox("contact2", row["Contact2"], new { auotocomplete = "off", @class = "form-control", @maxlength = "20" })*@
+                                                    @Html.DropDownList("contact2", (IEnumerable<SelectListItem>)ViewBag.ContactList, "Select Contact", new { @class = "form-control js-example-basic-single", @style = "width: 100%;" })
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label>Contact 3</label>
+                                                    @*@Html.TextBox("contact3", row["Contact3"], new { auotocomplete = "off", @class = "form-control", @maxlength = "20" })*@
+                                                    @Html.DropDownList("contact3", (IEnumerable<SelectListItem>)ViewBag.ContactList, "Select Contact", new { @class = "form-control js-example-basic-single", @style = "width: 100%;" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card card-body bg-light text-center" style="align-items: center;">
+                                <button type="submit" class="btn btn-primary col-sm-1">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+        }
+    </div>
+    <input type="hidden" id="con1" value="@ViewBag.Contact1" />
+    <input type="hidden" id="con2" value="@ViewBag.Contact2" />
+    <input type="hidden" id="con3" value="@ViewBag.Contact3" />
+</div>
+
+<link href="~/assets/vendor/select2/select2.min.css" rel="stylesheet" />
+<style>
+</style>
+<script src="~/assets/js/global/CustomValid.js"></script>
+
+<script src="~/assets/vendor/select2/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+
+        //var con1S = $('#con1').val();
+        //$('#contact1').val(con1S); // Select the option with a value of '1'
+        //$('#contact1').trigger('change');
+    });
+</script>

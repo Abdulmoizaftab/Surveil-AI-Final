@@ -1,0 +1,656 @@
+﻿@model IEnumerable<object[]>
+@{
+    ViewBag.Title = "Audit";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    .highlight {
+        background-color: #f0f6ff;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-document-edit"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Audit</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Agents</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5 class="card-header">@ViewBag.HtmlUsersStr</h5>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="email-response" class="text-success" style="text-align: center; padding-top: 10px;"></label>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10" style="overflow: auto; max-height: 600px;">
+                                    <table id="bs4-table" class="table table-bordered" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                @*<th style="display: none;">ID</th>*@
+                                                <th>Device ID</th>
+                                                <th>IP</th>
+                                                <th>Port</th>
+                                                <th>Device State</th>
+                                                <th>Connected Gateway</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="bs4-tbody">
+                                            @foreach (var item in ViewBag.pvAgents)
+                                            {
+                                                <tr>
+                                                    @*<td style="display: none;">@item[0].ToString()</td>*@
+                                                    <td>@item[0].ToString()</td>
+                                                    <td>@item[1].ToString()</td>
+                                                    <td>@item[2].ToString()</td>
+                                                    <td>@item[3].ToString()</td>
+                                                    <td>@item[4].ToString()</td>
+                                                    @*<td>@item[5].ToString()</td>*@
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-2">
+                                    <button style="margin-bottom:5px" class="btn btn-primary d-block col-12" onclick="window.location.reload();">Refresh</button>
+                                    @*<button style="margin-bottom:5px" class="btn btn-primary d-block col-12" onclick="">Previous</button>
+                                        <button style="margin-bottom:5px" class="btn btn-primary d-block col-12" onclick="">Next</button>*@
+                                    <a class="btn btn-primary d-block col-12" id="btnExport" onclick="fnExcelReport();" style="float: right;color: white; margin-bottom:5px;">Export<iframe id="txtArea1" style="display:none"></iframe></a>
+                                    <button id="send_select" disabled style="margin-bottom:5px" class="btn btn-primary d-block col-12" data-bs-toggle="modal" data-bs-target="#Semail">Send</button>
+                                    <button id="send_all" style="margin-bottom:5px" class="btn btn-primary d-block col-12" data-bs-toggle="modal" data-bs-target="#Semail">Send All</button>
+                                    @*<button id="view_details" disabled style="margin-bottom:5px" class="btn btn-primary d-block col-12" data-bs-toggle="modal" data-bs-target="#ViewDetails">View Details</button>*@
+                                    <button style="margin-bottom:5px" class="btn btn-sm btn-warning d-block col-12" data-bs-toggle="modal" data-bs-target="#Acts">Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <footer class="container-fluid">
+                            <p>&copy; @DateTime.Now.Year - DIGEVOL.AI PVT-LTD</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="modal" id="Acts" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width:900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Server Journal Filter</h5>
+            </div>
+            <div class="modal-body mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+                <div id="mCSB_5" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;">
+                    <div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+
+                        <div class="card-body">
+                            <div class="mb-3 row container-fluid">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="min-height:350px;" class="AllDiv2 eventR">
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Device Name</td>
+                                                            <td><input id="res" type="text" class="form-control restrictSpecial" tyle="float:right;" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Status</td>
+                                                            <td>
+                                                                <select id="oprtyp" class="form-select select-c" style="float:right;">
+                                                                    <option selected="selected"> Select Status</option>
+                                                                    <option id="Online">Connected</option>
+                                                                    <option id="Offline">Disconnected</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Server IP</td>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="input-group" style="float: left;">
+                                                                            <input id="user" type="text" class="form-control IpValid" data-val="ser-ip-val" tyle="float:right;" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <small class="text-danger" id="ser-ip-val" style="display:none;">Invalid IP</small>
+                                                                    </div>
+                                                                </div>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="apply" type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Apply</button>
+                <button id="clear" type="button" class="btn btn-secondary btn-outline">Clear</button>
+                <button type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ViewDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width:900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">View Details</h5>
+            </div>
+            <div class="modal-body mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+                <div id="mCSB_5" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;">
+                    <div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+
+                        <div class="card-body">
+                            <div class="mb-3 row container-fluid">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div style="min-height:350px;" class="AllDiv2 eventR">
+                                                <table id="new" class="table table-bordered">
+                                                    <thead>
+                                                        <tr><th>New Value</th></tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="min-height:350px;" class="AllDiv2 eventR">
+                                                <table id="old" class="table table-bordered">
+                                                    <thead>
+                                                        <tr><th>Old Value</th></tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="VDmessage"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Semail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width:920px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Configure E-mail</h5>
+            </div>
+            <div class="modal-body mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+                <div id="mCSB_5" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;">
+                    <div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+
+                        <div class="card-body">
+                            <div class="mb-3 row container-fluid">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3" id="EmCon">
+                                                @Html.TextBox("emails", "janwer@innovative-pk.com", new { placeholder = "Enter e-mail Addresses [1000 character limit]", @class = "form-control", maxlength = "1000" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="control-label">Mail Subject</label>
+                                                @Html.TextBox("eSubject", "Server Journal Entries", new { placeholder = "Enter e-mail Subject", @class = "form-control", maxlength = "99", required = "" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="control-label">Mail Message</label>
+                                                @Html.TextArea("emessage", "following are the selected values from table:", new { placeholder = "Enter e-mail Message", @class = "form-control", required = "", maxlength = "499" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <div id="show_table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="Email()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Commands" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width:920px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Select Commands</h5>
+            </div>
+            <div class="modal-body mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+                <div id="mCSB_5" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;">
+                    <div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+
+                        <div class="card-body">
+                            <div class="mb-3 row container-fluid">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                @*<table id="bs-command-table" class="table table-bordered" style="width: 100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>F1</th>
+                                                                <th>F2</th>
+                                                                <th>F3</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            @foreach (var item in ViewBag.pvCommands)
+                                                            {
+                                                                <tr>
+                                                                    <td>@item.F1</td>
+                                                                    <td>@item.F2</td>
+                                                                    <td>@item.F3</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>*@
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="modal-footer">
+                <button id="cmd_select" type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="ApplyCommand()">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+     $('.restrictSpecial').bind('paste', function () {
+        var elmId = $(this).attr('id');
+        CheckSpecialChar(elmId);
+    });
+    function CheckSpecialChar(id) {
+        setTimeout(function () {
+            var elmId = $('#' + id);
+            //get the value of the input text
+            var data = elmId.val();
+            //replace the special characters to ''
+            var dataFull = data.replace(/[^\w\s-.]/gi, '');
+            //set the new value of the input text without special characters
+            elmId.val(dataFull);
+        });
+    }
+
+    $('.restrictSpecial').on('keypress', function (event) {
+        var regex = new RegExp("^[a-zA-Z0-9-.\\-\\s]+$");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            return false;
+        }
+    });
+
+
+
+    function isIpAddress(s) {
+      if (s == "") { return true;}
+      else if (typeof s !== 'string') { return false; }
+      // There must be 4 parts separated by dots.
+      var parts = s.split('.');
+      if (parts.length !== 4) { return false; }
+      // Each of the four parts must be an integer in the range 0 to 255.
+      for (var i = 0; i < 4; ++i) {
+        var part = parts[i];
+        // Each part must consist of 1 to 3 decimal digits.
+        if (!/^\d{1,3}$/.test(part)) { return false; }
+        var n = +part;
+        if (0 > n || n > 0xff) { return false; }
+      }
+      return true;
+    }
+    var pattern = /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/;
+    x = 46;
+    $('.IpValid').keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && e.which != x && (e.which < 48 || e.which > 57)) {
+            console.log(e.which);
+            return false;
+        }
+    }).keyup(function () {
+        var this1 = $(this);
+        var valId = $(this).data("val")
+        var aa = "#" + valId;
+        if (this1.val() == "") {
+            $(""+aa+"").hide();
+        }
+        else if (!pattern.test(this1.val())) {
+
+            $(""+aa+"").show();
+            while (this1.val().indexOf("..") !== -1) {
+                this1.val(this1.val().replace('..', '.'));
+            }
+            x = 46;
+        } else {
+            x = 0;
+            var lastChar = this1.val().substr(this1.val().length - 1);
+            if (lastChar == '.') {
+                this1.val(this1.val().slice(0, -1));
+            }
+            var ip = this1.val().split('.');
+            if (ip.length == 4) {
+
+            }
+            $(""+aa+"").hide();
+        }
+    });
+
+
+    $("#view_details").on("click",
+        function () {
+            var selected_row = $("#bs4-tbody tr.highlight");
+            var id = selected_row[0].cells[0].innerText;
+            debugger;
+            $.ajax({
+                url: "@Url.Action("ViewDetails", "Audit")",
+                data: { id: id},
+                type: "Post",
+                dataType: "html",
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+
+                        data = $.parseJSON(data);
+
+                        $("#new tbody").empty();
+                        $("#old tbody").empty();
+                        $("#VDmessage").html("");
+
+                        if (data.length >= 2) {
+                            var NewDetails = data[1];
+                            var OldDetails = data[0];
+
+                            var new_rows = "<tr><td>Id</td><td>" + NewDetails[0] + "</td></tr>";
+                            new_rows += "<tr><td>Device</td><td>" + NewDetails[1] + "</td></tr>";
+                            new_rows += "<tr><td>Command</td><td>" + NewDetails[2] + "</td></tr>";
+                            new_rows += "<tr><td>Admin Action</td><td>" + NewDetails[3] + "</td></tr>";
+                            new_rows += "<tr><td>Desktop User</td><td>" + NewDetails[4] + "</td></tr>";
+                            new_rows += "<tr><td>Var Data</td><td>" + NewDetails[5] + "</td></tr>";
+                            new_rows += "<tr><td>Server DateTime</td><td>" + NewDetails[6] + "</td></tr>";
+                            new_rows += "<tr><td>Operation_Type</td><td>" + NewDetails[7] + "</td></tr>";
+                            new_rows += "<tr><td>issuertype</td><td>" + NewDetails[8] + "</td></tr>";
+                            new_rows += "<tr><td>PV User</td> <td>" + NewDetails[9] + "</td></tr > ";
+                            new_rows += "<tr><td>Error Code</td><td>" + NewDetails[10] + "</td></tr>";
+
+                            $("#new tbody").append(new_rows);
+
+                            var old_rows = "<tr><td>Id</td><td>" + OldDetails[0] + "</td></tr>";
+                            old_rows += "<tr><td>Device</td><td>" + OldDetails[1] + "</td></tr>";
+                            old_rows += "<tr><td>Command</td><td>" + OldDetails[2] + "</td></tr>";
+                            old_rows += "<tr><td>Admin Action</td><td>" + OldDetails[3] + "</td></tr>";
+                            old_rows += "<tr><td>Desktop User</td><td>" + OldDetails[4] + "</td></tr>";
+                            old_rows += "<tr><td>Var Data</td><td>" + OldDetails[5] + "</td></tr>";
+                            old_rows += "<tr><td>Server DateTime</td><td>" + OldDetails[6] + "</td></tr>";
+                            old_rows += "<tr><td>Operation_Type</td><td>" + OldDetails[7] + "</td></tr>";
+                            old_rows += "<tr><td>issuertype</td><td>" + OldDetails[8] + "</td></tr>";
+                            old_rows += "<tr><td>PV User</td><td>" + OldDetails[9] + "</td></tr>";
+                            old_rows += "<tr><td>Error Code</td><td>" + OldDetails[10] + "</td></tr>";
+
+                            $("#old tbody").append(old_rows);
+
+                            disableBtn(true);
+                            $('#bs4-table tr.highlight').removeClass('highlight');
+                        }
+                        else {
+                            $("#VDmessage").html("No view to display");
+                        }
+                    }
+                },
+                error: function (data) {
+                    alert("Error");
+                    disableBtn(true);
+                    $('#bs4-table tr.highlight').removeClass('highlight');
+                }
+            });
+
+        });
+    $("#apply").on('click',
+        function () {
+            var datefrom = $("#DateFrom").val();
+            var dateto = $("#DateTo").val();
+            var oprtyp = $("#oprtyp").val();//Status
+            var device = $("#res").val();//DeviceID
+            var cmd = parseInt($("#cmd").val());
+            //var action = $("#act").val();
+            var action = "";
+            var user = $("#user").val();//IP
+            var result = $("#result").val();
+
+            if (!isIpAddress(user)) {
+                return false;
+            }
+             if (oprtyp == "Select Status") {
+                oprtyp = "";
+            }
+
+            $.ajax({
+            url: "@Url.Action("ApplyFilter", "Audit")",
+                data: {cat:2, lastLoginDateFrom: datefrom, lastLoginDateTo: dateto, operationType: oprtyp, deviceId: device, commands:cmd, action:action, user:user, result:result },
+            type: "Post",
+            dataType: "html",
+                success: function (data) {
+                    window.location = "@Url.Action("Agents", "Audit")";
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        });
+    });
+
+    $("#clear").on('click',
+        function() {
+            $("#DateFrom").val('');
+            $("#DateTo").val('');
+            $("#res").val('');
+            $("#cmd").val('');
+            $("#act").val('');
+            $("#user").val('');
+            $("#result").val('');
+        });
+
+    function Email()
+    {
+        $('#loading').show();
+        var to = $("#emails").val();
+        var subject = $("#eSubject").val();
+        var message = $("#emessage").val();
+        var array = [];
+        var rows = $("#tbl tbody tr");
+        var isAll = $("#tbl").attr("data-is-all");
+
+        $.each(rows, function (index, row) {
+            if (index > 0)
+            {
+                var columns = $(row).find("td");
+                array[--index] = columns[0].innerHTML;
+            }
+        });
+
+        $.ajax({
+            url: "@Url.Action("SendEmail", "Audit")",
+            data: { to: to, mt_subject: subject, mailtext: message, cat: 2, table: array, isAll:isAll },
+            type: "Post",
+            dataType: "html",
+            success: function (data) {
+                disableBtn(true);
+                $('#bs4-table tr.highlight').removeClass('highlight');
+                if (data.indexOf("sent") != -1) {
+                    $('#email-response').removeClass("text-danger");
+                    $('#email-response').addClass("text-success");
+                }
+                else {
+                    $('#email-response').removeClass("text-success");
+                    $('#email-response').addClass("text-danger");
+                }
+                $('#email-response').text(data);
+                $('#loading').hide();
+            },
+            error: function(data) {
+                alert("error");
+                $('#loading').hide();
+            }
+        });
+    }
+
+    function disableBtn(is_disabled) {
+        if (is_disabled) {
+            $("#send_select").attr('disabled', 'disabled');
+            $("#view_details").attr('disabled', 'disabled');
+        }
+        else {
+            $("#send_select").removeAttr('disabled');
+            $("#view_details").removeAttr('disabled');
+        }
+    }
+
+    function getRows(all) {
+        var rows;
+        if (!all) {
+            var array = [];
+            array.push($('#bs4-table thead tr').clone());
+            array.push($('#bs4-table tr.highlight').clone());
+
+            var tbl = document.createElement('table');
+            var tbdy = document.createElement('tbody');
+
+            $(array).each(function () {
+                tbdy.appendChild(this[0]);
+            });
+            tbl.appendChild(tbdy);
+            rows = tbl;
+
+        } else {
+            rows = $('#bs4-table')[0];
+        }
+
+        return rows;
+    }
+
+    function fnExcelReport() {
+
+        var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+        var textRange;
+        var j = 0;
+        tab = document.getElementById('bs4-table'); // id of table
+
+        for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+        }
+
+        tab_text = tab_text + "</table>";
+        tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+        tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+        tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
+        {
+            txtArea1.document.open("txt/html", "replace");
+            txtArea1.document.write(tab_text);
+            txtArea1.document.close();
+            txtArea1.focus();
+            sa = txtArea1.document.execCommand("SaveAs", true, "DeviceFail.xls");
+        } else //other browser not tested on IE 11
+        {
+            var str = encodeURIComponent(tab_text);
+            var uri = 'data:text/csv;charset=utf-8,' + str;
+            var downloadLink = document.createElement("a");
+            downloadLink.href = uri;
+            downloadLink.download = "Agents.xls";
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    }
+
+    $('#bs4-tbody tr').click(function() {
+
+        $("#bs4-tbody tr").removeClass("highlight");
+        var selected = $(this).hasClass("highlight");
+
+        if (!selected) {
+            $(this).addClass("highlight");
+            disableBtn(false);
+        }
+
+    });
+
+    $("#send_all").click(function() {
+        displayRows(true);
+    });
+
+    $("#send_select").click(function() {
+        displayRows(false);
+    });
+
+    function displayRows(all) {
+        var table = getRows(all);
+        $("#show_table").empty();
+        $("#show_table").append("<table id='tbl' data-is-all='"+all+"'>" + table.innerHTML + "</table>");
+    }
+
+
+
+</script>
+

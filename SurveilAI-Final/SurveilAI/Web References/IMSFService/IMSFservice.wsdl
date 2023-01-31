@@ -1,0 +1,2658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SecondAgentPauseService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentPauseServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentPauseServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentRestartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentRestartServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentRestartServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentStopService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentStopServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentStopServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentStartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentStartServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentStartServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentKillProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentKillProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentKillProcessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentRestartMachine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentRestartMachineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentRestartMachineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesSecond">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesSecondResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicesSecondResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessesSecond">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessesSecondResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessesSecondResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentServiceControl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceStatus" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecondAgentServiceControlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecondAgentServiceControlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Executereport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReportName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="elementid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="timenotransaction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="approvedstatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessgroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="circularoffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="region" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessarea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="timing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="exportas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecutereportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecutereportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PauseService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PauseServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PauseServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestartServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StopServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datetime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIMSDiag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIMSDiagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateIMSDiagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIMSInvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIMSInventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateIMSInventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceManagerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceManagerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeviceManagerInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCPUInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCPUInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCPUInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLANInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLANInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLANInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOSInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOSInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOSInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiskDriveInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiskDriveInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDiskDriveInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhysicalMemory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhysicalMemoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhysicalMemoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCheckConnection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCheckConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCheckConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHWInvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHWInventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHWInventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersionProp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersionPropResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVersionPropResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KillProcessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDirFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDirFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDirFilesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartProcessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDirectories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDirectoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDirectoriesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcesses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDateTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetWindowActivation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetWindowActivationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetWindowActivationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartMachine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestartMachineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestartMachineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteProgram">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteProgramResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteProgramResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Downloadfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadSecondAgentfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadSecondAgentfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadSecondAgentfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadScreenfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadScreenfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadScreenfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadJournalfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadJournalfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadJournalfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBIOSUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBIOSUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBIOSUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BIOSInstallDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BIOSInstallDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BIOSInstallDriverResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBIOSPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="passwordcommand" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBIOSPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBIOSPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadIMSDiagfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadIMSDiagfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadIMSDiagfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadIMSInventfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadIMSInventfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadIMSInventfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Uploadfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filedata" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overrite" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadSecondAgentUpdater">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filepath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filedata" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overrite" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadSecondAgentUpdaterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadSecondAgentUpdaterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBootSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machinetype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBootSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBootSettingsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBootCapabilities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machinetype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBootCapabilitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBootCapabilitiesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromCDDVD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mediadevicetype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="biospassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromCDDVDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNextBootFromCDDVDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromCapablities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mediadevicetype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="biospassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromCapablitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNextBootFromCapablitiesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mediadevicetype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="biospassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextBootFromSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNextBootFromSourceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRSEPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="setpassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRSEPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRSEPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBiosLastStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBiosLastStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBiosLastStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearBootOptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearBootOptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClearBootOptionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAMTVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="commandno" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAMTVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAMTVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SecondAgentPauseServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentPauseService" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentPauseServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentPauseServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentRestartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentRestartService" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentRestartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentRestartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentStopServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentStopService" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentStopServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentStopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentStartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentStartService" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentStartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentStartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentKillProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentKillProcess" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentKillProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentKillProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentRestartMachineSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentRestartMachine" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentRestartMachineSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentRestartMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSecondSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServicesSecond" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSecondSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicesSecondResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSecondSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessesSecond" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSecondSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessesSecondResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentServiceControlSoapIn">
+    <wsdl:part name="parameters" element="tns:SecondAgentServiceControl" />
+  </wsdl:message>
+  <wsdl:message name="SecondAgentServiceControlSoapOut">
+    <wsdl:part name="parameters" element="tns:SecondAgentServiceControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecutereportSoapIn">
+    <wsdl:part name="parameters" element="tns:Executereport" />
+  </wsdl:message>
+  <wsdl:message name="ExecutereportSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecutereportResponse" />
+  </wsdl:message>
+  <wsdl:message name="PauseServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:PauseService" />
+  </wsdl:message>
+  <wsdl:message name="PauseServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:PauseServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartService" />
+  </wsdl:message>
+  <wsdl:message name="RestartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StopService" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDate" />
+  </wsdl:message>
+  <wsdl:message name="SetDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineType" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateIMSDiagSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIMSDiag" />
+  </wsdl:message>
+  <wsdl:message name="CreateIMSDiagSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIMSDiagResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateIMSInventSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIMSInvent" />
+  </wsdl:message>
+  <wsdl:message name="CreateIMSInventSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIMSInventResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTime" />
+  </wsdl:message>
+  <wsdl:message name="SetTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceManagerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeviceManagerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceManagerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeviceManagerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCPUInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCPUInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCPUInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCPUInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLANInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLANInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLANInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLANInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOSInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOSInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetOSInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOSInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDiskDriveInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDiskDriveInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDiskDriveInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDiskDriveInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalMemorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhysicalMemory" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalMemorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhysicalMemoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCheckConnection" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCheckConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHWInventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHWInvent" />
+  </wsdl:message>
+  <wsdl:message name="GetHWInventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHWInventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionPropSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersionProp" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionPropSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionPropResponse" />
+  </wsdl:message>
+  <wsdl:message name="KillProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:KillProcess" />
+  </wsdl:message>
+  <wsdl:message name="KillProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:KillProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDirFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDirFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetDirFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDirFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:StartProcess" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:StartProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDirectoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDirectories" />
+  </wsdl:message>
+  <wsdl:message name="GetDirectoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDirectoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServices" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcesses" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetDateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetWindowActivationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetWindowActivation" />
+  </wsdl:message>
+  <wsdl:message name="SetWindowActivationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetWindowActivationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartMachineSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartMachine" />
+  </wsdl:message>
+  <wsdl:message name="RestartMachineSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProgramSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteProgram" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProgramSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadfileSoapIn">
+    <wsdl:part name="parameters" element="tns:Downloadfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadSecondAgentfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadSecondAgentfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadSecondAgentfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadSecondAgentfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadScreenfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadScreenfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadScreenfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadScreenfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadJournalfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadJournalfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadJournalfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadJournalfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBIOSUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBIOSUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SetBIOSUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBIOSUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="BIOSInstallDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:BIOSInstallDriver" />
+  </wsdl:message>
+  <wsdl:message name="BIOSInstallDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:BIOSInstallDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBIOSPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBIOSPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetBIOSPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBIOSPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadIMSDiagfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadIMSDiagfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadIMSDiagfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadIMSDiagfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadIMSInventfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadIMSInventfile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadIMSInventfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadIMSInventfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadfileSoapIn">
+    <wsdl:part name="parameters" element="tns:Uploadfile" />
+  </wsdl:message>
+  <wsdl:message name="UploadfileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSecondAgentUpdaterSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadSecondAgentUpdater" />
+  </wsdl:message>
+  <wsdl:message name="UploadSecondAgentUpdaterSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadSecondAgentUpdaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBootSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBootSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBootSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBootSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBootCapabilitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBootCapabilities" />
+  </wsdl:message>
+  <wsdl:message name="GetBootCapabilitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBootCapabilitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromCDDVDSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromCDDVD" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromCDDVDSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromCDDVDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromCapablitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromCapablities" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromCapablitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromCapablitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromSource" />
+  </wsdl:message>
+  <wsdl:message name="SetNextBootFromSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNextBootFromSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRSEPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRSEPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetRSEPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRSEPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBiosLastStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBiosLastStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetBiosLastStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBiosLastStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearBootOptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearBootOptions" />
+  </wsdl:message>
+  <wsdl:message name="ClearBootOptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearBootOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAMTVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAMTVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetAMTVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAMTVersionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMSFServiceSoap">
+    <wsdl:operation name="SecondAgentPauseService">
+      <wsdl:input message="tns:SecondAgentPauseServiceSoapIn" />
+      <wsdl:output message="tns:SecondAgentPauseServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartService">
+      <wsdl:input message="tns:SecondAgentRestartServiceSoapIn" />
+      <wsdl:output message="tns:SecondAgentRestartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStopService">
+      <wsdl:input message="tns:SecondAgentStopServiceSoapIn" />
+      <wsdl:output message="tns:SecondAgentStopServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStartService">
+      <wsdl:input message="tns:SecondAgentStartServiceSoapIn" />
+      <wsdl:output message="tns:SecondAgentStartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentKillProcess">
+      <wsdl:input message="tns:SecondAgentKillProcessSoapIn" />
+      <wsdl:output message="tns:SecondAgentKillProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartMachine">
+      <wsdl:input message="tns:SecondAgentRestartMachineSoapIn" />
+      <wsdl:output message="tns:SecondAgentRestartMachineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesSecond">
+      <wsdl:input message="tns:GetServicesSecondSoapIn" />
+      <wsdl:output message="tns:GetServicesSecondSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessesSecond">
+      <wsdl:input message="tns:GetProcessesSecondSoapIn" />
+      <wsdl:output message="tns:GetProcessesSecondSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentServiceControl">
+      <wsdl:input message="tns:SecondAgentServiceControlSoapIn" />
+      <wsdl:output message="tns:SecondAgentServiceControlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Executereport">
+      <wsdl:input message="tns:ExecutereportSoapIn" />
+      <wsdl:output message="tns:ExecutereportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseService">
+      <wsdl:input message="tns:PauseServiceSoapIn" />
+      <wsdl:output message="tns:PauseServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <wsdl:input message="tns:RestartServiceSoapIn" />
+      <wsdl:output message="tns:RestartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <wsdl:input message="tns:StopServiceSoapIn" />
+      <wsdl:output message="tns:StopServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDate">
+      <wsdl:input message="tns:SetDateSoapIn" />
+      <wsdl:output message="tns:SetDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <wsdl:input message="tns:GetMachineTypeSoapIn" />
+      <wsdl:output message="tns:GetMachineTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSDiag">
+      <wsdl:input message="tns:CreateIMSDiagSoapIn" />
+      <wsdl:output message="tns:CreateIMSDiagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSInvent">
+      <wsdl:input message="tns:CreateIMSInventSoapIn" />
+      <wsdl:output message="tns:CreateIMSInventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTime">
+      <wsdl:input message="tns:SetTimeSoapIn" />
+      <wsdl:output message="tns:SetTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <wsdl:input message="tns:StartServiceSoapIn" />
+      <wsdl:output message="tns:StartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceManagerInfo">
+      <wsdl:input message="tns:GetDeviceManagerInfoSoapIn" />
+      <wsdl:output message="tns:GetDeviceManagerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCPUInfo">
+      <wsdl:input message="tns:GetCPUInfoSoapIn" />
+      <wsdl:output message="tns:GetCPUInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLANInfo">
+      <wsdl:input message="tns:GetLANInfoSoapIn" />
+      <wsdl:output message="tns:GetLANInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOSInfo">
+      <wsdl:input message="tns:GetOSInfoSoapIn" />
+      <wsdl:output message="tns:GetOSInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskDriveInfo">
+      <wsdl:input message="tns:GetDiskDriveInfoSoapIn" />
+      <wsdl:output message="tns:GetDiskDriveInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalMemory">
+      <wsdl:input message="tns:GetPhysicalMemorySoapIn" />
+      <wsdl:output message="tns:GetPhysicalMemorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckConnection">
+      <wsdl:input message="tns:GetCheckConnectionSoapIn" />
+      <wsdl:output message="tns:GetCheckConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHWInvent">
+      <wsdl:input message="tns:GetHWInventSoapIn" />
+      <wsdl:output message="tns:GetHWInventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionProp">
+      <wsdl:input message="tns:GetVersionPropSoapIn" />
+      <wsdl:output message="tns:GetVersionPropSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <wsdl:input message="tns:KillProcessSoapIn" />
+      <wsdl:output message="tns:KillProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirFiles">
+      <wsdl:input message="tns:GetDirFilesSoapIn" />
+      <wsdl:output message="tns:GetDirFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input message="tns:StartProcessSoapIn" />
+      <wsdl:output message="tns:StartProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectories">
+      <wsdl:input message="tns:GetDirectoriesSoapIn" />
+      <wsdl:output message="tns:GetDirectoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <wsdl:input message="tns:GetServicesSoapIn" />
+      <wsdl:output message="tns:GetServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <wsdl:input message="tns:GetProcessesSoapIn" />
+      <wsdl:output message="tns:GetProcessesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTime">
+      <wsdl:input message="tns:GetDateTimeSoapIn" />
+      <wsdl:output message="tns:GetDateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetWindowActivation">
+      <wsdl:input message="tns:SetWindowActivationSoapIn" />
+      <wsdl:output message="tns:SetWindowActivationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <wsdl:input message="tns:RestartMachineSoapIn" />
+      <wsdl:output message="tns:RestartMachineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProgram">
+      <wsdl:input message="tns:ExecuteProgramSoapIn" />
+      <wsdl:output message="tns:ExecuteProgramSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Downloadfile">
+      <wsdl:input message="tns:DownloadfileSoapIn" />
+      <wsdl:output message="tns:DownloadfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadSecondAgentfile">
+      <wsdl:input message="tns:DownloadSecondAgentfileSoapIn" />
+      <wsdl:output message="tns:DownloadSecondAgentfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadScreenfile">
+      <wsdl:input message="tns:DownloadScreenfileSoapIn" />
+      <wsdl:output message="tns:DownloadScreenfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadJournalfile">
+      <wsdl:input message="tns:DownloadJournalfileSoapIn" />
+      <wsdl:output message="tns:DownloadJournalfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInfo">
+      <wsdl:input message="tns:GetSystemInfoSoapIn" />
+      <wsdl:output message="tns:GetSystemInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSUpdate">
+      <wsdl:input message="tns:SetBIOSUpdateSoapIn" />
+      <wsdl:output message="tns:SetBIOSUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BIOSInstallDriver">
+      <wsdl:input message="tns:BIOSInstallDriverSoapIn" />
+      <wsdl:output message="tns:BIOSInstallDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSPassword">
+      <wsdl:input message="tns:SetBIOSPasswordSoapIn" />
+      <wsdl:output message="tns:SetBIOSPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSDiagfile">
+      <wsdl:input message="tns:DownloadIMSDiagfileSoapIn" />
+      <wsdl:output message="tns:DownloadIMSDiagfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSInventfile">
+      <wsdl:input message="tns:DownloadIMSInventfileSoapIn" />
+      <wsdl:output message="tns:DownloadIMSInventfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Uploadfile">
+      <wsdl:input message="tns:UploadfileSoapIn" />
+      <wsdl:output message="tns:UploadfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSecondAgentUpdater">
+      <wsdl:input message="tns:UploadSecondAgentUpdaterSoapIn" />
+      <wsdl:output message="tns:UploadSecondAgentUpdaterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBootSettings">
+      <wsdl:input message="tns:GetBootSettingsSoapIn" />
+      <wsdl:output message="tns:GetBootSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBootCapabilities">
+      <wsdl:input message="tns:GetBootCapabilitiesSoapIn" />
+      <wsdl:output message="tns:GetBootCapabilitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCDDVD">
+      <wsdl:input message="tns:SetNextBootFromCDDVDSoapIn" />
+      <wsdl:output message="tns:SetNextBootFromCDDVDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCapablities">
+      <wsdl:input message="tns:SetNextBootFromCapablitiesSoapIn" />
+      <wsdl:output message="tns:SetNextBootFromCapablitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromSource">
+      <wsdl:input message="tns:SetNextBootFromSourceSoapIn" />
+      <wsdl:output message="tns:SetNextBootFromSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRSEPassword">
+      <wsdl:input message="tns:SetRSEPasswordSoapIn" />
+      <wsdl:output message="tns:SetRSEPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBiosLastStatus">
+      <wsdl:input message="tns:GetBiosLastStatusSoapIn" />
+      <wsdl:output message="tns:GetBiosLastStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearBootOptions">
+      <wsdl:input message="tns:ClearBootOptionsSoapIn" />
+      <wsdl:output message="tns:ClearBootOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAMTVersion">
+      <wsdl:input message="tns:GetAMTVersionSoapIn" />
+      <wsdl:output message="tns:GetAMTVersionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IMSFServiceSoap" type="tns:IMSFServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SecondAgentPauseService">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentPauseService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartService">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentRestartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStopService">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentStopService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStartService">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentStartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentKillProcess">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentKillProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartMachine">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentRestartMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesSecond">
+      <soap:operation soapAction="http://tempuri.org/GetServicesSecond" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessesSecond">
+      <soap:operation soapAction="http://tempuri.org/GetProcessesSecond" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentServiceControl">
+      <soap:operation soapAction="http://tempuri.org/SecondAgentServiceControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Executereport">
+      <soap:operation soapAction="http://tempuri.org/Executereport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseService">
+      <soap:operation soapAction="http://tempuri.org/PauseService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap:operation soapAction="http://tempuri.org/RestartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap:operation soapAction="http://tempuri.org/StopService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDate">
+      <soap:operation soapAction="http://tempuri.org/SetDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <soap:operation soapAction="http://tempuri.org/GetMachineType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSDiag">
+      <soap:operation soapAction="http://tempuri.org/CreateIMSDiag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSInvent">
+      <soap:operation soapAction="http://tempuri.org/CreateIMSInvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTime">
+      <soap:operation soapAction="http://tempuri.org/SetTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap:operation soapAction="http://tempuri.org/StartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceManagerInfo">
+      <soap:operation soapAction="http://tempuri.org/GetDeviceManagerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPUInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCPUInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLANInfo">
+      <soap:operation soapAction="http://tempuri.org/GetLANInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOSInfo">
+      <soap:operation soapAction="http://tempuri.org/GetOSInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskDriveInfo">
+      <soap:operation soapAction="http://tempuri.org/GetDiskDriveInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalMemory">
+      <soap:operation soapAction="http://tempuri.org/GetPhysicalMemory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckConnection">
+      <soap:operation soapAction="http://tempuri.org/GetCheckConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHWInvent">
+      <soap:operation soapAction="http://tempuri.org/GetHWInvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionProp">
+      <soap:operation soapAction="http://tempuri.org/GetVersionProp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <soap:operation soapAction="http://tempuri.org/KillProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirFiles">
+      <soap:operation soapAction="http://tempuri.org/GetDirFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap:operation soapAction="http://tempuri.org/StartProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectories">
+      <soap:operation soapAction="http://tempuri.org/GetDirectories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap:operation soapAction="http://tempuri.org/GetServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <soap:operation soapAction="http://tempuri.org/GetProcesses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTime">
+      <soap:operation soapAction="http://tempuri.org/GetDateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWindowActivation">
+      <soap:operation soapAction="http://tempuri.org/SetWindowActivation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <soap:operation soapAction="http://tempuri.org/RestartMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProgram">
+      <soap:operation soapAction="http://tempuri.org/ExecuteProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Downloadfile">
+      <soap:operation soapAction="http://tempuri.org/Downloadfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadSecondAgentfile">
+      <soap:operation soapAction="http://tempuri.org/DownloadSecondAgentfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadScreenfile">
+      <soap:operation soapAction="http://tempuri.org/DownloadScreenfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadJournalfile">
+      <soap:operation soapAction="http://tempuri.org/DownloadJournalfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInfo">
+      <soap:operation soapAction="http://tempuri.org/GetSystemInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSUpdate">
+      <soap:operation soapAction="http://tempuri.org/SetBIOSUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BIOSInstallDriver">
+      <soap:operation soapAction="http://tempuri.org/BIOSInstallDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSPassword">
+      <soap:operation soapAction="http://tempuri.org/SetBIOSPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSDiagfile">
+      <soap:operation soapAction="http://tempuri.org/DownloadIMSDiagfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSInventfile">
+      <soap:operation soapAction="http://tempuri.org/DownloadIMSInventfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Uploadfile">
+      <soap:operation soapAction="http://tempuri.org/Uploadfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSecondAgentUpdater">
+      <soap:operation soapAction="http://tempuri.org/UploadSecondAgentUpdater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBootSettings">
+      <soap:operation soapAction="http://tempuri.org/GetBootSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBootCapabilities">
+      <soap:operation soapAction="http://tempuri.org/GetBootCapabilities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCDDVD">
+      <soap:operation soapAction="http://tempuri.org/SetNextBootFromCDDVD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCapablities">
+      <soap:operation soapAction="http://tempuri.org/SetNextBootFromCapablities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromSource">
+      <soap:operation soapAction="http://tempuri.org/SetNextBootFromSource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRSEPassword">
+      <soap:operation soapAction="http://tempuri.org/SetRSEPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBiosLastStatus">
+      <soap:operation soapAction="http://tempuri.org/GetBiosLastStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearBootOptions">
+      <soap:operation soapAction="http://tempuri.org/ClearBootOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAMTVersion">
+      <soap:operation soapAction="http://tempuri.org/GetAMTVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IMSFServiceSoap12" type="tns:IMSFServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SecondAgentPauseService">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentPauseService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartService">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentRestartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStopService">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentStopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentStartService">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentStartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentKillProcess">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentKillProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentRestartMachine">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentRestartMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesSecond">
+      <soap12:operation soapAction="http://tempuri.org/GetServicesSecond" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessesSecond">
+      <soap12:operation soapAction="http://tempuri.org/GetProcessesSecond" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondAgentServiceControl">
+      <soap12:operation soapAction="http://tempuri.org/SecondAgentServiceControl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Executereport">
+      <soap12:operation soapAction="http://tempuri.org/Executereport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseService">
+      <soap12:operation soapAction="http://tempuri.org/PauseService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap12:operation soapAction="http://tempuri.org/RestartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap12:operation soapAction="http://tempuri.org/StopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDate">
+      <soap12:operation soapAction="http://tempuri.org/SetDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineType">
+      <soap12:operation soapAction="http://tempuri.org/GetMachineType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSDiag">
+      <soap12:operation soapAction="http://tempuri.org/CreateIMSDiag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIMSInvent">
+      <soap12:operation soapAction="http://tempuri.org/CreateIMSInvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTime">
+      <soap12:operation soapAction="http://tempuri.org/SetTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://tempuri.org/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceManagerInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetDeviceManagerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPUInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCPUInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLANInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetLANInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOSInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetOSInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskDriveInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetDiskDriveInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalMemory">
+      <soap12:operation soapAction="http://tempuri.org/GetPhysicalMemory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckConnection">
+      <soap12:operation soapAction="http://tempuri.org/GetCheckConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHWInvent">
+      <soap12:operation soapAction="http://tempuri.org/GetHWInvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionProp">
+      <soap12:operation soapAction="http://tempuri.org/GetVersionProp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <soap12:operation soapAction="http://tempuri.org/KillProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirFiles">
+      <soap12:operation soapAction="http://tempuri.org/GetDirFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap12:operation soapAction="http://tempuri.org/StartProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectories">
+      <soap12:operation soapAction="http://tempuri.org/GetDirectories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap12:operation soapAction="http://tempuri.org/GetServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <soap12:operation soapAction="http://tempuri.org/GetProcesses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateTime">
+      <soap12:operation soapAction="http://tempuri.org/GetDateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWindowActivation">
+      <soap12:operation soapAction="http://tempuri.org/SetWindowActivation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <soap12:operation soapAction="http://tempuri.org/RestartMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProgram">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Downloadfile">
+      <soap12:operation soapAction="http://tempuri.org/Downloadfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadSecondAgentfile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadSecondAgentfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadScreenfile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadScreenfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadJournalfile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadJournalfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSUpdate">
+      <soap12:operation soapAction="http://tempuri.org/SetBIOSUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BIOSInstallDriver">
+      <soap12:operation soapAction="http://tempuri.org/BIOSInstallDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBIOSPassword">
+      <soap12:operation soapAction="http://tempuri.org/SetBIOSPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSDiagfile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadIMSDiagfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadIMSInventfile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadIMSInventfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Uploadfile">
+      <soap12:operation soapAction="http://tempuri.org/Uploadfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSecondAgentUpdater">
+      <soap12:operation soapAction="http://tempuri.org/UploadSecondAgentUpdater" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBootSettings">
+      <soap12:operation soapAction="http://tempuri.org/GetBootSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBootCapabilities">
+      <soap12:operation soapAction="http://tempuri.org/GetBootCapabilities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCDDVD">
+      <soap12:operation soapAction="http://tempuri.org/SetNextBootFromCDDVD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromCapablities">
+      <soap12:operation soapAction="http://tempuri.org/SetNextBootFromCapablities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextBootFromSource">
+      <soap12:operation soapAction="http://tempuri.org/SetNextBootFromSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRSEPassword">
+      <soap12:operation soapAction="http://tempuri.org/SetRSEPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBiosLastStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetBiosLastStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearBootOptions">
+      <soap12:operation soapAction="http://tempuri.org/ClearBootOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAMTVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetAMTVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IMSFService">
+    <wsdl:port name="IMSFServiceSoap" binding="tns:IMSFServiceSoap">
+      <soap:address location="http://10.21.21.210/IMSFManagerA/imsfservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IMSFServiceSoap12" binding="tns:IMSFServiceSoap12">
+      <soap12:address location="http://10.21.21.210/IMSFManagerA/imsfservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

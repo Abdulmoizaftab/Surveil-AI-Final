@@ -1,0 +1,236 @@
+﻿@*@model SurveilAI.Models.UserSecurity
+
+@{
+    ViewBag.Title = "RoleEdit";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content container">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Accout Roles</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Role Assign</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content card container-fluid">
+
+            @using (Html.BeginForm("RoleEdit", "User", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+
+                    <div class="col-md-2" style="padding-top:14px; left:19px;">
+
+                        @Html.ActionLink("< Back To List", "AccRole")
+
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-header">Assign Account Role.</h5>
+                        <div>
+                            @Html.Hidden("Store", (String)ViewBag.id, new { @class = "form-control" })
+                        </div>
+                        <div class="card-body">
+                            <label>Account Role Name</label>
+                            @Html.TextBox("AccountType", (String)ViewBag.id, new { disabled = "true", @class = "form-control" })
+                            <small style="color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                            <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="padding-top:14px; left:19px;">
+                        <div class="custom-control custom-checkbox checkbox-primary">
+                            @Html.CheckBoxFor(x => Model.Check, new { @onclick = "toggle(this);", @class = "custom-control-input" })
+                            <label class="custom-control-label" for="Check"> Select All</label>
+                        </div>
+                    </div>
+
+                    @for (int i = 0; i < Model.CheckList.Count(); i++)
+                    {
+                        <div class="col-md-2">
+                            <h5 class="card-header">Image Browser</h5>
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Iview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Iview">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Schedule</h5>
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Jview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Jview">Job</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].JRview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__JRview">Job Result</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h5 class="card-header">Users</h5>
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Uview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Uview">View</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Uadd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Uadd">Create</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Uupd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Uupd">Update</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Udel, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Udel">Delete</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Account Roles</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Rview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Rview">View</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 class="card-header">Device</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Aview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Aview">View</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Aadd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Aadd">Create</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Aupd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Aupd">Update</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Adel, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Adel">Delete</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Device Assign</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].AAview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__AAview">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Hierarchy</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Hview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Hview">View</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Hadd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Hadd">Create</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Hupd, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Hupd">Update</label>
+                                </div>
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Hdel, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Hdel">Delete</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 class="card-header">Image Quality</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].R1view, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__R1view">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Image Count</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].R2view, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__R2view">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Image Transfer</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].R3view, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__R3view">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Summary</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].SRview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__SRview">View</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h5 class="card-header">EJ Summary</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].EJview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__EJview">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">EJ Report</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].REJview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__REJview">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">EJ by Date</h5>
+                            <div class="card-body col-md-12">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].DEJview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__DEJview">View</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h5 class="card-header">Folder Deletion</h5>
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Fview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Fview">View</label>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Monitoring</h5>
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox checkbox-primary">
+                                    @Html.CheckBoxFor(x => Model.CheckList[i].Mview, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="CheckList_0__Mview">View</label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-md-12">
+                        <div class="card-footer bg-light text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>*@
+

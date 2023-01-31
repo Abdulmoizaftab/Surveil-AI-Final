@@ -1,0 +1,442 @@
+﻿
+@{
+    ViewBag.Title = "Administrative Commands";
+
+    ViewBag.Title = "Event";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device - </a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+
+
+            <input id="devid" hidden type="text" value="@TempData["DeviD"]">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-pills">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-title">
+                                        Administrative Commands
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="nav nav-pills nav-pills-primary float-end" id="pills-demo-1" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show" id="pills-1-tab" data-bs-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">Primary</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-2-tab" data-bs-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-1" aria-selected="true">Services</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent-1">
+                                <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                                                <a class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Process</a>
+                                                @if (UserRights.Contains("168"))
+                                                {<a class="nav-link" id="v-pills-AgentUpdate-tab" data-bs-toggle="pill" href="#v-pills-AgentUpdate" role="tab" aria-controls="v-pills-AgentUpdate" aria-selected="false">Agent Update</a>}
+                                                @*<a class="nav-link" id="v-pills-AgentFile-tab" data-bs-toggle="pill" href="#v-pills-AgentFile" role="tab" aria-controls="v-pills-AgentFile" aria-selected="false">Agent File</a>*@
+                                                <a class="nav-link" id="v-pills-More-tab" data-bs-toggle="pill" href="#v-pills-More" role="tab" aria-controls="v-pills-More" aria-selected="true">More Commands</a>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                                <div class="tab-pane active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                    <div class="row">
+
+                                                        <div class="col-md-10" id="Processes">
+                                                            <table class="table table-striped table-responsive table-bordered" style="height: 600px"></table>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-primary btn-floating" style="margin-bottom:5px" onclick="ProcessState()">Get Process</button>
+                                                            <input id="ProcessName" hidden type="text">
+                                                            <button id="ProcessKillFeature" class="btn btn-primary btn-floating" style="margin-bottom:5px" disabled onclick="KillProcess()">Kill Process</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="v-pills-More" role="tabpanel" aria-labelledby="v-pills-More-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                        </div>
+                                                        <div class="col-md-4">
+
+                                                            <div class="row">
+                                                                @if (UserRights.Contains("171"))
+                                                                {<button class="btn btn-primary btn-floating" style="margin-bottom:5px" onclick="RestartMachine()">Restart Machine</button>}
+                                                                @if (UserRights.Contains("169"))
+                                                                {<button class="btn btn-primary btn-floating" style="margin-bottom:5px" value="Start" onclick="IMSService(this)">IMS Service Start</button>}
+                                                                @if (UserRights.Contains("170"))
+                                                                {<button class="btn btn-primary btn-floating" style="margin-bottom:5px" value="Stop" onclick="IMSService(this)">IMS Service Stop</button>}
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade  " id="v-pills-AgentUpdate" role="tabpanel" aria-labelledby="v-pills-AgentUpdate-tab">
+                                                    <div class="row">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">Agent Path</span>
+                                                            </div>
+                                                            <input id="AgentPath" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroup-sizing-default">File name</span>
+                                                            </div>
+                                                            <input id="filename" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                                        </div>
+                                                        <button type="button" class="btn btn-primary" onclick="UpdateAgent()">Update Agent</button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade  " id="v-pills-AgentFile" role="tabpanel" aria-labelledby="v-pills-AgentFile-tab">
+                                                    <div class="row">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-1">
+                                    <div class="row">
+                                        <div class="col-md-10" id="Services">
+                                            <table id="ServicesTable" class="table table-striped table-responsive table-bordered" style="height: 600px"></table>
+
+                                        </div>
+                                        <div class="col-md-2">
+
+                                            <button style="margin-bottom:5px" class="btn btn-primary d-block col-12" onclick="GetServices()">Get Services</button>
+                                            <button id="btnStartServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="StartService()">Start</button>
+                                            <input id="ServiceName" hidden type="text">
+                                            <button id="btnStopServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="StopService()">Stop</button>
+                                            <button id="btnPauseServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="PauseService()">Pause</button>
+                                            <button id="btnReServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="RestartService()">Restart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>
+</div>
+<!-- Modal -->
+
+<div class="modal" id="getCodeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="getCode">
+                <p>Modal body text goes here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+     function ProcessState() {
+        var Did = $("#devid").val();
+         $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("GetProcessessSecond", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Processes").html(data);
+                document.getElementById("ProcessKillFeature").disabled = false;
+
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    function GetServices() {
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("GetServicesSecond", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    function StartService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("StartService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+                document.getElementById("btnPauseServ").disabled = true;
+                document.getElementById("btnReServ").disabled = true;
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+    function StopService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("StopService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+                document.getElementById("btnPauseServ").disabled = true;
+                document.getElementById("btnReServ").disabled = true;
+                $("#getCode").html("Service Stopped");
+                $("#getCodeModal").modal('show');
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+    function PauseService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("PauseService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+                document.getElementById("btnPauseServ").disabled = true;
+                document.getElementById("btnReServ").disabled = true;
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+    function RestartService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("RestartService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+                document.getElementById("btnPauseServ").disabled = true;
+                document.getElementById("btnReServ").disabled = true;
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+     function KillProcess() {
+         var Pname = $("#ProcessName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("KillProcessSecond", "Event")",
+             data: { id: Did, Process: $.trim(Pname) },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Processes").html(data);
+            },
+            error: function (data) {
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    function IMSService(button) {
+        $("#loading").show();
+
+        var Prompt = button.value;
+        var Did = $("#devid").val();
+       $.ajax({
+            url: "@Url.Action("IMSService", "Event")",
+           data: { id: Did, Status: Prompt },
+            type: "Get",
+            dataType: "html",
+           success: function (data) {
+               $("#getCode").html(data);
+               $("#getCodeModal").modal('show');
+            },
+            error: function (data) {
+                $("#getCode").html("Error Occured");
+                $("#getCodeModal").modal('show');
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    $('#filename,#AgentPath').keypress(function (e) {
+        if (e.which === 32)
+            return false;
+    });
+    function UpdateAgent(button) {
+        var Path = $("#AgentPath").val();
+        var fname = $("#filename").val();
+        var Did = $("#devid").val();
+        fname = fname.trim();
+        const regExp = /^[\w+\\]+$/;
+        var flag1 = fname.match(/\.[0-9a-z]+$/i);
+        var flag2 = regExp.test(Path)
+        if (flag1 != null && flag2 == true) {
+            $.ajax({
+                url: "@Url.Action("UpdateAgent", "Event")",
+                data: { id: Did, path: Path, filename: fname },
+                type: "Get",
+                dataType: "html",
+                success: function (data) {
+                    $("#getCode").html(data);
+                    $("#getCodeModal").modal('show');
+                },
+                error: function (data) {
+                    $("#getCode").html("Error");
+                    $("#getCodeModal").modal('show');
+                },
+                complete: function (data) {
+                    $("#loading").hide();
+                }
+            })
+        }
+        else {
+            $("#getCode").html("Enter Correct Path/File name");
+            $("#getCodeModal").modal('show');
+        }
+
+    }
+    function RestartMachine() {
+        var Did = $("#devid").val();
+
+         $.ajax({
+            url: "@Url.Action("RestartMachine", "Event")",
+             data: { id: Did},
+            type: "Get",
+            dataType: "html",
+             success: function (data) {
+                 $("#getCode").html(data);
+                 $("#getCodeModal").modal('show');
+            },
+             error: function (data) {
+                 $("#getCode").html("Error Restarting");
+                 $("#getCodeModal").modal('show');
+                            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+

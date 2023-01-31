@@ -1,0 +1,397 @@
+﻿@model SurveilAI.Models.User
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+
+    List<object> data = new List<object>();
+    data = Session["UserRole"] as List<object>;
+}
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> User Management</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5 class="card-header">User Management</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @if (data.Contains("5"))
+                                        {<a class="nav-link active show" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false">Create User</a>}
+                                        @if (data.Contains("128") || (data.Contains("6")) || (data.Contains("7")))
+                                        {<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">User List</a>}
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        @if (data.Contains("5"))
+                                        {<div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <h5 class="card-header">Create New User Account.</h5>
+                                                @using (Html.BeginForm("Create", "User", FormMethod.Post, new { auotocomplete = "off", enctype = "application/x-www-form-urlencoded", @id = "user-create-form" }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="mb-3 row">
+                                                                <label class="control-label col-md-3">Account Type</label>
+                                                                <div class="col-md-12">
+                                                                    @Html.DropDownList("AccountType", (IEnumerable<SelectListItem>)ViewData["DBUserAcc"], "Select Account Type", new { @class = "form-select select-c" })
+                                                                    @Html.ValidationMessageFor(m => m.AccountType, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <label>User ID</label>
+                                                                @Html.TextBox("UserID", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter User ID", @class = "form-control BlockSpecialAll" })
+                                                                @Html.Hidden("initialUser", "NewUser")
+                                                                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                                                                @*<script>
+                                                                    $("#UserID").keypress(function () {
+                                                                        var str = $("#UserID").val();
+                                                                        $("#initialUser").val(str);//this code executes when the keypress event occurs.
+                                                                    });
+                                                                </script>*@
+                                                            </div>
+                                                            <div>
+                                                                <label>First Name</label>
+                                                                @Html.TextBox("FirstName", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter First Name", @class = "form-control BlockSpecialSS" })
+                                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div>
+                                                                <label>Last Name</label>
+                                                                @Html.TextBox("LastName", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter Last Name", @class = "form-control BlockSpecialSS" })
+                                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div>
+                                                                <label>Password</label>
+                                                                @Html.HiddenFor(m => m.newPasswordE)
+                                                                @Html.Password("newPassword", null, new { @maxlength = "30", auotocomplete = "off", placeholder = "Enter Password", @class = "form-control BlockSpecialL" })
+                                                                @Html.ValidationMessageFor(model => model.newPassword, "", new { @class = "text-danger" })
+                                                                <br /><small style="color:red !important; display:none;" id="pass-policy" class="form-text text-muted">Password not valid according to policy</small>
+                                                            </div>
+                                                            <div>
+                                                                <label>Confirm Password</label>
+                                                                @Html.HiddenFor(m => m.newPassword2E)
+                                                                @Html.Password("newPassword2", null, new { @maxlength = "30", placeholder = "Re-enter Password", @class = "form-control BlockSpecialL" })
+                                                                @Html.ValidationMessageFor(model => model.newPassword2, "", new { @class = "text-danger" })
+                                                                <small style="color:red !important;" class="form-text text-muted">@TempData["PassError"]</small>
+                                                            </div>
+
+
+                                                            <div class="custom-control custom-checkbox checkbox-primary">
+                                                                @Html.CheckBox("Ldap", false, new { @class = "custom-control-input" })
+                                                                <label class="custom-control-label" for="Ldap">LDAP User</label>
+                                                            </div>
+                                                            @*<br />
+                                                            <div class="custom-control custom-checkbox checkbox-primary">
+                                                                @Html.CheckBox("isOnline", false, new { @class = "custom-control-input" })
+                                                                <label class="custom-control-label" for="isOnline">Is Online</label>
+                                                            </div>*@
+                                                            <br />
+                                                            <div class="custom-control custom-checkbox checkbox-primary">
+                                                                @Html.CheckBox("IsLocked", false, new { @class = "custom-control-input" })
+                                                                <label class="custom-control-label" for="IsLocked">Account Locked</label>
+                                                            </div>
+                                                            <br />
+                                                            <div class="custom-control custom-checkbox checkbox-primary">
+                                                                @Html.CheckBox("PassUDPrompt", true, new { @class = "custom-control-input" })
+                                                                <label class="custom-control-label" for="PassUDPrompt">Prompt For Password Reset</label>
+                                                            </div>
+                                                            <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                            <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-light text-center">
+                                                        <button type="submit" class="btn btn-primary" id="user-create">Submit</button>
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        }
+                                        @if (data.Contains("128") || (data.Contains("6")) || (data.Contains("7")))
+                                        {<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <section class="page-content" id="myData">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="">
+                                                                <div class="card-header">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h5 class="">All Users</h5>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <a class="btn btn-primary d-block" id="btnExport" onclick="fnExcelReport();" style="float: right;color: white;margin-bottom:5px;">Export<iframe id="txtArea1" style="display:none"></iframe></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="card-body">
+                                                                    <table id="bs4-table" class="table table-striped table-bordered table-responsive text-center" style="width:100%">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>User ID</th>
+                                                                                @*<th>First Name</th>
+                                                                                <th>Last Name</th>*@
+                                                                                <th>Account Type</th>
+                                                                                <th>Is Online</th>
+                                                                                <th>Pass Update Prompt</th>
+                                                                                <th>Is Locked</th>
+                                                                                <th>LDAP User</th>
+                                                                                @if (data.Contains("6") || data.Contains("7"))
+                                                                                {
+                                                                                    <th>Options</th>
+                                                                                }
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @foreach (var item in Model.users)
+                                                                            {
+                                                                                <tr>
+                                                                                    <td style="text-align:left !important;">@Html.DisplayFor(modelItem => item.UserID)</td>
+                                                                                    @*<td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                                                                                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>*@
+                                                                                    <td>@Html.DisplayFor(modelItem => item.AccountType)</td>
+                                                                                    <td>
+                                                                                        @if (item.IsOnline == true)
+                                                                                        {
+                                                                                            <span style="color:#198754;">Yes</span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span style="color:#a91010;">No</span>
+                                                                                        }
+
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @if (item.PassUDPrompt == true)
+                                                                                        {
+                                                                                            <span style="color:#198754;">Yes</span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span style="color:#a91010;">No</span>
+                                                                                        }
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @if (item.IsLocked == true)
+                                                                                        {
+                                                                                            <span style="color:#198754;">Yes</span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span style="color:#a91010;">No</span>
+                                                                                        }
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @if (item.Ldap == true)
+                                                                                        {
+                                                                                            <span style="color:#198754;">Yes</span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span style="color:#a91010;">No</span>
+                                                                                        }
+                                                                                    </td>
+                                                                                    @if (data.Contains("6") || data.Contains("7"))
+                                                                                    {
+                                                                                        <td>
+                                                                                            @if (data.Contains("6"))
+                                                                                            {
+                                                                                                @Ajax.ActionLink("Edit", "Edit", "User", new { id = item.UserID + "/" }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "myData", InsertionMode = InsertionMode.Replace })
+                                                                                            }
+                                                                                            @if (data.Contains("6") && data.Contains("7"))
+                                                                                            {
+                                                                                                <span>|</span>
+                                                                                            }
+                                                                                            @if (data.Contains("7"))
+                                                                                            {
+                                                                                                @Ajax.ActionLink("Delete", "Delete", "User", new { id = item.UserID + "/" }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "myData", InsertionMode = InsertionMode.Replace }, new { @class = "validation" })
+                                                                                            }
+                                                                                        </td>
+                                                                                    }
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <hr />
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="container-fluid">
+                            <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+                        </footer>
+                    </div>
+
+                </div>
+            </div>
+            <input type="hidden" id="my-val" value="$#Ipl@innomate#$" />
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="~/assets/js/global/CustomValid.js"></script>
+
+        <script src="~/lib/crypto-js/crypto-js.js"></script>
+        <script>
+            function fnExcelReport() {
+
+                    var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+                    var textRange;
+                    var j = 0;
+                    tab = document.getElementById('bs4-table'); // id of table
+
+                    for (j = 0; j < tab.rows.length; j++) {
+                        tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                    }
+
+                    tab_text = tab_text + "</table>";
+                    tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+                    tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+                    tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+                    var ua = window.navigator.userAgent;
+                    var msie = ua.indexOf("MSIE ");
+
+                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
+                    {
+                        txtArea1.document.open("txt/html", "replace");
+                        txtArea1.document.write(tab_text);
+                        txtArea1.document.close();
+                        txtArea1.focus();
+                        sa = txtArea1.document.execCommand("SaveAs", true, "DeviceFail.xls");
+                    } else //other browser not tested on IE 11
+                    {
+                        var str = encodeURIComponent(tab_text);
+                        var uri = 'data:text/csv;charset=utf-8,' + str;
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = uri;
+                        downloadLink.download = "Users.xls";
+
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                    }
+                }
+            $(document).ready(function () {
+
+
+
+                $('#user-create').click(function (e) {
+                    debugger;
+                    e.preventDefault();
+                    var subform = "yes";
+                    var Pass2 = $('#newPassword').val();
+                    var Pass3 = $('#newPassword2').val();
+                    var accType = $('#AccountType').val();
+                    if (Pass2 != "" && Pass3 != "" && accType != "Select Account Type") {
+
+                        var lVal = $('#my-val').val();
+                        var cc = CryptoJS.enc.Utf8.parse(lVal);
+                        Pass2 = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(Pass2), cc,
+                            {
+                                keySize: 128 / 8,
+                                iv: cc,
+                                mode: CryptoJS.mode.CBC,
+                                padding: CryptoJS.pad.Pkcs7
+                            });
+                        Pass3 = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(Pass3), cc,
+                            {
+                                keySize: 128 / 8,
+                                iv: cc,
+                                mode: CryptoJS.mode.CBC,
+                                padding: CryptoJS.pad.Pkcs7
+                            });
+                        var pp = "'" + Pass2 + "'";
+                        $.ajax({
+
+                            url: "@Url.Action("PasswordPolicyCheck", "User")",
+                            data: { newPassword2: pp, AccountType: accType },
+                            type: "Post",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data == "true") {
+                                    $('#newPassword').val("********");
+                                    $('#newPassword2').val("********");
+                                    $('#newPasswordE').val(Pass2);
+                                    $('#newPassword2E').val(Pass3);
+                                    $('#user-create-form').submit();
+                                }
+                                else {
+
+                                    data = data.replace(/\"/g, "");
+                                    if (Pass2 != "") {
+
+                                        $('#pass-policy').show();
+                                        $('#pass-policy').text(data);
+
+                                    }
+                                    else {
+                                        $('#pass-policy').hide();
+                                        $('#pass-policy').text("");
+                                    }
+                                }
+                            },
+                            error: function (data) {
+
+                            }
+                        });
+
+
+
+
+                    }
+                    else {
+                        $('#pass-policy').hide();
+                        $('#user-create-form').submit();
+                    }
+
+
+                });
+
+
+
+
+
+
+
+                $('#Ldap').change(function () {
+                    $("#newPassword").prop("disabled", this.checked);
+                    $("#newPassword2").prop("disabled", this.checked);
+                });
+
+                $('#UserID').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z0-9_.-]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+
+                $('form').get(0).reset(); //clear form data on page load
+
+            });
+        </script>
+    </div>
+</div>

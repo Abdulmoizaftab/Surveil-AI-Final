@@ -1,0 +1,302 @@
+﻿
+@{
+    //ViewBag.Title = "UpdateAgentPartialView";
+    ViewBag.Title = "Upload-File";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    table tr:hover.selected td,
+    table tbody tr:hover td {
+        background-color: #8783ee;
+        cursor: pointer;
+    }
+
+    table tbody tr.selected td {
+        background-color: #8783ee;
+    }
+
+    .tableFixHead table tbody {
+        display: block;
+        max-height: 290px;
+        overflow-y: scroll;
+    }
+
+    .tableFixHead table thead, table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .card-h {
+        min-height: 350px;
+        max-height: 350px;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @TempData["DeviD"]</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Upload File</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content">
+            <div class=" card">
+                <div class="card-body">
+                    <div class="row" style="">
+                        <div class="col-md-6" id="Root">
+                            <div class="card">
+                                <div class="row p-2 card-header pl-3 pr-3">
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" value="Download\" id="explorer-path" disabled="disabled" />
+                                    </div>
+                                    <div class="col-2 text-right">
+                                        <button type="button" class="btn-primary btn btn-sm" id="btn-back" style="padding-left: 6px; padding-right: 6px; padding-top: 0px; padding-bottom: 0px; height: 35px;">
+                                            <img src="~/assets/img/arrow-left.png" class="img-fluid img-responsive" style="height:24px;" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body card-h">
+                                    <div id="Services" class="tableFixHead">
+                                        <table id="ServerRoot" class="table table-striped table-bordered table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <td>
+                                                        Directory
+                                                    </td>
+                                                    <td>
+                                                        Size
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in ViewBag.folder)
+                                                {
+                                                    string folder = item.Substring(item.IndexOf("load\\") + 5);
+
+                                                    <tr>
+                                                        <td>
+                                                            <span>@folder</span>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                }
+                                                @foreach (var item in ViewBag.files)
+                                                {
+                                                    string file = item.Substring(item.IndexOf("load\\") + 5);
+
+                                                    <tr>
+
+                                                        @if (file.Contains("*"))
+                                                        {
+                                                            string[] separator = file.Split('*');
+                                                            <td>
+                                                                <span>@separator[0]</span>
+                                                            </td>
+                                                            <td>
+                                                                <span style="float:right">@separator[1]</span>
+                                                            </td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td>
+                                                                <span style="float:right">
+                                                                    @file KB
+                                                                </span>
+                                                            </td>
+                                                            <td></td>
+                                                        }
+
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <input type="hidden" id="Rootdir" />
+                            <input type="hidden" id="fileName" />
+                            <input type="hidden" id="fileSize" />
+                            <input type="hidden" id="DevID" value="@TempData["DeviD"]" />
+                        </div>
+                        @*<div id="Root" class="col-md-5" style="display:none">
+                                <div class="card">
+                                    <div class="card-body" style=" overflow: auto;max-height: 600px;">
+                                        <div id="Services">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="col-md-6" id="downloadPath" style="display:none">
+
+
+                            <div class="card">
+                                <h5 class="card-header">Download File.</h5>
+                                <div class="card-body card-h">
+                                    <div class="mb-3">
+                                        <div>
+                                            <label>Path of Machine To Upload File at:</label>
+                                            <input class="form-control" placeholder="Folder\Subfolder\...(C:\Proagent\) " type="text" id="MachinePath">
+                                            <p id="Result"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light text-center">
+                                    <button id="btnJournal" disabled class="btn btn-primary" onclick="UploadFile();">Upload File</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>
+</div>
+<script>
+    $(document).ready(function () {
+
+        //Back btn
+            $('#btn-back').click(function () {
+                var path = $('#explorer-path').val();
+                var explPath = $('#explorer-path').val();
+                var split = explPath.split("\\");
+                if (path != "Download\\") {
+                    var newPath = "";
+                    var arrlenth = split.length -2;
+
+                    for (var i = 1; i < arrlenth; i++) {
+                        if (split[i] != "") {
+                            newPath = newPath+split[i] + "\\";
+                        }
+
+                    }
+                        $.ajax({
+                            url: "@Url.Action("ServerRoot", "Event")",
+                            data: {path: newPath },
+                            type: "Get",
+                            dataType: "html",
+                            success: function (data) {
+                                $("#Services").html(data);
+                                $("#btnJournal").attr("disabled", "true");
+                                $('#explorer-path').val("Download\\"+newPath);
+                            },
+                            error: function (data) {
+
+
+                            },
+                            complete: function () {
+                                //This block will execute after success/error executes.
+                                //Make the loader div empty
+                                $('#loading').hide();
+
+                            }
+                        });
+                    }
+                    else
+                    {
+
+                    }
+
+
+                });
+
+
+        var filename;
+           $("table").on("click", "tr", function (e) {
+        $(this)
+            .toggleClass("selected")
+            .siblings(".selected")
+            .removeClass("selected");
+               $("#Rootdir").val($(this).find("td:first span").text());
+               $("#fileSize").val($(this).find("td:nth-child(2) span").text());
+               var Rootdir = $("#Rootdir").val();
+               var fileSize = $("#fileSize").val();
+               fileSize = fileSize.replace("KB", "");
+               fileSize = fileSize.replace(" ", "");
+               if (fileSize == "") {
+                   filename = "";
+               }
+               else {
+                   filename = Rootdir;
+               }
+               if (filename == "") {
+                   $.ajax({
+                       url: "@Url.Action("ServerRoot", "Event")",
+                       data: { path: Rootdir },
+                       type: "Get",
+                       dataType: "html",
+                       success: function (data) {
+                           $("#Services").html(data);
+                           $("#Root").css("display", "block");
+                           $("#downloadPath").css("display", "block");
+                           $("#btnJournal").attr("disabled", "true");
+                           var oldpath = $("#explorer-path").val();
+                           $("#explorer-path").val(oldpath+Rootdir+"\\");
+
+                       },
+                       error: function (data) {
+
+
+                       },
+                   });
+               }
+               else {
+                   $("#downloadPath").css("display", "block");
+                   $("#btnJournal").removeAttr("disabled");
+               }
+    });
+    })
+    function UploadFile() {
+        $("#loading").show();
+            var Did = $("#DevID").val();
+            var MachinePath = $("#MachinePath").val();
+        var filePath = $("#Rootdir").val();
+
+                $.ajax({
+                    url: "@Url.Action("UploadFile", "Event")",
+                    data: { id: Did,dir: filePath, Mpath: MachinePath },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#Result").html(data);
+                        $("#ServerPath").val("");
+
+                    },
+                    error: function (data) {
+                        $("#ServerPath").val("");
+
+                    },
+                    complete: function () {
+                        $('#loading').hide();
+                    }
+                });
+
+    }
+

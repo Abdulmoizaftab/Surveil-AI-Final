@@ -1,0 +1,126 @@
+﻿@model  SurveilAI.Models.Device
+
+@{
+    ViewBag.Title = "Folder Deletion";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-folder"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Folder Deletion</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="container" id="myData">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5 class="card-header">Folder Deletion</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Device Folder</a>
+                                        @if (UserRights.Contains("138"))
+                                        {<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Delete All</a>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                            <div class="">
+                                                <h5 class="card-header">Delete Device Folder.</h5>
+                                                <div class="card-body">
+                                                    <small style="font-size:100% !important; color:forestgreen !important;text-align:center;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                    <small style="color:red !important;text-align:center;font-size:100% ;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                    <div class="table-responsive">
+                                                        <table id="bs4-table" class="table table-striped table-bordered " style="text-align:center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Device ID</th>
+                                                                    <th>Branch Name</th>
+                                                                    <th>Hierarchy</th>
+                                                                    <th>IP</th>
+                                                                    <th>Device Type</th>
+                                                                    @if (UserRights.Contains("137"))
+                                                                    {
+                                                                        <th>Operation</th>
+                                                                    }
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @if (Model != null)
+                                                                {
+                                                                    foreach (var item in Model.devicesss)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@Html.DisplayFor(modelItem => item.Item1)</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.Item2)</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.Item3)</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.Item4)</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.Item5)</td>
+                                                                            @if (UserRights.Contains("137"))
+                                                                            {
+                                                                                <td>
+                                                                                    @Ajax.ActionLink("Delete Folder", "folderDelete", "Deletion", new { id = item.Item1 }, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace }, new { @class = "validation" })
+                                                                                </td>
+                                                                            }
+                                                                        </tr>
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                                            <h5 class="card-header">Delete All Folders.</h5>
+                                            <div class="card-body">
+                                                <small style="font-size:100% !important; color:forestgreen !important;text-align:center;" class="form-text text-muted">@TempData["hadATM"]</small>
+                                                <small style="color:red !important;text-align:center;font-size:100% ;" class="form-text text-muted">@TempData["noATM"]</small>
+                                                <div class="alert alert-warning" role="alert">
+                                                    <strong>WARNING!</strong>  Keep that in mind that all folders of every assigned devices carrying images will be deleted.
+                                                </div>
+
+                                            </div>
+
+                                            <div class="card-footer bg-light text-center">
+                                                <a class="btn btn-primary" href='@Url.Action("folderDeleteall", "Deletion")' onclick='return confirm("Are you sure you want to delete all folders?");'>Delete All Folder</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="container-fluid">
+                            <p>&copy; @DateTime.Now.Year - INNOVATIVE PVT-LTD</p>
+                        </footer>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+    </div>
+</div>
+

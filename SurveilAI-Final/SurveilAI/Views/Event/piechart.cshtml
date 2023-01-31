@@ -1,0 +1,161 @@
+﻿
+@*@{
+    ViewBag.Title = "piechart";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}*@
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="refresh" content="5">
+    <title>piechart</title>
+
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="~/assets/vendor/metismenu/dist/metisMenu.css">
+    <link rel="stylesheet" href="~/assets/vendor/switchery-npm/index.css">
+    <link rel="stylesheet" href="~/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <!-- ======================= LINE AWESOME ICONS ===========================-->
+    <link rel="stylesheet" href="~/assets/css/icons/line-awesome.min.css">
+    <!-- ======================= DRIP ICONS ===================================-->
+    <link rel="stylesheet" href="~/assets/css/icons/dripicons.min.css">
+    <!-- ======================= MATERIAL DESIGN ICONIC FONTS =================-->
+    <link rel="stylesheet" href="~/assets/css/icons/material-design-iconic-font.min.css">
+    <!-- ======================= PAGE VENDOR STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/vendor/jvectormap-next/jquery-jvectormap.css">
+    <!-- ======================= PAGE LEVEL VENDOR STYLES ============================-->
+    <link rel="stylesheet" href="~/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css">
+    <!-- ======================= GLOBAL COMMON STYLES ============================-->
+    <link rel="stylesheet" href="~/assets/css/common/main.bundle.css">
+    <!-- ======================= LAYOUT STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/core/main.css">
+    <!-- ======================= MENU TYPE ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/menu-type/auto-hide.css">
+    <!-- ======================= THEME COLOR STYLES ===========================-->
+    <link rel="stylesheet" href="~/assets/css/layouts/horizontal/themes/theme-j.css">
+    <link href="~/assets/css/vendor/jquery.treefilter.css" rel="stylesheet" />
+
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+</head>
+<body>
+    <section class="page-content ">
+        <div class="container-fluid pt-3">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5 class="card-header text-center">
+                            Total Devices
+                        </h5>
+                        <div class="card-body  text-center">
+                            <h2>
+                                <span style="color:#635ebe;font-size:90%; font-weight:bolder;"> @ViewData["count"] </span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5 class="card-header text-center">
+                            Selected Devices Count
+                        </h5>
+                        <div class="card-body  text-center">
+                            <h2>
+                                <span style="color:#635ebe;font-size:90%; font-weight:bolder;"> @ViewData["AssignedCount"]</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <h5 class="card-header">All Device States.</h5>
+                    <div class="card-body">
+                        <canvas id="Piecanvas" width="650" height="450"></canvas>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        var PieChartData =
+        {
+
+            labels: [@Html.Raw(ViewBag.Data)],
+        datasets: [{
+            backgroundColor: [@Html.Raw(ViewBag.color)],
+        borderWidth: 3,
+            data: [@ViewBag.ObjectName]
+                    }]
+            };
+
+
+        window.onload = function () {
+            var ctx1 = document.getElementById("Piecanvas").getContext("2d");
+            var canvas = document.getElementById("Piecanvas");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'pie',
+                    data: PieChartData,
+                    options:
+                    {
+                        title:
+                        {
+                            display: true,
+
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+
+
+            canvas.onclick = function (evt) {
+                var activePoints = myBar.getElementsAtEvent(evt);
+                if (activePoints[0]) {
+                    var chartData = activePoints[0]['_chart'].config.data;
+                    var idx = activePoints[0]['_index'];
+                    var url = window.location.pathname;
+
+                    var label = chartData.labels[idx];
+                    var StringToSend = label + "," + url;
+                    var value = chartData.datasets[0].data[idx];
+
+
+                    var path = '@Url.Action("AlertFromPie", "Alert", new { details = "replaceToken" })'.replace("replaceToken", StringToSend);
+
+                    window.open(path);
+
+                    event.preventDefault();
+
+                }
+            };
+
+        }
+    </script>
+</body>
+</html>
+

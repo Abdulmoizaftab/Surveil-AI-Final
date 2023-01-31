@@ -1,0 +1,6 @@
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\NetSDKCS\bin\Debug\NetSDKCS.pdb
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x86\Debug\NetSDKCS.csprojAssemblyReference.cache
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x86\Debug\NetSDKCS.csproj.CoreCompileInputs.cache
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x86\Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\NetSDKCS\obj\x86\Debug\NetSDKCS.pdb

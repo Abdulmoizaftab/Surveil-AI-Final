@@ -1,0 +1,3018 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SurveilAIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="STRING_SPLIT_Result">
+    <Property Name="value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="AddCamera">
+    <Key>
+      <PropertyRef Name="ACid" />
+    </Key>
+    <Property Name="ACid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACHierLevel" Type="Int32" />
+    <Property Name="DeviceID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Cam1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam11" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam12" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam13" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam14" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam15" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cam16" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Device" Relationship="Self.FK__AddCamera__Devic__7BE56230" FromRole="AddCameras" ToRole="Device" />
+  </EntityType>
+  <EntityType Name="basedata">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idtype" />
+      <PropertyRef Name="reference" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idtype" Type="Int32" Nullable="false" />
+    <Property Name="reference" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cashcontitem">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="containerid" />
+      <PropertyRef Name="containeritemno" />
+      <PropertyRef Name="postingdatetime" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="containerid" Type="Int32" Nullable="false" />
+    <Property Name="containeritemno" Type="Int32" Nullable="false" />
+    <Property Name="unit" Type="Int32" Nullable="false" />
+    <Property Name="unitsize" Type="Int32" Nullable="false" />
+    <Property Name="currency" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="currencyexponent" Type="Int32" Nullable="false" />
+    <Property Name="denomination" Type="Int32" Nullable="false" />
+    <Property Name="postingdatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="cashstocks" Relationship="Self.FK__cashstock__4E53A1AA" FromRole="cashcontitem" ToRole="cashstock" />
+    <NavigationProperty Name="cashstocks1" Relationship="Self.FK__cashstock__4F47C5E3" FromRole="cashcontitem" ToRole="cashstock" />
+  </EntityType>
+  <EntityType Name="CashForeCast_Events">
+    <Key>
+      <PropertyRef Name="Event_Name" />
+    </Key>
+    <Property Name="Event_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Solar_Day" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Lunar_Day" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Event_Date" Type="DateTime" Precision="3" />
+    <Property Name="Growth_" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CASHPHYS_NEW">
+    <Key>
+      <PropertyRef Name="DEVICEID" />
+    </Key>
+    <Property Name="DEVICEID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DEVICETYPE" Type="Int32" />
+    <Property Name="REPORTCASSETTTE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cashstock">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="containerid" />
+      <PropertyRef Name="containeritemno" />
+      <PropertyRef Name="stockcounter" />
+      <PropertyRef Name="postingdatetime" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="containerid" Type="Int32" Nullable="false" />
+    <Property Name="containeritemno" Type="Int32" Nullable="false" />
+    <Property Name="stockcounter" Type="Int32" Nullable="false" />
+    <Property Name="postingdatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="cashout" Type="Int32" Nullable="false" />
+    <Property Name="cashin" Type="Int32" Nullable="false" />
+    <Property Name="reject" Type="Int32" Nullable="false" />
+    <Property Name="turnovercashout" Type="Int32" />
+    <Property Name="turnovercashin" Type="Int32" />
+    <Property Name="turnoverreject" Type="Int32" />
+    <NavigationProperty Name="cashcontitem" Relationship="Self.FK__cashstock__4E53A1AA" FromRole="cashstock" ToRole="cashcontitem" />
+    <NavigationProperty Name="cashcontitem1" Relationship="Self.FK__cashstock__4F47C5E3" FromRole="cashstock" ToRole="cashcontitem" />
+  </EntityType>
+  <EntityType Name="component">
+    <Key>
+      <PropertyRef Name="componentid" />
+    </Key>
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="textno" Type="Int32" />
+    <Property Name="texttype" Type="Int32" />
+    <Property Name="active" Type="Int32" Nullable="false" />
+    <Property Name="ForMonitoring" Type="Boolean" />
+    <NavigationProperty Name="message0001" Relationship="Self.FK__component__503BEA1C" FromRole="component" ToRole="message0001" />
+    <NavigationProperty Name="message00011" Relationship="Self.FK__component__51300E55" FromRole="component" ToRole="message0001" />
+    <NavigationProperty Name="componentmaps" Relationship="Self.FK__component__compo__5224328E" FromRole="component" ToRole="componentmap" />
+    <NavigationProperty Name="componentmaps1" Relationship="Self.FK__component__compo__531856C7" FromRole="component" ToRole="componentmap" />
+    <NavigationProperty Name="eventbases" Relationship="Self.FK__eventbase__compo__690797E6" FromRole="component" ToRole="eventbase" />
+    <NavigationProperty Name="eventbases1" Relationship="Self.FK__eventbase__compo__69FBBC1F" FromRole="component" ToRole="eventbase" />
+  </EntityType>
+  <EntityType Name="componentmap">
+    <Key>
+      <PropertyRef Name="devicetype" />
+      <PropertyRef Name="componentid" />
+    </Key>
+    <Property Name="devicetype" Type="Int32" Nullable="false" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="visibleinview" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="component" Relationship="Self.FK__component__compo__5224328E" FromRole="componentmap" ToRole="component" />
+    <NavigationProperty Name="component1" Relationship="Self.FK__component__compo__531856C7" FromRole="componentmap" ToRole="component" />
+    <NavigationProperty Name="deviceprofile" Relationship="Self.FK__component__devic__540C7B00" FromRole="componentmap" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile1" Relationship="Self.FK__component__devic__55009F39" FromRole="componentmap" ToRole="deviceprofile" />
+  </EntityType>
+  <EntityType Name="componentstate">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="componentid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="compstate" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="consoleview">
+    <Key>
+      <PropertyRef Name="viewname" />
+      <PropertyRef Name="viewtype" />
+      <PropertyRef Name="extuserid" />
+    </Key>
+    <Property Name="viewname" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="viewtype" Type="Int32" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="devices" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="states" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="contactid" />
+    </Key>
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="lname" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="fname" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="company" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="36" FixedLength="true" Unicode="false" />
+    <Property Name="fax" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="e_mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cfunction" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="voice" Type="Int32" />
+    <Property Name="voiceid" Type="Int32" />
+    <Property Name="pin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mailtemplate" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="smsmailaddress" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="hierarchy_" Relationship="Self.FK__contact__hierlev__1C873BEC" FromRole="contact" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_1" Relationship="Self.FK__contact__hierlev__6D823440" FromRole="contact" ToRole="hierarchy_" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="HierLevel" Type="Int32" />
+    <Property Name="IP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Obsolete" Type="Boolean" />
+    <Property Name="EJProcessedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastDate" Type="DateTime" Precision="0" />
+    <Property Name="LastTime" Type="Time" Precision="7" />
+    <Property Name="LastCardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BioInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BioCmdExecTime" Type="DateTime" Precision="3" />
+    <Property Name="BiosPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BiosUpdated" Type="Boolean" />
+    <Property Name="DriverInstalled" Type="Boolean" />
+    <Property Name="PasswordType" Type="Int32" />
+    <Property Name="Channels" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AddCameras" Relationship="Self.FK__AddCamera__Devic__7BE56230" FromRole="Device" ToRole="AddCameras" />
+  </EntityType>
+  <EntityType Name="device_">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" />
+    <Property Name="devicetype" Type="Int32" />
+    <Property Name="act_transport" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="transport1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="transportid1" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="transport2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="transportid2" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="agenttype" Type="Int32" />
+    <Property Name="customer_contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="techn_contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="supplier_contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="128" FixedLength="true" Unicode="false" />
+    <Property Name="multiplexer" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="outgoingcalls" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="deviceprofile" Relationship="Self.FK__device___devicet__57DD0BE4" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile1" Relationship="Self.FK__device___devicet__58D1301D" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile2" Relationship="Self.FK__device___devicet__59C55456" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile3" Relationship="Self.FK__device___devicet__5AB9788F" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile4" Relationship="Self.FK__device___devicet__5BAD9CC8" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile5" Relationship="Self.FK__device___devicet__5CA1C101" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile6" Relationship="Self.FK__device___devicet__5D95E53A" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile7" Relationship="Self.FK__device___devicet__5E8A0973" FromRole="device_" ToRole="deviceprofile" />
+    <NavigationProperty Name="hierarchy_" Relationship="Self.FK__device___hierlev__5F7E2DAC" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_1" Relationship="Self.FK__device___hierlev__607251E5" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_2" Relationship="Self.FK__device___hierlev__6166761E" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_3" Relationship="Self.FK__device___hierlev__625A9A57" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_4" Relationship="Self.FK__device___hierlev__634EBE90" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_5" Relationship="Self.FK__device___hierlev__6442E2C9" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_6" Relationship="Self.FK__device___hierlev__65370702" FromRole="device_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_7" Relationship="Self.FK__device___hierlev__662B2B3B" FromRole="device_" ToRole="hierarchy_" />
+  </EntityType>
+  <EntityType Name="devicecalendar">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="calendartype" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="calendartype" Type="Int32" Nullable="false" />
+    <Property Name="calname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="caluserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeviceLastImage">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastImage" Type="DateTime" Precision="3" />
+    <Property Name="ImageDay" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ImageNight" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Connected" Type="Boolean" />
+    <Property Name="LastConTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="deviceprofile">
+    <Key>
+      <PropertyRef Name="devicetype" />
+    </Key>
+    <Property Name="devicetype" Type="Int32" Nullable="false" />
+    <Property Name="devicedescr" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="manuf" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="devclass" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="devfunc" Type="String" MaxLength="128" FixedLength="true" Unicode="false" />
+    <Property Name="gatewaytype" Type="Int32" />
+    <Property Name="iconid" Type="Int32" />
+    <Property Name="versionid" Type="Int32" />
+    <Property Name="eodkeygroupid" Type="Int32" />
+    <Property Name="calcstatsstate" Type="Int32" />
+    <Property Name="inventoryid" Type="Int32" />
+    <NavigationProperty Name="componentmaps" Relationship="Self.FK__component__devic__540C7B00" FromRole="deviceprofile" ToRole="componentmap" />
+    <NavigationProperty Name="componentmaps1" Relationship="Self.FK__component__devic__55009F39" FromRole="deviceprofile" ToRole="componentmap" />
+    <NavigationProperty Name="device_" Relationship="Self.FK__device___devicet__57DD0BE4" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_1" Relationship="Self.FK__device___devicet__58D1301D" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_2" Relationship="Self.FK__device___devicet__59C55456" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_3" Relationship="Self.FK__device___devicet__5AB9788F" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_4" Relationship="Self.FK__device___devicet__5BAD9CC8" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_5" Relationship="Self.FK__device___devicet__5CA1C101" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_6" Relationship="Self.FK__device___devicet__5D95E53A" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="device_7" Relationship="Self.FK__device___devicet__5E8A0973" FromRole="deviceprofile" ToRole="device_" />
+    <NavigationProperty Name="eventconversions" Relationship="Self.FK__eventconv__devic__6AEFE058" FromRole="deviceprofile" ToRole="eventconversion" />
+    <NavigationProperty Name="eventconversions1" Relationship="Self.FK__eventconv__devic__6BE40491" FromRole="deviceprofile" ToRole="eventconversion" />
+    <NavigationProperty Name="eventconversions2" Relationship="Self.FK__eventconv__devic__6CD828CA" FromRole="deviceprofile" ToRole="eventconversion" />
+    <NavigationProperty Name="eventconversions3" Relationship="Self.FK__eventconv__devic__6DCC4D03" FromRole="deviceprofile" ToRole="eventconversion" />
+  </EntityType>
+  <EntityType Name="dmfunction">
+    <Key>
+      <PropertyRef Name="functionid" />
+    </Key>
+    <Property Name="functionid" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="textnumber" Type="Int32" Nullable="false" />
+    <Property Name="target" Type="Int32" Nullable="false" />
+    <Property Name="executionmode" Type="Int32" />
+    <Property Name="iconid" Type="Int32" />
+    <Property Name="lastchanged" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="customizable" Type="Int32" />
+  </EntityType>
+  <EntityType Name="event">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="eventno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="event_old">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="eventno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="eventbase">
+    <Key>
+      <PropertyRef Name="eventno" />
+    </Key>
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+    <Property Name="textno" Type="Int32" Nullable="false" />
+    <Property Name="texttype" Type="Int32" Nullable="false" />
+    <Property Name="setbit" Type="Int32" Nullable="false" />
+    <Property Name="unsetbit" Type="Int32" Nullable="false" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="compsetbit" Type="Int32" Nullable="false" />
+    <Property Name="compunsetbit" Type="Int32" Nullable="false" />
+    <Property Name="target" Type="Int32" Nullable="false" />
+    <Property Name="forwarddesktop" Type="Int32" Nullable="false" />
+    <Property Name="forwardrule" Type="Int32" Nullable="false" />
+    <Property Name="eventgroupid" Type="Int32" />
+    <Property Name="confidential" Type="Int32" />
+    <Property Name="confidentialmask" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="masktype" Type="Int32" />
+    <NavigationProperty Name="component" Relationship="Self.FK__eventbase__compo__690797E6" FromRole="eventbase" ToRole="component" />
+    <NavigationProperty Name="component1" Relationship="Self.FK__eventbase__compo__69FBBC1F" FromRole="eventbase" ToRole="component" />
+    <NavigationProperty Name="message0001" Relationship="Self.FK__eventbase__671F4F74" FromRole="eventbase" ToRole="message0001" />
+    <NavigationProperty Name="message00011" Relationship="Self.FK__eventbase__681373AD" FromRole="eventbase" ToRole="message0001" />
+    <NavigationProperty Name="eventconversions" Relationship="Self.FK__eventconv__event__6EC0713C" FromRole="eventbase" ToRole="eventconversion" />
+    <NavigationProperty Name="eventconversions1" Relationship="Self.FK__eventconv__event__6FB49575" FromRole="eventbase" ToRole="eventconversion" />
+  </EntityType>
+  <EntityType Name="eventconversion">
+    <Key>
+      <PropertyRef Name="messageno" />
+      <PropertyRef Name="devicetype" />
+    </Key>
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="devicetype" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="deviceprofile" Relationship="Self.FK__eventconv__devic__6AEFE058" FromRole="eventconversion" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile1" Relationship="Self.FK__eventconv__devic__6BE40491" FromRole="eventconversion" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile2" Relationship="Self.FK__eventconv__devic__6CD828CA" FromRole="eventconversion" ToRole="deviceprofile" />
+    <NavigationProperty Name="deviceprofile3" Relationship="Self.FK__eventconv__devic__6DCC4D03" FromRole="eventconversion" ToRole="deviceprofile" />
+    <NavigationProperty Name="eventbase" Relationship="Self.FK__eventconv__event__6EC0713C" FromRole="eventconversion" ToRole="eventbase" />
+    <NavigationProperty Name="eventbase1" Relationship="Self.FK__eventconv__event__6FB49575" FromRole="eventconversion" ToRole="eventbase" />
+  </EntityType>
+  <EntityType Name="eventload">
+    <Key>
+      <PropertyRef Name="date110" />
+      <PropertyRef Name="hour24" />
+    </Key>
+    <Property Name="date110" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hour24" Type="Int32" Nullable="false" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eventstore">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="eventstoreload">
+    <Key>
+      <PropertyRef Name="date110" />
+      <PropertyRef Name="hour24" />
+      <PropertyRef Name="agmname" />
+    </Key>
+    <Property Name="date110" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hour24" Type="Int32" Nullable="false" />
+    <Property Name="agmname" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="extuser">
+    <Key>
+      <PropertyRef Name="domain" />
+      <PropertyRef Name="extuserid" />
+    </Key>
+    <Property Name="domain" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="isuser" Type="Int32" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amethod" Type="Int32" Nullable="false" />
+    <Property Name="admin" Type="Int32" Nullable="false" />
+    <Property Name="locked" Type="Int32" Nullable="false" />
+    <Property Name="lockeduntil" Type="DateTime" Precision="3" />
+    <Property Name="failedlogins" Type="Int32" Nullable="false" />
+    <Property Name="pwdexpires" Type="DateTime" Precision="3" />
+    <Property Name="pwdchanged" Type="DateTime" Precision="3" />
+    <Property Name="policyid" Type="Int32" Nullable="false" />
+    <Property Name="validfrom" Type="DateTime" Precision="3" />
+    <Property Name="validto" Type="DateTime" Precision="3" />
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="lastlogontime" Type="DateTime" Precision="3" />
+    <Property Name="showonlogin" Type="Int32" Nullable="false" />
+    <Property Name="usergroup" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="failedtries" Type="Int32" />
+    <NavigationProperty Name="usersessions" Relationship="Self.FK__usersession__0A9D95DB" FromRole="extuser" ToRole="usersession" />
+  </EntityType>
+  <EntityType Name="extuser_">
+    <Key>
+      <PropertyRef Name="domain" />
+      <PropertyRef Name="extuserid" />
+    </Key>
+    <Property Name="domain" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="isuser" Type="Int32" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amethod" Type="Int32" Nullable="false" />
+    <Property Name="admin" Type="Int32" Nullable="false" />
+    <Property Name="locked" Type="Int32" Nullable="false" />
+    <Property Name="lockeduntil" Type="DateTime" Precision="3" />
+    <Property Name="failedlogins" Type="Int32" Nullable="false" />
+    <Property Name="pwdexpires" Type="DateTime" Precision="3" />
+    <Property Name="pwdchanged" Type="DateTime" Precision="3" />
+    <Property Name="policyid" Type="Int32" Nullable="false" />
+    <Property Name="validfrom" Type="DateTime" Precision="3" />
+    <Property Name="validto" Type="DateTime" Precision="3" />
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="lastlogontime" Type="DateTime" Precision="3" />
+    <Property Name="showonlogin" Type="Int32" Nullable="false" />
+    <Property Name="usergroup" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="failedtries" Type="Int32" />
+    <NavigationProperty Name="passwordpolicy" Relationship="Self.FK__extuser___policy__70A8B9AE" FromRole="extuser_" ToRole="passwordpolicy" />
+    <NavigationProperty Name="passwordpolicy1" Relationship="Self.FK__extuser___policy__719CDDE7" FromRole="extuser_" ToRole="passwordpolicy" />
+    <NavigationProperty Name="users_" Relationship="Self.FK__extuser___userid__72910220" FromRole="extuser_" ToRole="users_" />
+    <NavigationProperty Name="users_1" Relationship="Self.FK__extuser___userid__73852659" FromRole="extuser_" ToRole="users_" />
+    <NavigationProperty Name="passwordhistories" Relationship="Self.FK__passwordhistory__7849DB76" FromRole="extuser_" ToRole="passwordhistory" />
+    <NavigationProperty Name="passwordhistories1" Relationship="Self.FK__passwordhistory__793DFFAF" FromRole="extuser_" ToRole="passwordhistory" />
+  </EntityType>
+  <EntityType Name="Hierarchy">
+    <Key>
+      <PropertyRef Name="HierName" />
+    </Key>
+    <Property Name="HierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hierlevel" Type="Int32" Nullable="false" />
+    <Property Name="HierId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="hierarchy_">
+    <Key>
+      <PropertyRef Name="hierlevel" />
+    </Key>
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hiername" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hierdescr" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="bitmap" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="groupid" Type="Int32" />
+    <Property Name="hierlongname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="contacts" Relationship="Self.FK__contact__hierlev__1C873BEC" FromRole="hierarchy_" ToRole="contact" />
+    <NavigationProperty Name="contacts1" Relationship="Self.FK__contact__hierlev__6D823440" FromRole="hierarchy_" ToRole="contact" />
+    <NavigationProperty Name="device_" Relationship="Self.FK__device___hierlev__5F7E2DAC" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_1" Relationship="Self.FK__device___hierlev__607251E5" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_2" Relationship="Self.FK__device___hierlev__6166761E" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_3" Relationship="Self.FK__device___hierlev__625A9A57" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_4" Relationship="Self.FK__device___hierlev__634EBE90" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_5" Relationship="Self.FK__device___hierlev__6442E2C9" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_6" Relationship="Self.FK__device___hierlev__65370702" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="device_7" Relationship="Self.FK__device___hierlev__662B2B3B" FromRole="hierarchy_" ToRole="device_" />
+    <NavigationProperty Name="users_" Relationship="Self.FK__users___hierleve__02C769E9" FromRole="hierarchy_" ToRole="users_" />
+    <NavigationProperty Name="users_1" Relationship="Self.FK__users___hierleve__03BB8E22" FromRole="hierarchy_" ToRole="users_" />
+  </EntityType>
+  <EntityType Name="job">
+    <Key>
+      <PropertyRef Name="jobid" />
+      <PropertyRef Name="commandno" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="command" Type="String" MaxLength="254" FixedLength="true" Unicode="false" />
+    <Property Name="vardata" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="delivery" Type="Int32" />
+    <Property Name="address" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="mt_subject" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="mt_message" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="resultfile" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="jobschedule" Relationship="Self.FK__job__jobid__0E8E2250" FromRole="job" ToRole="jobschedule" />
+    <NavigationProperty Name="jobschedule1" Relationship="Self.FK__job__jobid__0F824689" FromRole="job" ToRole="jobschedule" />
+    <NavigationProperty Name="jobschedule2" Relationship="Self.FK__job__jobid__7CC477D0" FromRole="job" ToRole="jobschedule" />
+    <NavigationProperty Name="jobschedule3" Relationship="Self.FK__job__jobid__7DB89C09" FromRole="job" ToRole="jobschedule" />
+  </EntityType>
+  <EntityType Name="jobresult">
+    <Key>
+      <PropertyRef Name="jobid" />
+      <PropertyRef Name="resourceid" />
+      <PropertyRef Name="commandno" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="resourceid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="context" Type="Int32" Nullable="false" />
+    <Property Name="repeatcount" Type="Int32" />
+    <Property Name="result" Type="Int32" Nullable="false" />
+    <Property Name="errorspec" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="resultfile" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="jobtsp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="jobschedule">
+    <Key>
+      <PropertyRef Name="jobid" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+    <Property Name="startit" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
+    <Property Name="period" Type="Int32" />
+    <Property Name="dayofweek" Type="Int32" />
+    <Property Name="condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="doonce" Type="Int32" Nullable="false" />
+    <Property Name="resultneeded" Type="Int32" Nullable="false" />
+    <Property Name="generic" Type="Int32" />
+    <Property Name="repeatcount" Type="Int32" />
+    <Property Name="repeatfreq" Type="Int32" />
+    <Property Name="active" Type="Int32" />
+    <Property Name="parallel" Type="Int32" />
+    <Property Name="conditiontype" Type="Int32" Nullable="false" />
+    <Property Name="sendevent" Type="Int32" />
+    <Property Name="context" Type="Int32" Nullable="false" />
+    <Property Name="lastmodifieduser" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="approved" Type="Int32" Nullable="false" />
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timeout" Type="Int32" />
+    <Property Name="internal" Type="Int32" />
+    <NavigationProperty Name="jobs" Relationship="Self.FK__job__jobid__0E8E2250" FromRole="jobschedule" ToRole="job" />
+    <NavigationProperty Name="jobs1" Relationship="Self.FK__job__jobid__0F824689" FromRole="jobschedule" ToRole="job" />
+    <NavigationProperty Name="jobs2" Relationship="Self.FK__job__jobid__7CC477D0" FromRole="jobschedule" ToRole="job" />
+    <NavigationProperty Name="jobs3" Relationship="Self.FK__job__jobid__7DB89C09" FromRole="jobschedule" ToRole="job" />
+  </EntityType>
+  <EntityType Name="LineChartDevice">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mailtemplate">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="type" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="accessattrib" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="message0001">
+    <Key>
+      <PropertyRef Name="textno" />
+      <PropertyRef Name="texttype" />
+    </Key>
+    <Property Name="textno" Type="Int32" Nullable="false" />
+    <Property Name="texttype" Type="Int32" Nullable="false" />
+    <Property Name="messagetext" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="components" Relationship="Self.FK__component__503BEA1C" FromRole="message0001" ToRole="component" />
+    <NavigationProperty Name="components1" Relationship="Self.FK__component__51300E55" FromRole="message0001" ToRole="component" />
+    <NavigationProperty Name="eventbases" Relationship="Self.FK__eventbase__671F4F74" FromRole="message0001" ToRole="eventbase" />
+    <NavigationProperty Name="eventbases1" Relationship="Self.FK__eventbase__681373AD" FromRole="message0001" ToRole="eventbase" />
+    <NavigationProperty Name="stbs" Relationship="Self.FK__stb__7E02B4CC" FromRole="message0001" ToRole="stb" />
+    <NavigationProperty Name="stbs1" Relationship="Self.FK__stb__7EF6D905" FromRole="message0001" ToRole="stb" />
+    <NavigationProperty Name="stbs2" Relationship="Self.FK__stb__7FEAFD3E" FromRole="message0001" ToRole="stb" />
+  </EntityType>
+  <EntityType Name="passwordhistory">
+    <Key>
+      <PropertyRef Name="domain" />
+      <PropertyRef Name="extuserid" />
+      <PropertyRef Name="changedate" />
+    </Key>
+    <Property Name="domain" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="changedate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="extuser_" Relationship="Self.FK__passwordhistory__7849DB76" FromRole="passwordhistory" ToRole="extuser_" />
+    <NavigationProperty Name="extuser_1" Relationship="Self.FK__passwordhistory__793DFFAF" FromRole="passwordhistory" ToRole="extuser_" />
+  </EntityType>
+  <EntityType Name="passwordpolicy">
+    <Key>
+      <PropertyRef Name="policyid" />
+    </Key>
+    <Property Name="policyid" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="minlength" Type="Int32" Nullable="false" />
+    <Property Name="maxlength" Type="Int32" Nullable="false" />
+    <Property Name="mincapital" Type="Int32" />
+    <Property Name="mindigits" Type="Int32" Nullable="false" />
+    <Property Name="maxattempts" Type="Int32" Nullable="false" />
+    <Property Name="minage" Type="Int32" Nullable="false" />
+    <Property Name="maxage" Type="Int32" Nullable="false" />
+    <Property Name="historysize" Type="Int32" Nullable="false" />
+    <Property Name="changefirst" Type="Int32" Nullable="false" />
+    <Property Name="lockduration" Type="Int32" Nullable="false" />
+    <Property Name="changehint" Type="Int32" Nullable="false" />
+    <Property Name="maxlogouttime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="extuser_" Relationship="Self.FK__extuser___policy__70A8B9AE" FromRole="passwordpolicy" ToRole="extuser_" />
+    <NavigationProperty Name="extuser_1" Relationship="Self.FK__extuser___policy__719CDDE7" FromRole="passwordpolicy" ToRole="extuser_" />
+  </EntityType>
+  <EntityType Name="performance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Context" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="pmaction">
+    <Key>
+      <PropertyRef Name="pmid" />
+      <PropertyRef Name="pmuserid" />
+      <PropertyRef Name="step" />
+    </Key>
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="step" Type="Int32" Nullable="false" />
+    <Property Name="deactivated" Type="Int32" Nullable="false" />
+    <Property Name="onlyonerror" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="adress" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="classification" Type="Int32" />
+    <Property Name="reporttopic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mt_subject" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="mt_message" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+    <Property Name="command" Type="String" MaxLength="254" FixedLength="true" Unicode="false" />
+    <Property Name="vardata" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="pmevent">
+    <Key>
+      <PropertyRef Name="pmid" />
+      <PropertyRef Name="pmuserid" />
+      <PropertyRef Name="delay" />
+      <PropertyRef Name="eventno" />
+    </Key>
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="delay" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pmeventstore">
+    <Key>
+      <PropertyRef Name="counter" />
+    </Key>
+    <Property Name="counter" Type="Int32" Nullable="false" />
+    <Property Name="actiontype" Type="Int32" Nullable="false" />
+    <Property Name="jobid" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pmexecution">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="pmid" />
+      <PropertyRef Name="originid" />
+      <PropertyRef Name="step" />
+      <PropertyRef Name="triggertime" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="originid" Type="Int32" Nullable="false" />
+    <Property Name="step" Type="Int32" Nullable="false" />
+    <Property Name="triggertime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="triggertype" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="reportnumber" Type="Int32" />
+    <Property Name="onlyonerror" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="contactid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="adress" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="classification" Type="Int32" />
+    <Property Name="reporttopic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mt_subject" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="mt_message" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="command" Type="String" MaxLength="254" FixedLength="true" Unicode="false" />
+    <Property Name="vardata" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="sstpdatalen" Type="Int32" />
+    <Property Name="sstpdata" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="pmresult">
+    <Key>
+      <PropertyRef Name="counter" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="counter" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="step" Type="Int32" Nullable="false" />
+    <Property Name="triggertype" Type="Int32" Nullable="false" />
+    <Property Name="actiontype" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="deviceid" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="result" Type="Int32" Nullable="false" />
+    <Property Name="comments" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pmschedaction">
+    <Key>
+      <PropertyRef Name="pmid" />
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="actiontype" />
+      <PropertyRef Name="originid" />
+      <PropertyRef Name="executiontime" />
+    </Key>
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="actiontype" Type="Int32" Nullable="false" />
+    <Property Name="originid" Type="Int32" Nullable="false" />
+    <Property Name="executiontime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="componentid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="pmschedule">
+    <Key>
+      <PropertyRef Name="pmid" />
+      <PropertyRef Name="pmuserid" />
+    </Key>
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Int32" />
+    <Property Name="actioncount" Type="Int32" Nullable="false" />
+    <Property Name="startit" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
+    <Property Name="stopit" Type="String" MaxLength="14" FixedLength="true" Unicode="false" />
+    <Property Name="dayofweek" Type="Int32" Nullable="false" />
+    <Property Name="condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="triggertype" Type="Int32" Nullable="false" />
+    <Property Name="statebitmask" Type="Int32" />
+    <Property Name="setreset" Type="Int32" />
+    <Property Name="compid" Type="Int32" />
+    <Property Name="compstbmask" Type="Int32" />
+    <Property Name="compsetreset" Type="Int32" />
+    <Property Name="leveltriggered" Type="Int32" />
+    <Property Name="problemevent" Type="Int32" />
+    <Property Name="classification" Type="Int32" />
+    <Property Name="noevents" Type="Int32" />
+    <Property Name="nodevents" Type="Int32" />
+    <Property Name="delay" Type="Int32" />
+    <Property Name="calname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="caluserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="timetoescalate" Type="Int32" />
+    <Property Name="escalation" Type="Int32" />
+    <Property Name="problempmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="problempmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timetype" Type="Int32" />
+    <Property Name="econsameevent" Type="Int32" Nullable="false" />
+    <Property Name="echascorrelcond" Type="Int32" Nullable="false" />
+    <Property Name="echascancelcond" Type="Int32" Nullable="false" />
+    <Property Name="eccanceltrigger" Type="Int32" />
+    <Property Name="eccheckonlyonce" Type="Int32" />
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="eccheckbeforefire" Type="Int32" />
+    <Property Name="resultneeded" Type="Int32" />
+    <Property Name="journalneeded" Type="Int32" />
+    <Property Name="execcalname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="execcaltype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="problem">
+    <Key>
+      <PropertyRef Name="repnumber" />
+    </Key>
+    <Property Name="repnumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="owner" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="owneruser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idtype" Type="Int32" Nullable="false" />
+    <Property Name="reference" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+    <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endtime" Type="DateTime" Precision="3" />
+    <Property Name="topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="classif" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="pmid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="pmuserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="externalsystem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="problemdatas" Relationship="Self.FK__problemda__repnu__7A3223E8" FromRole="problem" ToRole="problemdata" />
+    <NavigationProperty Name="problemdatas1" Relationship="Self.FK__problemda__repnu__7B264821" FromRole="problem" ToRole="problemdata" />
+  </EntityType>
+  <EntityType Name="problemdata">
+    <Key>
+      <PropertyRef Name="remnumber" />
+      <PropertyRef Name="repnumber" />
+    </Key>
+    <Property Name="remnumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="repnumber" Type="Int32" Nullable="false" />
+    <Property Name="remuser" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="remextuser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="remtime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="problem" Relationship="Self.FK__problemda__repnu__7A3223E8" FromRole="problemdata" ToRole="problem" />
+    <NavigationProperty Name="problem1" Relationship="Self.FK__problemda__repnu__7B264821" FromRole="problemdata" ToRole="problem" />
+  </EntityType>
+  <EntityType Name="problemreply">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="action" Type="Int32" Nullable="false" />
+    <Property Name="classification" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pvgroup">
+    <Key>
+      <PropertyRef Name="groupid" />
+    </Key>
+    <Property Name="groupid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupname" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="grouptype" Type="Int32" />
+    <Property Name="criteria" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="contactid1" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="contactid2" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="contactid3" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="pvgroupconditions" Relationship="Self.FK__pvgroupco__group__009508B4" FromRole="pvgroup" ToRole="pvgroupcondition" />
+    <NavigationProperty Name="pvgroupconditions1" Relationship="Self.FK__pvgroupco__group__5E1FF51F" FromRole="pvgroup" ToRole="pvgroupcondition" />
+  </EntityType>
+  <EntityType Name="pvgroupcondition">
+    <Key>
+      <PropertyRef Name="groupid" />
+      <PropertyRef Name="basedatano" />
+    </Key>
+    <Property Name="groupid" Type="Int32" Nullable="false" />
+    <Property Name="basedatano" Type="Int32" Nullable="false" />
+    <Property Name="criteria" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pvgroup" Relationship="Self.FK__pvgroupco__group__009508B4" FromRole="pvgroupcondition" ToRole="pvgroup" />
+    <NavigationProperty Name="pvgroup1" Relationship="Self.FK__pvgroupco__group__5E1FF51F" FromRole="pvgroupcondition" ToRole="pvgroup" />
+  </EntityType>
+  <EntityType Name="ReportJob">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="startit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dayofweek" Type="Int32" Nullable="false" />
+    <Property Name="doonce" Type="Int32" Nullable="false" />
+    <Property Name="period" Type="Int32" Nullable="false" />
+    <Property Name="Recepient" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Report_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MessageTemplate" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="ReportName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deviceid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="startdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="enddate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="elementid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="categoryid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timenotransaction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="approvedstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="businessgroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="circularoffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="businessarea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="site" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="timing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="exportas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jobid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ReportJobControl">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="JobStp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="stb">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="bit" />
+    </Key>
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="bit" Type="Int32" Nullable="false" />
+    <Property Name="internalused" Type="Int32" Nullable="false" />
+    <Property Name="color" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="display" Type="Int32" Nullable="false" />
+    <Property Name="prio" Type="Int32" Nullable="false" />
+    <Property Name="textno" Type="Int32" Nullable="false" />
+    <Property Name="texttype" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="message0001" Relationship="Self.FK__stb__7E02B4CC" FromRole="stb" ToRole="message0001" />
+    <NavigationProperty Name="message00011" Relationship="Self.FK__stb__7EF6D905" FromRole="stb" ToRole="message0001" />
+    <NavigationProperty Name="message00012" Relationship="Self.FK__stb__7FEAFD3E" FromRole="stb" ToRole="message0001" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Terminal_lastestevent">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="eventno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="transport">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="transportid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="transportid" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="remotedte" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="remotecud" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="localcud" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="trxn_dict">
+    <Key>
+      <PropertyRef Name="trxn_code" />
+    </Key>
+    <Property Name="trxn_code" Type="Int32" Nullable="false" />
+    <Property Name="trxn_text" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TS_eventstore">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Function" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hierarchy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Licenseon" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="userprofile">
+    <Key>
+      <PropertyRef Name="userprofid" />
+    </Key>
+    <Property Name="userprofid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="funcmask" Type="String" MaxLength="128" FixedLength="true" Unicode="false" />
+    <Property Name="statebeepmask" Type="Int32" />
+    <Property Name="allfolderagent" Type="Int32" />
+    <Property Name="reversefolder" Type="Int32" />
+    <Property Name="allfolderserver" Type="Int32" />
+    <Property Name="allfiletypes" Type="Int32" />
+    <Property Name="filetypes" Type="Int32" />
+    <Property Name="normalfiletypes" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="userprofilefuncs" Relationship="Self.FK__userprofi__userp__00DF2177" FromRole="userprofile" ToRole="userprofilefunc" />
+    <NavigationProperty Name="userprofilefuncs1" Relationship="Self.FK__userprofi__userp__01D345B0" FromRole="userprofile" ToRole="userprofilefunc" />
+    <NavigationProperty Name="users_" Relationship="Self.FK__users___userprof__04AFB25B" FromRole="userprofile" ToRole="users_" />
+    <NavigationProperty Name="users_1" Relationship="Self.FK__users___userprof__05A3D694" FromRole="userprofile" ToRole="users_" />
+  </EntityType>
+  <EntityType Name="userprofilefunc">
+    <Key>
+      <PropertyRef Name="category" />
+      <PropertyRef Name="functionname" />
+      <PropertyRef Name="action" />
+      <PropertyRef Name="userprofid" />
+    </Key>
+    <Property Name="category" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="functionname" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="action" Type="Int32" Nullable="false" />
+    <Property Name="userprofid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="userprofile" Relationship="Self.FK__userprofi__userp__00DF2177" FromRole="userprofilefunc" ToRole="userprofile" />
+    <NavigationProperty Name="userprofile1" Relationship="Self.FK__userprofi__userp__01D345B0" FromRole="userprofilefunc" ToRole="userprofile" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccountType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastLogin" Type="DateTime" Precision="3" />
+    <Property Name="IsOnline" Type="Boolean" />
+    <Property Name="LastDateChange" Type="DateTime" Precision="3" />
+    <Property Name="PassUDPrompt" Type="Boolean" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="Attempts" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pass1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ATM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastActivity" Type="DateTime" Precision="3" />
+    <Property Name="Ldap" Type="Boolean" />
+    <Property Name="Pass3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="users_">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="userprofid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="userfunc" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+    <Property Name="userlayout" Type="Int32" />
+    <Property Name="condition" Type="String" MaxLength="254" FixedLength="true" Unicode="false" />
+    <Property Name="priority" Type="Int32" />
+    <Property Name="hierlevel" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="extuser_" Relationship="Self.FK__extuser___userid__72910220" FromRole="users_" ToRole="extuser_" />
+    <NavigationProperty Name="extuser_1" Relationship="Self.FK__extuser___userid__73852659" FromRole="users_" ToRole="extuser_" />
+    <NavigationProperty Name="hierarchy_" Relationship="Self.FK__users___hierleve__02C769E9" FromRole="users_" ToRole="hierarchy_" />
+    <NavigationProperty Name="hierarchy_1" Relationship="Self.FK__users___hierleve__03BB8E22" FromRole="users_" ToRole="hierarchy_" />
+    <NavigationProperty Name="userprofile" Relationship="Self.FK__users___userprof__04AFB25B" FromRole="users_" ToRole="userprofile" />
+    <NavigationProperty Name="userprofile1" Relationship="Self.FK__users___userprof__05A3D694" FromRole="users_" ToRole="userprofile" />
+  </EntityType>
+  <EntityType Name="UserSecurity">
+    <Key>
+      <PropertyRef Name="AccountType" />
+    </Key>
+    <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uview" Type="Boolean" Nullable="false" />
+    <Property Name="Uadd" Type="Boolean" Nullable="false" />
+    <Property Name="Uupd" Type="Boolean" Nullable="false" />
+    <Property Name="Udel" Type="Boolean" Nullable="false" />
+    <Property Name="Iview" Type="Boolean" Nullable="false" />
+    <Property Name="Aview" Type="Boolean" Nullable="false" />
+    <Property Name="Aadd" Type="Boolean" Nullable="false" />
+    <Property Name="Aupd" Type="Boolean" Nullable="false" />
+    <Property Name="Adel" Type="Boolean" Nullable="false" />
+    <Property Name="AAview" Type="Boolean" Nullable="false" />
+    <Property Name="R1view" Type="Boolean" Nullable="false" />
+    <Property Name="R2view" Type="Boolean" Nullable="false" />
+    <Property Name="R3view" Type="Boolean" Nullable="false" />
+    <Property Name="Rview" Type="Boolean" Nullable="false" />
+    <Property Name="SRview" Type="Boolean" Nullable="false" />
+    <Property Name="Hview" Type="Boolean" Nullable="false" />
+    <Property Name="Hadd" Type="Boolean" Nullable="false" />
+    <Property Name="Hupd" Type="Boolean" Nullable="false" />
+    <Property Name="Hdel" Type="Boolean" Nullable="false" />
+    <Property Name="Fview" Type="Boolean" Nullable="false" />
+    <Property Name="EJview" Type="Boolean" Nullable="false" />
+    <Property Name="REJview" Type="Boolean" Nullable="false" />
+    <Property Name="DEJview" Type="Boolean" Nullable="false" />
+    <Property Name="Jview" Type="Boolean" />
+    <Property Name="JRview" Type="Boolean" />
+    <Property Name="Mview" Type="Boolean" />
+    <Property Name="Access" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Passwordpolicy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usersession">
+    <Key>
+      <PropertyRef Name="domain" />
+      <PropertyRef Name="extuserid" />
+      <PropertyRef Name="desktop" />
+      <PropertyRef Name="sessionid" />
+    </Key>
+    <Property Name="domain" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="desktop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ipaddress" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="port" Type="Int32" />
+    <Property Name="logintime" Type="DateTime" Precision="3" />
+    <Property Name="lastactiontime" Type="DateTime" Precision="3" />
+    <Property Name="terminalserver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sessionflag" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="sessionid" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="extuser" Relationship="Self.FK__usersession__0A9D95DB" FromRole="usersession" ToRole="extuser" />
+  </EntityType>
+  <EntityType Name="Archive">
+    <Key>
+      <PropertyRef Name="Archive1" />
+      <PropertyRef Name="ArchivePolicy" />
+      <PropertyRef Name="PurgePolicy" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="Archive1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NoOfDays" Type="Int32" />
+    <Property Name="Size" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="ArchivePolicy" Type="Boolean" Nullable="false" />
+    <Property Name="PurgePolicy" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ArchivedTill" Type="DateTime" Precision="3" />
+    <Property Name="JobStarted" Type="DateTime" Precision="3" />
+    <Property Name="JobEnded" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="calendar">
+    <Key>
+      <PropertyRef Name="calname" />
+      <PropertyRef Name="caluserid" />
+      <PropertyRef Name="type" />
+    </Key>
+    <Property Name="calname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="caluserid" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="day" Type="DateTime" Precision="3" />
+    <Property Name="dayofweek" Type="Int32" />
+    <Property Name="period" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="consolv1">
+    <Key>
+      <PropertyRef Name="viewname" />
+      <PropertyRef Name="viewtype" />
+      <PropertyRef Name="extuserid" />
+    </Key>
+    <Property Name="viewname" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="viewtype" Type="Int32" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="devices" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="states" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="consolv2">
+    <Key>
+      <PropertyRef Name="viewname" />
+      <PropertyRef Name="viewtype" />
+      <PropertyRef Name="extuserid" />
+    </Key>
+    <Property Name="viewname" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="viewtype" Type="Int32" Nullable="false" />
+    <Property Name="extuserid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="devices" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="states" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DEVICE_COMP_TEMP">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+      <PropertyRef Name="prio" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="componentid" Type="Int32" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="prio" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEVICE_DOWNTIME_TEMP_temp">
+    <Key>
+      <PropertyRef Name="DEVICEID" />
+      <PropertyRef Name="ELEMENT_ID" />
+      <PropertyRef Name="START_TIME" />
+      <PropertyRef Name="END_TIME" />
+    </Key>
+    <Property Name="DEVICEID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ELEMENT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="START_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="END_TIME" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DEVICE_STATE_TEMP">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="eventid" />
+      <PropertyRef Name="prio" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DISPLAY_ORDER" Type="Int32" />
+    <Property Name="bit" Type="Int32" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="prio" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="devicefail">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="componentid" />
+      <PropertyRef Name="started" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="started" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ended" Type="DateTime" Precision="3" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="compstate" Type="Int32" />
+    <Property Name="statebit" Type="Int32" />
+    <Property Name="endeventno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DuplicateDevice">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="IP" />
+      <PropertyRef Name="LastDate" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EJTransaction">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Trxn_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Stan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Trxn_date" Type="DateTime" Precision="0" />
+    <Property Name="Trxn_time" Type="Time" Precision="7" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Trxn_Start" Type="DateTime" Precision="3" />
+    <Property Name="Trxn_End" Type="DateTime" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RRN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Seq_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Event_ID">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="messageno" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="eventno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="eventstore_Temp">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="messageno" />
+      <PropertyRef Name="eventno" />
+      <PropertyRef Name="eventid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+    <Property Name="eventid" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="event_temp">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="messageno" />
+      <PropertyRef Name="eventcount" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="eventcount" Type="Int32" Nullable="false" />
+    <Property Name="eventgroupid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="example">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="TransactionID" />
+      <PropertyRef Name="Trxn_Code" />
+      <PropertyRef Name="CameraNo" />
+      <PropertyRef Name="ImagePath" />
+    </Key>
+    <Property Name="DeviceID" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Trxn_Code" Type="Int32" Nullable="false" />
+    <Property Name="CameraNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="Time" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Trxn_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CameraNo" Type="Int32" />
+    <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="jobcontrol">
+    <Key>
+      <PropertyRef Name="jobid" />
+      <PropertyRef Name="commandno" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="context" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="resourceid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="context" Type="Int32" Nullable="false" />
+    <Property Name="jobtsp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="jobcontrol_Temp">
+    <Key>
+      <PropertyRef Name="jobid" />
+      <PropertyRef Name="commandno" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="context" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="resourceid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="context" Type="Int32" Nullable="false" />
+    <Property Name="jobtsp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="jobcontrolcache">
+    <Key>
+      <PropertyRef Name="jobid" />
+      <PropertyRef Name="resourceid" />
+      <PropertyRef Name="commandno" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="repeatcount" />
+      <PropertyRef Name="context" />
+    </Key>
+    <Property Name="jobid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="resourceid" Type="String" MaxLength="18" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="commandno" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="repeatcount" Type="Int32" Nullable="false" />
+    <Property Name="context" Type="Int32" Nullable="false" />
+    <Property Name="jobtsp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="lastcomponentevent">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="messageno" />
+      <PropertyRef Name="orgmessage" />
+      <PropertyRef Name="servertimestamp" />
+      <PropertyRef Name="devicestate" />
+      <PropertyRef Name="eventno" />
+      <PropertyRef Name="componentid" />
+      <PropertyRef Name="compstate" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="servertimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="devicestate" Type="Int32" Nullable="false" />
+    <Property Name="eventno" Type="Int32" Nullable="false" />
+    <Property Name="eventcount" Type="Int32" />
+    <Property Name="eventgroupid" Type="Int32" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="compstate" Type="Int32" Nullable="false" />
+    <Property Name="compeventcount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="lastevent">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="messageno" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="messageno" Type="Int32" Nullable="false" />
+    <Property Name="orgmessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="eventcount" Type="Int32" />
+    <Property Name="eventgroupid" Type="Int32" />
+    <Property Name="componentid" Type="Int32" />
+    <Property Name="compstate" Type="Int32" />
+    <Property Name="compeventcount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LineChart">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="PostingDateTime" />
+      <PropertyRef Name="ATMDown" />
+      <PropertyRef Name="Down_Component_Name" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PostingDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ATMDown" Type="Boolean" Nullable="false" />
+    <Property Name="Down_Component_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineChart_Average">
+    <Key>
+      <PropertyRef Name="PostingDateTime" />
+    </Key>
+    <Property Name="PostingDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Average_Hourly" Type="Int32" />
+    <Property Name="Average_Daily" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LineChartTest">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="PostingDateTime" />
+      <PropertyRef Name="ATMDown" />
+      <PropertyRef Name="Down_Component_Name" />
+    </Key>
+    <Property Name="DeviceID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PostingDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ATMDown" Type="Boolean" Nullable="false" />
+    <Property Name="Down_Component_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pvjournal">
+    <Key>
+      <PropertyRef Name="serverdatetime" />
+      <PropertyRef Name="issuertype" />
+      <PropertyRef Name="issuer" />
+      <PropertyRef Name="pvuser" />
+      <PropertyRef Name="device" />
+      <PropertyRef Name="command" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="serverdatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="issuertype" Type="Int32" Nullable="false" />
+    <Property Name="issuer" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pvuser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="device" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="command" Type="Int32" Nullable="false" />
+    <Property Name="adminaction" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="errorcode" Type="Int32" />
+    <Property Name="cmdstat" Type="Int32" />
+    <Property Name="vardata" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="desktopuser" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="oldvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="newvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="functionid" Type="Int32" />
+    <Property Name="customer" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Operation_Type" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ReportJobResult">
+    <Key>
+      <PropertyRef Name="ReportID" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="Recepient" />
+      <PropertyRef Name="Comment" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="ReportID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Recepient" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sheet1_">
+    <Key>
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="F1" Type="Double" />
+    <Property Name="F2" Type="Double" />
+    <Property Name="F3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="connected" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="devicestate" Type="Int32" />
+    <Property Name="eventid" Type="Int32" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+    <Property Name="connected" Type="Boolean" Nullable="false" />
+    <Property Name="LastConTime" Type="DateTime" Precision="3" />
+    <Property Name="Network" Type="Boolean" />
+    <Property Name="NetworkConTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="statsid">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="priority" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="priority" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="StatusBar">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="DeviceID" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="commandno" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Percentage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="commandno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="testtable">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="componentid" />
+      <PropertyRef Name="compstate" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="componentid" Type="Int32" Nullable="false" />
+    <Property Name="compstate" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="V_AlertView">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="color" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceID" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HierLevel" Type="Int32" />
+    <Property Name="state" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="profile" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+    <Property Name="eventno" Type="Int32" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="messageno" Type="Int32" />
+    <Property Name="servertimestamp" Type="DateTime" Precision="3" />
+    <Property Name="address" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_card_cpture">
+    <Key>
+      <PropertyRef Name="machinename" />
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="card_number" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="sequence_number" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="machinename" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="servertime" Type="DateTime" Precision="3" />
+    <Property Name="orgmessage" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="eventnumber" Type="Int32" />
+    <Property Name="activity_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="V_CashView">
+    <Key>
+      <PropertyRef Name="deviceid" />
+      <PropertyRef Name="postingdatetime" />
+      <PropertyRef Name="denomination" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="postingdatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="denomination" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="QuantityAmount" Type="Int64" />
+    <Property Name="Replenish" Type="Int32" />
+    <Property Name="ReplenishAmount" Type="Int64" />
+    <Property Name="Dispense" Type="Int32" />
+    <Property Name="DispenseAmount" Type="Int64" />
+    <Property Name="Reject" Type="Int32" />
+    <Property Name="RejectAmount" Type="Int64" />
+  </EntityType>
+  <EntityType Name="V_Current_State">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="color" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_DeviceConnected">
+    <Key>
+      <PropertyRef Name="status" />
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="status" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="V_Downtime">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hierlevel" Type="Int32" />
+    <Property Name="devicetype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_Downtime_test">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="deviceid" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hierlevel" Type="Int32" />
+    <Property Name="devicetype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_ImageTransfer">
+    <Key>
+      <PropertyRef Name="Time" />
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="Time" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deviceid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="V_LastImage">
+    <Key>
+      <PropertyRef Name="deviceid" />
+    </Key>
+    <Property Name="deviceid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="branchname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="IP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastImage" Type="DateTime" Precision="3" />
+    <Property Name="Connected" Type="Boolean" />
+    <Property Name="LastConTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK__AddCamera__Devic__7BE56230">
+    <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+    <End Role="AddCameras" Type="Self.AddCamera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="DeviceID" />
+      </Principal>
+      <Dependent Role="AddCameras">
+        <PropertyRef Name="DeviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cashstock__4E53A1AA">
+    <End Role="cashcontitem" Type="Self.cashcontitem" Multiplicity="1" />
+    <End Role="cashstock" Type="Self.cashstock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cashcontitem">
+        <PropertyRef Name="deviceid" />
+        <PropertyRef Name="containerid" />
+        <PropertyRef Name="containeritemno" />
+        <PropertyRef Name="postingdatetime" />
+      </Principal>
+      <Dependent Role="cashstock">
+        <PropertyRef Name="deviceid" />
+        <PropertyRef Name="containerid" />
+        <PropertyRef Name="containeritemno" />
+        <PropertyRef Name="postingdatetime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cashstock__4F47C5E3">
+    <End Role="cashcontitem" Type="Self.cashcontitem" Multiplicity="1" />
+    <End Role="cashstock" Type="Self.cashstock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cashcontitem">
+        <PropertyRef Name="deviceid" />
+        <PropertyRef Name="containerid" />
+        <PropertyRef Name="containeritemno" />
+        <PropertyRef Name="postingdatetime" />
+      </Principal>
+      <Dependent Role="cashstock">
+        <PropertyRef Name="deviceid" />
+        <PropertyRef Name="containerid" />
+        <PropertyRef Name="containeritemno" />
+        <PropertyRef Name="postingdatetime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__503BEA1C">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="0..1" />
+    <End Role="component" Type="Self.component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="component">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__51300E55">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="0..1" />
+    <End Role="component" Type="Self.component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="component">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__compo__5224328E">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="componentmap" Type="Self.componentmap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="componentid" />
+      </Principal>
+      <Dependent Role="componentmap">
+        <PropertyRef Name="componentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__compo__531856C7">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="componentmap" Type="Self.componentmap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="componentid" />
+      </Principal>
+      <Dependent Role="componentmap">
+        <PropertyRef Name="componentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventbase__compo__690797E6">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="componentid" />
+      </Principal>
+      <Dependent Role="eventbase">
+        <PropertyRef Name="componentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventbase__compo__69FBBC1F">
+    <End Role="component" Type="Self.component" Multiplicity="1" />
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="component">
+        <PropertyRef Name="componentid" />
+      </Principal>
+      <Dependent Role="eventbase">
+        <PropertyRef Name="componentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__devic__540C7B00">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="componentmap" Type="Self.componentmap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="componentmap">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__component__devic__55009F39">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="componentmap" Type="Self.componentmap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="componentmap">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contact__hierlev__1C873BEC">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="contact" Type="Self.contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="contact">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contact__hierlev__6D823440">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="contact" Type="Self.contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="contact">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__57DD0BE4">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__58D1301D">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__59C55456">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__5AB9788F">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__5BAD9CC8">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__5CA1C101">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__5D95E53A">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___devicet__5E8A0973">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__5F7E2DAC">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__607251E5">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__6166761E">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__625A9A57">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__634EBE90">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__6442E2C9">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__65370702">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__device___hierlev__662B2B3B">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="0..1" />
+    <End Role="device_" Type="Self.device_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="device_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__devic__6AEFE058">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__devic__6BE40491">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__devic__6CD828CA">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__devic__6DCC4D03">
+    <End Role="deviceprofile" Type="Self.deviceprofile" Multiplicity="1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceprofile">
+        <PropertyRef Name="devicetype" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="devicetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventbase__671F4F74">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="1" />
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="eventbase">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventbase__681373AD">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="1" />
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="eventbase">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__event__6EC0713C">
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="0..1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eventbase">
+        <PropertyRef Name="eventno" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="eventno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__eventconv__event__6FB49575">
+    <End Role="eventbase" Type="Self.eventbase" Multiplicity="0..1" />
+    <End Role="eventconversion" Type="Self.eventconversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eventbase">
+        <PropertyRef Name="eventno" />
+      </Principal>
+      <Dependent Role="eventconversion">
+        <PropertyRef Name="eventno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usersession__0A9D95DB">
+    <End Role="extuser" Type="Self.extuser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="usersession" Type="Self.usersession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extuser">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Principal>
+      <Dependent Role="usersession">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__extuser___policy__70A8B9AE">
+    <End Role="passwordpolicy" Type="Self.passwordpolicy" Multiplicity="1" />
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="passwordpolicy">
+        <PropertyRef Name="policyid" />
+      </Principal>
+      <Dependent Role="extuser_">
+        <PropertyRef Name="policyid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__extuser___policy__719CDDE7">
+    <End Role="passwordpolicy" Type="Self.passwordpolicy" Multiplicity="1" />
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="passwordpolicy">
+        <PropertyRef Name="policyid" />
+      </Principal>
+      <Dependent Role="extuser_">
+        <PropertyRef Name="policyid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__extuser___userid__72910220">
+    <End Role="users_" Type="Self.users_" Multiplicity="1" />
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users_">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="extuser_">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__extuser___userid__73852659">
+    <End Role="users_" Type="Self.users_" Multiplicity="1" />
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users_">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="extuser_">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__passwordhistory__7849DB76">
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="1" />
+    <End Role="passwordhistory" Type="Self.passwordhistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extuser_">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Principal>
+      <Dependent Role="passwordhistory">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__passwordhistory__793DFFAF">
+    <End Role="extuser_" Type="Self.extuser_" Multiplicity="1" />
+    <End Role="passwordhistory" Type="Self.passwordhistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extuser_">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Principal>
+      <Dependent Role="passwordhistory">
+        <PropertyRef Name="domain" />
+        <PropertyRef Name="extuserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users___hierleve__02C769E9">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="1" />
+    <End Role="users_" Type="Self.users_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="users_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users___hierleve__03BB8E22">
+    <End Role="hierarchy_" Type="Self.hierarchy_" Multiplicity="1" />
+    <End Role="users_" Type="Self.users_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hierarchy_">
+        <PropertyRef Name="hierlevel" />
+      </Principal>
+      <Dependent Role="users_">
+        <PropertyRef Name="hierlevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__job__jobid__0E8E2250">
+    <End Role="jobschedule" Type="Self.jobschedule" Multiplicity="1" />
+    <End Role="job" Type="Self.job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jobschedule">
+        <PropertyRef Name="jobid" />
+      </Principal>
+      <Dependent Role="job">
+        <PropertyRef Name="jobid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__job__jobid__0F824689">
+    <End Role="jobschedule" Type="Self.jobschedule" Multiplicity="1" />
+    <End Role="job" Type="Self.job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jobschedule">
+        <PropertyRef Name="jobid" />
+      </Principal>
+      <Dependent Role="job">
+        <PropertyRef Name="jobid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__job__jobid__7CC477D0">
+    <End Role="jobschedule" Type="Self.jobschedule" Multiplicity="1" />
+    <End Role="job" Type="Self.job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jobschedule">
+        <PropertyRef Name="jobid" />
+      </Principal>
+      <Dependent Role="job">
+        <PropertyRef Name="jobid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__job__jobid__7DB89C09">
+    <End Role="jobschedule" Type="Self.jobschedule" Multiplicity="1" />
+    <End Role="job" Type="Self.job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jobschedule">
+        <PropertyRef Name="jobid" />
+      </Principal>
+      <Dependent Role="job">
+        <PropertyRef Name="jobid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__stb__7E02B4CC">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="1" />
+    <End Role="stb" Type="Self.stb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="stb">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__stb__7EF6D905">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="1" />
+    <End Role="stb" Type="Self.stb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="stb">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__stb__7FEAFD3E">
+    <End Role="message0001" Type="Self.message0001" Multiplicity="1" />
+    <End Role="stb" Type="Self.stb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message0001">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Principal>
+      <Dependent Role="stb">
+        <PropertyRef Name="textno" />
+        <PropertyRef Name="texttype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__problemda__repnu__7A3223E8">
+    <End Role="problem" Type="Self.problem" Multiplicity="1" />
+    <End Role="problemdata" Type="Self.problemdata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="problem">
+        <PropertyRef Name="repnumber" />
+      </Principal>
+      <Dependent Role="problemdata">
+        <PropertyRef Name="repnumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__problemda__repnu__7B264821">
+    <End Role="problem" Type="Self.problem" Multiplicity="1" />
+    <End Role="problemdata" Type="Self.problemdata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="problem">
+        <PropertyRef Name="repnumber" />
+      </Principal>
+      <Dependent Role="problemdata">
+        <PropertyRef Name="repnumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pvgroupco__group__009508B4">
+    <End Role="pvgroup" Type="Self.pvgroup" Multiplicity="1" />
+    <End Role="pvgroupcondition" Type="Self.pvgroupcondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pvgroup">
+        <PropertyRef Name="groupid" />
+      </Principal>
+      <Dependent Role="pvgroupcondition">
+        <PropertyRef Name="groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pvgroupco__group__5E1FF51F">
+    <End Role="pvgroup" Type="Self.pvgroup" Multiplicity="1" />
+    <End Role="pvgroupcondition" Type="Self.pvgroupcondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pvgroup">
+        <PropertyRef Name="groupid" />
+      </Principal>
+      <Dependent Role="pvgroupcondition">
+        <PropertyRef Name="groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userprofi__userp__00DF2177">
+    <End Role="userprofile" Type="Self.userprofile" Multiplicity="1" />
+    <End Role="userprofilefunc" Type="Self.userprofilefunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userprofile">
+        <PropertyRef Name="userprofid" />
+      </Principal>
+      <Dependent Role="userprofilefunc">
+        <PropertyRef Name="userprofid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userprofi__userp__01D345B0">
+    <End Role="userprofile" Type="Self.userprofile" Multiplicity="1" />
+    <End Role="userprofilefunc" Type="Self.userprofilefunc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userprofile">
+        <PropertyRef Name="userprofid" />
+      </Principal>
+      <Dependent Role="userprofilefunc">
+        <PropertyRef Name="userprofid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users___userprof__04AFB25B">
+    <End Role="userprofile" Type="Self.userprofile" Multiplicity="0..1" />
+    <End Role="users_" Type="Self.users_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userprofile">
+        <PropertyRef Name="userprofid" />
+      </Principal>
+      <Dependent Role="users_">
+        <PropertyRef Name="userprofid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users___userprof__05A3D694">
+    <End Role="userprofile" Type="Self.userprofile" Multiplicity="0..1" />
+    <End Role="users_" Type="Self.users_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userprofile">
+        <PropertyRef Name="userprofid" />
+      </Principal>
+      <Dependent Role="users_">
+        <PropertyRef Name="userprofid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SurveilAIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AddCameras" EntityType="Self.AddCamera" />
+    <EntitySet Name="basedatas" EntityType="Self.basedata" />
+    <EntitySet Name="cashcontitems" EntityType="Self.cashcontitem" />
+    <EntitySet Name="CashForeCast_Events" EntityType="Self.CashForeCast_Events" />
+    <EntitySet Name="CASHPHYS_NEW" EntityType="Self.CASHPHYS_NEW" />
+    <EntitySet Name="cashstocks" EntityType="Self.cashstock" />
+    <EntitySet Name="components" EntityType="Self.component" />
+    <EntitySet Name="componentmaps" EntityType="Self.componentmap" />
+    <EntitySet Name="componentstates" EntityType="Self.componentstate" />
+    <EntitySet Name="consoleviews" EntityType="Self.consoleview" />
+    <EntitySet Name="contacts" EntityType="Self.contact" />
+    <EntitySet Name="Devices" EntityType="Self.Device" />
+    <EntitySet Name="device_" EntityType="Self.device_" />
+    <EntitySet Name="devicecalendars" EntityType="Self.devicecalendar" />
+    <EntitySet Name="DeviceLastImages" EntityType="Self.DeviceLastImage" />
+    <EntitySet Name="deviceprofiles" EntityType="Self.deviceprofile" />
+    <EntitySet Name="dmfunctions" EntityType="Self.dmfunction" />
+    <EntitySet Name="events" EntityType="Self.event" />
+    <EntitySet Name="event_old" EntityType="Self.event_old" />
+    <EntitySet Name="eventbases" EntityType="Self.eventbase" />
+    <EntitySet Name="eventconversions" EntityType="Self.eventconversion" />
+    <EntitySet Name="eventloads" EntityType="Self.eventload" />
+    <EntitySet Name="eventstores" EntityType="Self.eventstore" />
+    <EntitySet Name="eventstoreloads" EntityType="Self.eventstoreload" />
+    <EntitySet Name="extusers" EntityType="Self.extuser" />
+    <EntitySet Name="extuser_" EntityType="Self.extuser_" />
+    <EntitySet Name="Hierarchies" EntityType="Self.Hierarchy" />
+    <EntitySet Name="hierarchy_" EntityType="Self.hierarchy_" />
+    <EntitySet Name="jobs" EntityType="Self.job" />
+    <EntitySet Name="jobresults" EntityType="Self.jobresult" />
+    <EntitySet Name="jobschedules" EntityType="Self.jobschedule" />
+    <EntitySet Name="LineChartDevices" EntityType="Self.LineChartDevice" />
+    <EntitySet Name="mailtemplates" EntityType="Self.mailtemplate" />
+    <EntitySet Name="message0001" EntityType="Self.message0001" />
+    <EntitySet Name="passwordhistories" EntityType="Self.passwordhistory" />
+    <EntitySet Name="passwordpolicies" EntityType="Self.passwordpolicy" />
+    <EntitySet Name="performances" EntityType="Self.performance" />
+    <EntitySet Name="pmactions" EntityType="Self.pmaction" />
+    <EntitySet Name="pmevents" EntityType="Self.pmevent" />
+    <EntitySet Name="pmeventstores" EntityType="Self.pmeventstore" />
+    <EntitySet Name="pmexecutions" EntityType="Self.pmexecution" />
+    <EntitySet Name="pmresults" EntityType="Self.pmresult" />
+    <EntitySet Name="pmschedactions" EntityType="Self.pmschedaction" />
+    <EntitySet Name="pmschedules" EntityType="Self.pmschedule" />
+    <EntitySet Name="problems" EntityType="Self.problem" />
+    <EntitySet Name="problemdatas" EntityType="Self.problemdata" />
+    <EntitySet Name="problemreplies" EntityType="Self.problemreply" />
+    <EntitySet Name="pvgroups" EntityType="Self.pvgroup" />
+    <EntitySet Name="pvgroupconditions" EntityType="Self.pvgroupcondition" />
+    <EntitySet Name="ReportJobs" EntityType="Self.ReportJob" />
+    <EntitySet Name="ReportJobControls" EntityType="Self.ReportJobControl" />
+    <EntitySet Name="stbs" EntityType="Self.stb" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Terminal_lastestevent" EntityType="Self.Terminal_lastestevent" />
+    <EntitySet Name="transports" EntityType="Self.transport" />
+    <EntitySet Name="trxn_dict" EntityType="Self.trxn_dict" />
+    <EntitySet Name="TS_eventstore" EntityType="Self.TS_eventstore" />
+    <EntitySet Name="UserPermissions" EntityType="Self.UserPermission" />
+    <EntitySet Name="userprofiles" EntityType="Self.userprofile" />
+    <EntitySet Name="userprofilefuncs" EntityType="Self.userprofilefunc" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="users_" EntityType="Self.users_" />
+    <EntitySet Name="UserSecurities" EntityType="Self.UserSecurity" />
+    <EntitySet Name="usersessions" EntityType="Self.usersession" />
+    <EntitySet Name="Archives" EntityType="Self.Archive" />
+    <EntitySet Name="calendars" EntityType="Self.calendar" />
+    <EntitySet Name="consolv1" EntityType="Self.consolv1" />
+    <EntitySet Name="consolv2" EntityType="Self.consolv2" />
+    <EntitySet Name="DEVICE_COMP_TEMP" EntityType="Self.DEVICE_COMP_TEMP" />
+    <EntitySet Name="DEVICE_DOWNTIME_TEMP_temp" EntityType="Self.DEVICE_DOWNTIME_TEMP_temp" />
+    <EntitySet Name="DEVICE_STATE_TEMP" EntityType="Self.DEVICE_STATE_TEMP" />
+    <EntitySet Name="devicefails" EntityType="Self.devicefail" />
+    <EntitySet Name="DuplicateDevices" EntityType="Self.DuplicateDevice" />
+    <EntitySet Name="EJTransactions" EntityType="Self.EJTransaction" />
+    <EntitySet Name="Event_ID" EntityType="Self.Event_ID" />
+    <EntitySet Name="eventstore_Temp" EntityType="Self.eventstore_Temp" />
+    <EntitySet Name="event_temp" EntityType="Self.event_temp" />
+    <EntitySet Name="examples" EntityType="Self.example" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="jobcontrols" EntityType="Self.jobcontrol" />
+    <EntitySet Name="jobcontrol_Temp" EntityType="Self.jobcontrol_Temp" />
+    <EntitySet Name="jobcontrolcaches" EntityType="Self.jobcontrolcache" />
+    <EntitySet Name="lastcomponentevents" EntityType="Self.lastcomponentevent" />
+    <EntitySet Name="lastevents" EntityType="Self.lastevent" />
+    <EntitySet Name="LineCharts" EntityType="Self.LineChart" />
+    <EntitySet Name="LineChart_Average" EntityType="Self.LineChart_Average" />
+    <EntitySet Name="LineChartTests" EntityType="Self.LineChartTest" />
+    <EntitySet Name="pvjournals" EntityType="Self.pvjournal" />
+    <EntitySet Name="ReportJobResults" EntityType="Self.ReportJobResult" />
+    <EntitySet Name="Sheet1_" EntityType="Self.Sheet1_" />
+    <EntitySet Name="states" EntityType="Self.state" />
+    <EntitySet Name="statsids" EntityType="Self.statsid" />
+    <EntitySet Name="StatusBars" EntityType="Self.StatusBar" />
+    <EntitySet Name="testtables" EntityType="Self.testtable" />
+    <EntitySet Name="V_AlertView" EntityType="Self.V_AlertView" />
+    <EntitySet Name="v_card_cpture" EntityType="Self.v_card_cpture" />
+    <EntitySet Name="V_CashView" EntityType="Self.V_CashView" />
+    <EntitySet Name="V_Current_State" EntityType="Self.V_Current_State" />
+    <EntitySet Name="V_DeviceConnected" EntityType="Self.V_DeviceConnected" />
+    <EntitySet Name="V_Downtime" EntityType="Self.V_Downtime" />
+    <EntitySet Name="V_Downtime_test" EntityType="Self.V_Downtime_test" />
+    <EntitySet Name="V_ImageTransfer" EntityType="Self.V_ImageTransfer" />
+    <EntitySet Name="V_LastImage" EntityType="Self.V_LastImage" />
+    <AssociationSet Name="FK__AddCamera__Devic__7BE56230" Association="Self.FK__AddCamera__Devic__7BE56230">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="AddCameras" EntitySet="AddCameras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cashstock__4E53A1AA" Association="Self.FK__cashstock__4E53A1AA">
+      <End Role="cashcontitem" EntitySet="cashcontitems" />
+      <End Role="cashstock" EntitySet="cashstocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cashstock__4F47C5E3" Association="Self.FK__cashstock__4F47C5E3">
+      <End Role="cashcontitem" EntitySet="cashcontitems" />
+      <End Role="cashstock" EntitySet="cashstocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__503BEA1C" Association="Self.FK__component__503BEA1C">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="component" EntitySet="components" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__51300E55" Association="Self.FK__component__51300E55">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="component" EntitySet="components" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__compo__5224328E" Association="Self.FK__component__compo__5224328E">
+      <End Role="component" EntitySet="components" />
+      <End Role="componentmap" EntitySet="componentmaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__compo__531856C7" Association="Self.FK__component__compo__531856C7">
+      <End Role="component" EntitySet="components" />
+      <End Role="componentmap" EntitySet="componentmaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventbase__compo__690797E6" Association="Self.FK__eventbase__compo__690797E6">
+      <End Role="component" EntitySet="components" />
+      <End Role="eventbase" EntitySet="eventbases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventbase__compo__69FBBC1F" Association="Self.FK__eventbase__compo__69FBBC1F">
+      <End Role="component" EntitySet="components" />
+      <End Role="eventbase" EntitySet="eventbases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__devic__540C7B00" Association="Self.FK__component__devic__540C7B00">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="componentmap" EntitySet="componentmaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__component__devic__55009F39" Association="Self.FK__component__devic__55009F39">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="componentmap" EntitySet="componentmaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contact__hierlev__1C873BEC" Association="Self.FK__contact__hierlev__1C873BEC">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="contact" EntitySet="contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contact__hierlev__6D823440" Association="Self.FK__contact__hierlev__6D823440">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="contact" EntitySet="contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__57DD0BE4" Association="Self.FK__device___devicet__57DD0BE4">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__58D1301D" Association="Self.FK__device___devicet__58D1301D">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__59C55456" Association="Self.FK__device___devicet__59C55456">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__5AB9788F" Association="Self.FK__device___devicet__5AB9788F">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__5BAD9CC8" Association="Self.FK__device___devicet__5BAD9CC8">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__5CA1C101" Association="Self.FK__device___devicet__5CA1C101">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__5D95E53A" Association="Self.FK__device___devicet__5D95E53A">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___devicet__5E8A0973" Association="Self.FK__device___devicet__5E8A0973">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__5F7E2DAC" Association="Self.FK__device___hierlev__5F7E2DAC">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__607251E5" Association="Self.FK__device___hierlev__607251E5">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__6166761E" Association="Self.FK__device___hierlev__6166761E">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__625A9A57" Association="Self.FK__device___hierlev__625A9A57">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__634EBE90" Association="Self.FK__device___hierlev__634EBE90">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__6442E2C9" Association="Self.FK__device___hierlev__6442E2C9">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__65370702" Association="Self.FK__device___hierlev__65370702">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__device___hierlev__662B2B3B" Association="Self.FK__device___hierlev__662B2B3B">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="device_" EntitySet="device_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__devic__6AEFE058" Association="Self.FK__eventconv__devic__6AEFE058">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__devic__6BE40491" Association="Self.FK__eventconv__devic__6BE40491">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__devic__6CD828CA" Association="Self.FK__eventconv__devic__6CD828CA">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__devic__6DCC4D03" Association="Self.FK__eventconv__devic__6DCC4D03">
+      <End Role="deviceprofile" EntitySet="deviceprofiles" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventbase__671F4F74" Association="Self.FK__eventbase__671F4F74">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="eventbase" EntitySet="eventbases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventbase__681373AD" Association="Self.FK__eventbase__681373AD">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="eventbase" EntitySet="eventbases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__event__6EC0713C" Association="Self.FK__eventconv__event__6EC0713C">
+      <End Role="eventbase" EntitySet="eventbases" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__eventconv__event__6FB49575" Association="Self.FK__eventconv__event__6FB49575">
+      <End Role="eventbase" EntitySet="eventbases" />
+      <End Role="eventconversion" EntitySet="eventconversions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usersession__0A9D95DB" Association="Self.FK__usersession__0A9D95DB">
+      <End Role="extuser" EntitySet="extusers" />
+      <End Role="usersession" EntitySet="usersessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__extuser___policy__70A8B9AE" Association="Self.FK__extuser___policy__70A8B9AE">
+      <End Role="passwordpolicy" EntitySet="passwordpolicies" />
+      <End Role="extuser_" EntitySet="extuser_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__extuser___policy__719CDDE7" Association="Self.FK__extuser___policy__719CDDE7">
+      <End Role="passwordpolicy" EntitySet="passwordpolicies" />
+      <End Role="extuser_" EntitySet="extuser_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__extuser___userid__72910220" Association="Self.FK__extuser___userid__72910220">
+      <End Role="users_" EntitySet="users_" />
+      <End Role="extuser_" EntitySet="extuser_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__extuser___userid__73852659" Association="Self.FK__extuser___userid__73852659">
+      <End Role="users_" EntitySet="users_" />
+      <End Role="extuser_" EntitySet="extuser_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__passwordhistory__7849DB76" Association="Self.FK__passwordhistory__7849DB76">
+      <End Role="extuser_" EntitySet="extuser_" />
+      <End Role="passwordhistory" EntitySet="passwordhistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__passwordhistory__793DFFAF" Association="Self.FK__passwordhistory__793DFFAF">
+      <End Role="extuser_" EntitySet="extuser_" />
+      <End Role="passwordhistory" EntitySet="passwordhistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users___hierleve__02C769E9" Association="Self.FK__users___hierleve__02C769E9">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="users_" EntitySet="users_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users___hierleve__03BB8E22" Association="Self.FK__users___hierleve__03BB8E22">
+      <End Role="hierarchy_" EntitySet="hierarchy_" />
+      <End Role="users_" EntitySet="users_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__job__jobid__0E8E2250" Association="Self.FK__job__jobid__0E8E2250">
+      <End Role="jobschedule" EntitySet="jobschedules" />
+      <End Role="job" EntitySet="jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__job__jobid__0F824689" Association="Self.FK__job__jobid__0F824689">
+      <End Role="jobschedule" EntitySet="jobschedules" />
+      <End Role="job" EntitySet="jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__job__jobid__7CC477D0" Association="Self.FK__job__jobid__7CC477D0">
+      <End Role="jobschedule" EntitySet="jobschedules" />
+      <End Role="job" EntitySet="jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__job__jobid__7DB89C09" Association="Self.FK__job__jobid__7DB89C09">
+      <End Role="jobschedule" EntitySet="jobschedules" />
+      <End Role="job" EntitySet="jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__stb__7E02B4CC" Association="Self.FK__stb__7E02B4CC">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="stb" EntitySet="stbs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__stb__7EF6D905" Association="Self.FK__stb__7EF6D905">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="stb" EntitySet="stbs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__stb__7FEAFD3E" Association="Self.FK__stb__7FEAFD3E">
+      <End Role="message0001" EntitySet="message0001" />
+      <End Role="stb" EntitySet="stbs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__problemda__repnu__7A3223E8" Association="Self.FK__problemda__repnu__7A3223E8">
+      <End Role="problem" EntitySet="problems" />
+      <End Role="problemdata" EntitySet="problemdatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__problemda__repnu__7B264821" Association="Self.FK__problemda__repnu__7B264821">
+      <End Role="problem" EntitySet="problems" />
+      <End Role="problemdata" EntitySet="problemdatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pvgroupco__group__009508B4" Association="Self.FK__pvgroupco__group__009508B4">
+      <End Role="pvgroup" EntitySet="pvgroups" />
+      <End Role="pvgroupcondition" EntitySet="pvgroupconditions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pvgroupco__group__5E1FF51F" Association="Self.FK__pvgroupco__group__5E1FF51F">
+      <End Role="pvgroup" EntitySet="pvgroups" />
+      <End Role="pvgroupcondition" EntitySet="pvgroupconditions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userprofi__userp__00DF2177" Association="Self.FK__userprofi__userp__00DF2177">
+      <End Role="userprofile" EntitySet="userprofiles" />
+      <End Role="userprofilefunc" EntitySet="userprofilefuncs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userprofi__userp__01D345B0" Association="Self.FK__userprofi__userp__01D345B0">
+      <End Role="userprofile" EntitySet="userprofiles" />
+      <End Role="userprofilefunc" EntitySet="userprofilefuncs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users___userprof__04AFB25B" Association="Self.FK__users___userprof__04AFB25B">
+      <End Role="userprofile" EntitySet="userprofiles" />
+      <End Role="users_" EntitySet="users_" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users___userprof__05A3D694" Association="Self.FK__users___userprof__05A3D694">
+      <End Role="userprofile" EntitySet="userprofiles" />
+      <End Role="users_" EntitySet="users_" />
+    </AssociationSet>
+    <FunctionImport Name="STRING_SPLIT" IsComposable="true" ReturnType="Collection(SurveilAIModel.STRING_SPLIT_Result)">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="separator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ARCHIVING_UTILITY" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="DELETEDEVICE" ReturnType="Collection(SurveilAIModel.DELETEDEVICE_Result)">
+      <Parameter Name="deviceid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EjByImageEnd">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+      <Parameter Name="Event_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EjByImageStart">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+      <Parameter Name="Event_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EjByImageStart1">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+      <Parameter Name="Event_No" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EJSelect">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+      <Parameter Name="Event_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EJSelect_Old">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+      <Parameter Name="Event_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FILL_COMP_STATE">
+      <Parameter Name="deviceid" Mode="In" Type="String" />
+      <Parameter Name="componentid" Mode="In" Type="Int32" />
+      <Parameter Name="timestamp" Mode="In" Type="DateTime" />
+      <Parameter Name="eventid" Mode="In" Type="Int32" />
+      <Parameter Name="devicecompstate" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FILL_DEVICE_STATE">
+      <Parameter Name="deviceid" Mode="In" Type="String" />
+      <Parameter Name="devicestate" Mode="In" Type="Int32" />
+      <Parameter Name="timestamp" Mode="In" Type="DateTime" />
+      <Parameter Name="eventid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FILL_Problem_Incident">
+      <Parameter Name="terminalid" Mode="In" Type="String" />
+      <Parameter Name="pmid" Mode="In" Type="String" />
+      <Parameter Name="eventdate" Mode="In" Type="DateTime" />
+      <Parameter Name="eventno" Mode="In" Type="String" />
+      <Parameter Name="Orgmessage" Mode="In" Type="String" />
+      <Parameter Name="currentdatquery" Mode="In" Type="String" />
+      <Parameter Name="currentday" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetATMUpTime" ReturnType="Collection(SurveilAIModel.GetATMUpTime_Result)">
+      <Parameter Name="Days" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetStockChart" ReturnType="Collection(SurveilAIModel.GetStockChart_Result)">
+      <Parameter Name="Days" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUPTimeChart" ReturnType="Collection(SurveilAIModel.GetUPTimeChart_Result)">
+      <Parameter Name="Days" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ImageByStan">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="String" />
+      <Parameter Name="Stan" Mode="In" Type="String" />
+      <Parameter Name="CardNo" Mode="InOut" Type="String" />
+      <Parameter Name="TranStart" Mode="InOut" Type="DateTime" />
+      <Parameter Name="TranEnd" Mode="InOut" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="insertDevice" ReturnType="Collection(SurveilAIModel.insertDevice_Result)">
+      <Parameter Name="DeviceID" Mode="In" Type="String" />
+      <Parameter Name="BranchName" Mode="In" Type="String" />
+      <Parameter Name="hlevel" Mode="In" Type="String" />
+      <Parameter Name="IP" Mode="In" Type="String" />
+      <Parameter Name="DeviceType" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Cassete" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertLinChartT">
+      <Parameter Name="datetime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="InsertPerormance" />
+    <FunctionImport Name="LineChartUpTime" />
+    <FunctionImport Name="PURGING_Device" />
+    <FunctionImport Name="PURGING_Device_Comp" />
+    <FunctionImport Name="PURGING_Device_State" />
+    <FunctionImport Name="PURGING_EVENT" />
+    <FunctionImport Name="PURGING_Past_Jobs" />
+    <FunctionImport Name="PURGING_Performance" />
+    <FunctionImport Name="SelectedDevice" ReturnType="Collection(SurveilAIModel.SelectedDevice_Result)">
+      <Parameter Name="deviceid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_AlertView" ReturnType="Collection(SurveilAIModel.sp_AlertView_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_no_rows_wsize">
+      <Parameter Name="tb_name" Mode="In" Type="String" />
+      <Parameter Name="size" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SurveilAIModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SurveilAIModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_spaceused" ReturnType="Collection(SurveilAIModel.sp_spaceused_Result)">
+      <Parameter Name="objname" Mode="In" Type="String" />
+      <Parameter Name="updateusage" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Stan_Trxn_EndTime">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Stan_Trxn_StartTime">
+      <Parameter Name="DevID" Mode="In" Type="String" />
+      <Parameter Name="Time" Mode="In" Type="String" />
+      <Parameter Name="Date_Value" Mode="InOut" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="NDVRs" EntityType="SurveilAIModel.NDVR" />
+  </EntityContainer>
+  <ComplexType Name="DELETEDEVICE_Result">
+    <Property Type="Int32" Name="ErrorNumber" Nullable="true" />
+    <Property Type="Int32" Name="ErrorSeverity" Nullable="true" />
+    <Property Type="Int32" Name="ErrorState" Nullable="true" />
+    <Property Type="String" Name="ErrorProcedure" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="ErrorLine" Nullable="true" />
+    <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="GetATMUpTime_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="PostingDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Down_Component_Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetStockChart_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="PostingDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Down_Component_Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetUPTimeChart_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="PostingDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+    <Property Type="String" Name="Down_Component_Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="insertDevice_Result">
+    <Property Type="Int32" Name="ErrorNumber" Nullable="true" />
+    <Property Type="Int32" Name="ErrorSeverity" Nullable="true" />
+    <Property Type="Int32" Name="ErrorState" Nullable="true" />
+    <Property Type="String" Name="ErrorProcedure" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="ErrorLine" Nullable="true" />
+    <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="SelectedDevice_Result">
+    <Property Type="String" Name="DeviceID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="BranchName" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="HierLevel" Nullable="true" />
+    <Property Type="String" Name="IP" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="DeviceType" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="Obsolete" Nullable="true" />
+    <Property Type="DateTime" Name="EJProcessedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastDate" Nullable="true" />
+    <Property Type="Time" Name="LastTime" Nullable="true" />
+    <Property Type="String" Name="LastCardNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BioInfo" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="BioCmdExecTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="BiosPassword" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="BiosUpdated" Nullable="true" />
+    <Property Type="Boolean" Name="DriverInstalled" Nullable="true" />
+    <Property Type="Int32" Name="PasswordType" Nullable="true" />
+    <Property Type="String" Name="Channels" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_AlertView_Result">
+    <Property Type="Int32" Name="Operational" Nullable="true" />
+    <Property Type="Int32" Name="Down" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_spaceused_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="776" />
+    <Property Type="Int32" Name="rows" Nullable="true" />
+    <Property Type="Int32" Name="reserved" Nullable="true" />
+    <Property Type="Int32" Name="data" Nullable="true" />
+    <Property Type="String" Name="index_size" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="unused" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <EntityType Name="NDVR">
+    <Key>
+      <PropertyRef Name="NDid" />
+    </Key>
+    <Property Name="NDid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NDName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NDip" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NDusername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NDpassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ndate" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

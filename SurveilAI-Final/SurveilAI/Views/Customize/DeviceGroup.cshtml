@@ -1,0 +1,281 @@
+﻿@model SurveilAI.Models.pvgroup
+@{
+    ViewBag.Title = "DeviceGroup";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Groups</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-2" style="padding-top:14px; left:19px;">
+                @Html.ActionLink("< Go Back", "StateRepresentation")
+            </div>
+        </header>
+        <section class="page-content">
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Device Groups
+
+                        </h5>
+                        <div class="card-body">
+                            <div class="sidebar-content ">
+                                <div class="">
+                                    <div class="card-header-">
+                                        <a class="" data-bs-toggle="collapse" href="#myTableAlert"> Static Device Groups</a>
+                                        <span style="float:right">
+                                            @if (UserRights.Contains("145"))
+                                            {<button id="chgstatic" type="button" style="    background: none;border: none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <span class="icon dripicons-plus"></span>
+                                                </button>
+                                            }
+                                            @*<button data-bs-toggle="modal" data-bs-target="#exampleModal" id="cross" onclick="" style="float: right;border-style: none;background: none;"></button>*@
+                                            @if (UserRights.Contains("147"))
+                                            {<button id="Del_cross" class="Delcross" ondblclick="" style="float: right;border-style: none;background: none;" data-bs-toggle="modal" data-bs-target="#DeleteModal" disabled>
+                                                    <span class="icon dripicons-trash"></span>
+                                                </button>
+                                            }
+
+
+                                        </span>
+                                    </div>
+                                    <table id="myTable" class="table table-bordered GroupTable">
+                                        <tr>
+                                            <th>
+                                                Group Name
+                                            </th>
+                                        </tr>
+                                        @foreach (var data in Model.StaticGroups)
+                                        {
+                                            <tr style="cursor:pointer">
+                                                <td>
+                                                    <span id="grpName" style="font-weight:bolder; color:#635ebe;">@Html.DisplayFor(modelItem => data)</span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                                <div class="">
+                                    <div class="card-header-">
+                                        <a class="" data-bs-toggle="collapse" href="#myTableAlert2"> Dynamic Device Groups</a>
+                                        <span style="float:right">
+                                            @if (UserRights.Contains("145"))
+                                            {<button id="chg" type="button" style="    background: none;border: none;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <span class="icon dripicons-plus"></span>
+                                                </button>
+                                            }
+                                            @*<button data-bs-toggle="modal" data-bs-target="#exampleModal" id="cross" onclick="" style="float: right;border-style: none;background: none;"></button>*@
+                                            @if (UserRights.Contains("147"))
+                                            {<button id="Delc_ross" class="Delcross" ondblclick="" style="float: right;border-style: none;background: none;" data-bs-toggle="modal" data-bs-target="#DeleteModal" disabled>
+                                                    <span class="icon dripicons-trash"></span>
+                                                </button>
+                                            }
+
+
+                                        </span>
+                                    </div>
+                                    <table id="myTableAlert2" class="table table-bordered GroupTable">
+                                        @*<tr>
+                                                <td colspan="2">
+                                                    <a id="chg" href="javascript:void(0);"><i class="icon dripicons-graph-line"></i>  Create New</a>
+                                                </td>
+
+                                            </tr>*@
+                                        <tr>
+                                            <td class="font-weight-bold">
+                                                Group Name
+                                            </td>
+
+                                        </tr>
+                                        @foreach (var data in Model.DynamicGroups)
+                                        {
+                                            <tr style="cursor:pointer">
+                                                <td>
+                                                    <span id="grpName" style="font-weight:bolder; color:#635ebe;">@Html.DisplayFor(modelItem => data)</span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8" id="ParDevGrp">
+                    <small style="font-size:100% !important;color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                    <div class="card">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function RuleEdit(viewname) {
+            $.ajax({
+                url: "@Url.Action("DeviceGroupEditView", "Customize")",
+                data: { gt: viewname },
+                type: "Get",
+                dataType: "html",
+                success: function (data) {
+                    if (data == "error") {
+                        var url = '@Url.Action("GroupDevice", "Customize")';
+                        window.location.href = url;
+                    }
+                    else {
+                        $("#ParDevGrp").html(data);
+                    }
+                },
+                error: function (data) {
+                    alert("Error");
+                }
+            });
+
+    }
+
+
+    $('#chgstatic').click(function () {
+        $("#ParDevGrp").empty();
+        var Gtype = "0";
+        var $parDevGrp = $("#ParDevGrp");
+        $.ajax({
+            url: "@Url.Action("ParViewDir","Customize")",
+            data: { gt: Gtype },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                if (data == "error") {
+                    var url = '@Url.Action("GroupDevice", "Customize")';
+                    window.location.href = url;
+                }
+                else {
+                    $parDevGrp.empty();
+                    $parDevGrp.html(data);
+                }
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        })
+    });
+
+        @*function myFunction() {
+            var Gtype = "0";
+            var $parDevGrp = $("#ParDevGrp");
+            alert("function");
+        $.ajax({
+            url: "@Url.Action("ParViewDir","Customize")",
+            data: { gt: Gtype },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                if (data == "error") {
+                    var url = '@Url.Action("GroupDevice", "Customize")';
+                    window.location.href = url;
+                }
+                else {
+                    $parDevGrp.empty();
+                    $parDevGrp.html(data);
+                }
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        })
+    }*@
+
+    $('#chg').click(function () {
+        myFunction1();
+        });
+
+        function myFunction1() {
+        var Gtype = "1";
+        $.ajax({
+            url: "@Url.Action("ParViewDir", "Customize")",
+            data: { gt: Gtype },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                if (data == "error") {
+                    var url = '@Url.Action("GroupDevice", "Customize")';
+                    window.location.href = url;
+                }
+                else {
+                    $("#ParDevGrp").html(data);
+                }
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        })
+    }
+
+    $('.GroupTable tr').click(function () {
+
+        //$('#StaticDevGrpPost').trigger("reset");
+
+
+        //$("#EventDetails").css("display", "block");
+        $(".Delcross").attr("disabled", false);
+        $(".GroupTable tr").removeClass("highlight");
+        var selected = $(this).hasClass("highlight");
+
+        if (!selected) {
+            $(this).addClass("highlight");
+        }
+
+        //$("input[name='ResetCheck']").each(function () {
+        //    this.checked = false;
+        //});
+        //$("input[name='SetCheck']").each(function () {
+        //    this.checked = false;
+        //});
+        var groupName = $(this).children().children().html();
+        //var text = $(this).children("#EvtText").text();
+
+        //setTimeout(function () {
+        //    GetEvent(id);
+        //}, 100);
+
+        if (typeof groupName === "undefined") {
+
+        }
+        else {
+            RuleEdit(groupName);
+        }
+
+
+
+
+    });
+
+
+        //function SwitchInput(inputId) {
+        //    //$(inputId).children.prop('disabled', true);
+        //    alert(inputId);
+        //}
+
+
+    });
+
+</script>
+
+

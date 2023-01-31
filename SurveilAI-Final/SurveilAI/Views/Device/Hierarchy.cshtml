@@ -1,0 +1,232 @@
+﻿@model SurveilAI.Models.Hierarchy
+@{
+    ViewBag.Title = "Hierarchy";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> data = new List<object>();
+    data = Session["UserRole"] as List<object>;
+
+
+    //var item = ViewData["HierParent"] as IEnumerable<IISWebApp.Models.Hierarchy>
+    //var galList = ViewData["HierParent"] as List<IISWebApp.Models.Hierarchy>;
+    //int a = 0;
+
+}
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device Options</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Hierarchy</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5 class="card-header">Hierarchies</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @if (data.Contains("21"))
+                                        {<a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Create Hierarchy</a>}
+                                        @if (data.Contains("22") || data.Contains("135") || data.Contains("136"))
+                                        {<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Hierarchy Management</a>}
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        @if (data.Contains("21"))
+                                        {<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <h5 class="card-header">Add New Hierarchy.</h5>
+                                                @using (Html.BeginForm("addHierarchy", "Device", FormMethod.Post))
+                                                {
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div>
+                                                                <label>Hierarchy Name</label>
+                                                                @Html.TextBox("HierName", null, new { placeholder = "Enter Hierarchy Name", @class = "form-control BlockSpecialSSD" })
+                                                                @Html.ValidationMessageFor(m => m.HierName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <br />
+                                                            <div class="custom-control custom-checkbox checkbox-primary">
+                                                                @Html.CheckBox("Parent", false, new { @class = "custom-control-input" })
+                                                                <label class="custom-control-label" for="Parent">Add Level to Hierarchy</label>
+                                                            </div>
+                                                            <br />
+                                                            <div class="mb-3 row" id="ParentDiv" style="display:none;">
+                                                                <label class="control-label col-md-12">Select Hierarchy Parent</label>
+                                                                <div class="col-md-12">
+                                                                    @Html.DropDownList("Hierlist", (IEnumerable<SelectListItem>)ViewData["HierParent"], new { @class = "form-control" })
+                                                                </div>
+                                                            </div>
+                                                            <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                                            <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-light text-center">
+                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        }@if (data.Contains("22") || data.Contains("135") || data.Contains("136"))
+                                        {<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <div class="">
+                                                    <h5 class="card-header">Total Hierarchies.</h5>
+                                                    <div class="card-body">
+                                                        <table id="bs4-table" class="table table-striped table-bordered table-responsive max-h-500" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Hierarchy Name</th>
+                                                                    <th>Hierarchy Level</th>
+                                                                    <th style="display:none;"></th>
+                                                                    @if (data.Contains("22"))
+                                                                    {
+                                                                        <th>Options</th>
+                                                                    }
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in Model.HierarchyList)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@Html.DisplayFor(modelItem => item.HierName)</td>
+                                                                        <td class="HL">@Html.DisplayFor(modelItem => item.HierId)</td>
+                                                                        <td style="display:none;">@Html.DisplayFor(modelItem => item.Hierlevel)</td>
+
+                                                                        <td>
+                                                                            @if (data.Contains("22"))
+                                                                            {
+                                                                                @Ajax.ActionLink("Delete", "hierDelete", "Device", new { level = item.Hierlevel, name = item.HierName }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "myData", InsertionMode = InsertionMode.Replace }, new { @class = "validation" })
+                                                                            }
+                                                                            @if (data.Contains("135"))
+                                                                            {
+                                                                                <span>|</span>
+                                                                                <a data-bs-toggle="modal" data-bs-target="#Edit" style="color: #635ebe;cursor: pointer;" class="getEdit">Edit</a>
+                                                                            }
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <hr />
+                                                    <footer class="container-fluid">
+                                                        <p>&copy; @DateTime.Now.Year - DIGEVOL.AI PVT-LTD</p>
+                                                    </footer>
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+<div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width:900px;">
+        <div class="modal-content">
+            @using (Html.BeginForm("EditHierarchy", "Device", FormMethod.Post))
+            {
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Incident Data</h5>
+                </div>
+                <div class="modal-body mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;">
+                    <div id="mCSB_5" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;">
+                        <div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                            <div class="card-body" style="min-height:400px;">
+                                <div class="mb-3 row container-fluid">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    @Html.Hidden("OldHierlevel", "", new { @class = "form-control" })
+                                                </div>
+                                                <div>
+                                                    <label>Hierarchy Name</label>
+                                                    @Html.TextBox("HierNameEdit", null, new { placeholder = "Enter Hierarchy Name", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.HierName, "", new { @class = "text-danger" })
+                                                </div>
+                                                <br />
+                                                <div class="custom-control custom-checkbox checkbox-primary">
+                                                    @Html.CheckBox("ParentEdit", false, new { @class = "custom-control-input" })
+                                                    <label class="custom-control-label" for="ParentEdit">Add Level to Hierarchy</label>
+                                                </div>
+                                                <br />
+                                                <div class="mb-3 row" id="ParentDivE" style="display:none;">
+                                                    <label class="control-label">Select Hierarchy Parent</label>
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownList("HierlistEdit", (IEnumerable<SelectListItem>)ViewData["HierParent"], new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/js/global/CustomValid.js"></script>
+
+<script>
+    $('#Parent').change(function () {
+        $("#ParentDiv").toggle();
+    });
+    $('#ParentEdit').change(function () {
+        $("#ParentDivE").toggle();
+    });
+    $(".getEdit").click(function () {
+        var level = $(this).closest('td').prev().text();
+        var id = $(this).closest('td').prev().prev().text();
+        var name = $(this).closest('td').prev().prev().prev().text();
+
+        var parentId = id.substr(0, id.lastIndexOf("."));
+        $('#OldHierlevel').val(level);
+        $('#HierNameEdit').val(name);
+        if (id.indexOf(".") >= 0) {
+            //id = id.slice(0, -2);
+            //$.each($(".HL"), function () {
+            //    if ($(this).text() === id) {
+            //        name = $(this).prev().text();
+            //        $("#HierlistEdit").val(name).trigger('change');
+            //    }
+            //});
+            $("#HierlistEdit").val(parentId).trigger('change');
+            $('#ParentEdit').prop('checked', true);
+            $("#ParentDivE").show();
+
+        }
+        else
+        {
+            $("#ParentDivE").hide();
+        }
+
+
+    });
+</script>

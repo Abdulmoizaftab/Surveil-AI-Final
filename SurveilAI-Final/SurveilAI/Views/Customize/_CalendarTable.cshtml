@@ -1,0 +1,77 @@
+﻿@model SurveilAI.Models.calendar
+
+@{ List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;}
+
+@*<ul>*@
+@foreach (var a in Model.dataCal)
+{
+
+    <tr class="tabdata">
+        <td id="Day">
+            @if (a.Item4 == -1)
+            {
+                @Html.DisplayFor(modelitem => a.Item3).ToString().Substring(0, 10)
+            }
+            else
+            {
+                switch (a.Item4)
+                {
+                    case 1:
+                        <span>Monday</span>
+                        break;
+                    case 2:
+                        <span>Tuesday</span>
+                        break;
+                    case 4:
+                        <span>Wednesday</span>
+                        break;
+                    case 8:
+                        <span>Thursday</span>
+                        break;
+                    case 16:
+                        <span>Friday</span>
+                        break;
+                    case 32:
+                        <span>Saturday</span>
+                        break;
+                    case 64:
+                        <span>Sunday</span>
+                        break;
+                }
+
+            }
+
+
+
+        </td>
+        <td id="Start">
+            @Html.DisplayFor(modelitem => a.Item5).ToString().Substring(0, 2):@Html.DisplayFor(modelitem => a.Item5).ToString().Substring(2, 2)
+        </td>
+        <td id="END">
+            @Html.DisplayFor(modelitem => a.Item5).ToString().Substring(4, 2):@Html.DisplayFor(modelitem => a.Item5).ToString().Substring(6, 2)
+        </td>
+
+
+        <td>
+            @if (UserRights.Contains("158"))
+            {
+                @Ajax.ActionLink("Delete", "DeleteEntries", "Customize", new { name = a.Item1, period = a.Item5, day = a.Item3, day2 = a.Item4 }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "myData", InsertionMode = InsertionMode.Replace })
+            }
+
+        </td>
+
+
+
+        }
+    </tr>
+
+}
+
+
+
+
+
+
+
+

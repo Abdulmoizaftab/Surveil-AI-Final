@@ -1,0 +1,148 @@
+﻿@model SurveilAI.Models.problem
+@{
+    ViewBag.Title = "IncidentView";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <center id="Finalimg">
+
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Incident View</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> </a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">Incidents. <button style="float:right" class="btn btn-primary" id="btnExport" onclick="fnExcelReport();"> EXPORT </button></h5>
+                        <div class="card-body">
+                            <table id="bs4-table-sort" class="table table-striped table-bordered table-responsive mx-auto mw-100" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Incident Number</th>
+                                        <th>Creation Date</th>
+                                        <th>Owner Account</th>
+                                        <th>Owner User</th>
+                                        <th>Resource</th>
+                                        <th>Resource Type</th>
+                                        <th>Topic</th>
+                                        <th>Priority</th>
+                                        <th>External Refrence</th>
+                                        <th>Event</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.data)
+                                    {
+                                        <tr class="tabdata">
+                                            <td id="repnum">@item.repnumber</td>
+                                            <td>@item.starttime</td>
+                                            <td>@item.owner</td>
+                                            <td>@item.owneruser</td>
+                                            <td>@item.id</td>
+                                            <td>@item.idtype</td>
+                                            <td>@item.topic</td>
+                                            <td>@item.classif</td>
+                                            <td>@item.externalsystem</td>
+                                            <td>@item.eventno</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr />
+                        <footer class="container-fluid">
+                            <p>&copy; @DateTime.Now.Year - SURVEILAI PVT-LTD</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <script>
+            $(document).ready(function () {
+
+                $("tr.tabdata").dblclick(function () {
+            var a = $(this).find('#repnum').text();
+
+            var url = '@Html.Raw(@Url.Action("ViewIncident", "Customize", new { id = "date" }))';
+            url = url.replace("date", a);
+            window.open(url);
+
+            });
+            });
+            function fnExcelReport() {
+                var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+                var textRange; var j = 0;
+                //tab = document.getElementById('bs4-table'); // id of table
+                tab = document.getElementById('bs4-table-sort'); // id of table
+
+                for (j = 0; j < tab.rows.length; j++) {
+                    tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                    //tab_text=tab_text+"</tr>";
+                }
+
+                tab_text = tab_text + "</table>";
+                tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+                tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+                tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE ");
+
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+                {
+                    txtArea1.document.open("txt/html", "replace");
+                    txtArea1.document.write(tab_text);
+                    txtArea1.document.close();
+                    txtArea1.focus();
+                    sa = txtArea1.document.execCommand("SaveAs", true, "Image Transfer.xls");
+                }
+                else                 //other browser not tested on IE 11
+                {
+
+                    //sa = window.open('data:application/vnd.ms-excel,filename=filename.xls,' + encodeURIComponent(tab_text));
+                    //return (sa);
+                    //newWindow = window.open(sa, 'filename.xls');
+
+                    var str = encodeURIComponent(tab_text);
+                    var uri = 'data:text/csv;charset=utf-8,' + str;
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = uri;
+                    downloadLink.download = "Incidents.xls";
+
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                }
+            }
+        </script>
+
+    </div>
+</div>
+
+

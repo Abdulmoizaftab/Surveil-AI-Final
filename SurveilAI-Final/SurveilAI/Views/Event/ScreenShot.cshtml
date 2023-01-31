@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "ScreenShot";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    var imgSrc = String.Format("data:image/gif;base64,{0}", @TempData["Image"]);
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Screenshot</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+            <div class="row" id="ScrollTo">
+                <div class="col-12" id="">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Screen Shot
+                        </h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-8">
+                                        @if (TempData["Image"].ToString() == "NULL")
+                                        {
+                                            <p>@TempData["ErrMsg"]</p>
+                                        }
+                                        else
+                                        {
+                                            <img src="@imgSrc" />
+
+                                        }
+                                    </div>
+                                    <div class="col-md-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

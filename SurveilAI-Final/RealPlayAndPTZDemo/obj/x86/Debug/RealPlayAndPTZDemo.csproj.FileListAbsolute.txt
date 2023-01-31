@@ -1,0 +1,11 @@
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x86Debug\RealPlayAndPTZDemo.exe
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x86Debug\RealPlayAndPTZDemo.pdb
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x86Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x86Debug\NetSDKCS.pdb
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.csprojAssemblyReference.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.exe
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x86\Debug\RealPlayAndPTZDemo.pdb

@@ -1,0 +1,707 @@
+﻿@model SurveilAI.Models.@event
+@{
+    ViewBag.Title = "JobResult";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<SelectListItem> NoOfRecords = new List<SelectListItem>
+{
+        new SelectListItem { Text = "100", Value = "100"},
+        new SelectListItem { Text = "500", Value = "500"},
+        new SelectListItem { Text = "1000", Value = "1000"}
+    };
+    if (ViewBag.NextRows != null)
+    {
+        foreach (var item in NoOfRecords)
+        {
+            if (item.Value == ViewBag.NextRows)
+            {
+                item.Selected = true;
+            }
+        }
+    }
+}
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Job Result</a></li>
+                        <li class="breadcrumb-item">
+                            <a href="javascript:void(0)" id="name">
+                                @Model.deviceid @if (ViewBag.jobid != "")
+                                {<span> - @ViewBag.jobid </span>}
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="page-content" id="myData">
+
+            <div class="row">
+                <div>
+
+                </div>
+                <div class="col-md-2 col-sm-4 col-4">
+                    <div class="card hellog" id="prev" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Previous Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-left witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-4">
+                    <div class="card hellog" id="next" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Earlier Events</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-chevron-right witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-4">
+                    <div class="card hellog" id="Ref" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Refresh</h5>
+                        <div class="card-body text-center chgpur">
+                            <h2>
+                                <span><i class="icon dripicons-clockwise witchg" style="color:#635ebe;"></i></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card hellog" id="Ref" style="cursor:pointer;">
+                        <h5 class="card-header" style="font-size:80%; font-weight:bolder;">Max Results Per Page</h5>
+                        <div class="card-body text-center chgpur">
+                            @Html.DropDownList("NoOfRec", NoOfRecords, new { @class = "form-select select-c" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-6">
+                    <div class="card">
+                        <h5 class="card-header" style="background-color:#635ebe; color:white;font-size:80%; font-weight:bolder;">Current / Total</h5>
+                        <div class="card-body text-center">
+                            <h2>
+                                @{
+                                    int init = Convert.ToInt16(ViewBag.Leave) + 1;
+                                    <span class="witchg" style="color:#635ebe;font-size:small;font-weight:bolder;"> @init-@TempData["JrCount"] / @TempData["JrTCount"]</span>
+                                }
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">Filters.</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="col-md-12">
+                                    @using (Ajax.BeginForm("JrByJOBID", "Event", new AjaxOptions { HttpMethod = "GET" }, new { id = "formID" }))
+                                    {@Html.Hidden("Leave", (String)ViewBag.Leave, new { @class = "form-control" })
+                                    @Html.Hidden("NoOfRows", (String)ViewBag.NextRows, new { @class = "form-control" })
+                                    @Html.Hidden("IndexMoved", (String)ViewBag.IndexMoved, new { @class = "form-control" })
+                                    @Html.Hidden("deviceid", Model.deviceid, new { @class = "form-control" })
+                                    @Html.Hidden("Selectedjobid", (String)ViewBag.jobid, new { @class = "form-control" })
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="control-label">Job Name</label>
+
+                                            <div class="input-group">
+
+                                                @if (Model.deviceid == "ALL")
+                                                {
+                                                    @Html.DropDownList("jobid", new SelectList(ViewBag.job), "ALL Job", new { @class = "form-select select-c" })
+
+                                                }
+                                                else
+                                                {
+                                                    @Html.DropDownList("jobid", new SelectList(ViewBag.job), "ALL Job", new { @class = "form-control", @disabled = "disabled" })
+
+                                                }
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="control-label">Date</label>
+                                            <div>
+                                                <div class="input-group date dp-years">
+                                                    @Html.TextBox("DateFrom", (String)ViewBag.Date, new { placeholder = "mm/dd/yyyy", @class = "form-control" })
+                                                    <span class="input-group-addon action">
+                                                        <i class="icon dripicons-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <small class="text-danger" style="display: none;" id="date-vali">Invaid Date or Time</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="control-label">Time</label>
+                                            <div>
+                                                <div class="input-group ">
+                                                    @Html.TextBox("TimeFrom", (String)ViewBag.Time, new { placeholder = "hh:mm:ss", @class = "form-control datepickerrrr", @autocomplete = "off" })
+                                                    <span class="input-group-addon action">
+                                                        <i class="icon dripicons-clock"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <label class="control-label">From</label>
+                                            <div>
+                                                <div class="input-group">
+                                                    @Html.TextBox("DateTimeFrom", (String)ViewBag.DTF, new { @class = "form-control dtpicker", @autocomplete = "off", disabled = "disabled" })
+                                                    <span class="input-group-addon action tt">
+                                                        <i class="icon dripicons-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label class="control-label">To</label>
+                                            <div>
+                                                <div class="input-group">
+                                                    @Html.TextBox("DateTimeTo", (String)ViewBag.DTT, new { @class = "form-control dtpicker", @autocomplete = "off", disabled = "disabled" })
+                                                    <span class="input-group-addon action tt">
+                                                        <i class="icon dripicons-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row" style="min-height: 24px !important;">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-3">
+                                            <small class="text-danger" style="display: none;" id="date-valid-n">Start/End Date required.</small>
+                                            <small class="text-danger" style="display: none;" id="date-valid-new">Start date should be less than End date</small>
+                                            <small class="text-danger" style="display: none;" id="date-valid-range">Range not allowed with previous and earlier filters</small>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-3">
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                &ensp;&ensp;
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Res", "All", (Boolean)ViewBag.AllRadio, new { @id = "All", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="All">All</label>
+                                                    </div>&ensp;&ensp;&ensp;
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Res", "Success", (Boolean)ViewBag.SuRadio, new { @id = "Success", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Success">Success</label>
+                                                    </div>&ensp;&ensp;&ensp;
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Res", "Fail", (Boolean)ViewBag.FRadio, new { @id = "Fail", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Fail">Fail</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-8">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Radio", "Current", (Boolean)ViewBag.CRadio, new { @id = "Current", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Current">Current</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Radio", "Until", (Boolean)ViewBag.URadio, new { @id = "Until", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Until">Until</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Radio", "Since", (Boolean)ViewBag.SRadio, new { @id = "Since", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Since">Since</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="custom-control custom-radio form-check">
+                                                        @Html.RadioButton("Radio", "Range", (Boolean)ViewBag.RRadio, new { @id = "Range", @class = "custom-control-input" })
+                                                        <label class="custom-control-label" for="Range">Range</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @*@Html.Partial("_DateTimePciker")*@
+                                        <div class="col-md-4"></div>
+
+                                    </div>
+                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">Job Results.<a class="btn btn-primary" id="btnExport" onclick="fnExcelReport();" style="float: right;color: white;">Export<iframe id="txtArea1" style="display:none"></iframe></a></h5>
+                        @*<h5 class="card-header">Events.<a class="btn btn-primary" id="Rep" style="float: right;color: white;">Export to PDF</a></h5>*@
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="bs4-table" class="table table-striped table-bordered max-h-500">
+                                    <thead>
+                                        <tr>
+                                            <th>Job ID</th>
+                                            <th>Resource ID</th>
+                                            <th>Command</th>
+                                            <th>Command No</th>
+                                            <th>Attempt</th>
+                                            <th>Execution Time</th>
+                                            <th>Result</th>
+                                            <th>Result Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.JrData)
+                                        {
+                                            <tr class="tabdata">
+                                                <td>@Html.DisplayFor(modelItem => item.Item1)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item2)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item3)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item4)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item5)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item6)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item7.Item1)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Item7.Item2)</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script src="~/lib/moment.js/moment.js"></script>
+        <link href="~/lib/jquery-datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+        <script src="~/lib/jquery-datetimepicker/jquery.datetimepicker.full.min.js"></script>
+
+        <script>
+
+    $(document).ready(function () {
+
+         $('.datepickerrrr').datetimepicker({
+          datepicker: false,
+          step: 15,
+          format: 'H:i:s'
+        });
+
+        $("#NoOfRec").change(function() {
+            $('#NoOfRows').val($(this).val());
+        });
+
+
+        if ($("#Range").prop("checked")) {
+            $("#DateTimeFrom").attr("disabled", false);
+            $("#DateTimeTo").attr("disabled", false);
+            $("#DateFrom").attr("disabled", true);
+            $("#TimeFrom").attr("disabled", true);
+            $("#DateFrom").val("");
+            $("#TimeFrom").val("");
+        }
+        else {
+            $("#DateTimeFrom").attr("disabled", true);
+            $("#DateTimeTo").attr("disabled", true);
+            $("#DateFrom").attr("disabled", false);
+            $("#TimeFrom").attr("disabled", false);
+        }
+
+        $('input[type=radio][name=Radio]').change(function () {
+            $('#date-valid-n').hide();
+            $('#date-valid-new').hide();
+            $('#date-valid-range').hide();
+            if ($(this).val() == "Range") {
+                $("#DateTimeFrom").prop("disabled", false);
+                $("#DateTimeTo").prop("disabled", false);
+                $("#DateFrom").attr("disabled", true);
+                $("#TimeFrom").attr("disabled", true);
+                $("#DateFrom").val("");
+                $("#TimeFrom").val("");
+                $("#date-vali").hide();
+            }
+            else {
+                $("#DateTimeFrom").prop("disabled", true);
+                $("#DateTimeTo").prop("disabled", true);
+
+                $("#DateFrom").attr("disabled", false);
+                $("#TimeFrom").attr("disabled", false);
+                 $("#DateTimeFrom").val("");
+                $("#DateTimeTo").val("");
+                $('#date-valid-n').hide();
+                $('#date-valid-new').hide();
+                $('#date-valid-range').hide();
+            }
+
+        });
+
+            $('.dtpicker').datetimepicker();
+            //$('#DateTimeTo').datetimepicker();
+
+                var text = '@ViewBag.jobid';
+                if (text == "" || text =="ALL Job") {
+
+                    $("#jobid").val($("#jobid option:first").val());
+                }
+                else {
+                    $("#jobid").val(text);
+                }
+
+                console.log(text);
+
+                $("#jobid").change(function () {
+
+                    if ($("#Range").prop("checked")) {
+
+                         var startDate = new Date($('#DateTimeFrom').val());
+                        var endDate = new Date($('#DateTimeTo').val());
+
+                        if (startDate == "Invalid Date" || endDate == "Invalid Date")
+                         {
+                             $('#date-valid-new').hide();
+                             $('#date-valid-n').show();
+                             return false;
+                         }
+                        if (startDate > endDate) {
+                            $('#date-valid-n').hide();
+                            $('#date-valid-new').show();
+                            return false;
+                         }
+                        $('#date-valid-n').hide();
+                        $('#date-valid-new').hide();
+                    }
+
+                    document.getElementById("formID").submit();
+                    $('#loading').show();
+
+                });
+
+
+
+                $("#next").click(function () {
+                    $('#date-vali').hide();
+                    if (!$("#Range").prop("checked")) {
+                        var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+                    }
+                    var NR = $('#NoOfRec').val();
+                    $('#date-valid-range').hide();
+                    tp = $('input[name="Res"]:checked').val();
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("JR_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" , JobName = ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JR_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date" , JobName = ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JR_More", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date" , JobName = ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Range").prop("checked")) {
+                        $('#date-valid-n').hide();
+                        $('#date-valid-new').hide();
+                        $('#date-valid-range').show();
+                    }
+
+                });
+
+        $("#prev").click(function () {
+                    $('#date-vali').hide();
+                    if (!$("#Range").prop("checked")) {
+                        var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+                    }
+                    var NR = $('#NoOfRec').val();
+                    var IndexMoved = $('#IndexMoved').val();
+                    $('#date-valid-range').hide();
+                    tp = $('input[name="Res"]:checked').val();
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("JR_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current", JobName = ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JR_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date", JobName =ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JR_Less", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date" , JobName =ViewBag.jobid, type = "tp", nextRows = "NR"  }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+
+                    if ($("#Range").prop("checked")) {
+                        $('#date-valid-n').hide();
+                        $('#date-valid-new').hide();
+                       $('#date-valid-range').show();
+                    }
+
+                });
+        function CheckDateTime() {
+             var dateF = $('#DateFrom').val();
+                    var timeF = $('#TimeFrom').val();
+                    var rslt = moment(dateF, 'M/D/YYYY', true).isValid();
+                    var rslt1 = moment(dateF, 'MM/DD/YYYY', true).isValid();
+                    var finalR = "Ok";
+                    if (rslt || rslt1) {}
+                    else {
+                        finalR =  "No";
+                    }
+                    var timeval = moment(timeF, "HH:mm:ss", true).isValid();
+                    if (timeval) {}
+                    else {
+                        finalR = "No";
+                    }
+            if (finalR == "No") {
+                $('#date-vali').show();
+            }
+            else {
+                $('#date-vali').hide();
+            }
+            return finalR;
+        }
+        $("#Ref").click(function () {
+            $('#date-vali').hide();
+            if (!$("#Range").prop("checked")) {
+                var rslt = CheckDateTime();
+                if (rslt == "No") {
+                    return false;
+                }
+            }
+
+
+                    var NR = $('#NoOfRec').val();
+                    tp = $('input[name="Res"]:checked').val();
+
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("JRRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" , JobName =ViewBag.jobid, type = "tp", nextRows = "NR" }))';
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JRRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date" ,JobName = ViewBag.jobid, type = "tp", nextRows = "NR" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JRRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date", JobName = ViewBag.jobid, type = "tp", nextRows = "NR" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                    if ($("#Range").prop("checked")) {
+                        $('#date-valid-new').hide();
+                        $('#date-valid-n').hide();
+                        $('#date-valid-range').hide();
+
+                         var startDate = new Date($('#DateTimeFrom').val());
+                        var endDate = new Date($('#DateTimeTo').val());
+
+                        if (startDate == "Invalid Date" || endDate == "Invalid Date")
+                         {
+                             $('#date-valid-new').hide();
+                             $('#date-valid-n').show();
+                             return false;
+                         }
+                        if (startDate > endDate) {
+                            $('#date-valid-n').hide();
+                            $('#date-valid-new').show();
+                            return false;
+                         }
+                        $('#date-valid-n').hide();
+                        $('#date-valid-new').hide();
+                        var date = $('#DateTimeFrom').val() + "|" + $('#DateTimeTo').val();
+                        var url = '@Html.Raw(@Url.Action("JRRefresh", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Range" , D = "date", JobName = ViewBag.jobid, type = "tp", nextRows = "NR" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        url = url.replace("NR", NR);
+                        $('#loading').show();
+                        window.location.href = url;
+                    }
+                });
+
+        $("#Rep").click(function () {
+                    $('#date-vali').hide();
+                    if (!$("#Range").prop("checked")) {
+                        var rslt = CheckDateTime();
+                        if (rslt == "No") {
+                            return false;
+                        }
+                    }
+                    tp = $('input[name="Res"]:checked').val();
+
+                    if ($("#Current").prop("checked")) {
+                        var url = '@Html.Raw(@Url.Action("JobResultReport", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Current" , JobName =ViewBag.jobid, type = "tp" }))';
+                        url = url.replace("tp", tp);
+                        window.open(url);
+                    }
+                    if ($("#Until").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JobResultReport", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Until" , D = "date" , JobName =ViewBag.jobid, type = "tp" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        window.open(url);
+                    }
+                    if ($("#Since").prop("checked")) {
+                        var date = $('#DateFrom').val() + "|" + $('#TimeFrom').val();
+                        var url = '@Html.Raw(@Url.Action("JobResultReport", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Since" , D = "date" , JobName =ViewBag.jobid, type = "tp" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        window.open(url);
+                    }
+                    if ($("#Range").prop("checked")) {
+
+                         var startDate = new Date($('#DateTimeFrom').val());
+                        var endDate = new Date($('#DateTimeTo').val());
+
+                        if (startDate == "Invalid Date" || endDate == "Invalid Date")
+                         {
+                             $('#date-valid-new').hide();
+                             $('#date-valid-n').show();
+                             return false;
+                         }
+                        if (startDate > endDate) {
+                            $('#date-valid-n').hide();
+                            $('#date-valid-new').show();
+                            return false;
+                         }
+                        $('#date-valid-n').hide();
+                        $('#date-valid-new').hide();
+
+                        var date = $('#DateTimeFrom').val() + "|" + $('#DateTimeTo').val();
+                        var url = '@Html.Raw(@Url.Action("JobResultReport", "Event", new { L = ViewBag.Leave , Dev = Model.deviceid , R = "Range" , D = "date" , JobName =ViewBag.jobid, type = "tp" }))';
+                        url = url.replace("date", date);
+                        url = url.replace("tp", tp);
+                        window.open(url);
+                    }
+
+                });
+
+            });
+            function fnExcelReport() {
+
+                var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+                var textRange; var j = 0;
+                tab = document.getElementById('bs4-table'); // id of table
+
+                for (j = 0; j < tab.rows.length; j++) {
+                    tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                    //tab_text=tab_text+"</tr>";
+                }
+
+                tab_text = tab_text + "</table>";
+                tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+                tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+                tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE ");
+
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+                {
+                    txtArea1.document.open("txt/html", "replace");
+                    txtArea1.document.write(tab_text);
+                    txtArea1.document.close();
+                    txtArea1.focus();
+                    sa = txtArea1.document.execCommand("SaveAs", true, "JobResults.xls");
+                }
+                else                 //other browser not tested on IE 11
+                {
+
+                    //sa = window.open('data:application/vnd.ms-excel,filename=filename.xls,' + encodeURIComponent(tab_text));
+                    //return (sa);
+                    //newWindow = window.open(sa, 'filename.xls');
+
+                    var str = encodeURIComponent(tab_text);
+                    var uri = 'data:text/csv;charset=utf-8,' + str;
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = uri;
+                    downloadLink.download = "JobResults.xls";
+
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                }
+            }
+
+        </script>
+    </div>
+</div>

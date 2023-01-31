@@ -1,0 +1,1072 @@
+﻿@model SurveilAI.DataContext.ResourceViewModel
+@{
+    SurveilAI.Models.SurveilAIEntities db = new SurveilAI.Models.SurveilAIEntities();
+
+    List<string> channels = new List<string>();
+    List<string> finalchannel = new List<string>();
+
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="card-header">
+    <div class="panel-heading">
+        <h3 class="panel-title">Select Resource</h3>
+
+        @Html.ValidationMessage("Daysofweek", new { id = "Resources", @class = "text-danger" })
+    </div>
+</div>
+<div class="panel-body">
+    <div>
+        <div class="card-body">
+            <div class="mb-3 row container-fluid">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2 custom-control custom-radio custom-control-inline">
+                            @Html.RadioButton("Radio", "hierarchyDiv", true, new { id = "radio3", @class = "custom-control-input", @onclick = "DevType(\"hierarchyDiv\")" })
+                            <label class="custom-control-label" for="radio3">Hierarchy</label>
+                        </div>
+                        <div class="col-md-2 custom-control custom-radio custom-control-inline">
+                            @Html.RadioButton("Radio", "deviceDiv", false, new { id = "radio4", @class = "custom-control-input", @onclick = "DevType(\"deviceDiv\")" })
+                            <label class="custom-control-label" for="radio4">Devices</label>
+                        </div>
+                    </div>
+                </div>
+                <hr class="col-md-12" />
+                <div class="col-md-12">
+                    <div class="row">
+                        <h5 class="card-header col-md-8">Resource Selection</h5>
+                        <h5 class="card-header col-md-4">Device Profiles</h5>
+                        <div class="col-md-8" style="border-right-style: inset;">
+                            <div style="max-height:400px; min-height:400px; overflow:auto; display:none" class="AllDiv" id="hierarchyDiv">
+                                <ul class="list-unstyled">
+                                    @foreach (var h in Model.Hierar)
+                                    {
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input name="hierarchy" type="checkbox" class="custom-control-input Coff" id="@Html.DisplayFor(item => h.Hierlevel)" value="@Html.DisplayFor(item => h.Hierlevel)" />
+                                                <label class="custom-control-label" for="@Html.DisplayFor(item => h.Hierlevel)">@Html.DisplayFor(item => h.HierName)</label>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div style="max-height:400px; min-height:400px; overflow:auto;" class="AllDiv" id="deviceDiv">
+                                <ul class="list-unstyled disabled">
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input onclick="chng(this)" type="checkbox" class="custom-control-input" id="checkALL" name="checkALL" />
+                                            <label class="custom-control-label" for="checkALL">Select All</label>
+                                        </div>
+                                    </li>
+                                    @foreach (var h in Model.devicesheir)
+                                    {
+                                        <li id="CheckBoxDevices">
+                                            <div class="custom-control custom-checkbox">
+                                                @*<input name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h" value="@h" />
+                                                    <label class="custom-control-label" for="@h">@h</label><br />*@
+                                                @foreach (var item in ViewData["Cameras"] as IEnumerable<SurveilAI.Models.AddCamera>)
+                                                {
+
+                                                    if (item.DeviceID == h)
+                                                    {
+                                                        //<input name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h" value="@h" />
+                                                        <a class="fa fa-angle-down"></a><label class="custom-control-label" id="getval" for="@h">@h</label><br />
+                                                        <div class="content">
+                                                            @if (item.Cam1 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam1" value="@h.@item.Cam1" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam1">@item.Cam1</label><br />
+                                                            }
+                                                            @if (item.Cam2 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick1(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam2" value="@h.@item.Cam2" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam2">@item.Cam2</label><br />
+                                                            }
+                                                            @if (item.Cam3 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick2(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam3" value="@h.@item.Cam3" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam3">@item.Cam3</label><br />
+                                                            }
+                                                            @if (item.Cam4 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick3(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam4" value="@h.@item.Cam4" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam4">@item.Cam4</label><br />
+                                                            }
+                                                            @if (item.Cam5 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick4(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam5" value="@h.@item.Cam5" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam5">@item.Cam5</label><br />
+                                                            }
+                                                            @if (item.Cam6 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick5(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam6" value="@h.@item.Cam6" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam6">@item.Cam6</label><br />
+                                                            }
+                                                            @if (item.Cam7 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick6(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam7" value="@h.@item.Cam7" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam7">@item.Cam7</label><br />
+                                                            }
+                                                            @if (item.Cam8 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick7(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam8" value="@h.@item.Cam8" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam8">@item.Cam8</label><br />
+                                                            }
+                                                            @if (item.Cam9 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick8(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam9" value="@h.@item.Cam9" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam9">@item.Cam9</label><br />
+                                                            }
+                                                            @if (item.Cam10 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick9(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam10" value="@h.@item.Cam10" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam10">@item.Cam10</label><br />
+                                                            }
+                                                            @if (item.Cam11 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick10(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam11" value="@h.@item.Cam11" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam11">@item.Cam11</label><br />
+                                                            }
+                                                            @if (item.Cam12 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" name="Alldevices" onclick='handleClick11(this);' type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam12" value="@h.@item.Cam12" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam12">@item.Cam12</label><br />
+                                                            }
+                                                            @if (item.Cam13 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick12(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam13" value="@h.@item.Cam13" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam13">@item.Cam13</label><br />
+                                                            }
+                                                            @if (item.Cam14 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick13(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam14" value="@h.@item.Cam14" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam14">@item.Cam14</label><br />
+                                                            }
+                                                            @if (item.Cam15 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" onclick='handleClick14(this);' name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam15" value="@h.@item.Cam15" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam15">@item.Cam15</label><br />
+                                                            }
+                                                            @if (item.Cam16 != "NULL")
+                                                            {
+                                                                <input style="position:relative;left:10px;" name="Alldevices" onclick='handleClick15(this);' type="checkbox" class="custom-control-input Coff" id="@h.@item.Cam16" value="@h.@item.Cam16" />
+                                                                <label style="position:relative;left:10px;bottom:3px;" class="custom-control-label" for="@item.Cam16">@item.Cam16</label><br />
+                                                            }
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        channels.Add(item.DeviceID);
+
+                                                    }
+
+
+                                                }
+
+
+                                            </div>
+                                        </li>
+                                    }
+
+                                    @foreach (var chan in Model.devicesheir)
+                                    {
+                                        if (channels.Contains(chan.ToString()))
+                                        {
+
+
+                                        }
+                                        else
+                                        {
+                                            <li id="CheckBoxDevices">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@chan" value="@chan" />
+                                                    <label class="custom-control-label" for="@chan">@chan</label><br />
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="max-height:400px; min-height:400px; overflow:auto">
+                                <ul class="list-unstyled" id="type">
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="NVR" value="NVR">
+                                            <label class="custom-control-label" for="NVR">NVR</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="DVR" value="DVR">
+                                            <label class="custom-control-label" for="DVR">DVR</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="CAMERA" value="CAMERA">
+                                            <label class="custom-control-label" for="CAMERA">CAMERA</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control" id="condition" name="condition" type="hidden" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<button class="btn btn-primary nextBtn" style="float:right;" onclick="Query();" type="button">Next</button>*@
+</div>
+<script>
+    $(document).ready(function () {
+        debugger;
+        var AssignedDevices =@Html.Raw(Json.Encode(Model.devices));
+        if (AssignedDevices) {
+            CheckFunction(AssignedDevices);
+        }
+        else {
+            //$("input[name='hierarchy']").attr('checked', 'checked');
+            //$("input[name='Dtype']").attr('checked', 'checked');
+        }
+
+
+        $.each($("input[name='Alldevices']"), function () {
+            var v = $(this).val();
+        });
+
+    });
+
+
+
+    //function ali() {
+    //    $('.custom-control-input').css('display', 'none');
+    //}
+
+    function toggle(source) {
+
+        var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+
+    $('#checkALL').click(function (event) {
+        if (this.checked) {
+            // Iterate each checkbox
+            $("input[name='Alldevices']:checkbox").prop('checked', true);
+        } else {
+            $("input[name='Alldevices']:checkbox").prop('checked', false);
+        }
+    });
+
+    function CheckFunction(AssignedDevices) {
+        var NoOfDevices = AssignedDevices.includes("DeviceID IN") ? true : false;
+        var NoOfHierarchy = AssignedDevices.includes("HierLevel IN") ? true : false;
+        var TypeOfDevice = AssignedDevices.includes("DeviceType") ? true : false;
+        //If it includes devices only
+        if (NoOfDevices) {
+            var res = AssignedDevices.replace("d.DeviceID IN ", "");
+            res = res.replace("DeviceID IN ", "");
+
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace(" ", "");
+
+                /*if ($("#" + res[i]).length > 0) {*/
+                //$("#" + res[i]).prop('checked', true);
+
+                    document.getElementById(res[i]).checked = true;
+
+
+                //}
+            }
+
+
+            setTimeout(function () { $('#radio4').click(); }, 200);
+        }
+        //If it includes Both Hierarchy and Device Types
+        else if (NoOfHierarchy && TypeOfDevice) {
+            debugger;
+            $('#radio3').click();
+            var res = AssignedDevices.split("AND");
+            res[0] = res[0].replace(" d.HierLevel IN ", "")
+            res[0] = res[0].replace("HierLevel IN", "")
+            res[1] = res[1].replace(" d.DeviceType IN", "")
+            res[1] = res[1].replace("DeviceType IN", "")
+            for (var i = 0; i < res.length; i++) {
+                res[i] = res[i].replace("(", "");
+                res[i] = res[i].replace(")", "");
+                var obj = res[i].split(",");
+                for (var j = 0; j < obj.length; j++) {
+
+                    if (i == 0) {
+
+                        obj[j] = obj[j].trim();
+                        obj[j] = obj[j].replace("'", ""); obj[j] = obj[j].replace("'", "");
+                        var myEle = document.getElementById(obj[j]);
+
+                        if (myEle) { document.getElementById(obj[j]).checked = true; }
+                        //document.getElementById(obj[j]).checked = true;
+                    }
+                    else {
+                        var x;
+                        debugger;
+                        obj[j] = obj[j].replace("'", "");
+                        obj[j] = obj[j].replace("'", "");
+                        if (obj[j] == 2) {
+                            x = 2;
+                        }
+                        else if (obj[j] == 1000) {
+                            x = 1000;
+                        }
+                        else if (obj[j] == 1001) {
+                            x = 1001;
+                        }
+
+
+                        switch (x) {
+                            case NVR:
+
+                                document.getElementById("NVR").checked = true;
+                                break;
+                            case DVR:
+
+                                document.getElementById("DVR").checked = true;
+                                break;
+                            case CAMERA:
+
+                                document.getElementById("CAMERA").checked = true;
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+        }
+        //If it includes only Hierarchy
+        else if (NoOfHierarchy) {
+            var res = AssignedDevices.replace("d.HierLevel IN ", "");
+
+            res = res.replace("HierLevel IN", "")
+
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].trim();
+                var myEle = document.getElementById(res[i]);
+                if (myEle) { document.getElementById(res[i]).checked = true; }
+                //document.getElementById(res[i]).checked = true;
+
+            }
+
+
+        }
+        else {
+
+            $('#radio4').click();
+            var res = AssignedDevices;
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].trim();
+                var myEle = document.getElementById(res[i]);
+                if (myEle) { document.getElementById(res[i]).checked = true; }
+            }
+
+        }
+        CheckALLButton();
+        CheckALLButton2();
+    }
+    function CheckALLButton() {
+        $('input[name="Alldevices"]').change(function () {
+
+            var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+            var bool;
+
+            for (var i = 0; i < checkboxes.length; i++) {
+
+                if (checkboxes[i].checked) {
+                    bool = true;
+                }
+                else {
+                    bool = false;
+                    break;
+                }
+            }
+
+            if (bool == false) {
+                $("input[name='checkALL']:checkbox").prop('checked', false);
+
+            }
+            else {
+                $("input[name='checkALL']:checkbox").prop('checked', true);
+
+            }
+        });
+    }
+    function CheckALLButton2() {
+
+        var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+        var bool;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i].checked) {
+                bool = true;
+            }
+            else {
+                bool = false;
+                break;
+            }
+        }
+
+        if (bool == false) {
+            $("input[name='checkALL']:checkbox").prop('checked', false);
+
+        }
+        else {
+            $("input[name='checkALL']:checkbox").prop('checked', true);
+
+        }
+        }
+
+
+
+</script>
+<script src="~/assets/js/global/ForRule.js"></script>
+<!--<script>
+    //$(document).ready(function () {
+    //    debugger;
+    //    $.each($("input[name='Alldevices']"), function () {
+    //        var v = $(this).val();
+    //    }
+    //    }
+
+    //    var channels = [];
+    //    function handleClick(cb) {
+    //        debugger;
+
+    //        if (cb.checked) {
+    //            if (channels[0] != null) {
+    //                channels[channels.length] = cb.value;
+    //                console.log(channels);
+    //            }
+    //            else if (channels[0]==null) {
+
+    //                channels[0] = cb.value;
+    //                console.log(channels);
+    //            }
+    //        }
+    //        if (cb.checked == false) {
+    //            getchannel = channels.find(x => x == cb.value)
+    //            getindex = channels.indexOf(getchannel);
+    //            if (getindex > -1) {
+    //                var remove = channels.splice(getindex, 1);
+    //                console.log(channels);
+    //            }
+
+    //        }
+
+    //}
+    //function handleClick1(cb) {
+    //    if (cb.checked) {
+    //        if (channels[1] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[1] == null) {
+
+    //            channels[1] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick15(cb) {
+    //    if (cb.checked) {
+    //        if (channels[15] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[15] == null) {
+
+    //            channels[15] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick2(cb) {
+    //    if (cb.checked) {
+    //        if (channels[2] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[2] == null) {
+
+    //            channels[2] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick3(cb) {
+    //    if (cb.checked) {
+    //        if (channels[3] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[3] == null) {
+
+    //            channels[3] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick4(cb) {
+    //    if (cb.checked) {
+    //        if (channels[4] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[4] == null) {
+
+    //            channels[4] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick5(cb) {
+    //    if (cb.checked) {
+    //        if (channels[5] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[5] == null) {
+
+    //            channels[5] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick6(cb) {
+    //    if (cb.checked) {
+    //        if (channels[6] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[6] == null) {
+
+    //            channels[6] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick7(cb) {
+    //    if (cb.checked) {
+    //        if (channels[7] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[7] == null) {
+
+    //            channels[7] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick8(cb) {
+    //    if (cb.checked) {
+    //        if (channels[8] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[8] == null) {
+
+    //            channels[8] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick9(cb) {
+    //    if (cb.checked) {
+    //        if (channels[9] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[9] == null) {
+
+    //            channels[9] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick10(cb) {
+    //    if (cb.checked) {
+    //        if (channels[10] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[10] == null) {
+
+    //            channels[10] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick11(cb) {
+    //    if (cb.checked) {
+    //        if (channels[11] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[11] == null) {
+
+    //            channels[11] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick12(cb) {
+    //    if (cb.checked) {
+    //        if (channels[12] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[12] == null) {
+
+    //            channels[12] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick13(cb) {
+    //    if (cb.checked) {
+    //        if (channels[13] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[13] == null) {
+
+    //            channels[13] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+    //function handleClick14(cb) {
+    //    if (cb.checked) {
+    //        if (channels[14] != null) {
+    //            channels[channels.length] = cb.value;
+    //            console.log(channels);
+    //        }
+    //        else if (channels[14] == null) {
+
+    //            channels[14] = cb.value;
+    //            console.log(channels);
+    //        }
+    //    }
+    //    if (cb.checked == false) {
+    //        getchannel = channels.find(x => x == cb.value)
+    //        getindex = channels.indexOf(getchannel);
+    //        if (getindex > -1) {
+    //            var remove = channels.splice(getindex, 1);
+    //            console.log(channels);
+    //        }
+
+    //    }
+    //}
+
+
+
+    //console.log("final" + channels);-->
+@*$(document).ready(function () {
+
+            debugger;
+            var AssignedDevices =@Html.Raw(Json.Encode(Model.devices));
+            if (AssignedDevices) {
+                CheckFunction(AssignedDevices);
+            }
+            else {
+                //$("input[name='hierarchy']").attr('checked', 'checked');
+                //$("input[name='Dtype']").attr('checked', 'checked');
+            }
+
+
+            $.each($("input[name='Alldevices']"), function () {
+                var v = $(this).val();
+            });
+
+        });
+
+
+
+        function toggle(source) {
+
+            var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                debugger;
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+
+        $('#checkALL').click(function (event) {
+            if (this.checked) {
+                // Iterate each checkbox
+                debugger;
+                $("input[name='Alldevices']:checkbox").prop('checked', true);
+            } else {
+                $("input[name='Alldevices']:checkbox").prop('checked', false);
+            }
+        });
+
+
+        function CheckFunction(AssignedDevices) {
+            debugger;
+            var NoOfDevices = AssignedDevices.includes("DeviceID IN") ? true : false;
+            var NoOfHierarchy = AssignedDevices.includes("HierLevel IN") ? true : false;
+            var TypeOfDevice = AssignedDevices.includes("DeviceType") ? true : false;
+            //If it includes devices only
+            if (NoOfDevices) {
+                var res = AssignedDevices.replace("d.DeviceID IN ", "");
+                res = res.replace("DeviceID IN ", "");
+
+                res = res.replace("(", "");
+                res = res.replace(")", "");
+                res = res.split(",");
+                for (var i = 0; i < res.length; i++) {
+
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].replace(" ", "");
+
+                    if ($("#" + res[i]).length > 0) {
+                        $("#" + res[i]).prop('checked', true);
+                    }
+                }
+
+
+                setTimeout(function () { $('#radio4').click(); }, 200);
+            }
+            //If it includes Both Hierarchy and Device Types
+            else if (NoOfHierarchy && TypeOfDevice) {
+
+                $('#radio3').click();
+                var res = AssignedDevices.split("AND");
+                res[0] = res[0].replace(" d.HierLevel IN ", "")
+                res[0] = res[0].replace("HierLevel IN", "")
+                res[1] = res[1].replace(" d.DeviceType IN", "")
+                res[1] = res[1].replace("DeviceType IN", "")
+                for (var i = 0; i < res.length; i++) {
+                    res[i] = res[i].replace("(", "");
+                    res[i] = res[i].replace(")", "");
+                    var obj = res[i].split(",");
+                    for (var j = 0; j < obj.length; j++) {
+
+                        if (i == 0) {
+
+                            obj[j] = obj[j].trim();
+                            obj[j] = obj[j].replace("'", ""); obj[j] = obj[j].replace("'", "");
+                            var myEle = document.getElementById(obj[j]);
+
+                            if (myEle) { document.getElementById(obj[j]).checked = true; }
+                            //document.getElementById(obj[j]).checked = true;
+                        }
+                        else {
+                            var x;
+                            obj[j] = obj[j].replace("'", "");
+                            obj[j] = obj[j].replace("'", "");
+                            if (obj[j] == 2) {
+                                x = 2;
+                            }
+                            else if (obj[j] == 1000) {
+                                x = 1000;
+                            }
+                            else if (obj[j] == 1001) {
+                                x = 1001;
+                            }
+
+
+                            switch (x) {
+                                case 2:
+
+                                    document.getElementById("Wincor").checked = true;
+                                    break;
+                                case 1000:
+
+                                    document.getElementById("NCR").checked = true;
+                                    break;
+                                case 1001:
+
+                                    document.getElementById("Diebold").checked = true;
+                                    break;
+                                default:
+
+                                    break;
+                            }
+                        }
+
+                    }
+                }
+
+
+
+
+            }
+            //If it includes only Hierarchy
+            else if (NoOfHierarchy) {
+                var res = AssignedDevices.replace("d.HierLevel IN ", "");
+
+                res = res.replace("HierLevel IN", "")
+
+                res = res.replace("(", "");
+                res = res.replace(")", "");
+                res = res.split(",");
+
+                for (var i = 0; i < res.length; i++) {
+
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].trim();
+                    var myEle = document.getElementById(res[i]);
+                    if (myEle) { document.getElementById(res[i]).checked = true; }
+                    //document.getElementById(res[i]).checked = true;
+
+                }
+
+
+            }
+            else {
+
+                $('#radio4').click();
+                var res = AssignedDevices;
+                res = res.replace("(", "");
+                res = res.replace(")", "");
+                res = res.split(",");
+                for (var i = 0; i < res.length; i++) {
+
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].replace("'", "");
+                    res[i] = res[i].trim();
+                    var myEle = document.getElementById(res[i]);
+                    if (myEle) { document.getElementById(res[i]).checked = true; }
+                }
+
+            }
+            CheckALLButton();
+            CheckALLButton2();
+        }
+        function CheckALLButton() {
+            $('input[name="Alldevices"]').change(function () {
+
+                var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+                var bool;
+
+                for (var i = 0; i < checkboxes.length; i++) {
+
+                    if (checkboxes[i].checked) {
+                        bool = true;
+                    }
+                    else {
+                        bool = false;
+                        break;
+                    }
+                }
+
+                if (bool == false) {
+                    $("input[name='checkALL']:checkbox").prop('checked', false);
+
+                }
+                else {
+                    $("input[name='checkALL']:checkbox").prop('checked', true);
+
+                }
+            });
+        }
+        function CheckALLButton2() {
+
+            var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+            var bool;
+
+            for (var i = 0; i < checkboxes.length; i++) {
+
+                if (checkboxes[i].checked) {
+                    bool = true;
+                }
+                else {
+                    bool = false;
+                    break;
+                }
+            }
+
+            if (bool == false) {
+                $("input[name='checkALL']:checkbox").prop('checked', false);
+
+            }
+            else {
+                $("input[name='checkALL']:checkbox").prop('checked', true);
+
+            }
+            }
+
+
+
+    </script>
+    <script src="~/assets/js/global/ForRule.js"></script>*@
+

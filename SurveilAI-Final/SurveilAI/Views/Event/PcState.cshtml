@@ -1,0 +1,251 @@
+﻿
+@{
+    ViewBag.Title = "PcState";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Device - PC State</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+
+
+            <input id="devid" hidden type="text" value="@TempData["DeviD"]">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-pills">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-title">
+                                        PC State
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="nav nav-pills nav-pills-primary float-end" id="pills-demo-1" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show" id="pills-1-tab" data-bs-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">State</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-2-tab" data-bs-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-1" aria-selected="true">Services</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="pills-tabContent-1">
+                                <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
+
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Hardware</a>
+                                                <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Process</a>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="row" id="Hardware">
+                                                                <table class="table table-striped table-responsive table-bordered" style="height:100px"></table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-primary btn-floating" onclick="HardwareState()">Get State</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                    <div class="row">
+
+                                                        <div class="col-md-10" id="Processes">
+                                                            <table class="table table-striped table-responsive table-bordered" style="height: 600px"></table>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-primary btn-floating" onclick="ProcessState()">Get Process</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-1">
+                                    <div class="row">
+                                        <div class="col-md-10" id="Services">
+                                            <table id="ServicesTable" class="table table-striped table-responsive table-bordered" style="height: 600px"></table>
+
+                                        </div>
+                                        <div class="col-md-2">
+
+                                            <button style="margin-bottom:5px" class="btn btn-primary d-block col-12" onclick="GetServices()">Get Services</button>
+                                            <button id="btnStartServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="StartService()">Start</button>
+                                            <input id="ServiceName" hidden type="text">
+                                            <button id="btnStopServ" style="margin-bottom:5px" class="btn btn-primary d-block col-12" disabled onclick="StopService()">Stop</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>
+</div>
+<script>
+    function HardwareState() {
+        var Did = $("#devid").val();
+        $("#loading").show();
+
+        $.ajax({
+            url: "@Url.Action("PCstate", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Hardware").html(data);
+
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+     function ProcessState() {
+        var Did = $("#devid").val();
+         $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("GetProcesses", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Processes").html(data);
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    function GetServices() {
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("GetServices", "Event")",
+            data: { id: Did },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+
+    function StartService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("StartService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+
+
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+    function StopService() {
+        var Sname = $("#ServiceName").val();
+        var Did = $("#devid").val();
+        $("#loading").show();
+        $.ajax({
+            url: "@Url.Action("StopService", "Event")",
+            data: { id: Did, service: Sname },
+            type: "Get",
+            dataType: "html",
+            success: function (data) {
+                $("#Services").html(data);
+                document.getElementById("btnStartServ").disabled = true;
+                document.getElementById("btnStopServ").disabled = true;
+
+
+
+            },
+            error: function (data) {
+
+
+            },
+            complete: function (data) {
+                $("#loading").hide();
+            }
+        })
+    }
+

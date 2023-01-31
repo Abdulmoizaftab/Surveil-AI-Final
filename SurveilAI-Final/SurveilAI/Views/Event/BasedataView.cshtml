@@ -1,0 +1,165 @@
+﻿@model System.Data.DataSet
+@using System.Data
+@{
+    ViewBag.Title = "BasedataView";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content container">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOVATIVE IMAGE SOLUTION</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Master Data </a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <section class="page-content container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 class="card-header text-center" style="background-color:#7b78af">Identification</h5>
+                                <div class="card card-body">
+                                    <div>
+                                        <label>ID</label>
+                                        @Html.TextBox("id", row["id"], new { auotocomplete = "off", placeholder = "ID", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Profile</label>
+                                        @Html.TextBox("profile", row["Profile"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Time-zone</label>
+                                        @Html.TextBox("timezone", row["Timezone"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Location</label>
+                                        @Html.TextBox("location", row["Location"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>URL</label>
+                                        @Html.TextBox("url", row["URL"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Decription</label>
+                                        @Html.TextArea("description", row["Description"].ToString(), 3, 1, new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h5 class="card-header text-center" style="background-color:cornflowerblue">Address</h5>
+                                <div class="card card-body">
+                                    <div>
+                                        <label>Street</label>
+                                        @Html.TextArea("street", row["Street"].ToString(), 3, 1, new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Zip</label>
+                                        @Html.TextBox("zip", row["Zip"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>City</label>
+                                        @Html.TextBox("city", row["City"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>State</label>
+                                        @Html.TextBox("state", row["State"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Country/Region</label>
+                                        @Html.TextBox("country", row["Country"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Longitude</label>
+                                        @Html.TextBox("longitude", row["Longitude"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                    <div>
+                                        <label>Latitude</label>
+                                        @Html.TextBox("latitude", row["Latitude"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h5 class="card-header text-center" style="background-color:powderblue">Custom Attributes</h5>
+                                <div class="card card-body">
+                                    <div class="mb-3">
+                                        <div>
+                                            <label>Vendor</label>
+                                            @Html.TextBox("vendor", row["Vendor"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Device Model</label>
+                                            @Html.TextBox("devicemodel", row["DeviceModel"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Device Type</label>
+                                            @Html.TextBox("devicetype", row["DeviceType"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Branch</label>
+                                            @Html.TextBox("branch", row["Branch"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Branch Code</label>
+                                            @Html.TextBox("branchcode", row["BranchCode"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Orginization</label>
+                                            @Html.TextBox("orginization", row["Orginization"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Software Version</label>
+                                            @Html.TextBox("softwareversion", row["SoftwareVer"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Installation Date</label>
+                                            @Html.TextBox("instdate", row["InstDate"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Serial #</label>
+                                            @Html.TextBox("serialno", row["SerialNo"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>System</label>
+                                            @Html.TextBox("system", row["System"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Agent Version</label>
+                                            @Html.TextBox("agentver", row["AgentVer"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h5 class="card-header text-center" style="background-color:cadetblue">Address</h5>
+                                <div class="card card-body">
+                                    <div class="mb-3">
+                                        <div>
+                                            <label>Contact 1</label>
+                                            @Html.TextBox("contact1", row["Contact1"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Contact 2</label>
+                                            @Html.TextBox("contact2", row["Contact2"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            <label>Contact 3</label>
+                                            @Html.TextBox("contact1", row["Contact3"], new { auotocomplete = "off", @readonly = "readonly", @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+

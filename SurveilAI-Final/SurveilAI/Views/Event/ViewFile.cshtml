@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "ViewFile";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    table tr:hover.selected td,
+    table tbody tr:hover td {
+        background-color: #8783ee;
+        cursor: pointer;
+    }
+
+    table tbody tr.selected td {
+        background-color: #8783ee;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @TempData["DeviD"]</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> View File</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content">
+            <div class="row">
+                <div class="col-md-2">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            @if (TempData["Check"].ToString() == "1")
+                            {
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr style="text-align:center">
+
+                                            Directories
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in ViewBag.Drives)
+                                        {
+                                            int index = item.IndexOf("*");
+                                            var dir = item.Substring(0, index);
+
+                                            <tr>
+
+                                                <td>
+                                                    <span>@dir</span>
+                                                </td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                                <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+
+
+                            }
+                            else
+                            {
+                                <p>Data could not be fetched "@TempData["ErrMsg"]" </p>
+                            }
+
+                        </div>
+
+                    </div>
+                    @using (Html.BeginForm("FileDownload", "Event", FormMethod.Post, new { id = "form1" }))
+                    {
+                        <input type="hidden" name="Rootdir" id="Rootdir" />
+                        <input type="hidden" name="ViewFileFolder" id="ViewFileFolder" />
+                        <input type="hidden" name="mainRoot" id="mainRoot" />
+                        <input type="hidden" name="DevID" id="DevID" value="@TempData["DeviD"]" />
+                    }
+                </div>
+                <div id="Root" class="col-md-8" style="display:none">
+                    <div class="card">
+                        <div class="card-body" style=" overflow: auto;max-height: 600px;">
+                            <div id="Services">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" id="Vfbtn" style="display:none">
+                    <div class="row">
+                        <div class="col-md-12 pt-3">
+                            <button id="btnJournal" disabled class="btn btn-primary d-block col-12" onclick="ViewFile()">View File</button>
+
+                        </div>
+                        <div class="col-md-12 pt-3">
+                            <button id="btnsbt" disabled class="btn btn-primary d-block col-12" onclick="formsbmt()">Download File</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+    <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+        <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    </svg>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        document.getElementById("btnJournal").disabled = true;
+        document.getElementById("btnsbt").disabled = true;
+           $("table").on("click", "tr", function (e) {
+        $(this)
+            .toggleClass("selected")
+            .siblings(".selected")
+            .removeClass("selected");
+               $("#Rootdir").val($(this).find("td span").text());
+               $("#mainRoot").val($(this).find("td span").text());
+               var DevID = $("#DevID").val();
+               var Rootdir = $("#Rootdir").val();
+               $('#loading').show();
+
+               $.ajax({
+                   url: "@Url.Action("VFDriveRoot", "Event")",
+                   data: { id: DevID, path: Rootdir },
+                   type: "Get",
+                   dataType: "html",
+                   success: function (data) {
+                       $("#Services").html(data);
+                       $("#Root").css("display", "block");
+                       $("#Vfbtn").css("display", "block");
+
+                   },
+                   error: function (data) {
+
+
+                   },
+                   complete: function () {
+                       //This block will execute after success/error executes.
+                       //Make the loader div empty
+                       $('#loading').hide();
+
+                   }
+               });
+        });
+
+    })
+
+
+    function formsbmt() {
+        $("#loading").show();
+        $("#form1").submit();
+       setTimeout(function () { $("#loading").hide(); }, 2000);
+
+    }
+
+    function ViewFile() {
+                var DrivePath = $("#ViewFileFolder").val();
+                var Did = $("#DevID").val();
+                var fileName = $("#Rootdir").val();
+
+
+                if (DrivePath == fileName) {
+                    DrivePath = $("#mainRoot").val();
+                }
+                else {
+                    var DrivePath = $("#ViewFileFolder").val();
+                }
+
+                $('#loading').show();
+
+                $.ajax({
+                    url: "@Url.Action("ViewFile", "Event")",
+                    data: { id: Did, dir: DrivePath, fileName: fileName},
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        console.log(data);
+                        var obj = jQuery.parseJSON(data);
+                        var file = atob(obj.data);
+                        var newWin = window.open('height=100%,width=100%');
+                        /* The html you want to write in the new window. */
+                        /* Get the window's document and write the html content. */
+                        newWin.document.write('<textarea style="height: 100%;width: 100%;">'+ file +'</textarea>');
+                        //newWin.document.write(html);
+
+                    },
+                    error: function (data) {
+                        $('#loading').hide();
+                    },
+                    complete: function (data) {
+                        $('#loading').hide();
+
+                    }
+                });
+
+    }
+
+
+

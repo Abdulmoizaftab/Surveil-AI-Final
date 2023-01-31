@@ -1,0 +1,178 @@
+﻿@model System.Data.DataSet
+@using System.Data
+@{
+    ViewBag.Title = "CashCounters";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    float Total = 0;
+    int rejected = 0;
+}
+
+<style>
+    th {
+        font-weight: bold !important;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-calendar"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Cash Counters</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" id="name"> @ViewData["DeviD"]</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="myData">
+
+
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Cash Counters
+                            @if (@TempData["Date"].ToString() != "NULL")
+                            {
+                                <span style="float:right">
+                                    Last updated on : @TempData["Date"]
+                                </span>
+                            }
+                        </h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <table class="table table-striped">
+                                        <thead class="">
+                                            <tr>
+                                                <th>Container ID</th>
+                                                <th>Currency</th>
+                                                <th>Denomination</th>
+                                                <th>Cash Remaining</th>
+                                                <th>Start</th>
+                                                <th>Deposited</th>
+                                                <th>Presented</th>
+                                                <th>Rejected</th>
+                                                <th>Filling</th>
+                                                <th>Filling Level</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach (DataRow row in Model.Tables[0].Rows)
+                                            {
+                                                <tr>
+                                                    <td>@row["containerid"]</td>
+                                                    <td>@row["currency"]</td>
+                                                    <td>@row["denomination"]</td>
+                                                    @{
+                                                        float TotalRemaining = Convert.ToInt32(row["denomination"]) * Convert.ToInt32(row["cashin"]);
+                                                        float StartMoney = Convert.ToInt32(row["cashin"]) + Convert.ToInt32(row["reject"]) + Convert.ToInt32(row["cashout"]);
+                                                        float remaining = 0;
+                                                        Total += TotalRemaining;
+                                                        if (TotalRemaining == 0)
+                                                        {
+                                                            remaining = 0;
+                                                        }
+                                                        else
+                                                        {
+                                                            remaining = Convert.ToInt32(row["cashin"]) / StartMoney;
+
+                                                        }
+                                                        rejected += Convert.ToInt32(@row["reject"]);
+
+                                                    }
+                                                    <td>@TotalRemaining.ToString("N")</td>
+                                                    <td>@StartMoney</td>
+                                                    <td>0</td>
+                                                    <td>@row["cashout"]</td>
+                                                    <td>@row["reject"]</td>
+                                                    <td>@row["cashin"]</td>
+
+                                                    @*<td>@remaining.ToString("P")</td>*@
+                                                    <td>
+                                                        @if (remaining == 0)
+                                                        {
+                                                            <div class="progress" style="border-style: double;border-color: red;">
+                                                                <div class="progress-bar bbg-danger" role="progressbar" style=" width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        }
+                                                        else if (remaining < .33)
+                                                        {
+                                                            <div class="progress" style="border-style: double;">
+                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: @remaining.ToString("P")" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="progress" style="border-style: double;">
+                                                                <div class="progress-bar bg-success" role="progressbar" style="width: @remaining.ToString("P")" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">@remaining.ToString("P")</div>
+                                                            </div>
+                                                        }
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+
+                                            <tr style="border-bottom-style: outset;border-top-style: outset;">
+                                                <th></th>
+                                                <th style="font-weight: bold;">PKR</th>
+                                                <th style="font-weight: bold;">TOTAL</th>
+                                                <th style="font-weight: bold;">@Total.ToString("N")</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>@rejected</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <h5 class="card-header">
+                            Card or Documents Counter
+
+                        </h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="row">
+                                    <table class="table table-striped">
+                                        <thead class="">
+                                            <tr>
+                                                <th>Component</th>
+                                                <th>Type</th>
+                                                <th>Value</th>
+                                                <th>State</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ID card unit</td>
+                                                <td>Retained cards bin</td>
+                                                <td>@TempData["RetainedCards"]</td>
+                                                <td>N/A</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>

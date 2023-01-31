@@ -1,0 +1,19 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+
+
+<div>
+    <div style=" padding:20px;">
+
+        <h4>Sorry, an error occurred while processing your request.</h4>
+        <br />
+        <h6>@Html.ActionLink("Go Back To User Dashboard", "UserDashBoard", "User")</h6>
+
+        <br />
+    </div>
+</div>
+

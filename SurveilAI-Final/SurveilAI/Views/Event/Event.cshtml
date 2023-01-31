@@ -1,0 +1,451 @@
+﻿@model SurveilAI.Models.@event
+@using SurveilAI.Models
+@using NLog
+@{
+    ViewBag.Title = "Event";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+<style>
+
+    /* Remove default bullets */
+    /*ul, #h-tree {
+          list-style-type: none;
+        }
+
+        li:before {
+        content: "";
+        border-color: transparent #008eef;
+        border-style: solid;
+        border-width: 0.35em 0 0.35em 0.45em
+        display: block;
+        height: 0;
+        width: 0;
+        left: -1em;
+        top: 0.9em;
+        position: relative;
+    }*/
+
+
+</style>
+
+<div class="content-wrapper">
+    <div class="content container-fluid">
+
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">SURVEIL.AI</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-device-desktop"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Monitoring</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" id="abc">
+
+            <div class="row">
+                <div class="col-md-3 col-xs-12">
+                    <div class="card">
+                        <h5 class="card-header">Devices.</h5>
+                        <div class="card-body">
+                            <div class="sidebar-content ">
+                                <input maxlength="25" type="text" placeholder="Search" class="form-control" @*id="myInput"*@ id="my-search" />
+                                <nav class="main-menu" @*id="myDIV" *@ style="padding-top:10%; max-height: 600px;    overflow: auto;">
+                                    <div class="">
+                                        <ul id="h-tree">
+                                            @{
+                                                @RenderTree(Model.Hiertree);
+
+                                            }
+                                            @helper RenderTree(IEnumerable<TreeNode<Hierarchy, string>> categories, int deep = 0)
+                                            {
+                                                try
+                                                {
+                                                    foreach (var c in categories)
+                                                    {
+                                                        if (deep > 0)
+                                                        {
+                                                            <ul class="">
+                                                                <li class="StyleTypeList">
+                                                                    <div style="color:#635ebe;">@Html.DisplayFor(modelItem => c.Item.HierName)</div>
+                                                                    <ul class="">
+                                                                        @foreach (var d in Model.dev)
+                                                                        {
+                                                                            if (c.Item.Hierlevel == d.HierLevel)
+                                                                            {
+                                                                                <li><a class="chg" href="javascript:void(0);"><span style="color:#4d5a68;">@Html.DisplayFor(modelItem => d.DeviceID)</span></a></li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                    @if (c.Children != null)
+                                                                    {
+                                                                        @RenderTree(c.Children, deep + 1);
+                                                                    }
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li class="StyleTypeList">
+                                                                <div style="color:#635ebe;">
+                                                                    @Html.DisplayFor(modelItem => c.Item.HierName)
+                                                                </div>
+                                                                <ul class="">
+                                                                    @foreach (var d in Model.dev)
+                                                                    {
+                                                                        if (c.Item.Hierlevel == d.HierLevel)
+                                                                        {
+                                                                            <li><a class="chg" href="javascript:void(0);"><span style="color:#4d5a68;">@Html.DisplayFor(modelItem => d.DeviceID)</span></a></li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                                @if (c.Children != null)
+                                                                {
+                                                                    @RenderTree(c.Children, deep + 1);
+                                                                }
+                                                            </li>
+
+
+                                                        }
+                                                    }
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    <!--For info these elemets will be at right place after rendering-->
+                                                    <input type="hidden" id="error-msg-c" value="@ex.Message.ToString()" />
+                                                    <script>
+                                                       var errorToWrite = $('#error-msg-c').val();
+                                                       $.ajax({
+                                                        type: "post",
+                                                        url: '@Url.Action("WriteErrorLog", "Event")',
+                                                            data: { errormsg: errorToWrite},
+                                                            datatype: "json",
+                                                            success: function (response) {
+                                                            },
+                                                            error: function (response) { },
+                                                            complete: function (response) { }
+                                                        });
+
+                                                    </script>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Commands</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                @if (UserRights.Contains("104"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Screenshot" name="screenshot">Get Screenshot</button>}
+                                @if (UserRights.Contains("105"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="GetJournal" name="GetJournal">Get Journal</button>}
+                                @if (UserRights.Contains("106"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Upload" name="Upload" data-bs-toggle="tooltip" data-bs-html="true" title="<b>Upload File from Server to ATM</b>">Upload File</button>}
+                                @if (UserRights.Contains("107"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Download" name="Download" data-bs-toggle="tooltip" data-bs-html="true" title="<b>Download File From ATM to Server</b>">Download File</button>}
+                                @if (UserRights.Contains("108"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="ViewFile" name="ViewFile">View File</button>}
+                                @if (UserRights.Contains("199"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="StartProgram" name="StartProgram">Start a Program</button>}
+                                @if (UserRights.Contains("109"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="JobRun" name="JobRun">Execute Job</button>}
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade show" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Miscellaneous Commands</h5>
+                                @*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                                </button>*@
+                            </div>
+                            <div class="modal-body">
+                                @if (UserRights.Contains("111"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Inventory" name="Inventory">Inventory</button>}
+                                @if (UserRights.Contains("112"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Counters" name="counters">Counters</button>}
+                                @if (UserRights.Contains("113"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="PcState" name="PcState">PC-State</button>}
+                                @if (UserRights.Contains("43"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="JobResult" name="jobresult">Job Result</button>}
+                                @if (UserRights.Contains("114"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="dntUpdate" name="dntUpdate">Date & Time Reset</button>}
+                                @*<button type="submit" class="btn btn-primary d-block col-12" formtarget="_blank" form="DeviceData" value="DTReset" name="DTReset">Date & Time Reset</button>*@
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade show" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Administrative Commands</h5>
+                                @*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                                </button>*@
+                            </div>
+                            <div class="modal-body">
+                                @*@if (UserRights.Contains("111"))
+                                {<button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Inventory" name="Inventory">Inventory</button>}*@
+
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="Services" name="Services">Services</button>
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="KillProcess" name="KillProcess">Kill Process</button>
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="RestartMachine" name="RestartMachine">Restart Machine</button>
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="ServiceControl" name="ServiceControl">Service Control</button>
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="AgentUpdater" name="AgentUpdater">Second Agent Updater</button>
+                                <button type="submit" class="btn btn-primary d-block col-12 mb-2" formtarget="_blank" form="DeviceData" value="AgentFile" name="AgentFile">Second Agent File</button>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-outline" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!--Confirmation modal-->
+        <div class="modal fade" id="confirmationDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete the view?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label style="color: rgb(73 80 87) !important;" class="font-weight-bold">View Name:</label>
+                                <label style="color: rgb(73 80 87) !important;" id="d-viewname"></label>
+                                <input type="hidden" id="d-type" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="delete-view" form="MyForm2" name="submitButton" value="newEvent">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('MyForm2').reset();">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+    function test() {
+        alert("asd");
+    }
+        function WriteErrorLog(errorToWrite) {
+
+                $.ajax({
+                type: "post",
+                url: '@Url.Action("WriteErrorLog", "Event")', // do not hard code your url's
+                    data: { errormsg: errorToWrite},
+                    datatype: "json", // refer notes below
+                    success: function (response) {
+                        $('#resp-msg').text(response);
+                    },
+                    error: function (response) { },
+                    complete: function (response) { }
+                });
+            }
+
+            $('#admin-mdl').click(function () {
+
+                $('#exampleModal3').modal('show');
+            });
+
+    $('#cmd-mdl').click(function () {
+        $('#exampleModal').modal('show');
+            });
+
+
+            $('#detail-mdl').click(function () {
+
+        $('#exampleModal2').modal('show');
+            });
+
+
+            function Deleteview(viewname, type) {
+                $('#d-viewname').text(viewname);
+                $('#d-type').val(type);
+                $('#confirmationDialog').modal('show');
+            }
+            $('#delete-view').click(function () {
+                var viewname = $('#d-viewname').text();
+                var vtype = $('#d-type').val();
+                RuleDelete(viewname, vtype);
+            });
+            setInterval(myMethod, 15000);
+
+            function myMethod() {
+                var Did = document.getElementById("deviceid").value;
+                if (Did != "") {
+                    getstate();
+                }
+            }
+
+            function RuleEdit(viewname) {
+                var url = '@Url.Action("ViewEdit", "Alert", new { Viewname = "data" })'.replace("data", viewname);
+                window.open(url);
+            }
+            function RuleDelete(viewname,type) {
+
+                $.ajax({
+                type: "post",
+                url: '@Url.Action("deletepiechart", "alert")', // do not hard code your url's
+                    data: { 'viewname': viewname, 'type': type},
+                    datatype: "json", // refer notes below
+                    success: function (response) {
+                        $('#resp-msg').text(response);
+                    },
+                    error: function (response) {$('#resp-msg').text(response); },
+                    complete: function (response) { location.reload(); }
+                    //success: function (response) { window.alert(response.responseText);  },
+                    //error: function (response) { window.alert(response.responseText); },
+                    //complete: function (response) { location.reload(); }
+                });
+            }
+
+
+
+            $(document).ready(function () {
+
+                //Intialize bootstrap tooltip
+
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl)
+                });
+
+
+                var checkid = $("#deviceid").val();
+                if (checkid != "") {
+                    getstate();
+                }
+
+                $(".chg").click(function () {
+                    $("span").removeClass("selected");
+                    $(this).children("span")
+                        .toggleClass("selected")
+                        .siblings(".selected")
+                        .removeClass("selected");
+
+                    var id = $(this).children("span").text();
+
+                    $("#deviceid").text(id);
+                    $("#deviceid").val(id);
+                    getstate();
+                });
+
+                $(function () {
+
+                    var tree = new treefilter($("#h-tree"), {
+                        searcher: $("input#my-search"),
+                        multiselect: false
+                    });
+
+                });
+
+            });
+
+
+
+            function getstate() {
+               var Did = document.getElementById("deviceid").value;
+
+                $.ajax({
+                    url: "@Url.Action("getstate", "Event")",
+                    data: { id: Did },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        if (data == "Logout") {
+                            var url = '@Url.Action("Index", "Login")';
+                            window.location.href = url;
+                        }
+                        else {
+                            $("#ParView").html(data);
+                        }
+                    },
+                    error: function (data) {
+                        //alert("Error getstate");
+                    },
+                });
+
+                $.ajax({
+                    url: "@Url.Action("getLastEvent", "Event")",
+                    data: { id: Did },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        if (data == "Logout") {
+                            var url = '@Url.Action("Index", "Login")';
+                            window.location.href = url;
+                        }
+                        else {
+                            $("#ParviewLastEvent").html(data);
+                        }
+                    },
+                    error: function (data) {
+                        //alert("Error getlastevent");
+                    },
+                });
+
+                $.ajax({
+                    url: "@Url.Action("getcomp", "Event")",
+                    data: { id: Did },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        if (data == "Logout") {
+                            var url = '@Url.Action("Index", "Login")';
+                            window.location.href = url;
+                        }
+                        else {
+                            $("#ParviewComp").html(data);
+                        }
+                    },
+                    error: function (data) {
+                        //alert("Error getcomp");
+                    },
+                });
+            }
+
+        </script>
+
+    </div>
+</div>
+
+
+

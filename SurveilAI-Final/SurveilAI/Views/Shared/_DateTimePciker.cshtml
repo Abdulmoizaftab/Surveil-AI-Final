@@ -1,0 +1,39 @@
+﻿<link href="~/lib/jquery-datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script src="~/lib/jquery-datetimepicker/jquery.datetimepicker.full.min.js"></script>
+
+
+<div class="col-md-4">
+    <label class="control-label">From</label>
+    <div>
+        <div class="input-group">
+            @Html.TextBox("DateTimeFrom", (String)ViewBag.DTF, new { @class = "form-control" })
+            <span class="input-group-addon action tt">
+                <i class="icon dripicons-calendar"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <label class="control-label">To</label>
+    <div>
+        <div class="input-group">
+            @Html.TextBox("DateTimeTo", (String)ViewBag.DTT, new { @class = "form-control" })
+            <span class="input-group-addon action tt">
+                <i class="icon dripicons-calendar"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('#DateTimeFrom').datetimepicker();
+        $('#DateTimeTo').datetimepicker();
+    });
+</script>

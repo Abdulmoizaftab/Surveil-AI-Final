@@ -1,0 +1,664 @@
+﻿@model SurveilAI.Models.calendar
+@{
+    ViewBag.Title = "Calender";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+    List<object> UserRights = new List<object>();
+    UserRights = Session["UserRole"] as List<object>;
+}
+
+
+<style>
+    .datepicker {
+        display: inline-table
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content container">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">CUSTOMIZATION</h1>
+            </div>
+            <div class="col-md-2" style="padding-top:14px; left:19px;">
+                @Html.ActionLink("< Go Back", "StateRepresentation")
+            </div>
+        </header>
+        <section class="page-content" id="myData">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class=" ">Calendar</h5>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <div class="row text-right">
+                                        @if (@ViewBag.RepMsgOk != null)
+                                        {
+                                            <p class="text-success">@ViewBag.RepMsgOk</p>
+                                        }
+                                        @if (@ViewBag.RepMsgNo != null)
+                                        {
+                                            <p class="text-danger ">@ViewBag.RepMsgNo</p>
+                                        }
+                                        @if (@TempData["OKMsg"] != null)
+                                        {
+                                            <p class="text-success ">@TempData["OKMsg"]</p>
+                                        }
+                                        @if (@TempData["NoMsg"] != null)
+                                        {
+                                            <p class="text-danger ">@TempData["NoMsg"]</p>
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4" style="    max-height: 600px;overflow: auto;">
+                                    <table class="table table-striped table-bordered" id="mytab" style="width:100%">
+                                        <thead>
+                                            <tr>
+
+                                                <th>
+                                                    <span>Calendar Entries</span>
+                                                    @if (UserRights.Contains("157"))
+                                                    {
+                                                        <button onclick="ClearText()" type="submit" style="float:right;background:none;border:none" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="icon dripicons-plus"></i></button>
+                                                    }
+                                                </th>
+
+
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var data in Model.CalData)
+                                            {
+                                                <tr class="tabdata">
+
+                                                    <td>
+                                                        <a class="CalendarList" href="#"><span id="CalendarNametodelete" style="color:#4d5a68;">@Html.DisplayFor(ModelItem => data)</span></a>
+                                                        @if (UserRights.Contains("159"))
+                                                        {<button onclick="document.getElementById('CalToDel').innerText ='@Html.DisplayFor(ModelItem => data)'" type="submit" style="float:right;background:none;border:none" data-bs-toggle="modal" data-bs-target="#DeleteCalendarModal"><span class="badge badge-danger badge-circle icon dripicons-trash"></span></button>}
+
+                                                    </td>
+
+
+                                                </tr>
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="CalendarTableView" class="col-md-8">
+                                    <table class="table table-striped table-bordered" id="mytab" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="4">
+                                                    <span id="SelectedCalendarName">Calendar Name</span>
+                                                    @if (UserRights.Contains("158"))
+                                                    {<button id="EditCalendarButton" onclick='EditCalendar()' hidden type="submit" style="float:right;background:none;border:none" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="icon dripicons-plus"></i></button>}
+
+                                                </th>
+
+                                            </tr>
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Start</th>
+                                                <th>End</th>
+                                                <th></th>
+
+                                                <th style="display:none;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ShowCalendar"></tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-2 text-center">
+                                    <div class="row">
+                                        <center>
+                                            @*<div class="col-md-12" style="padding:10px">
+                                                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
+                                                </div>*@
+                                            @*<div class="col-md-12" style="padding:10px">
+
+                                                    <button type="submit" class="btn btn-primary">Remove</button>
+                                                </div>*@
+                                        </center>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <hr />
+                            <footer class="container-fluid">
+                                <p>&copy; @DateTime.Now.Year - SURVEILAI PVT-LTD</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create a new Calendar</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        @using (Html.BeginForm("AddCalender", "Customize", FormMethod.Post, new { id = "AddCalendarForm" }))
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="">
+                                        <label style="margin-top: 8px;margin-left: 20px;">Calendar Name</label>
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.TextBox("calname", null, new { id = "CalendarName", data_val_required = "Enter Calendar name", maxlength = "50", @class = "form-control BlockSpecialSS" })
+                                    <label class="label">@Html.ValidationMessageFor(Model => Model.calname)</label>
+                                </div>
+                            </div>
+                            <div class="row" style="padding:5px">
+                                <div class="col-md-6">
+                                    <div class="custom-control custom-radio">
+                                        @*@Html.RadioButton("weekday", "1", new { @class = "custom-control-input" })
+                                            @Html.LabelFor(model => model.type, "Day of Week", new { @class = "custom-control-label" })*@
+                                        <input onclick="document.getElementById('weekday').disabled = false; document.getElementById('day').disabled = true; document.getElementById('type').setAttribute('value','1');" id="byWeek" type="radio" class="custom-control-input" name="CalenderType" checked>
+                                        <label class="custom-control-label" for="byWeek">Day of Week</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="weekday" class="form-control" onchange="var e = document.getElementById('weekday'); var x = e.options[e.selectedIndex].value; document.getElementById('dayofweek').setAttribute('value', x);">
+                                        <option value="1" selected>Monday</option>
+                                        <option value="2">Tuesday</option>
+                                        <option value="4">Wednesday</option>
+                                        <option value="8">Thursday</option>
+                                        <option value="16">Friday</option>
+                                        <option value="32">Saturday</option>
+                                        <option value="64">Sunday</option>
+                                    </select>
+                                </div>
+                                @Html.Hidden("dayofweek", '1', new { @class = "form-control" })
+                            </div>
+                            @Html.Hidden("period", null, new { @class = "form-control" })
+
+                            @Html.Hidden("type", '1', new { @class = "form-control" })
+                            <div class="row" style="padding:5px">
+                                <div class="col-md-6">
+                                    <div class="custom-control custom-radio">
+
+
+                                        <input onclick="document.getElementById('day').disabled = false; document.getElementById('weekday').disabled = true; document.getElementById('type').setAttribute('value','2');" id="byDate" type="radio" class="custom-control-input" name="CalenderType">
+
+                                        <label class="custom-control-label" for="byDate">Calendar Entry</label>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="input-group date dp-years ">
+                                        @Html.TextBox("day", DateTime.Now.ToShortDateString(), new { placeholder = "mm/dd/yyyy", id = "day", required = "required", pattern = "\\S+", disabled = true, @class = "form-control" })
+                                        <span class="input-group-addon action">
+                                            <i class="icon dripicons-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <label class="label">@Html.ValidationMessageFor(Model => Model.day)</label>
+                                </div>
+                            </div>
+                            <div class="row" style="padding:5px">
+                                <div class="col-md-3">
+
+                                    <p>Interval time</p>
+
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <input class="form-control" type="time" name="usr_time" value="00:00" id="TF" required>
+
+                                        </div>
+                                        <div class="col-md-2 "><span>to</span></div>
+                                        <div class="col-md-5 ">
+
+                                            <input class="form-control" type="time" name="usr_time" value="00:00" id="TT" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <label id="TimeErrorMessage2" class="label" style="display:none;float:right">Start time must be prior to end time and Time cannot overlap existing data</label>
+                                </div>
+
+
+
+                            </div>
+                            <div class="modal-footer">
+
+                                <button id="btnSubmit" type="submit" class="btn btn-secondary" onclick="TimeCalc();">Save</button>
+                                <button type="button" onclick="ClearValidation()" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="DeleteCalendarModal" tabindex="-1" role="dialog" aria-labelledby="DeleteCalendarModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="DeleteCalendarModalLabel">Calendar Delete</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("DeleteCalendar", "Customize", FormMethod.Post, new { id = "DeleteCalendar" }))
+                        {
+
+                            <div class="text-accent" style="text-align:center">Are you sure want to delete <span id="CalToDel" value="abc"></span> </div>
+
+
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary" id="DelCalBtn" @*onclick="DelCalendar()"*@>Delete</button>
+                                <button type="button" onclick="ClearValidation()" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div style="display:none" id="loading" class="preloader pl-xl pls-primary">
+                <svg class="pl-circular" viewBox="25 25 50 50" style="height: 100px;">
+                    <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+                </svg>
+            </div>
+        </div>
+        <script src="~/assets/js/global/CustomValid.js"></script>
+        <script>
+
+            var person =[];
+            function TimeCalc() {
+
+                document.getElementById('TimeErrorMessage2').style.display = "none";
+                var Hastime = false;
+                var Ifexist = false;
+                var CalendarName = document.getElementById('SelectedCalendarName').innerText;
+                var type = document.getElementById('type').value;
+                var dayofweek = document.getElementById('dayofweek').value;
+                var day = document.getElementById('day').value;
+                var TF = document.getElementById("TF").value
+                var TT = document.getElementById("TT").value
+                var period;
+                var MatchDayDate=null;
+
+
+
+
+
+
+                    TF = TF.replace(':', '');
+                    TT = TT.replace(':', '');
+
+
+                period = TF + TT;
+                document.getElementById('period').setAttribute('value', period);
+                if (TF > TT || TF == TT) {
+                    Hastime = true;
+                }
+                else {
+                    for (var i = 0; i < person.length; i++) {
+                        if (person[i].calname.trim() == CalendarName) {
+                            if (person[i].type == type) {
+                                var CalDate = person[i].day;
+                                CalDate = new Date(parseInt(CalDate.substr(6)));
+                                let ParsedDate = (CalDate.getMonth() + 1) + "-" + CalDate.getDate() + "-" + CalDate.getFullYear()
+                                ParsedDate = ParsedDate.replace('-', '/');
+                                ParsedDate = ParsedDate.replace('-', '/');
+
+                                if (person[i].dayofweek == dayofweek) {
+                                    MatchDayDate = dayofweek;
+                                    Ifexist = true;
+                                    break;
+                                }
+                                else if (ParsedDate == day) {
+                                    MatchDayDate = ParsedDate;
+                                    Ifexist = true;
+                                    break;
+                                }
+                                else {
+                                    Ifexist = false;
+                                }
+                             }
+                            else {
+
+                            }
+                        }
+                        else {
+
+                        }
+
+                    }
+                }
+
+                if (Ifexist) {
+                    for (var i = 0; i < person.length; i++) {
+                        var CalDate = person[i].day;
+                        CalDate = new Date(parseInt(CalDate.substr(6)));
+                        let ParsedDate = (CalDate.getMonth() + 1) + "-" + CalDate.getDate() + "-" + CalDate.getFullYear()
+                        ParsedDate = ParsedDate.replace('-', '/');
+                        ParsedDate = ParsedDate.replace('-', '/');
+                        if (person[i].dayofweek == MatchDayDate) {
+                            if (person[i].period == period) {
+                                Hastime = true;
+                            }
+                            else {
+                                hastime = true;
+                                var TFPerson = parseInt(person[i].period.substring(0, 4));
+                                var TTPerson = parseInt(person[i].period.substring(4, 8));
+                                var TimeFrom = parseInt(TF);
+                                var TimeTo = parseInt(TT);
+                                if ((TimeFrom < TFPerson) && (TimeTo <= TFPerson)) {
+                                    Hastime = false;
+                                }
+                                else if ((TimeFrom >= TTPerson) && (TimeTo > TTPerson)) {
+                                    var FTFPerson = parseInt(person[i + 1].period.substring(0, 4));
+                                    //var FTTPerson = parseInt(person[i + 1].period.substring(4, 8));
+                                    if ((TimeFrom < FTFPerson) && (TimeTo <= FTFPerson)) {
+                                        hastime = false;
+                                    }
+                                    else {
+                                        Hastime = true;
+                                    }
+                                }
+                                else {
+                                    Hastime = true;
+                                    break;
+
+                                }
+
+                            }
+                        }
+                        else if (ParsedDate == MatchDayDate) {
+                            if (person[i].period == period) {
+                                Hastime = true;
+                            }
+                            else {
+                                hastime = true;
+                                var TFPerson = parseInt(person[i].period.substring(0, 4));
+                                var TTPerson = parseInt(person[i].period.substring(4, 8));
+                                var TimeFrom = parseInt(TF);
+                                var TimeTo = parseInt(TT);
+                                if ((TimeFrom < TFPerson) && (TimeTo <= TFPerson)) {
+                                    Hastime = false;
+                                }
+                                else if ((TimeFrom >= TTPerson) && (TimeTo > TTPerson)) {
+
+                                    var FTFPerson = parseInt(person[i + 1].period.substring(0, 4));
+                                    console.log(TimeFrom);
+                                    console.log(TimeTo);
+                                    console.log(FTFPerson);
+
+                                    if ((TimeFrom < FTFPerson) && (TimeTo <= FTFPerson)) {
+                                        hastime = false;
+                                    }
+                                    else {
+                                        Hastime = true;
+                                    }
+
+                                }
+                                else {
+                                    console.log('outside');
+                                    Hastime = true;
+                                    break;
+                                }
+
+                            }
+                        }
+                        else {
+
+                        }
+
+                    }
+                }
+                else {
+
+                }
+
+                if (Hastime) {
+                    document.getElementById('TimeErrorMessage2').style.display = "block";
+                    $("#Loading").hide();
+                    event.preventDefault();
+                }
+
+            }
+
+
+
+
+
+
+            $('#myModal').on('shown.bs.modal', function () {
+
+                $('#myInput').trigger('focus')
+            })
+            //$(function () {
+            //    $('#datetimepicker1').datetimepicker();
+            //});
+            $(document).ready(function () {
+
+                $("tr.tabdata").click(function () {
+                    var a = $(this).find('#uc').text();
+                    if (a == "Yes") {
+                        $('#disp').prop('checked', true);
+                    }
+                    else {
+                        $('#disp').prop('checked', false);
+                    }
+
+                    var b = $(this).find('#pri').text();
+                    var c = $(this).find('#txt').text();
+                    var d = $(this).find('#col').css("background-color");
+                    var e = $(this).find('#inu').text();
+                    var f = $(this).find('#bit').text();
+
+
+                    //var rgb = d.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
+                    $("#colhere").val(rgb2hex(rgb[0], rgb[1], rgb[2]));
+                    $("#color").val(d);
+
+                    $("#prio").val(b).change();
+
+                    $("#data").val(e + ',' + b + ',' + f);
+                    $("#messagetext").val(c);
+                });
+
+                $("#colhere").change(function (rgb) {
+                    var z = $(this).val();
+                    $("#color").val("rgb(" + hex2rgb(z) + ")");
+                });
+
+            });
+
+            function hex2rgb(hex) {
+                // long version
+                r = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+                if (r) {
+                    return r.slice(1, 4).map(function (x) { return parseInt(x, 16); });
+                }
+                // short version
+                r = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
+                if (r) {
+                    return r.slice(1, 4).map(function (x) { return 0x11 * parseInt(x, 16); });
+                }
+                return null;
+            }
+
+            function rgb2hex(red, green, blue) {
+                var rgb = blue | (green << 8) | (red << 16);
+                return '#' + (0x1000000 + rgb).toString(16).slice(1)
+            }
+
+
+            $(".CalendarList").click(function () {
+
+                var id = $(this).children("span").text();
+                $("#SelectedCalendarName").text(id);
+                document.getElementById('EditCalendarButton').hidden = false;
+
+                function testAjax() {
+                   return $.ajax({
+                        url: "@Url.Action("getCalendar", "Customize")",
+                        data: { id: id },
+                        type: "Get",
+                        dataType: "json",
+                       success: function (data) {
+                            for (var i = 0; i < data.length; i++)
+                    {
+                                person[i] = data[i];
+                           }
+                           return person;
+
+
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        },
+                    })
+                }
+                testAjax();
+                getCalendar();
+
+            });
+
+            function EditCalendar() {
+
+
+                document.getElementById('TimeErrorMessage2').style.display = "none";
+                var CalValue = document.getElementById("SelectedCalendarName").innerText;
+
+                document.getElementById('CalendarName').readOnly = true;
+                document.getElementById('CalendarName').value = CalValue;
+                $('#AddCalendarForm').attr('data-val', false);
+                $('#AddCalendarForm').removeData('unobtrusiveValidation');
+                $('#AddCalendarForm').removeData('validator');
+                $.validator.unobtrusive.parse('#CalendarName');
+            }
+
+
+            function ClearValidation() {
+
+                $('span[id^="CalendarName-error"]').remove();
+
+
+
+            }
+
+            function getCalendar() {
+                document.getElementById('TimeErrorMessage2').style.display = "none";
+                var Did = document.getElementById("SelectedCalendarName").innerText;
+                var span = document.getElementById("CalToDel").innerText = document.getElementById("SelectedCalendarName").innerText;;
+                var CalendarName = document.getElementById('CalToDel').innerText;
+                 $.ajax({
+                    url: "@Url.Action("CalendarEntries", "Customize")",
+                     data: { id: CalendarName },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#ShowCalendar").html(data);
+                    },
+                    error: function (data) {
+                        alert("Error");
+                    },
+                })
+
+
+            }
+
+            $('#DelCalBtn').off().on('click', function () {
+                 var CalendarName = document.getElementById('CalToDel').innerText;
+                 $.ajax({
+                    url: "@Url.Action("DeleteCalendar", "Customize")",
+                     data: { id: CalendarName },
+                    type: "Get",
+                    dataType: "html",
+                    success: function (data) {
+                        if (data == "Logout") {
+                            var url = '@Url.Action("Index", "Login")';
+                            window.location.href = url;
+                        }
+                        else {
+                            var url = '@Url.Action("Calender", "Customize")';
+                            window.location.href = url;
+                        }
+                    },
+                    error: function (data) {
+                        alert("Error");
+                    },
+                })
+            });
+
+            function DelCalendar() {
+
+                var CalendarName = document.getElementById('CalToDel').innerText;
+                 $.ajax({
+                    url: "@Url.Action("DeleteCalendar", "Customize")",
+                     data: { id: CalendarName },
+                    type: "Post",
+                    dataType: "html",
+                    success: function (data) {
+
+                    },
+                    error: function (data) {
+                        alert("Error");
+                    },
+                })
+            }
+
+            function ClearText() {
+                document.getElementById('CalendarName').disabled = false;
+                document.getElementById('CalendarName').value = '';
+                document.getElementById('CalendarName').readOnly = false;
+                document.getElementById('TimeErrorMessage2').style.display = "none";
+                //$('#AddCalendarForm').attr('data-val', false);
+                //$('#AddCalendarForm').addData('unobtrusiveValidation');
+                //$('#AddCalendarForm').addData('validator');
+
+            }
+            $("#btnSubmit").dblclick(function () {
+                event.preventDefault();
+            });
+        </script>
+    </div>
+
+</div>
+
+
+

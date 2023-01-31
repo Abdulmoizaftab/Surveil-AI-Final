@@ -1,0 +1,483 @@
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csprojAssemblyReference.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+C:\RealPlayAndPTZDemo\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csprojAssemblyReference.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+E:\Surveil-AI GIT\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+C:\Surveil.AI\SurveilAi-test\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+H:\SurveilAI\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+H:\SurveilAI\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+D:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+E:\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+C:\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.UI.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\TelerikCommon.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.UI.xml
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe.licenses
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+E:\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\RealPlayAndPTZDemo.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.UI.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\TelerikCommon.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\ZstdNet.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\NetSDKCS.dll.config
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\BouncyCastle.Crypto.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Dapper.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Google.Protobuf.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\K4os.Hash.xxHash.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\MySql.Data.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Newtonsoft.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Buffers.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Memory.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Formatting.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Net.Http.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Numerics.Vectors.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Encodings.Web.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Text.Json.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\System.ValueTuple.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.UI.xml
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.AssemblyReference.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Login.resources
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Properties.Resources.resources
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.RealPlayAndPTZDemo.resources
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.Settings.resources
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.GenerateResource.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe.licenses
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CoreCompileInputs.cache
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.csproj.CopyComplete
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.exe
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\obj\x64\Debug\RealPlayAndPTZDemo.pdb
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.GridView.dll
+C:\Users\Aftab\Desktop\24-12-2022 Surveil.AI\12-12-2022 Surveil.AI\SurveilAI-Final\RealPlayAndPTZDemo\bin\x64Debug\Telerik.WinControls.GridView.xml

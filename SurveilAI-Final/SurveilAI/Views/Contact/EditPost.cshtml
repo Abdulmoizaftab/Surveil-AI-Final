@@ -1,0 +1,249 @@
+﻿@model SurveilAI.Models.contact
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<div class="content container-fluid">
+    <div class="col-md-12">
+        <header class="page-header">
+            <div class="mr-auto">
+                <h1 class="separator">INNOMATE</h1>
+                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"><i class="icon dripicons-user-id"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"> Update Contact</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <section class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <h5 class="card-header">Update Contact.</h5>
+                        @{
+                            Model.contactid = Model.contactid.Trim();
+                            Model.phone = Model.phone.Trim();
+                        }
+                        @using (Html.BeginForm("Update", "Contact", FormMethod.Post, new { autocomplete = "off", @id = "create-from" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div>
+                                                @Html.Hidden("check", "update", new { @class = "form-control" })
+                                            </div>
+                                            <div>
+                                                @Html.Hidden("ContactidOld", null, new { @class = "form-control" })
+                                            </div>
+                                            <div>
+                                                <label>Contact ID</label>
+                                                @Html.TextBox("contactid", null, new { autocomplete = "off", placeholder = "Enter Contact ID", @class = "form-control BlockSpecialU fillBlock", maxlength = "18" })
+                                                @Html.ValidationMessageFor(model => model.contactid, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div>
+                                                <label>Last Name</label>
+                                                @Html.TextBox("lname", null, new { autocomplete = "off", placeholder = "Enter Last Name", @class = "form-control BlockSpecialU fillBlock", maxlength = "100" })
+                                                @Html.ValidationMessageFor(model => model.lname, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div>
+                                                <label>First Name</label>
+                                                @Html.TextBox("fname", null, new { autocomplete = "off", placeholder = "Enter First Name", @class = "form-control BlockSpecialU fillBlock", maxlength = "100" })
+                                                @Html.ValidationMessageFor(model => model.fname, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div>
+                                                <label>Company</label>
+                                                @Html.TextBox("company", null, new { autocomplete = "off", placeholder = "Enter Company", @class = "form-control BlockSpecialU fillBlock", maxlength = "100" })
+                                                @Html.ValidationMessageFor(model => model.company, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div>
+                                                <label>E-mail</label>
+                                                @Html.TextBox("e_mail", null, new { autocomplete = "off", placeholder = "Enter E-mail, (;) separated", @class = "form-control valid-email BlockForEmail fillBlockEm", maxlength = "120", data_emid = "em-val" })
+                                                @Html.ValidationMessageFor(model => model.e_mail, "", new { @class = "text-danger" })
+                                                <small style="display:none;" id="em-val" class="form-text valid-font">Invalid Email</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <label>Phone</label>
+                                                @Html.TextBox("phone", null, new { autocomplete = "off", placeholder = "Enter Phone, (;) separated", @class = "form-control valid-mobile fillBlock", maxlength = "36", data_emid = "ph-val" })
+                                                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                                                <small style="display:none;" id="ph-val" class="form-text valid-font">Invalid Number</small>
+                                            </div>
+                                            <div>
+                                                <label>Mobile Phone</label>
+                                                @Html.TextBox("mobile", null, new { autocomplete = "off", placeholder = "Enter Mobile, (;) separated", @class = "form-control valid-mobile fillBlock", maxlength = "36", data_emid = "mob-val" })
+                                                @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+                                                <small style="display:none;" id="mob-val" class="form-text valid-font">Invalid Number</small>
+                                            </div>
+                                            <div>
+                                                <label>Fax</label>
+                                                @Html.TextBox("fax", null, new { autocomplete = "off", placeholder = "Enter Fax", @class = "form-control BlockSpecialU fillBlock", maxlength = "100" })
+                                                @Html.ValidationMessageFor(model => model.fax, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div>
+                                                <label>SMS</label>
+                                                @Html.TextBox("smsmailaddress", null, new { autocomplete = "off", placeholder = "Enter SMS", @class = "form-control BlockSpecialU fillBlock", maxlength = "20" })
+                                                @Html.ValidationMessageFor(model => model.smsmailaddress, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div>
+                                                <label>Function</label>
+                                                @Html.TextBox("cfunction", null, new { autocomplete = "off", placeholder = "Enter Function", @class = "form-control BlockSpecialU fillBlock", maxlength = "25" })
+                                                @Html.ValidationMessageFor(model => model.cfunction, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-12">
+                                            <label>Language</label>
+                                            @Html.DropDownList("language", new List<SelectListItem>
+                                            {
+                                            new SelectListItem { Text = "English", Value = "English"},
+                                            new SelectListItem { Text = "Bulgarian", Value = "Bulgarian"},
+                                            new SelectListItem { Text = "Chinese", Value = "Chinese"},
+                                            new SelectListItem { Text = "Croatian", Value = "Croatian"},
+                                            new SelectListItem { Text = "Czech", Value = "Czech"},
+                                            new SelectListItem { Text = "Danish", Value = "Danish"},
+                                            new SelectListItem { Text = "English", Value = "English"},
+                                            new SelectListItem { Text = "Estonian", Value = "Estonian"},
+                                            new SelectListItem { Text = "Finnish", Value = "Finnish"},
+                                            new SelectListItem { Text = "French", Value = "French"},
+                                            new SelectListItem { Text = "Georgian", Value = "Georgian"},
+                                            new SelectListItem { Text = "German", Value = "German"},
+                                            new SelectListItem { Text = "Greek", Value = "Greek"},
+                                            new SelectListItem { Text = "Hebrew", Value = "Hebrew"},
+                                            new SelectListItem { Text = "Hungarian", Value = "Hungarian"},
+                                            new SelectListItem { Text = "Italian", Value = "Italian"},
+                                            new SelectListItem { Text = "Korean", Value = "Korean"},
+                                            new SelectListItem { Text = "Latvian", Value = "Latvian"},
+                                            new SelectListItem { Text = "Macedonian", Value = "Macedonian"},
+                                            new SelectListItem { Text = "Norwegian", Value = "Norwegian"},
+                                            new SelectListItem { Text = "Polish", Value = "Polish"},
+                                            new SelectListItem { Text = "Portuguese", Value = "Portuguese"},
+                                            new SelectListItem { Text = "Romanian", Value = "Romanian"},
+                                            new SelectListItem { Text = "Russian", Value = "Russian"},
+                                            new SelectListItem { Text = "Serbian", Value = "Serbian"},
+                                            new SelectListItem { Text = "Slovak", Value = "Slovak"},
+                                            new SelectListItem { Text = "Slovenian", Value = "Slovenian"},
+                                            new SelectListItem { Text = "Spanish", Value = "Spanish"},
+                                            new SelectListItem { Text = "Swedish", Value = "Swedish"},
+                                            new SelectListItem { Text = "Turkish", Value = "Turkish"},
+                                            }, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    @*<div class="mb-3 row">
+                                            <label class="control-label col-md-3">Message Template</label>
+                                            <div class="col-md-12">
+                                                @Html.DropDownList("mailtemplate", (IEnumerable<SelectListItem>)ViewData["MailtempList"], "Select Message Template", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.mailtemplate, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>*@
+                                    <small style="font-size:100% !important; color:forestgreen !important;" class="form-text text-muted">@TempData["OKMsg"]</small>
+                                    <small style="color:red !important;" class="form-text text-muted">@TempData["NoMsg"]</small>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-light text-center">
+                                <button type="submit" class="btn btn-primary" id="create-contact">Update</button>
+                                @*<button type="reset" class="btn btn-primary clr">Clear</button>*@
+                            </div>
+                        }
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="~/assets/js/global/CustomValid.js"></script>
+        </section>
+
+
+
+
+        <script>
+            $(document).ready(function () {
+
+                 $('.fillBlock').on('blur input', function() {
+                    //alert($(this).val());
+                    var elmId = $(this).attr('id');
+                    CheckSpecialChars(elmId);
+                });
+                $('.fillBlockEm').on('blur input', function() {
+                    //alert($(this).val());
+                    var elmId = $(this).attr('id');
+                    CheckSpecialEml(elmId);
+                });
+
+                $('#create-contact').click(function (e) {
+                    e.preventDefault();
+                    $('#em-val').hide();
+                    var submitform = true;
+                    var mobileNum = $('#phone').val();
+                    var email = $('#e_mail').val();
+                    var mobile = $('#mobile').val();
+                    if (!ValidateMobileNums(mobileNum)) {
+                        submitform = false;
+                    }
+                    if (!ValidateMobileNums(mobile)) {
+                        submitform = false;
+                    }
+                    if (email == "") {
+                        submitform = false;
+                        $('#create-from').submit();
+                    }
+                    else if (!ValidateEmails(email))
+                    {
+                        submitform = false;
+                    }
+                    if (submitform)
+                    {
+                        $('#create-from').submit();
+                    }
+                });
+
+
+
+                $('form').get(0).reset(); //clear form data on page load
+
+                $('.getContact').click(function () {
+                    var id = $(this).children('.C_id').text();
+                    var lname = $(this).children('.C_lname').text();
+                    var fname = $(this).children('.C_fname').text();
+                    var company = $(this).children('.C_company').text();
+                    var phone = $(this).children('.C_phone').text();
+                    var mobile = $(this).children('.C_mobile').text();
+                    var fax = $(this).children('.C_fax').text();
+                    var e_mail = $(this).children('.C_e_mail').text();
+                    var smsmailaddress = $(this).children('.C_smsmailaddress').text();
+                    var cfunction = $(this).children('.C_cfunction').text();
+                    var language = $(this).children('.C_language').text();
+                    //var mailtemplate = $(this).children('.C_mailtemplate').text();
+
+                    $('#ContactidOld').val(id);
+                    $('#contactid').val(id);
+                    $('#fname').val(fname);
+                    $('#lname').val(lname);
+                    $('#company').val(company);
+                    $('#phone').val(phone);
+                    $('#mobile').val(mobile);
+                    $('#fax').val(fax);
+                    $('#e_mail').val(e_mail);
+                    $('#smsmailaddress').val(smsmailaddress);
+                    $('#cfunction').val(cfunction);
+                    $('#language').val(language);
+                    //$('#mailtemplate').val(mailtemplate);
+                    $('#check').val("edit");
+
+                });
+
+                $('.clr').click(function () {
+                    $('#check').val("new");
+
+                });
+
+            });
+        </script>
+    </div>
+</div>

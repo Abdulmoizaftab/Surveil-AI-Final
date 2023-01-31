@@ -1,0 +1,328 @@
+﻿@model IISWebApp.Models.ResourceViewModel
+
+
+<div class="card-header">
+    <div class="panel-heading">
+        <h3 class="panel-title">Select Resource 2</h3>
+        @Html.ValidationMessage("Daysofweek", new { id = "Resources", @class = "text-danger" })
+    </div>
+</div>
+<div class="panel-body">
+    <div>
+        <div class="card-body">
+            <div class="mb-3 row container-fluid">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2 custom-control custom-radio custom-control-inline">
+                            @Html.RadioButton("Radio", "hierarchyDiv", true, new { id = "radio3", @class = "custom-control-input", @onclick = "DevType(\"hierarchyDiv\")" })
+                            <label class="custom-control-label" for="radio3">Hierarchy</label>
+                        </div>
+                        <div class="col-md-2 custom-control custom-radio custom-control-inline">
+                            @Html.RadioButton("Radio", "deviceDiv", false, new { id = "radio4", @class = "custom-control-input", @onclick = "DevType(\"deviceDiv\")" })
+                            <label class="custom-control-label" for="radio4">Devices</label>
+                        </div>
+                    </div>
+                </div>
+                <hr class="col-md-12" />
+                <div class="col-md-12">
+                    <div class="row">
+                        <h5 class="card-header col-md-8">Resource Selection</h5>
+                        <h5 class="card-header col-md-4">Device Profiles</h5>
+                        <div class="col-md-8" style="border-right-style: inset;">
+                            <div style="max-height:400px; min-height:400px; overflow:auto; display:none" class="AllDiv" id="hierarchyDiv">
+                                <ul class="list-unstyled">
+                                    @foreach (var h in Model.Hierar)
+                                    {
+                                        <li>
+                                            <div class="custom-control custom-checkbox">
+                                                <input name="hierarchy" type="checkbox" class="custom-control-input Coff" id="@Html.DisplayFor(item => h.Hierlevel)" value="@Html.DisplayFor(item => h.Hierlevel)" />
+                                                <label class="custom-control-label" for="@Html.DisplayFor(item => h.Hierlevel)">@Html.DisplayFor(item => h.HierName)</label>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div style="max-height:400px; min-height:400px; overflow:auto;" class="AllDiv" id="deviceDiv">
+                                <ul class="list-unstyled disabled">
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input onclick="chng(this);" type="checkbox" class="custom-control-input" id="checkALL" name="checkALL" />
+                                            <label class="custom-control-label" for="checkALL">Select All</label>
+                                        </div>
+                                    </li>
+                                    @foreach (var h in Model.devicesheir)
+                                    {
+                                        <li id="CheckBoxDevices">
+                                            <div class="custom-control custom-checkbox">
+                                                <input name="Alldevices" type="checkbox" class="custom-control-input Coff" id="@h" value="@h" />
+                                                <label class="custom-control-label" for="@h">@h</label>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="max-height:400px; min-height:400px; overflow:auto">
+                                <ul class="list-unstyled" id="type">
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="Wincor" value="2">
+                                            <label class="custom-control-label" for="Wincor">Wincor</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="NCR" value="1000">
+                                            <label class="custom-control-label" for="NCR">NCR</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="custom-control custom-checkbox">
+                                            <input name="Dtype" type="checkbox" class="custom-control-input Coff" id="Diebold" value="1001">
+                                            <label class="custom-control-label" for="Diebold">Diebold</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control" id="condition" name="condition" type="hidden" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<button class="btn btn-primary nextBtn" style="float:right;" onclick="Query();" type="button">Next</button>*@
+</div>
+<script>
+    $(document).ready(function () {
+
+
+        var AssignedDevices =@Html.Raw(Json.Encode(Model.devices));
+        if (AssignedDevices) {
+            CheckFunction(AssignedDevices);
+        }
+        else {
+            $("input[name='hierarchy']").attr('checked', 'checked');
+            $("input[name='Dtype']").attr('checked', 'checked');
+        }
+
+
+        $.each($("input[name='Alldevices']"), function () {
+            var v = $(this).val();
+        });
+
+    });
+
+
+
+    function toggle(source) {
+
+        var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+
+    $('#checkALL').click(function (event) {
+        if (this.checked) {
+            // Iterate each checkbox
+            $("input[name='Alldevices']:checkbox").prop('checked', true);
+        } else {
+            $("input[name='Alldevices']:checkbox").prop('checked', false);
+        }
+    });
+
+    function CheckFunction(AssignedDevices) {
+        var NoOfDevices = AssignedDevices.includes("DeviceID IN") ? true : false;
+        var NoOfHierarchy = AssignedDevices.includes("HierLevel IN") ? true : false;
+        var TypeOfDevice = AssignedDevices.includes("DeviceType") ? true : false;
+        //If it includes devices only
+        if (NoOfDevices) {
+            var res = AssignedDevices.replace("d.DeviceID IN ", "");
+            res = res.replace("DeviceID IN ", "");
+
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace(" ", "");
+                
+                if ($("#" + res[i]).length > 0) {
+                    $("#" + res[i]).prop('checked', true);
+                }
+            }
+
+
+            setTimeout(function () { $('#radio4').click(); }, 200);
+        }
+        //If it includes Both Hierarchy and Device Types
+        else if (NoOfHierarchy && TypeOfDevice) {
+            
+            $('#radio3').click();
+            var res = AssignedDevices.split("AND");
+            res[0] = res[0].replace(" d.HierLevel IN ", "")
+            res[0] = res[0].replace("HierLevel IN", "")
+            res[1] = res[1].replace(" d.DeviceType IN", "")
+            res[1] = res[1].replace("DeviceType IN", "")
+            for (var i = 0; i < res.length; i++) {
+                res[i] = res[i].replace("(", "");
+                res[i] = res[i].replace(")", "");
+                var obj = res[i].split(",");
+                for (var j = 0; j < obj.length; j++) {
+
+                    if (i == 0) {
+
+                        obj[j] = obj[j].trim();
+                        obj[j] = obj[j].replace("'", ""); obj[j] = obj[j].replace("'", "");
+                        var myEle = document.getElementById(obj[j]);
+                        
+                        if (myEle) { document.getElementById(obj[j]).checked = true; }
+                        //document.getElementById(obj[j]).checked = true;
+                    }
+                    else {
+                        var x;
+                        obj[j] = obj[j].replace("'", "");
+                        obj[j] = obj[j].replace("'", "");
+                        if (obj[j] == 2) {
+                            x = 2;
+                        }
+                        else if (obj[j] == 1000) {
+                            x = 1000;
+                        }
+                        else if (obj[j] == 1001) {
+                            x = 1001;
+                        }
+
+                        
+                        switch (x) {
+                            case 2:
+
+                                document.getElementById("Wincor").checked = true;
+                                break;
+                            case 1000:
+
+                                document.getElementById("NCR").checked = true;
+                                break;
+                            case 1001:
+
+                                document.getElementById("Diebold").checked = true;
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+        }
+        //If it includes only Hierarchy
+        else if (NoOfHierarchy) {
+            var res = AssignedDevices.replace("d.HierLevel IN ", "");
+            
+            res = res.replace("HierLevel IN", "")
+
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].trim();
+                var myEle = document.getElementById(res[i]);
+                if (myEle) { document.getElementById(res[i]).checked = true; }
+                //document.getElementById(res[i]).checked = true;
+
+            }
+
+
+        }
+        else {
+
+            $('#radio4').click();
+            var res = AssignedDevices;
+            res = res.replace("(", "");
+            res = res.replace(")", "");
+            res = res.split(",");
+            for (var i = 0; i < res.length; i++) {
+
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].replace("'", "");
+                res[i] = res[i].trim();
+                var myEle = document.getElementById(res[i]);
+                if (myEle) { document.getElementById(res[i]).checked = true; }
+            }
+
+        }
+        CheckALLButton();
+        CheckALLButton2();
+    }
+    function CheckALLButton() {
+        $('input[name="Alldevices"]').change(function () {
+
+            var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+            var bool;
+
+            for (var i = 0; i < checkboxes.length; i++) {
+
+                if (checkboxes[i].checked) {
+                    bool = true;
+                }
+                else {
+                    bool = false;
+                    break;
+                }
+            }
+
+            if (bool == false) {
+                $("input[name='checkALL']:checkbox").prop('checked', false);
+
+            }
+            else {
+                $("input[name='checkALL']:checkbox").prop('checked', true);
+
+            }
+        });
+    }
+    function CheckALLButton2() {
+
+        var checkboxes = document.querySelectorAll('input[name="Alldevices"]');
+
+        var bool;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i].checked) {
+                bool = true;
+            }
+            else {
+                bool = false;
+                break;
+            }
+        }
+
+        if (bool == false) {
+            $("input[name='checkALL']:checkbox").prop('checked', false);
+
+        }
+        else {
+            $("input[name='checkALL']:checkbox").prop('checked', true);
+
+        }
+    }
+
+</script>
+<script src="~/assets/js/global/ForRule.js"></script>

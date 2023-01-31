@@ -1,0 +1,36 @@
+﻿/*comment these styles to disable hover on devices*/
+
+
+/*Monitoring*/
+.chg :hover.selected,
+.chg :hover {
+    background-color: #dbdae8;
+    cursor: pointer;
+}
+
+.chg .selected {
+    background-color: #dbdae8;
+}
+
+/*AMT*/
+.trm :hover.selected,
+.trm :hover {
+    background-color: #dbdae8;
+    cursor: pointer;
+}
+
+.trm .selected {
+    background-color: #dbdae8;
+}
+
+
+/*Job*/
+.frm :hover.selected,
+.frm :hover {
+    background-color: #dbdae8;
+    cursor: pointer;
+}
+
+.frm .selected {
+    background-color: #dbdae8;
+}
